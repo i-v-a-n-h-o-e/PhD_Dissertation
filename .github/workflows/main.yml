@@ -3,8 +3,8 @@ name: LateX to PDF
 on:
   push:
     branches: 
-      - master
-      - develop
+      - main
+      - dev
     tags:
        - '*'
   pull_request:
