@@ -19,25 +19,26 @@ jobs:
         with:
           name: my-artifact
           path: output/world.txt
-      - name: Get current date and time
+      - name: Get current date and time in a specific time zone
         id: get_date
         uses: actions/github-script@v5
         with:
           script: |
-            const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
-            const date = new Date();
-            const formatter = new Intl.DateTimeFormat('en-US', {
-              timeZone: timeZone,
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit'
-            });
-            let formattedDate = formatter.format(date).replace(/[:\-]/g, '').replace(' ', '-');
-            formattedDate = formattedDate.substring(0, 100);
-            return formattedDate;
+               const timeZone = 'America/New_York'; // Specify your desired time zone here
+               const date = new Date();
+               const formatter = new Intl.DateTimeFormat('en-US', {
+                 timeZone: timeZone,
+                 year: 'numeric',
+                 month: '2-digit',
+                 day: '2-digit',
+                 hour: '2-digit',
+                 minute: '2-digit',
+                 second: '2-digit'
+               });
+               let formattedDate = formatter.format(date).replace(/[:\-]/g, '').replace(' ', '-');
+               // Ensure the tag name is within the length limit and does not start with a hyphen
+               formattedDate = formattedDate.substring(0, 100);
+               return formattedDate;
          
       - name: Create Release
         id: create_release
@@ -46,14 +47,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: Release-${{ steps.get_date.outputs.result }}
-          release_name: Release-${{ steps.get_date.outputs.result }}
+          release_name: Release ${{ steps.get_date.outputs.result }}
           draft: false
           prerelease: false
+         
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: output/world.txt
-          asset_name: -${{ steps.get_date.outputs.result }}-world.txt
+          asset_name: Release-${{ steps.get_date.outputs.result }}-world.txt
           asset_content_type: application/txt
