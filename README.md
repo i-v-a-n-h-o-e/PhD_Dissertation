@@ -1,5 +1,7 @@
 # LatexTest
 
+![LaTeX](https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)
+
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download txt](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/DenverCoder1/readme-download-button-action/archi)
+[![Download txt](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download txt")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/world.txt)
 <!-- END LATEST DOWNLOAD BUTTON -->
