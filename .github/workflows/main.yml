@@ -14,11 +14,13 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: mkdir -p output
+      - run: ls -a
       - run: touch output/world.txt
-      - run: echo hello > output/world.txt
+      - run: echo "hello" > output/world.txt
       - run: cat main.tex > output/world.txt
       - uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: path/to/artifact/world.txt
+          path: output/world.txt
