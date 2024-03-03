@@ -35,7 +35,7 @@ jobs:
               minute: '2-digit',
               second: '2-digit'
             });
-            const formattedDate = formatter.format(date).replace(/[:\;]/g, '-').replace(' ', '--');
+            const formattedDate = formatter.format(date).replace(/[:\-]/g, ' ').replace(' ', '--');
             return formattedDate;
          
       - name: Create Release
