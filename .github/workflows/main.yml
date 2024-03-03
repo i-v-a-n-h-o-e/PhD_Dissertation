@@ -39,7 +39,7 @@ jobs:
                // Ensure the tag name is within the length limit and does not start with a hyphen
                formattedDate = formattedDate.substring(0, 100);
                return formattedDate;
-         
+      - run: echo "Release-${{ steps.get_date.outputs.result }}"   
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
