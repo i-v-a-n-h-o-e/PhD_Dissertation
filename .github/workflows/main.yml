@@ -112,3 +112,12 @@ jobs:
           asset_path: output/world.txt
           asset_name: world.txt #${{ steps.get_datetime_for_output.outputs.result }}
           asset_content_type: application/txt
+
+      - name: Update README
+        run: |
+            RELEASE_URL=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r '.html_url')
+            sed -i "s|https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest|$RELEASE_URL|g" README.md
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git commit -am "Update README with latest release URL"
+            git push
