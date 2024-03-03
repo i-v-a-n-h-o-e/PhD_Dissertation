@@ -4,41 +4,131 @@ on:
   push:
     branches: 
       - main
-      - dev
-    tags:
-       - '*'
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    if: github.actor == 'i-v-a-n-h-o-e'
     steps:
       - uses: actions/checkout@v3
       - run: mkdir -p output
-      - run: ls -a
-      - run: touch output/world.txt
-      - run: echo "hello" > output/world.txt
-      - run: cat main.tex > output/world.txt
+      - name: latex2pdf
+        id: compile-latex-document
+        uses: thomas-chauvet/latex2pdf-action@1.1.0
+        with:
+          output_dir: output
+          main_latex_file: main.tex
       - uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: output/world.txt
+          path: output/main.pdf
+
+      - name: Get current date and time in a specific time zone
+        id: get_datetime_for_release
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
+            const date = new Date();
+            // Format the date part
+            const yearFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              year: 'numeric',
+            });
+            const monthFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              month: '2-digit',
+            });
+            const dayFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              day: '2-digit'
+            });
+            // Format the time part
+            const timeFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false // Use 24-hour format
+            });
+            const formattedYear = yearFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedMonth = monthFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedDay = dayFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedTime = timeFormatter.format(date).replace(/[:\s]/g, '-');
+            const formattedDateTime = `${formattedYear}-${formattedMonth}-${formattedDay}__${formattedTime}`;
+            return formattedDateTime;
+      - run: echo "Release-${{ steps.get_datetime_for_release.outputs.result }}"
+
+      - name: Get current date and time in a specific time zone
+        id: get_datetime_for_output
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
+            const date = new Date();
+            // Format the date part
+            const yearFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              year: 'numeric',
+            });
+            const monthFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              month: '2-digit',
+            });
+            const dayFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              day: '2-digit'
+            });
+            // Format the time part
+            const timeFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false // Use 24-hour format
+            });
+            const formattedYear = yearFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedMonth = monthFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedDay = dayFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedTime = timeFormatter.format(date).replace(/[:\s]/g, '-');
+            const formattedDateTime = `\[${formattedYear}-${formattedMonth}-${formattedDay}__${formattedTime}\]`;
+            return formattedDateTime;
+      - run: echo "Release-${{ steps.get_datetime_for_output.outputs.result }}"
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: Release-${{ steps.get_datetime_for_release.outputs.result }}
+          release_name: Release ${{ steps.get_datetime_for_release.outputs.result }}
           draft: false
           prerelease: false
+         
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/world.txt
-          asset_name: world.txt
-          asset_content_type: application/txt
+          asset_path: output/main.pdf
+          asset_name: main.pdf #${{ steps.get_datetime_for_output.outputs.result }}
+          asset_content_type: application/pdf
+
+      - name: Readme Download Button Action
+        env:
+            GITHUB_USER: "i-v-a-n-h-o-e"
+            REPO: "LatexTest"
+            FORMAT: "pdf"
+            VERSION: "${{ steps.create_release.outputs.tag_name }}"
+            COLOR: "blue"
+            BEGIN_TAG: "<!-- BEGIN LATEST DOWNLOAD BUTTON -->"
+            END_TAG: "<!-- END LATEST DOWNLOAD BUTTON -->"
+        run: |
+            UPDATE=$(cat README.md | perl -0777 -pe 's#(${{ env.BEGIN_TAG }})(?:.|\n)*?(${{ env.END_TAG }})#${1}\n[![Download ${{ env.FORMAT }}](https://custom-icon-badges.herokuapp.com/badge/-Download-${{ env.COLOR }}?style=for-the-badge&logo=download&logoColor=white "Download ${{ env.FORMAT }}")](https://github.com/${{ env.GITHUB_USER }}/${{ env.REPO }}/archive/${{ env.VERSION }}.${{ env.FORMAT }})\n${2}#g')
+            echo "${UPDATE}" > README.md
+      - uses: EndBug/add-and-commit@v7
+        with:
+          message: "docs(readme): Bump download button version to ${{ steps.get-latest-release.outputs.tag_name }}"
+          default_author: github_actions
+          branch: main
