@@ -56,6 +56,42 @@ jobs:
             return formattedDateTime;
       - run: echo "Release-${{ steps.get_datetime_for_release.outputs.result }}"
 
+      - name: Get current date and time in a specific time zone
+        id: get_datetime_for_output
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
+            const date = new Date();
+            // Format the date part
+            const yearFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              year: 'numeric',
+            });
+            const monthFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              month: '2-digit',
+            });
+            const dayFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              day: '2-digit'
+            });
+            // Format the time part
+            const timeFormatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false // Use 24-hour format
+            });
+            const formattedYear = yearFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedMonth = monthFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedDay = dayFormatter.format(date).replace(/[/\s]/g, '-');
+            const formattedTime = timeFormatter.format(date).replace(/[:\s]/g, '-');
+            const formattedDateTime = `\[${formattedYear}-${formattedMonth}-${formattedDay}__${formattedTime}\]`;
+            return formattedDateTime;
+      - run: echo "Release-${{ steps.get_datetime_for_output.outputs.result }}"
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -73,5 +109,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: output/world.txt
-          asset_name: "[${{ steps.get_datetime_for_release.outputs.result }}]world.txt"
+          asset_name: ${{ steps.get_datetime_for_output.outputs.result }}world.txt
           asset_content_type: application/txt
