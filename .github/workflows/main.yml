@@ -121,4 +121,4 @@ jobs:
             git config --local user.name "GitHub Action"
             git commit -am "Update README with latest release URL"
             cat README.md
-            git push https://${{ secrets.GH_TOKEN }}@github.com/i-v-a-n-h-o-e/LatexTest.git HEAD:main
+            git push https://${{ secrets.GH_TOKEN_2 }}@github.com/i-v-a-n-h-o-e/LatexTest.git HEAD:main
