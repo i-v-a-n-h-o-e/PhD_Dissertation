@@ -23,10 +23,20 @@ jobs:
         id: get_date
         uses: actions/github-script@v5
         with:
-             script: |
-               const date = new Date();
-               const formattedDate = date.toISOString().replace(/[:\-]/g, '').replace('T', '-').split('.')[0];
-               return formattedDate;
+          script: |
+            const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
+            const date = new Date();
+            const formatter = new Intl.DateTimeFormat('en-US', {
+              timeZone: timeZone,
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit'
+            });
+            const formattedDate = formatter.format(date)//.replace(/[:\-]/g, '').replace(' ', '-');
+            return formattedDate;
          
       - name: Create Release
         id: create_release
