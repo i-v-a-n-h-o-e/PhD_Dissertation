@@ -24,7 +24,7 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-               const timeZone = 'America/New_York'; // Specify your desired time zone here
+               const timeZone = 'Asia/Yekaterinburg'; // Specify your desired time zone here
                const date = new Date();
                const formatter = new Intl.DateTimeFormat('en-US', {
                  timeZone: timeZone,
@@ -35,9 +35,10 @@ jobs:
                  minute: '2-digit',
                  second: '2-digit'
                });
-               let formattedDate = formatter.format(date).replace(/[:\-]/g, '').replace(' ', '-');
+               let formattedDate = formatter.format(date).replace(/[:\-]/g, '').replace(/ /g, '-');
                // Ensure the tag name is within the length limit and does not start with a hyphen
-               formattedDate = formattedDate.substring(0, 100);
+               formattedDate = formattedDate.replace(/[,\/]/g, '').substring(0, 100);
+               formattedDate = formattedDate.replace(/^-+/, '');
                return formattedDate;
       - run: echo "Release-${{ steps.get_date.outputs.result }}"   
       - name: Create Release
