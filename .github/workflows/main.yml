@@ -43,7 +43,7 @@ jobs:
           asset_name: world.txt
           asset_content_type: application/txt
           
-name: "Download Button Action"
+name: Download Button Action
 
 on:
   release:
