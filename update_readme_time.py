@@ -4,7 +4,7 @@ import subprocess
 import re
 
 # Get the current time
-current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+current_time = datetime.datetime.now().strftime('%Y-%m-%d--%H-%M-%S')
 
 # Retrieve the commit message and author
 commit_message = subprocess.check_output(['git', 'log', '-1', '--pretty=%B']).decode('utf-8').strip()
