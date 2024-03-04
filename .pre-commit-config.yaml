@@ -1,0 +1,8 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: update-readme-time
+        name: Update README.md with current time
+        entry: python update_readme_time.py
+        language: python
+        files: README.md
