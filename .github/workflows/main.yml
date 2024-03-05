@@ -11,7 +11,6 @@ jobs:
     if: github.actor == 'i-v-a-n-h-o-e'
     steps:
       - uses: actions/checkout@v3
-      - run: mkdir -p output
       - name: latex2pdf
         id: compile-latex-document
         uses: thomas-chauvet/latex2pdf-action@1.1.0
@@ -43,11 +42,11 @@ jobs:
                 // Extract the date and time from the match
                 const dateTime = match[1];
                 console.log(`Date and Time: ${dateTime}`);
+                return dateTime;
             } else {
                 console.log('No "Last updated" line found.');
+                return match;
             }
-          
-            return dateTime;
       - run: echo "${{ steps.get_datetime_for_release.outputs.result }}"
 
       - name: Get current date and time in a specific time zone
