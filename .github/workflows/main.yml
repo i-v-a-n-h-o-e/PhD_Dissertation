@@ -50,7 +50,7 @@ jobs:
            
       - name: Set asset name
         id: set_asset_name
-        run: echo "ASSET_NAME=[${{ steps.get_datetime.outputs.result }})]main.pdf" >> $GITHUB_ENV
+        run: echo "ASSET_NAME=[${{ steps.get_datetime.outputs.result }}]main.pdf" >> $GITHUB_ENV
       
       - run: echo "${{ env.ASSET_NAME }}"
 
