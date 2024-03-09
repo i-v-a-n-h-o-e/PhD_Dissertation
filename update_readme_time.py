@@ -3,6 +3,9 @@ import datetime
 import subprocess
 import re
 
+#debag hook
+print("Pre-commit hook python script have been run")
+
 # Get the current time
 current_time = datetime.datetime.now().strftime('%Y-%m-%d--%H-%M-%S')
 
