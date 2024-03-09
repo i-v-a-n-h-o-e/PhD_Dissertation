@@ -50,7 +50,7 @@ jobs:
            
       - name: Generate asset name
         id: generate_asset_name
-        run: echo "::set-output name=asset_name::[${{ steps.get_datetime.outputs.result }}]main.pdf"
+        run: echo "::set-output name=asset_name::${{ steps.get_datetime.outputs.result }}_main.pdf"
       
       - run: echo "${{ steps.generate_asset_name.outputs.asset_name }}"
 
