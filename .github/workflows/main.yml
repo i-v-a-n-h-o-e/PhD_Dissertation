@@ -47,6 +47,12 @@ jobs:
                 console.log('No "Last updated" line found.');
                 return match;
             }
+           
+      - name: Set asset name
+        id: set_asset_name
+        run: echo "ASSET_NAME=[$(date +'%Y-%m-%d--%H-%M-%S')]main.pdf" >> $GITHUB_ENV
+      
+      - run: echo  ${{ env.ASSET_NAME }}
 
       - name: Create Release
         id: create_release
@@ -65,5 +71,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: output/main.pdf
-          asset_name: "[${{ steps.get_datetime.outputs.result }}][main.pdf]"
+          asset_name: ${{ env.ASSET_NAME }}
           asset_content_type: application/pdf
