@@ -1,24 +1,70 @@
-\documentclass[a4paper,12pt]{book}
-\usepackage[utf8]{inputenc}
+\documentclass[a4paper, oneside, openany]{article}
+
+%-----------------------------------------------------------------------
+\usepackage[main=russian,english]{babel}   %% загружает пакет многоязыковой вёрстки
+%\usepackage[14pt]{extsizes} % для того чтобы задать нестандартный 14-ый размер шрифта
+\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX}}  %% свойства шрифтов по умолчанию. Для XeTeX опцию Renderer=Basic можно не указывать, она необходима для LuaTeX
+\setmainfont{CMU Serif} %% задаёт основной шрифт документа
+\setsansfont{CMU Sans Serif}                    %% задаёт шрифт без засечек
+\setmonofont{CMU Typewriter Text} 
+\usepackage{indentfirst} % отступ для первой строки абзаца
+\usepackage{hyperref} % подключаем hyperref (для ссылок внутри  pdf)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\usepackage[multiple]{footmisc} % сноски через запятую
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=20mm, nohead, footskip=10mm]{geometry} % настройки полей документа
 \usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage[labelformat = parens,labelsep = colon]{subcaption}
+\renewcommand\thesubfigure{\Roman{subfigure}}
+\usepackage{todonotes}
+\usepackage{gitinfo2}
+\usepackage{subfiles} % ЗBest loaded last in the preamble
 
+\newtheorem{theorem}{Теорема} % задаём выводимое слово (для теорем)
+\newtheorem{definition}{Определение} % задаём выводимое слово (для определений)
+\newtheorem{lemma}{Лемма}
+\newtheorem{utv}{Утверждение}
+\newtheorem{assumption}{Предположение}
+\newtheorem{zam}{Замечание}
+\newtheorem{cond}{Условие}
+\newtheorem{pr}{Пример}
+\newcommand{\doc}{\mbox{Д о к а з а т е л ь с т в о}}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+
+\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\hyphenation{непрерывно-диф-фе-рен-ци-ру-е-мы-ми}
+%-----------------------------------------------------------------------
+
+
+\title{АСИМПТОТИКА МНОЖЕСТВ ДОСТИЖИМОСТИ НА МАЛЫХ ПРОМЕЖУТКАХ ВРЕМЕНИ И ЗАДАЧА ЛОКАЛЬНОГО СИНТЕЗА}
+\author{ОСИПОВ Иван Олегович}
+\date{Екатеринбург, 2022}
 \begin{document}
-
-\author{TeXstudio Team}
-\title{Simple Book Example}
-\date{January 2013}
-
-\frontmatter
-\maketitle
-\tableofcontents
-
-\mainmatter
-\chapter{The First Chapter}
-First sentence. Second one.
-\chapter{The Second Chapter}
-test
-
-\backmatter
-% bibliography, glossary and index would go here.
-
+    \subfile{sections/title}
+    \tableofcontents % Вывод содержания
+    \newpage
+    \subfile{sections/introduction}
+    \newpage
+    \section{Основная часть}
+    \subfile{sections/subsection1}
+    \setcounter{equation}{0}
+    \subfile{sections/subsection2}
+    \setcounter{equation}{0}
+    \subfile{sections/subsection3}
+    \setcounter{equation}{0}
+    \subfile{sections/subsection4}
+    \subfile{sections/conclusion}
 \end{document}
