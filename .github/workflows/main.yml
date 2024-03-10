@@ -14,7 +14,7 @@ jobs:
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
-          run: lualatex -synctex=1 -shell-escape -interaction=nonstopmode "main".tex
+          run: lualatex -shell-escape -interaction=nonstopmode "main".tex
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
@@ -25,6 +25,7 @@ jobs:
     needs: build_latex
     runs-on: ubuntu-latest
     steps:        
+      - uses: actions/checkout@v3
       - name: Getdate and time from README.md
         id: get_datetime
         uses: actions/github-script@v5
