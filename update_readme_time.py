@@ -33,10 +33,10 @@ with open('main.tex', 'r') as file:
     content = file.read()
 
 # Define a pattern to find the watermark [YYYY-MM-DD--HH-MM-SS]
-pattern = r'\\fancyfoot\[L\]\{\\color\{gray\}\\textbf\{(.*?)\}\}'
+pattern = r'textbf\{(\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2})\}\}'
 
 # Replace the old "Last updated" line with the new one
-filename_content = re.sub(pattern, r'\\fancyfoot\[L\]\{\\color\{gray\}\\textbf\{' + current_time + '\}\} ', content)
+filename_content = re.sub(pattern, r'textbf{' + current_time + '}}', content)
 
 with open('main.tex', 'w') as file:
     file.write(filename_content)
