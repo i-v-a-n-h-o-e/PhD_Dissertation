@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up TeX Live
-        uses: xu-cheng/texlive-action@v1
+        uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
           run: lualatex -synctex=1 -shell-escape -interaction=nonstopmode "main".tex
