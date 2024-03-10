@@ -6,3 +6,4 @@ repos:
         entry: python update_readme_time.py
         language: python
         files: README.md
+        always_run: true

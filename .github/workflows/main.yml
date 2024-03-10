@@ -8,19 +8,23 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    if: github.actor == 'i-v-a-n-h-o-e'
     steps:
       - uses: actions/checkout@v3
-      - name: latex2pdf
-        id: compile-latex-document
-        uses: thomas-chauvet/latex2pdf-action@1.1.0
+
+      - name: Set up TeX Live
+        uses: xu-cheng/texlive-action@v2
         with:
-          output_dir: output
-          main_latex_file: main.tex
-      - uses: actions/upload-artifact@v4
+          scheme: full
+          run: | 
+            lualatex -shell-escape -interaction=nonstopmode "main".tex
+            lualatex -shell-escape -interaction=nonstopmode "main".tex
+            lualatex -shell-escape -interaction=nonstopmode "main".tex
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: output/main.pdf
+          name: output_pdf
+          path: main.pdf
 
       - name: Getdate and time from README.md
         id: get_datetime
@@ -70,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/main.pdf
+          asset_path: main.pdf
           asset_name: ${{ steps.generate_asset_name.outputs.asset_name }}
           asset_content_type: application/pdf
