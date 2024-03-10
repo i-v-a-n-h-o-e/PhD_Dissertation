@@ -11,17 +11,22 @@ jobs:
     if: github.actor == 'i-v-a-n-h-o-e'
     steps:
       - uses: actions/checkout@v3
-      - name: latex2pdf
-        id: compile-latex-document
-        uses: thomas-chauvet/latex2pdf-action@1.1.0
+      - name: Set up TeX Live
+        uses: xu-cheng/texlive-action@v1
         with:
-          output_dir: output
-          main_latex_file: main.tex
-      - uses: actions/upload-artifact@v4
+          texlive_packages: scheme-full
+      - name: Build LaTeX document
+        run: lualatex -synctex=1 -shell-escape -interaction=nonstopmode "main".tex
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: output/main.pdf
-
+          name: output_pdf
+          path: main.pdf
+  
+  publish_to_release:
+    needs: build_latex
+    runs-on: ubuntu-latest
+    steps:        
       - name: Getdate and time from README.md
         id: get_datetime
         uses: actions/github-script@v5
