@@ -29,5 +29,19 @@ filename_content = pattern.sub(f'{current_time}_main.pdf', timestamp_content)
 with open('README.md', 'w') as file:
     file.write(filename_content)
 
-# Add README.md to the staging area
+with open('main.tex', 'r') as file:
+    content = file.read()
+
+# Define a pattern to find the watermark [YYYY-MM-DD--HH-MM-SS]
+pattern = r'\\fancyfoot\[L\]\{\\color\{gray\}\\textbf\{(.*?)\}\}'
+
+# Replace the old "Last updated" line with the new one
+filename_content = re.sub(pattern, r'\\fancyfoot\[L\]\{\\color\{gray\}\\textbf\{' + current_time + '\}\} ', content)
+
+with open('main.tex', 'w') as file:
+    file.write(filename_content)
+
+
+# Add README.md and main.tex to the staging area
 subprocess.run(['git', 'add', 'README.md'])
+subprocess.run(['git', 'add', 'main.tex'])
