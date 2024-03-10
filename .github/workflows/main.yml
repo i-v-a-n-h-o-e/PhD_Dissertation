@@ -10,22 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Set up TeX Live
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
           run: lualatex -shell-escape -interaction=nonstopmode "main".tex
+
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
           name: output_pdf
           path: main.pdf
-  
-  publish_to_release:
-    needs: build_latex
-    runs-on: ubuntu-latest
-    steps:        
-      - uses: actions/checkout@v3
+
       - name: Getdate and time from README.md
         id: get_datetime
         uses: actions/github-script@v5
@@ -74,6 +71,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/main.pdf
+          asset_path: main.pdf
           asset_name: ${{ steps.generate_asset_name.outputs.asset_name }}
           asset_content_type: application/pdf
