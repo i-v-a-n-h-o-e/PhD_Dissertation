@@ -1,4 +1,5 @@
 # LatexTest
+[![Test Upload](https://github.com/i-v-a-n-h-o-e/LatexTest/actions/workflows/main.yml/badge.svg)](https://github.com/i-v-a-n-h-o-e/LatexTest/actions/workflows/main.yml)
 
 ![LaTeX](https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)
 
