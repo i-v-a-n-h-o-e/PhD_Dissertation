@@ -15,7 +15,7 @@
 \end{gather*}
 где $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$.\\
 Пусть $ X = X(\varepsilon) $,  $ Y = Y(\varepsilon) $ -- выпуклые компактные множества, такие, что $ 0 \in \rm{int}\,X(\varepsilon) $, $ 0 \in \rm{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.  Тогда, следуя \footnote{Goncharova E., Ovseevich A. Small-time reachable sets of linear systems with integral control constraints: birth of the shape of a reachable set// Journal of Optimization Theory and Applications. 2016. 168 (2). P. 615--624.
-	doi: 10.1007/s10957-015-0754-4}, назовем множества $  X(\varepsilon)  $ и $  Y(\varepsilon) $ {\it асимптотически эквивалентными}, если $  \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
+	doi: 10.1007/s10957-015-0754-4}, назовем множества $  X(\varepsilon)  $ и $  Y(\varepsilon) $ {\textit асимптотически эквивалентными}, если $  \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
 
 Приведем далее достаточное условие асимптотической эквивалентности, выраженное через хаусдорфово расстояние $ h $ между ними.
 \begin{theorem}\label{suff}\footnote{Gusev M.I. The limits of applicability of the linearization method in calculating small-time reachable sets // Ural Mathematical Journal. 2020. Vol. 6, No. 1. P. 71-83 https://doi.org/10.15826/umj.2020.1.006}
@@ -61,7 +61,7 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 
 
 \begin{definition}
-	{\it Множеством достижимости $G_y(\varepsilon)$ системы \eqref{nonlinear} по выходу} $ y = C x $ будем называть множество всех выходов $ y(t_0+\varepsilon) $,
+	{\textit Множеством достижимости $G_y(\varepsilon)$ системы \eqref{nonlinear} по выходу} $ y = C x $ будем называть множество всех выходов $ y(t_0+\varepsilon) $,
 	соответствующих концам траекторий $ x(t_0+\varepsilon) $, порождённых управлениями $ u(t) \in B_{\mathbb{L}_2}(0,\mu)$
 	\begin{gather*}
 		G_y(\varepsilon)=\{y\in \mathbb{R}^m:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; y=Cx(t_0+\varepsilon,x^0,u(\cdot))\}.
@@ -549,7 +549,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 	%Дадим здесь несколько определений, которыми будем пользоваться в дальнейшем.
 	Пусть $ 0 <  T \leqslant \overline{T} $.
 	\begin{definition}
-		{\it Множеством нуль управляемости} $ N(T,\mu) $ системы \eqref{nonlinearC}  в  пространстве состояний в момент времени $ T $ назовем
+		{\textit Множеством нуль управляемости} $ N(T,\mu) $ системы \eqref{nonlinearC}  в  пространстве состояний в момент времени $ T $ назовем
 		множество всех начальных состояний $ \widetilde{x}=x(0) \in \mathbb{R}^n $ системы \eqref{nonlinearC},  из которых система может быть приведена в начало координат управлениями
 		$ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)  =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
 		\begin{gather*}
@@ -649,7 +649,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 		\dot{W}(t) = -A W(t)-W(t) A^\top +B B^\top,  \qquad W(0) = 0.
 	\end{gather*}
 	\begin{utv}
-	{\it Матрица $Q(t)=W^{-1}(\overline{T}-t)$ удовлетворяет уравнению {\rm \ref{eqQ}}} при $0 \leqslant t < \overline{T} $.
+	{\textit Матрица $Q(t)=W^{-1}(\overline{T}-t)$ удовлетворяет уравнению {\rm \ref{eqQ}}} при $0 \leqslant t < \overline{T} $.
 	\end{utv}
 	\doc. Действительно, $W_1(t)=W(\overline{T}-t)$ является решением уравнения 
 	\begin{gather*}
@@ -681,7 +681,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 	 Управление  \eqref{linear_feedback}
 		переводит систему в начало координат за время $T$ из любого начального состояния.
 	\begin{utv}
-		{\it Траектория $x(t) $ системы {\rm \eqref{feedback_linear_system}} выпущенная из точки $ x $ попадает в начало координат в момент времени $T$. Расход интегрального ресурса управления на переход из $ x $ в $ 0 $ равен $x^{\top} Q(0) x $ -- это минимально возможное значение ресурса}.
+		{\textit Траектория $x(t) $ системы {\rm \eqref{feedback_linear_system}} выпущенная из точки $ x $ попадает в начало координат в момент времени $T$. Расход интегрального ресурса управления на переход из $ x $ в $ 0 $ равен $x^{\top} Q(0) x $ -- это минимально возможное значение ресурса}.
 	\end{utv}
 	\doc. 
 		Продифференцируем $x^{\top} Q(t) x$ вдоль траектории $ x(t) $:
@@ -784,7 +784,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 	если $ z=z(t) \in B(0,r) $.
 	
 	\begin{lemma}
-		{\it Пусть $Q$, $W$ -- положительно определенные матрицы, $Q = W^{-1}$. Тогда для любого $ z \in \mathbb{R}^n $ выполняется $\| z \|^2 \leqslant \eta_{max}(W)z^{\top}Qz$,
+		{\textit Пусть $Q$, $W$ -- положительно определенные матрицы, $Q = W^{-1}$. Тогда для любого $ z \in \mathbb{R}^n $ выполняется $\| z \|^2 \leqslant \eta_{max}(W)z^{\top}Qz$,
 		  где $\eta_{\max}(W) $ -- максимальное собственное число матрицы  $W$}.
 	\end{lemma}
 	\doc. 
@@ -797,7 +797,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 	Тогда $\| z \|^2 = \frac{1}{\alpha} z^{\top} Q z = \frac{1}{\alpha}$ и $\frac{1}{\alpha}z = Q^{-1} z = W z $, то есть $\frac{1}{\alpha} $ -- собственное число матрицы $ W $.
 	\hfill $\square$
 	\begin{lemma}
-		{\it Найдется константа $k_2>0$, такая что      \begin{gather*}
+		{\textit Найдется константа $k_2>0$, такая что      \begin{gather*}
 			\| y(t) \| \leqslant k_2 \sqrt{T - t} \sqrt{\widetilde{V}(t,y(t))}, \qquad 0 < t \leqslant T \leqslant \overline{T}. \qquad 
 		\end{gather*}}
 	\end{lemma}
@@ -836,7 +836,7 @@ https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи прин
 	Условие \eqref{gramas} можно записать в следующем эквивалентном виде $\nu_1(\tau) \geqslant\tau^{3-\alpha}/k_4^2 $, из которого понятно, что это ограничение снизу на асимптотику $\nu_1(\tau)$ - минимальное собственное число грамиана управляемости не должно стремиться к нулю слишком быстро. 
 	Приведенное условие является достаточным для того, чтобы множества достижимости (нуль-управляемости) нелинейной и линеаризованной систем на промежутке длины $\tau$ были выпуклыми и асимптотически эквивалентными при $\tau \to 0$ \footnote{Gusev M.I. On Convexity of Reachable Sets of a Nonlinear System under Integral Constraints // IFAC-PapersOnLine. 2018. Vol.51, iss. 32. P.~207--212. doi: 10.1016/j.ifacol.2018.11.382}\footnote{Gusev M.I. Estimates of the minimal eigenvalue of the controllability Gramian for a system containing a small parameter//  Mathematical Optimization Theory and Operations Research. Lecture Notes in Computer Science. 2019. vol. 11548. P. 461--473.  https://doi.org/10.1007/978-3-030-22629-9\_32}.
 	\begin{theorem}
-	{\it Пусть выполнено условие 1. Найдется $T_1>0$, такое что для любого $0<T \leqslant T_1$ и любого вектора $z_0$, удовлетворяющего неравенству $z_0 Q(0)z_0=z_0 W^{-1}(T)z_0\leqslant \mu^2$, решение $z(t)$ системы \eqref{nonlinear_closed} стремится к нулю при $t \to T$}. 
+	{\textit Пусть выполнено условие 1. Найдется $T_1>0$, такое что для любого $0<T \leqslant T_1$ и любого вектора $z_0$, удовлетворяющего неравенству $z_0 Q(0)z_0=z_0 W^{-1}(T)z_0\leqslant \mu^2$, решение $z(t)$ системы \eqref{nonlinear_closed} стремится к нулю при $t \to T$}. 
 	\end{theorem}
 	\doc.
 	Выберем  $T_1$ настолько малым, чтобы выполнялись следующие неравенства
