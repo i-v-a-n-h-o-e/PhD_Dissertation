@@ -63,7 +63,7 @@
 	
 	Пусть $ 0 <  T \leqslant \overline{T} $.
 	\begin{definition}
-		{\it Множеством достижимости} $ G(T,\mu) $ системы \eqref{nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
+		{\textit  Множеством достижимости} $ G(T,\mu) $ системы \eqref{nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
 		\begin{gather*}
 			G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,x^0,u(\cdot))\}.
 		\end{gather*}
@@ -73,7 +73,7 @@
 		\begin{gather}\label{linear}
 			\delta \dot{x} =  A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
 		\end{gather}
-		{\it линеаризацией} системы \eqref{nonlinear} вдоль траектории $ x(t,x_0,u(\cdot)) $, если 
+		{\textit линеаризацией} системы \eqref{nonlinear} вдоль траектории $ x(t,x_0,u(\cdot)) $, если 
 		\begin{gather*}
 		    A(t) = \dfrac{\partial f_1}{\partial x} (t,x(t,x_0,u(\cdot))) + \dfrac{\partial f_2}{\partial x}(t,x(t,x_0,u(\cdot))) u(\cdot), \  B(t) = f_2 (t,x(t,0)).
 		\end{gather*} Здесь $ A(t) $ представляет собой матрицу Якоби функции $ f_1 + f_2 u(\cdot) $, вычисленную вдоль траектории $ x(t,u(\cdot)) $.
@@ -157,7 +157,7 @@
 Обозначим через $ \widetilde{W}(\varepsilon) $ грамиан управляемости системы \eqref{epslinear} на отрезке $ [0,1] $. Справедливо следующее утверждение.
 
 \begin{utv}\label{utv}
-	{\it Для множеств достижимости систем \eqref{nonlinearT} и \eqref{epsnonlinear} и грамианов управляемости систем \eqref{linear} и \eqref{epslinear} имеют место равенства}
+	{\textit Для множеств достижимости систем \eqref{nonlinearT} и \eqref{epsnonlinear} и грамианов управляемости систем \eqref{linear} и \eqref{epslinear} имеют место равенства}
 	\begin{gather*}
 		\widetilde{G}(\varepsilon)=G(\varepsilon), \qquad \widetilde{G}_y(\varepsilon)=G_y(\varepsilon), \qquad
 		\widetilde{W}(\varepsilon) = \dfrac{1}{\varepsilon} W(\varepsilon)
@@ -448,7 +448,7 @@
  
  Минимальное собственное число остаточного члена ряда $ R(\varepsilon) $ содержит $ \varepsilon $ в степенях не менее 3.
  
- Для получения нижней границы минимального собственного числа $ \nu_{\varepsilon} $ грамиана $ W_{\varepsilon}$ воспользуемся свойством суммы собственных значений симметричных матриц\footnote{\textit{Уилкинсон, Дж. Х.} Алгебраическая проблема собственных значений. М.: Наука, 1970, 564 с.}. Если к матрице $ M_1 $ добавить матрицу $ M_2 $, то все собственные числа матрицы $ M_1 $ увеличатся не менее, чем на минимальное собственное число матрицы $ M_2 $. Применяя это свойство к собственным числам частичной суммы и остатка, получим
+ Для получения нижней границы минимального собственного числа $ \nu_{\varepsilon} $ грамиана $ W_{\varepsilon}$ воспользуемся свойством суммы собственных значений симметричных матриц\footnote{\textit {Уилкинсон, Дж. Х.} Алгебраическая проблема собственных значений. М.: Наука, 1970, 564 с.}. Если к матрице $ M_1 $ добавить матрицу $ M_2 $, то все собственные числа матрицы $ M_1 $ увеличатся не менее, чем на минимальное собственное число матрицы $ M_2 $. Применяя это свойство к собственным числам частичной суммы и остатка, получим
  \begin{equation}
 	 \nu_{\varepsilon} \geq \lambda_{min}(S_{\varepsilon}^{2}) + \lambda_{min}(R(\varepsilon)) \geq C \varepsilon^{3-\alpha}.
  \end{equation}
@@ -661,7 +661,7 @@
  \end{figure}
  Очевидно, что система \eqref{system6l} неуправляема по 1-ой координате, следовательно, ее граммиан управляемости содержит нулевое собственное число, из-за которого условие \eqref{cond} не выполняется. Следовательно, система \eqref{system6} может иметь невыпуклые множества достижимости на малых промежутках времени.
  
- Воспользовавшись численным алгоритмом построения множеств достижимости систем с интегральными ограничениями\footnote{\textit{Gusev, M.I., Zykov, I.V.} An algorithm for computing reachable sets of control systems under isoperimetric constraints // AIP Conference Proceedings. 2018. Vol.2025: Application of Mathematics in Technical and Natural Sciences (AMiTaNS'2018): 10th Jubilee Intern. Conf., June 20-25, 2018, Albena, Bulgaria.} построим множество достижимости \eqref{system6} для $ \mu = 1  $ и $ \varepsilon = 0.0001  $ c. 
+ Воспользовавшись численным алгоритмом построения множеств достижимости систем с интегральными ограничениями\footnote{\textit {Gusev, M.I., Zykov, I.V.} An algorithm for computing reachable sets of control systems under isoperimetric constraints // AIP Conference Proceedings. 2018. Vol.2025: Application of Mathematics in Technical and Natural Sciences (AMiTaNS'2018): 10th Jubilee Intern. Conf., June 20-25, 2018, Albena, Bulgaria.} построим множество достижимости \eqref{system6} для $ \mu = 1  $ и $ \varepsilon = 0.0001  $ c. 
  
  Моделирование показывает, что множество достижимости <<машины Дубинса>> невыпукло для достаточно малых $ \varepsilon $; это можно показать и теоретически, но строгое доказательство невыпуклости выходит за рамки этого раздела.
  
