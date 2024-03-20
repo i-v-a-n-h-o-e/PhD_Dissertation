@@ -51,7 +51,7 @@
 \usepackage{xcolor} % Подключение пакета для работы с цветом
 
 \fancyhf{} % Очистка заголовков и колонтитулов
-\fancyfoot[L]{\color{gray}\textbf{2024-03-20--23-41-36}} % Добавление текста в правый колонтитул
+\fancyfoot[L]{\color{gray}\textbf{2024-03-20--23-54-01}} % Добавление текста в правый колонтитул
 \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
 \renewcommand{\headrulewidth}{0pt} % Удаление линии заголовка
@@ -66,6 +66,7 @@
 \newtheorem{assumption}{Предположение}
 \newtheorem{zam}{Замечание}
 \newtheorem{cond}{Условие}
+\newtheorem{property}{Свойство}
 \newtheorem{pr}{Пример}
 \newcommand{\doc}{\mbox{Д о к а з а т е л ь с т в о}}
 \newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
@@ -82,8 +83,8 @@
 
     \subfile{sections/section1}
 
-    % \setcounter{equation}{0}
-    % \subfile{sections/section2}
+    \setcounter{equation}{0}
+    \subfile{sections/section2}
 
     \setcounter{equation}{0}
     \subfile{sections/section3}
