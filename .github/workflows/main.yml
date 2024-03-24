@@ -75,8 +75,8 @@ jobs:
       - name: Check outputs
         id: check_outputs
         run: |
-          echo "${{ need.prepare_release.outputs.date_time }}"
-          echo "${{ need.prepare_release.outputs.file_name }}"
+          echo "${{ needs.prepare_release.outputs.date_time }}"
+          echo "${{ needs.prepare_release.outputs.file_name }}"
 
       - name: Create Release
         id: create_release
@@ -95,5 +95,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: main.pdf
-          asset_name: ${{ need.prepare_release.outputs.file_name }}
+          asset_name: ${{ needs.prepare_release.outputs.file_name }}
           asset_content_type: application/pdf
