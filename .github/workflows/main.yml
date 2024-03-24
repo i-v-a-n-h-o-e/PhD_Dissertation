@@ -39,7 +39,7 @@ jobs:
 
       - name: Getdate and time from README.md
         id: get_datetime
-        uses: actions/github-script@v5
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
@@ -107,14 +107,14 @@ jobs:
           asset_content_type: application/pdf
   
 
-  test_checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: |
-            date > generated.txt
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git add .
-            git commit -m "generated"
-            git push
+  # test_checkout:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - run: |
+  #           date > generated.txt
+  #           git config user.name github-actions
+  #           git config user.email github-actions@github.com
+  #           git add .
+  #           git commit -m "generated"
+  #           git push
