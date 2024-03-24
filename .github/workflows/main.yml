@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: LaTex Compile
         uses: xu-cheng/texlive-action@v2
@@ -31,7 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            README.md
+          sparse-checkout-cone-mode: false
 
       - name: Getdate and time from README.md
         id: get_datetime
@@ -77,6 +81,10 @@ jobs:
         run: |
           echo "${{ needs.prepare_release.outputs.date_time }}"
           echo "${{ needs.prepare_release.outputs.file_name }}"
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+            name: output_pdf
 
       - name: Create Release
         id: create_release
@@ -94,6 +102,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: main.pdf
+          asset_path: ./main.pdf
           asset_name: ${{ needs.prepare_release.outputs.file_name }}
           asset_content_type: application/pdf
+  
+
+  test_checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+            date > generated.txt
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add .
+            git commit -m "generated"
+            git push
