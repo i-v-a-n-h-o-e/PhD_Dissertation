@@ -9,9 +9,10 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Set up TeX Live
+      - name: LaTex Compile
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
@@ -29,7 +30,8 @@ jobs:
   prepare_release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Getdate and time from README.md
         id: get_datetime
@@ -57,15 +59,24 @@ jobs:
                 return match;
             }
            
-      - name: Generate asset name
-        id: generate_asset_name
-        run: echo "::set-output name=asset_name::${{ steps.get_datetime.outputs.result }}_main.pdf"
+      - name: Set output
+        id: set_output
+        run: |
+          echo "::set-output name=date_time::${{ steps.get_datetime.outputs.result }}"
+          echo "::set-output name=file_name::${{ steps.get_datetime.outputs.result }}_main.pdf"
+    outputs:
+      date_time: ${{ steps.set_output.outputs.date_time }}
+      file_name: ${{ steps.set_output.outputs.file_name }}
 
   create_and_upload_release:
     needs: [build_latex, prepare_release]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ steps.generate_asset_name.outputs.asset_name }}"
+      - name: Check outputs
+        id: check_outputs
+        run: |
+          echo "${{ need.prepare_release.outputs.date_time }}"
+          echo "${{ need.prepare_release.outputs.file_name }}"
 
       - name: Create Release
         id: create_release
@@ -73,8 +84,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          tag_name: Release-${{ steps.get_datetime.outputs.result }}
-          release_name: Release ${{ steps.get_datetime.outputs.result }}
+          tag_name: Release-${{ needs.prepare_release.outputs.date_time }}
+          release_name: Release ${{ needs.prepare_release.outputs.date_time }}
           draft: false
           prerelease: false
          
@@ -84,5 +95,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: main.pdf
-          asset_name: ${{ steps.generate_asset_name.outputs.asset_name }}
+          asset_name: ${{ need.prepare_release.outputs.file_name }}
           asset_content_type: application/pdf
