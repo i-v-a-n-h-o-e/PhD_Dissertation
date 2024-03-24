@@ -1,4 +1,4 @@
-name: Test Upload
+name: LaTex Compile&Upload
 
 on:
   push:
@@ -25,6 +25,11 @@ jobs:
         with:
           name: output_pdf
           path: main.pdf
+    
+  prepare_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 
 
       - name: Getdate and time from README.md
         id: get_datetime
@@ -55,7 +60,11 @@ jobs:
       - name: Generate asset name
         id: generate_asset_name
         run: echo "::set-output name=asset_name::${{ steps.get_datetime.outputs.result }}_main.pdf"
-      
+
+  create_and_upload_release:
+    needs: [build_latex, prepare_release]
+    runs-on: ubuntu-latest
+    steps:
       - run: echo "${{ steps.generate_asset_name.outputs.asset_name }}"
 
       - name: Create Release
