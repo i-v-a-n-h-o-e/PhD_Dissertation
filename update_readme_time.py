@@ -19,11 +19,11 @@ pattern = re.compile(r'Last updated: .*?\n', re.DOTALL)
 # Replace the old "Last updated" line with the new one
 timestamp_content = pattern.sub(f'Last updated: {current_time}\n', content)
 
-# Define a pattern to find the link to [YYYY-MM-DD--HH-MM-SS]main.pdf
-pattern = re.compile(r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_main.pdf')
+# Define a pattern to find the link to YYYY-MM-DD--HH-MM-SS_Dissertation.pdf
+pattern = re.compile(r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation.pdf')
 
 # Replace the old "Last updated" line with the new one
-filename_content = pattern.sub(f'{current_time}_main.pdf', timestamp_content)
+filename_content = pattern.sub(f'{current_time}_Dissertation.pdf', timestamp_content)
 
 # Write the updated content back to README.md
 with open('README.md', 'w') as file:
