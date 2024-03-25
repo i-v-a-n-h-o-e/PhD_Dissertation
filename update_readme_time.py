@@ -23,7 +23,7 @@ timestamp_content = pattern.sub(f'Last updated: {current_time}\n', content)
 pattern = re.compile(r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_main.pdf')
 
 # Replace the old "Last updated" line with the new one
-filename_content = pattern.sub(f'{current_time}_main.pdf', timestamp_content)
+filename_content = pattern.sub(f'{current_time}_Dissertation.pdf', timestamp_content)
 
 # Write the updated content back to README.md
 with open('README.md', 'w') as file:
