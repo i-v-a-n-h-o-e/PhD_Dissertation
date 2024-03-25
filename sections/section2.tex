@@ -1,6 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\newpage
+\clearpage
 \section{Приближенное решение задачи синтеза управления на малом интервале времени}
 \subsection{Асимптотика множеств достижимости нелинейных систем с интегральными ограничениями, в том числе по части координат} 
 Данный раздел содержит материалы, опубликованные в статье И. О. Осипов, “О выпуклости множеств достижимости по части координат нелинейных управляемых систем на малых промежутках времени”, Вестн. Удмуртск. ун-та. Матем. Мех. Компьют. науки, 31:2 (2021),  210–225. В разделе исследована выпуклость множеств достижимости по части координат нелинейных систем с интегральными ограничениями на управление на малых промежутках времени.
@@ -14,11 +14,10 @@
 	\rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)),
 \end{gather*}
 где $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$.\\
-Пусть $ X = X(\varepsilon) $,  $ Y = Y(\varepsilon) $ -- выпуклые компактные множества, такие, что $ 0 \in \rm{int}\,X(\varepsilon) $, $ 0 \in \rm{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.  Тогда, следуя \footnote{Goncharova E., Ovseevich A. Small-time reachable sets of linear systems with integral control constraints: birth of the shape of a reachable set// Journal of Optimization Theory and Applications. 2016. 168 (2). P. 615--624.
-	doi: 10.1007/s10957-015-0754-4}, назовем множества $  X(\varepsilon)  $ и $  Y(\varepsilon) $ {\textit асимптотически эквивалентными}, если $  \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
+Пусть $ X = X(\varepsilon) $,  $ Y = Y(\varepsilon) $ -- выпуклые компактные множества, такие, что $ 0 \in \rm{int}\,X(\varepsilon) $, $ 0 \in \rm{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.  Тогда, следуя \cite{Ovs}, назовем множества $  X(\varepsilon)  $ и $  Y(\varepsilon) $ {\textit асимптотически эквивалентными}, если $  \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
 
 Приведем далее достаточное условие асимптотической эквивалентности, выраженное через хаусдорфово расстояние $ h $ между ними.
-\begin{theorem}\label{suff}\footnote{Gusev M.I. The limits of applicability of the linearization method in calculating small-time reachable sets // Ural Mathematical Journal. 2020. Vol. 6, No. 1. P. 71-83 https://doi.org/10.15826/umj.2020.1.006}
+\begin{theorem}\label{suff}\cite{GusevUMJ}
 	 Выполнения следующих условий достаточно для того, чтобы множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ были асимптотически эквивалентны:
 	\begin{gather*}
 		\lim\limits_{\varepsilon \rightarrow 0}h(X(\varepsilon),Y(\varepsilon)) = 0, \qquad	\lim\limits_{\varepsilon \rightarrow 0}\frac{h(X(\varepsilon),Y(\varepsilon))}{\delta_{min}(Y(\varepsilon))} = 0,
@@ -107,7 +106,7 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 		H_{\varepsilon}'( \upsilon(\cdot))\delta \upsilon = C \delta z(1) = C F_{\varepsilon}'(\upsilon(\cdot))\delta  \upsilon,
 	\end{gather*}
 	где $ \delta z(1) $ --- решение линеаризованной системы \eqref{epslinear} c нулевыми начальными условиями и управлением $  \delta  \upsilon(\tau) $, $ F_{\varepsilon}'( \upsilon(\cdot)) $ --- производная Фреше отображения $ F _{\varepsilon}$.
-	Для $ F_{\varepsilon}' $ имеет место равенство (см., например \footnote{Gusev M.I. Estimates of the minimal eigenvalue of the controllability Gramian for a system containing a small parameter//  Mathematical Optimization Theory and Operations Research. Lecture Notes in Computer Science. 2019. vol. 11548. P. 461--473.  https://doi.org/10.1007/978-3-030-22629-9\_32}).
+	Для $ F_{\varepsilon}' $ имеет место равенство (см., например \cite{GusevMotor}).
 	\begin{equation}\label{derivF}
 		F_{\varepsilon}'( \upsilon(\cdot)) = X_{\varepsilon}(1,\tau, \upsilon(\cdot))B_{\varepsilon} (\tau, \upsilon(\cdot)), \quad \tau\in[0,1],
 	\end{equation}
@@ -120,10 +119,8 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 	\begin{equation}\label{lipdF}
 		\left\| F_{\varepsilon}'(\upsilon_1(\cdot)) - F_{\varepsilon}'(\upsilon_2(\cdot)) \right\| \leqslant L(\varepsilon) \left\| \upsilon_1(\cdot) - \upsilon_2(\cdot)\right\|
 	\end{equation}
-	при $ \upsilon \in B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon))  $, но тогда и $ H_{\varepsilon}'(\upsilon(\cdot)) $ --- липшицева. Доказательство проводится по схеме работы\footnote{Gusev M.I. The limits of applicability of the linearization method in calculating small-time reachable sets // Ural Mathematical Journal. 2020. Vol. 6, No. 1. P. 71-83 https://doi.org/10.15826/umj.2020.1.006}.  При этом $ L(\varepsilon) = L_0 + L_1 \varepsilon $, где $ L_0 = 0$, если $ f_2(t,x)  $ не зависит от $ x $.
-	Тогда можно оценить максимальный радиус $ \rho(\varepsilon) $ гильбертова шара $ B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon)) $, образ которого $ F_{\varepsilon}(B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon))) $ будет выпуклым (см. \footnote{Polyak B.T. Сonvexity of the reachable set of nonlinear
-		systems under l2 bounded controls // Dynamics of Continuous, Discrete and Impulsive Systems
-		Series A: Mathematical Analysis. 2004. Vol. 11.  P. 255--267.}):
+	при $ \upsilon \in B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon))  $, но тогда и $ H_{\varepsilon}'(\upsilon(\cdot)) $ --- липшицева. Доказательство проводится по схеме работы\cite{GusevUMJ}.  При этом $ L(\varepsilon) = L_0 + L_1 \varepsilon $, где $ L_0 = 0$, если $ f_2(t,x)  $ не зависит от $ x $.
+	Тогда можно оценить максимальный радиус $ \rho(\varepsilon) $ гильбертова шара $ B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon)) $, образ которого $ F_{\varepsilon}(B_{\mathbb{L}_2[0,1]}(0,\rho(\varepsilon))) $ будет выпуклым (см. \cite{Polyak2004}):
 	\begin{equation}\label{Polest}
 		\rho(\varepsilon) \leqslant \frac{\sqrt{\nu(\varepsilon)}}{2L(\varepsilon)}.
 	\end{equation}
@@ -144,7 +141,7 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 	
 	Множество $ W_y^{1/2}(\varepsilon)B_{\mathbb{R}^n}(0,\mu) + Cx(t_0+\varepsilon,0)  = H'_{\varepsilon}(0)B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))+ H_{\varepsilon}(0)$ есть не что иное, как множество достижимости по выходу линеаризованной системы \eqref{epslinear}.
 	
-	Доказательство асимптотической эквивалентности проекций множеств достижимости нелинейной и линеаризованной систем проводится по той же схеме, что и доказательство следствий теоремы 2 в \footnote{Gusev M.I. The limits of applicability of the linearization method in calculating small-time reachable sets // Ural Mathematical Journal. 2020. Vol. 6, No. 1. P. 71-83 https://doi.org/10.15826/umj.2020.1.006}. Оценим сверху хаусдорфово расстояние между образами гильбертова шара $ H_{\varepsilon}\left( B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))\right)  $ и $ H'_{\varepsilon}(0)B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))+ H_{\varepsilon}(0) $:
+	Доказательство асимптотической эквивалентности проекций множеств достижимости нелинейной и линеаризованной систем проводится по той же схеме, что и доказательство следствий теоремы 2 в \cite{GusevUMJ}. Оценим сверху хаусдорфово расстояние между образами гильбертова шара $ H_{\varepsilon}\left( B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))\right)  $ и $ H'_{\varepsilon}(0)B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))+ H_{\varepsilon}(0) $:
 	\begin{gather*}
 		h\left( G_y(\varepsilon), H'_{\varepsilon}(0)B_{\mathbb{L}_2[0,1]}(0,\varrho(\varepsilon))+ H_{\varepsilon}(0)\right)  \leqslant L(\varepsilon) \varrho^2(\varepsilon).
 	\end{gather*}
@@ -219,8 +216,8 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 	Система \eqref{unicycle0} известна как уницикл (при $ v(t) = 1$  --- машина Дубинса). При геометрическом
 	ограничении на
 	управление ($|u(t)|\leq 1$) проекции множества достижимости  машины Дубинса  на двумерное пространство координат $(x_1,\,x_2)$ были исследованы в
-	\footnote{Cockayne E.J., Hall G.W.C. Plane motion of a particle subject to curvature constraints // SIAM J. Control. 1975. Vol. 13, no. 1. P. 197--220.  https://doi.org/10.1137/0313012}. Общая трехмерная картина множества достижимости  получена в
-	работе  \footnote{Пацко В.С., Пятко С.Г., Федотов А.А. Трехмерное множество достижимости нелинейной управляемой системы // Известия РАН. Теория и системы управления. 2003. № 3. С. 8--16}. Множество достижимости интегратора Брокетта, к которому нелинейными преобразованиями могут быть приведены уравнения уницикла \eqref{unicycle0}, исследовано в\footnote{Вдовин С.А., Тарасьев А.М., Ушаков В.Н., Построение множества достижимости интегратора Брокетта, Прикл. математика и механика, 68:5 (2004), 707-724}.
+	\cite{Cockayne}. Общая трехмерная картина множества достижимости  получена в
+	работе  \cite{Patsko}. Множество достижимости интегратора Брокетта, к которому нелинейными преобразованиями могут быть приведены уравнения уницикла \eqref{unicycle0}, исследовано в\cite{Vdovin}.
 	
 	Запишем решение $ x(t,u(t)) $, порожденное нулевым управлением $ u(t) \equiv 0 $:
 	\begin{gather*}
@@ -285,10 +282,7 @@ $ C\in \mathbb{R}^{m \times n} $  -- матрица полного ранга, $
 				0 & \frac{\varepsilon^2}{3}. \\
 			\end{pmatrix}.
 		\end{gather*}
-		Нетрудно заметить, что $ \widetilde{W}_{x_1,x_2}(\varepsilon) $ -- вырожденная. Следовательно, система \eqref{unicycle0} не управляема по выходу $ (x_1, x_2) $, а значит, достаточное условие выпуклости множества достижимости по выходу $ G_{x_1,x_2}(\varepsilon) $ не выполняется. Множество $ G_{x_1,x_2}(\varepsilon) $ полученное в численном эксперименте показано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x2}. Отметим, что в работе \footnote{Гусев М.И., Осипов И.О.
-Асимптотическое поведение множеств достижимости на малых временных промежутках //
-Труды Института математики и механики. 2019. Т.~25, № 3. С. 86--99.
-https://doi.org/10.21538/0134-4889-2019-25-3-86-99} при помощи принципа максимума доказано, что $ G(\varepsilon) $ -- невыпукло. Из данного доказательства также следует, что $ G_{x_1,x_2}(\varepsilon) $ тоже не является выпуклой.
+		Нетрудно заметить, что $ \widetilde{W}_{x_1,x_2}(\varepsilon) $ -- вырожденная. Следовательно, система \eqref{unicycle0} не управляема по выходу $ (x_1, x_2) $, а значит, достаточное условие выпуклости множества достижимости по выходу $ G_{x_1,x_2}(\varepsilon) $ не выполняется. Множество $ G_{x_1,x_2}(\varepsilon) $ полученное в численном эксперименте показано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x2}. Отметим, что в работе \cite{GusevOsipovTrudy} при помощи принципа максимума доказано, что $ G(\varepsilon) $ -- невыпукло. Из данного доказательства также следует, что $ G_{x_1,x_2}(\varepsilon) $ тоже не является выпуклой.
 		
 		В этой работе для построения множеств достижимости мы используем алгоритм, основанный на методе Монте-Карло. %\todo{тут  будет ссылка либо на статью Игоря, либо на раздел, когда он появится}\footnote{Zykof2}.
 		Удовлетворяющее интегральным ограничениям управление $ u(t) $ представляется в виде линейной комбинации ортогональных полиномов. Коэффициенты этого разложения -- равномерно распределенные случайные нормированные векторы. Перебирая такие векторы, будем получать программные управления, удовлетворяющие ограничениям \eqref{constr}. Концы траекторий, порожденные такими управлениями, покрывают множество достижимости.
@@ -527,7 +521,7 @@ We consider the problem of a feedback control design for a nonlinear control-aff
 
 \subsection{Introduction}
 
-We propose here a method for solving the problem of a local control synthesis  for a control-affine system on a small time interval. This method is based  on the linearization of the original nonlinear system in the vicinity  of the equilibrium position.  Linearization is often used in solving various control problems, such as stabilization problems\cite{Kras,halil}, stochastic and numerical control\cite{Roxin,EKF,denBerg,Pang}, MPC control\cite{Murillo,LTV_MPC}, etc.
+We propose here a method for solving the problem of a local control synthesis  for a control-affine system on a small time interval. This method is based  on the linearization of the original nonlinear system in the vicinity  of the equilibrium position.  Linearization is often used in solving various control problems, such as stabilization problems\cite{Kras_add,Khalil}, stochastic and numerical control\cite{Roxin,EKF,denBerg,Pang}, MPC control\cite{Murillo,LTV_MPC}, etc.
 
 In this article, we study the problem of control synthesis with an integral quadratic cost. Note that the task is considered on a finite, and, moreover, small, time interval. The goal of the control is to transfer the system to the origin in a given time ensuring the minimum value of the cost. The linear feedback control found for the linearized system is used as  the input of the original non-linear system. For a linear control system the optimal feedback is linear in state, with gains increasing indefinitely when approaching the terminal time. The latter  makes it difficult to justify the applicability of the linearization method. The restrictions on  asymptotics  of the controllability Gramian of the linearized system are needed in this case. Unlike, for example, the stabilization problem for which controllability (stabilizability) of the linearized system implies stabilizability of the nonlinear system. These restrictions coincide with the  asymptotic equivalence conditions for reachable  (null-controllable) sets of nonlinear and linearized systems. In \cite{GusevOsipov} it was shown that, under these conditions the control in the form of a linear state feedback takes all trajectories starting from some neighborhood of zero to zero, if the control time interval is sufficiently small. 
 
@@ -619,7 +613,7 @@ Assume that  $X,Y$ depend on a small positive parameter $\tau$,  $0<\tau\leqslan
 \begin{definition}[\cite{Ovs}]	
  The sets $ X (\tau), Y (\tau) $ are called asymptotically equal under $\tau \to 0$ if $ \rho (X (\tau), Y (\tau)) \to 0,\;\; \tau \to 0$.
 \end{definition}
-Denote by $\nu(\tau), \eta(\tau)$  the smallest and the largest eigenvalues of $W(\tau)$ respectively. From  the results of  \cite{Polyak_paper,GusOs,Osipov,GusevMotor} it follows that the reachable sets 
+Denote by $\nu(\tau), \eta(\tau)$  the smallest and the largest eigenvalues of $W(\tau)$ respectively. From  the results of  \cite{Polyak2001,GusOs,Osipov,GusevMotor} it follows that the reachable sets 
 $G_{-}(\tau,\mu)$ and $G_{-}^0(\tau,\mu)$ are asymptotically equal under $\tau \to 0$ if the pair $(A,B)$ is controllable and
 there exist $ l > 0$, $\tau_0 > 0$ and $\alpha > 0$ such that for any $0 < \tau \leqslant \tau_0 $
 		\begin{gather}\label{gramas}
