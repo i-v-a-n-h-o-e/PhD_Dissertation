@@ -43,14 +43,14 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \begin{gather}\label{sec3:nonlinear}
 	\dot{x}(t) = A(t)x(t)+B(t)u(t)+\varepsilon f\big(x(t),t\big), \qquad t_0 \leqslant t \leqslant T, \qquad x(t_0) = x_0,
 \end{gather}
-где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $t_0$ --- неотрицательное число, $T$ --- положительное число, а $\varepsilon$ --- малый параметр, такой что $\varepsilon \in [0,\overline{\varepsilon}]$, $ \overline{\varepsilon} > 0$. Матричные отображения  $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполгаются непрерывными. 
+где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $t_0$ --- неотрицательное число, $T$ --- положительное число, а $\varepsilon$ --- малый параметр, такой что $\varepsilon \in [0,\overline{\varepsilon}]$, $ \overline{\varepsilon} > 0$. Матричные отображения  $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполагаются непрерывными. 
 Вектор функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по  $x$.
 
 Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ \mu > 0$.
 
 Каждому управлению $u(\cdot) \in \mathbb{L}_2$ и любому $\varepsilon \in [0,\overline{\varepsilon}]$ соответствует единственное абсолютное непрерывное решение $ x(t,\varepsilon, u(\cdot)) $ системы \eqref{sec3:nonlinear}, удовлетворяющее начальному условию $ x(t_0,\varepsilon, u(\cdot)) = x_0$, и это решение продолжимо на интервал $[t_0, t_0 + \Delta]$, где $t_0 + \Delta < T$. 
 
-Далее, мы будем считать выполнеными условия следующего предположения.
+Далее, мы будем считать выполненными условия следующего предположения.
 
 \begin{assumption}\label{as:right_hand_side_conditions}
 	
@@ -93,13 +93,13 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 Здесь $A_0^* $ --- сопряженный к$A_0$ линейный оператор.
 Наконец,  $A_1: B_X(0, r) \times \mathbb{R}_+ \to Y $ --- это нелинейный оператор, непрерывный по $x$ и $\varepsilon$.
 \begin{assumption}\label{as:derivative_of_A1}
-	Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ the отображение $A_1(x, \varepsilon)$  имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$  которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
+	Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ отображение $A_1(x, \varepsilon)$  имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$  которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
 	\begin{gather*}
 		\|A_1'(x_1,\varepsilon) - A_1'(x_2,\varepsilon) \| \leqslant L\|x_1-x_2\|, \qquad x_1, x_2 \in B_X(0,r), \qquad \varepsilon \in [0, \overline{\varepsilon}].
 	\end{gather*}
 \end{assumption}
 
-Для дальнейших рассуждений нам потребуется процитировать результат из \cite{Polyak2001, Polyak1964}.  В формулирвке следующей леммы предполагается, что $f:X \to Y$ --- это нелинейное отображение, имеющее производную Фреше.
+Для дальнейших рассуждений нам потребуется процитировать результат из \cite{Polyak2001, Polyak1964}.  В формулировке следующей леммы предполагается, что $f:X \to Y$ --- это нелинейное отображение, имеющее производную Фреше.
 \begin{lemma}[\cite{Polyak2001, Polyak1964}]\label{lem:Polyak_lemma}
 	Пусть существуют такие $L$, $\rho$, $\mu > 0$ и $y_0 \in Y$, что 
 	\begin{gather*}
@@ -256,7 +256,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	\frac{\partial X(t,\tau)}{\partial t} = A(t) X(T,\tau), \qquad X(\tau,\tau) = I.
 \end{gather*}
 
-Если $x(\cdot,\varepsilon, u(\cdot))$ --- решение \eqref{sec3:nonlinear}, порожденное управлением $u(\cdot)$ и начальными условием $x_0$,  то оно удоволетворяет интегральному уравнению
+Если $x(\cdot,\varepsilon, u(\cdot))$ --- решение \eqref{sec3:nonlinear}, порожденное управлением $u(\cdot)$ и начальными условием $x_0$,  то оно удовлетворяет интегральному уравнению
 \begin{gather*}
 	x\big(T,\varepsilon, u(\cdot)\big) =
 	X(T,t_0)x_0 + 
@@ -290,7 +290,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 
 Для того, чтобы применить Теорему \ref{th:ImageConvexity} к отображению $F$,  нам необходимо показать, что Предположение \ref{as:derivative_of_A1} выполняется для $A_1$, определенного в \eqref{A1_def}.
 \begin{lemma}\label{lem:Lipx}
-	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ and $t \in [t_0,T]$, 
+	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
 	\begin{gather*}
 		\| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 	\end{gather*}
@@ -416,7 +416,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \begin{gather*}
 	\|Y(t,s)\| \leqslant k_Y, \quad t,s \in [t_0, \tau]
 \end{gather*}
-для всех $u(\cdot) \in B(0,\mu)$. Мы имееем
+для всех $u(\cdot) \in B(0,\mu)$. Мы имеем
 \begin{gather*}
 	\| \overline{X}_1(\tau,s) - \overline{X}_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{where} \quad L_X = k_Y L_A k_X (T - t_0) .
 \end{gather*}
@@ -588,7 +588,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
 \doc. 
-Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость  $G(T,\mu,\varepsilon) $ (Assertion \ref{ReachableSetcloseness}) были доказаны ранее.
+Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость  $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
 \hfill$\square$\\[1ex]%--- P r o o f.
 
 \begin{zam}  
@@ -608,7 +608,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 		\dot{x_2} = -x_1 - 10 \varepsilon x_1^3 + u ,\qquad 0\leqslant t  \leqslant 2
 	\end{gather}
 	описывающими движение нелинейной упругой пружины под действием внешней силы $u$. 
-	Влияние нелинейного слагаемого силы упруости определяется малым параметром $\varepsilon > 0$. Начальное состояние $x_1(0) = x_2(0) = 0 $, а управление ограничено 
+	Влияние нелинейного слагаемого силы упругости определяется малым параметром $\varepsilon > 0$. Начальное состояние $x_1(0) = x_2(0) = 0 $, а управление ограничено 
 	\begin{gather}\label{Duffing_controls}
 		\int\limits_0^2u^2dt \leqslant 1.
 	\end{gather}
@@ -624,7 +624,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	
 	Нелинейное слагаемое состоит из малого параметра и функции $f(x) = [-10x^3;0]$. 
 	Для такой нелинейной функции условие  \eqref{sublinear_growth} не выполняется. 
-	Однако, мы можем использовать оценки, полученные в работе  \cite{Zykov2019} для того, чтобы показать, что все траектории системы \eqref{sec3:Duffing}, соответствующие допустимым управлениям и нулевым начальным условиям, лежат в компактном множетсве D. 
+	Однако, мы можем использовать оценки, полученные в работе  \cite{Zykov2019} для того, чтобы показать, что все траектории системы \eqref{sec3:Duffing}, соответствующие допустимым управлениям и нулевым начальным условиям, лежат в компактном множестве D. 
 	
 	Положим $v_{\varepsilon}(t,x) = \frac{5}{2}\varepsilon x_1^4 + \frac{1}{2}x_1^2 + \frac{1}{2}x_2^2$ и вычислим производную в силу системы 
 	\begin{gather}\label{Lyap}
@@ -649,7 +649,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	\begin{figure}[t]
 		\centerline{
 			\includegraphics[width=\textwidth]{images/Osipov_QuaziDuffing.eps}}
-		\caption{The reachable sets of Duffing oscillator.}
+		\caption{Множества достижимости.}
 		\label{fig:Duffing}
 	\end{figure}
 	
@@ -663,7 +663,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \begin{figure}[ht]
 	\centerline{
 		\includegraphics[width=\textwidth]{images/Osipov_QuaziDubins.eps}}
-	\caption{The reachable sets of system \eqref{Linear+Dubins}.}
+	\caption{Множества достижимости системы \eqref{Linear+Dubins}.}
 	\label{fig:LinearDubins}
 \end{figure}
 \begin{pr}  

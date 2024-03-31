@@ -3,7 +3,7 @@
 \subsection{Условие применимости метода линеаризации в задаче локального синтеза} 
 We consider the problem of a feedback control design for a nonlinear control-affine system. The aim of the control is to bring  trajectories of the closed system to the origin of coordinates in a given time, providing the minimal value of an integral functional. The object under study is the nonlinear system, closed by a linear feedback controller. The controller is  obtained as a solution of the LQR problem for the linearized system. We indicate sufficient conditions  for this linear feedback to give a local solution to the control synthesis problem under consideration.  In addition, we give some  error estimates for the values of the functional. 
 
-\subsection{Introduction}
+\subsubsection{Introduction}
 
 We propose here a method for solving the problem of a local control synthesis  for a control-affine system on a small time interval. This method is based  on the linearization of the original nonlinear system in the vicinity  of the equilibrium position.  Linearization is often used in solving various control problems, such as stabilization problems\cite{Kras_add,Khalil}, stochastic and numerical control\cite{Roxin,EKF,denBerg,Pang}, MPC control\cite{Murillo,LTV_MPC}, etc.
 
@@ -15,159 +15,170 @@ For a linearized system, the considered linear controller delivers the minimum v
 
 The article is structured as follows. The problem statement and some preliminary results are given in the second section. The third section contains the formulation and proof of the main results. Finally, we provide two illustrative examples in the fourth section.
 
-\subsection{Preliminary results}
-\subsubsection{Problem statement}
+\subsubsection{Постановка задачи}
 
-Let us consider the nonlinear  control-affine system
+Рассмотрим нелинейную систему, аффинную по управлению
 \begin{gather}\label{sec22:nonlinear}
 	\dot{z}(t)=f(z(t))+B u(t),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{gather}
- where $ x \in \mathbb{R}^n $ is a state vector, $ u \in \mathbb{R}^r $ is a control vector,  $ 
-T$ is a positive number. We postulate that the function $f$ has the following property. 
+ где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, а $ 
+T$ --- некоторое положительное число. 
+Будем считать, что функция $f$ обладает следующим свойством.
 \begin{property}\label{prop:Residial_term_bounds}
-	 There exist  $r>0$, $k>0$  such that for all $ z \in B(0,r) $ the function $f(z)$ could be rewritten in the form $ f(z) = Az + R(z) $, where  $ \|R(z) \| \leqslant k \| z\|^2  $. 
+	 Найдутся такие  $r>0$, $k>0$  что при всех $ z \in B(0,r) $, функция  $f(z)$ может быть представлена в форме  $ f(z) = Az + R(z) $, причем  $ \|R(z) \| \leqslant k \| z\|^2  $. 
 \end{property}
-Here $ B(0,r) $ is the ball of radius $r$  centered at $0 \in \mathbb{R}^n$. 
-This property holds if $f(0) = 0 $, $\frac{\partial f}{\partial x}(0) 
-= A $ and $f(z)$ is twice differentiable. 
+Здесь $ B(0,r) $ --- это шар радиуса $r$  с центром в точке $0 \in \mathbb{R}^n$. 
+Это свойство выполняется, если if $f(0) = 0 $, $\frac{\partial f}{\partial x}(0) 
+= A $ и $f(z)$ дважды дифференцируема. 
 
-The space of square integrable scalar or vector functions on $ [0,T] $ we will denote by $ \mathbb{L}_2 = \mathbb{L}_2[0,T] $. The ball in the space $\mathbb{L}_2$ we denote as $B_{\mathbb{L}_2}(0,r)$. As the cost functional we consider the following
+Напомним, что пространство скалярных или векторных функций интегрируемых с квадратом  на $ [0,T] $ обозначаются через $ \mathbb{L}_2 = \mathbb{L}_2[0,T] $. Шар в пространстве $\mathbb{L}_2$ обозначим через $B_{\mathbb{L}_2}(0,r)$. В качестве функционала мы рассматриваем 
 \begin{gather}\label{cost}
 		I(T,u):=\int_0^Tu^\top (t)u(t)dt= 	\lVert u(\cdot)\rVert^2_{\mathbb{L}_2.} 
 \end{gather}
-The problem is to synthesize a feedback control $u(t)=u(t,z(t))$ that leads the trajectories of the closed system 
+Задача состоит в синтезе закона управления $u(t)=u(t,z(t))$ который бы приводил траектории замкнутой системы  
 \begin{gather*}
 	\dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{gather*}
-to the origin of coordinates at  time $T$ and to provide the minimum value of $I(T,u)$. 
+в начало координат за время $T$ и обеспечивал при этом минимальное значение $I(T,u)$. 
 
-Consider the linear case ($R(z)=0$)
+Рассмотрим линейный случай ($R(z)=0$)
 \begin{gather}\label{sec22:linear}
 	\dot{z} =  A  z + B u, \qquad 0 \leqslant t \leqslant T.
 \end{gather}
-If  system (\ref{sec22:linear}) is controllable the solution of the above problem  is the linear in state feedback controller 
+Если система \eqref{sec22:linear} управляема, то решение описанной выше задачи --- это линейный по состоянию закон управления 
 \begin{gather}\label{linear_feedback}
 	u(t,z) = -B^{\top} Q_T(t) z
 \end{gather}
-(see, for example, \cite{Abgar,Kur1,GusevOsipov}).
-Here $Q_T(t)=W^{-1}(T-t)$ where $W(t)$ is the Controllability Gramian of system $\dot{x} = -A x - B u$:
+(см, например, \cite{Abgar,Kur1,GusevOsipov}).
+Здесь $Q_T(t)=W^{-1}(T-t)$, а $W(t)$ --- грамиан управляемости системы $\dot{x} = -A x - B u$:
 \begin{gather*}
     W(t) = \int_0^t e^{-A\tau}BB^\top e^{-A^{\top}\tau}d\tau. 
 \end{gather*}
-The Gramian $W(t)$ is positive definite for $t>0$ iff  
-system (\ref{sec22:linear}) is controllable. It may be shown that $Q_T(t)$ is the solution of differential equation 
+Грамиан $W(t)$ положительно определен при $t>0$ тогда и только того, когда   
+система \eqref{sec22:linear} управляема. Можно показать, что $Q_T(t)$ --- решение дифференциального уравнения 
 \begin{gather}\label{eqQ}
 	\dot{Q_T}  = Q_T B B^{\top} Q_T - A^{\top}Q_T - Q_T A, \quad Q_T(0)=W^{-1}(T).
 \end{gather}
-Thus, to find $Q_T(t)$ on  $(0,T]$ one need first to calculate $W(T)$ and then integrate the system (\ref{eqQ}).
-Since $W(0)=0$, $Q_T(t)$ is determined for $t<T$ and 
-$\|Q_T(t)\| \to \infty$ as $t\to T$. 
+Таким образом, чтобы найти $Q_T(t)$ на $(0,T]$, нужно сначала вычислить $W(T)$, а затем проинтегрировать систему \eqref{eqQ}.
+Поскольку $W(0)=0$, $Q_T(t)$ определена для $t<T$ и $\|Q_T(t)\| \to \infty$ при $t\to T$. 
 
-The following is true \cite{Abgar,Kur1,GusevOsipov}.
+Верно следующее утверждение \cite{Abgar,Kur1,GusevOsipov}.
 \begin{utv}
-Any trajectory $z(t)$ of the system \eqref{sec22:linear} with the control \eqref{linear_feedback} starting from the point $ z_0 $ reaches the origin at time $T$. The  integral cost $I(T,u)$ takes the minimum possible value $z^{\top}_0 Q_T(0) z_0 $ for each $z_0$.
+Любая траектория $z(t)$ системы \eqref{sec22:linear} с управлением  \eqref{linear_feedback} выходящая из точки  $ z_0 $ достигает начала координат за время $T$. При этом интегральный функционал $I(T,u)$ принимает минимальное значение $z^{\top}_0 Q_T(0) z_0 $ при каждом $z_0$.
 \end{utv}
-Further we are going to investigate the trajectories behavior of system \eqref{sec22:nonlinear} closed by linear feedback $ u(t,z) = -B^{\top} Q_T(t) z$
-assuming that $T$ is  small enough. Is it true that all trajectories starting in some neighborhood of the origin reach  it? And what is the value of the cost functional? 
+Далее мы будем исследовать поведение траекторий системы \eqref{sec22:nonlinear} замкнутой линейной обратной связью $ u(t,z) = -B^{\top} Q_T(t) z$ при условии, что  $T$ достаточно мало. 
+Верно ли, что все траектории, начинающиеся в некоторой окрестности начала координат, достигают его?  
+Можно ли что-то сказать о значении интегрального функционала? 
 
-\subsubsection{Asymptotic equality of reachable sets}
+\subsubsection{Асимптотическая эквивалентность множеств достижимости}
 
-In what follows, we use a notion of an asymptotic equality of reachable sets. Consider a control system whose equations are obtained from \eqref{sec22:nonlinear} by time reversal. Setting $\tau=T-t$ we have
+Далее, мы будем использовать понятие асимптотической эквивалентности множеств, введенное в разделе \ref{sec21:AsymptoticEquality}. 
+Рассмотрим систему, уравнения которой получаются из \eqref{sec22:nonlinear} обращением времени. Положив $\tau=T-t$ мы имеем
 \begin{gather}\label{nonlinear_}
 			\dot{x}(\tau)=-f(x(\tau))-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
 \end{gather}
-here $x(\tau)=z(T-\tau)$, $v(\tau)=u(T-\tau)$.
-For a given $\mu>0$ denote as $ G_{-} (T,\mu)$ a reachable set of the system \eqref{nonlinear_} under quadratic integral constraints on the cost functional, $G_{-}(T,\mu)=\{x\in \mathbb{R}^n:\exists v(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x( T,v(\cdot)))\}$.
+здесь $x(\tau)=z(T-\tau)$, $v(\tau)=u(T-\tau)$.
+При заданном $\mu>0$ обозначим через $ G_{-} (T,\mu)$ множество достижимости системы \eqref{nonlinear_} с интегральными квадратичными ограничениями на управление, $G_{-}(T,\mu)=\{x\in \mathbb{R}^n:\exists v(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x( T,v(\cdot)))\}$.
 		 
-Here $x( \tau,v(\cdot)))$ denotes the solution of \eqref{nonlinear_} with zero initial state. Properties of reachable sets of nonlinear systems with integral constraints on control have been studied in many papers (see, for example \cite{Guseinov,Rousse,GusZykIFAC}).
-Consider also the linear system 
+Здесь $x( \tau,v(\cdot)))$ обозначает решение системы  \eqref{nonlinear_} с нулевыми начальными условиями. 
+Свойства множеств достижимости нелинейных систем с интегральными ограничениями на управление изучались во многих работах (см., например, \cite{Guseinov,Rousse,GusZykIFAC}).
+Рассмотрим также линейную систему 
 \begin{gather}\label{linear_}
 			\dot{x}(\tau)=-Ax(\tau)-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
 \end{gather}
-this system is the linearization of  the system \eqref{nonlinear_} at the origin. It's reachable set we denote by $G_{-}^0(T,\mu)$. This set is an ellipsoid in $\mathbb{R}^n$ described by inequality $G_{-}^0(T,\mu)=\{x \in \mathbb{R}^n: x^\top W^{-1}(T)x\leqslant \mu^2\} $.			
+эта система является линеаризацией системы  \eqref{nonlinear_} в начале координат. 
+Множество достижимости этой системы обозначим через $G_{-}^0(T,\mu)$. 
+Это множество --- эллипсоид в $\mathbb{R}^n$, описываемый неравенством $G_{-}^0(T,\mu)=\{x \in \mathbb{R}^n: x^\top W^{-1}(T)x\leqslant \mu^2\}$.			
 
-Let $X,Y \subset \mathbb R^n $ be convex compact sets such that the origin is an interior point of both the sets.
-\begin{definition}[see, for example, \cite{Lassak,Ovs}]
-The Banach-Mazur distance between $X$ and $Y$  is defined as
-$\rho(X,Y):=\log\big(r(X,Y)\cdot r(Y,X)\big)$, where \\ $r(X,Y)=\inf \{t\geqslant1:tX \supset Y\}$. 
-\end{definition} 
-From the definition it follows that for any $c>0$, $\rho(cX,cY)=\rho(X,Y)$ and two inclusions are valid: $X\subset \exp(\rho(X,Y))Y$ and $Y\subset \exp(\rho(X,Y))X$.
+%Let $X,Y \subset \mathbb R^n $ be convex compact sets such that the origin is an interior point of both the sets.
+%\begin{definition}[see, for example, \cite{Lassak,Ovs}]
+%The Banach-Mazur distance between $X$ and $Y$  is defined as
+%$\rho(X,Y):=\log\big(r(X,Y)\cdot r(Y,X)\big)$, where \\ $r(X,Y)=\inf \{t\geqslant1:tX \supset Y\}$. 
+%\end{definition} 
+%From the definition it follows that for any $c>0$, $\rho(cX,cY)=\rho(X,Y)$ and two inclusions are valid: $X\subset \exp(\rho(X,Y))Y$ and $Y\subset \exp(\rho(X,Y))X$.
 
-Assume that  $X,Y$ depend on a small positive parameter $\tau$,  $0<\tau\leqslant\tau_0$  and set-valued mappings  $X(\tau), Y(\tau)$ are bounded. 
-\begin{definition}[\cite{Ovs}]	
- The sets $ X (\tau), Y (\tau) $ are called asymptotically equal under $\tau \to 0$ if $ \rho (X (\tau), Y (\tau)) \to 0,\;\; \tau \to 0$.
-\end{definition}
-Denote by $\nu(\tau), \eta(\tau)$  the smallest and the largest eigenvalues of $W(\tau)$ respectively. From  the results of  \cite{Polyak2001,GusOsSteklov,Osipov,GusevMotor} it follows that the reachable sets 
-$G_{-}(\tau,\mu)$ and $G_{-}^0(\tau,\mu)$ are asymptotically equal under $\tau \to 0$ if the pair $(A,B)$ is controllable and
-there exist $ l > 0$, $\tau_0 > 0$ and $\alpha > 0$ such that for any $0 < \tau \leqslant \tau_0 $
+%Assume that  $X,Y$ depend on a small positive parameter $\tau$,  $0<\tau\leqslant\tau_0$  and set-valued mappings  $X(\tau), Y(\tau)$ are bounded. 
+%\begin{definition}[\cite{Ovs}]	
+% The sets $ X (\tau), Y (\tau) $ are called asymptotically equal under $\tau \to 0$ if $ \rho (X (\tau), Y (\tau)) \to 0,\;\; \tau \to 0$.
+%\end{definition}
+Через$\nu(\tau), \eta(\tau)$ обозначим наименьшее и наибольшее собственное число $W(\tau)$ соответственно. Из результатов  \cite{Polyak2001,GusOsSteklov,Osipov,GusevMotor} следует, что множества достижимости  
+$G_{-}(\tau,\mu)$ and $G_{-}^0(\tau,\mu)$ асимптотически эквивалентны при $\tau \to 0$ если пара  $(A,B)$ --- управляема 
+и существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$ что для всех $0 < \tau \leqslant \tau_0 $
 		\begin{gather}\label{gramas}
 			\nu(\tau)\geqslant l\tau^{4-\alpha}.
 		\end{gather}
 
 \begin{zam}
-    The reachable set $G_{-}(T,\mu)$ of system \eqref{nonlinear_} coincides with the null-controllable set of system \eqref{sec22:nonlinear}, i.e. the set of initial conditions from which the system can be led to the origin by controls from $B_{\mathbb{L}_2}(0,\mu) $ at time T. The same is true for systems \eqref{linear_} and \eqref{linear_} and their corresponding set $G_{-}^0(T,\mu)$.
+    Множество достижимости $G_{-}(T,\mu)$ системы \eqref{nonlinear_} совпадает с множество нуль-управляемости системы \eqref{sec22:nonlinear}, т.е. множетсва таких начальных условий, из которых система может быть переведена в начало координат управлениями из $B_{\mathbb{L}_2}(0,\mu) $ за время $T$. 
+    То же самое справедливо для систем \eqref{linear_} и \eqref{linear_} и соответствующих им множеств $G_{-}^0(T,\mu)$.
 \end{zam}
 
-\subsection{The control synthesis problem. Main results}
-Everywhere below, we assume that the pair $A,B$ is controllable without specifying this separately.
-\subsubsection{Asymptotics of the trajectories}
+\subsubsection{Задача синтеза управления. Асимптотика траекторий}
 
-In this section we  investigate asymptotic behavior of trajectories  of system \eqref{sec22:nonlinear} closed by the linear feedback $ u(t,z) = -B^{\top} Q_T(t) z$:
+Везде ниже мы предполагаем, что пара $A,B$ является управляемой, не уточняя это отдельно.
+
+В этом разделе мы исследуем асимптотическое поведение траекторий системы \eqref{sec22:nonlinear}, замкнутой линейной обратной связью $ u(t,z) = -B^{\top} Q_T(t) z$:
 \begin{equation}\label{nonlinear_closed}
 	\dot{z} = f(z) - B B^{\top} Q_T(t) z, \qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{equation}
-Recall that this control takes the trajectories of the  linear system $\dot{z} = A z + B z$   to the origin at time $T$, and provides the minimum to the cost. This minimum   equals to  $J_0(T,z_0) =z_0^{\top}Q_T(0)z_0$.
+Напомним, что это управление приводит траектории линейной системы $\dot{z} = A z + B z$ к началу координат в момент времени $T$ и обеспечивает минимальное значение функционала. 
+Это значение равно $J_0(T,z_0) =z_0^{\top}Q_T(0)z_0$.
 
-To analyze the trajectories of the system \eqref{nonlinear_closed} we  implement the following lemma
+Для анализа траекторий системы \eqref{nonlinear_closed} используем следующую лемму
 \begin{lemma}\label{lem:zqz} 
-    Let $C\in \mathbb{r}^{ n \times n}$, $D\in \mathbb{r}^{n \times n}$ be symmetric positive definite matrices, $C=D^{-1}$. Then for $\forall z \in \mathbb{r}^{n}$   
+    Пусть $C\in \mathbb{R}^{ n \times n}$ и $D\in \mathbb{R}^{n \times n}$ --- симметричные положительно-определенные матрицы, $C=D^{-1}$. Тогда, для любого $\forall z \in \mathbb{R}^{n}$   
     \begin{gather} \label{eig}
         \frac{1}{\lambda_{max}(D)} \|z\|^2 \leqslant z^T C z \leqslant \frac{1}{\lambda_{min}(D)} \|z\|^2,
     \end{gather}
-    where $\lambda_{max}(D)$ and $\lambda_{min}(D)$ are the largest and the smallest eigenvalues of  $D$.
+    где $\lambda_{max}(D)$ и $\lambda_{min}(D)$ --- наибольшее и наименьшее собственное число матрицы $D$.
 \end{lemma}
-\doc
-  Follows from the fact that the largest and the smallest eigenvalue of matrix $C$ are $1/{\lambda_{min}(D)}$ and $1/{\lambda_{max}(D)}$, respectively. 
-	\hfill $ \square $
-If  $C=Q_T(t)=W^{-1}(T-t)$ then $D=W(T-t)$ and inequalities \eqref{eig} take the form
+\doc. 
+  Следует из факта, что наибольшее и наименьшее собственное число матрицы $C$ равны $1/{\lambda_{min}(D)}$ и $1/{\lambda_{max}(D)}$, соответственно. \hfill $ \square $
+
+Если $C=Q_T(t)=W^{-1}(T-t)$, то $D=W(T-t)$ и неравенство \eqref{eig} принимает вид
 \begin{gather*} %\label{eig1}
         \frac{1}{\eta(T-t)} \|z\|^2 \leqslant z^T Q_T(t) z \leqslant \frac{1}{\nu(T-t)} \|z\|^2, \quad 0\leqslant t < T.
     \end{gather*}
 \begin{assumption} \label{asm1}   
-   There exist $\overline{T}>0$ and  a continuous positive function $\varphi(\tau): (0, \overline{T}] \to \mathbb{r}$ such that
+   Пусть существует $\overline{T}>0$ и непрерывная положительная функция $\varphi(\tau): (0, \overline{T}] \to \mathbb{R}$ такие, что
 \begin{equation*}
     0 < \frac{\eta(\tau)}{\sqrt{\nu(\tau)}} \leqslant \varphi(\tau), \qquad 0 < \tau \leqslant \overline{T},\quad \int\limits_0^ {\overline{T}}\varphi(\tau) d\tau<\infty.
 \end{equation*} 
 \end{assumption}
-Define the function $\Phi(T): [0, \overline{T}] \to \mathbb{r}$
+Введем функцию $\Phi(T): [0, \overline{T}] \to \mathbb{R}$
 \begin{equation*}
     \Phi(T)= \int\limits_0^ {T}\varphi(\tau) d\tau,\quad 0 <  T \leqslant \overline{T},\quad  \Phi(0)=0.
 \end{equation*} 
 
- Recall that $\eta(\tau)$ and $\nu(\tau)$ the smallest and the greatest eigenvalues of $W(\tau)$. Further we will consider the system (\ref{linear_}) to be completely controllable, therefore $\eta(\tau) \geqslant \nu(\tau) \geqslant 0$  with $\tau \geq 0$.
+Напомним, что $\eta(\tau)$ and $\nu(\tau)$ --- это наименьшее и наибольшее собственные числа $W(\tau)$. 
+Далее будем считать систему \eqref{linear_} полностью управляемой, поэтому $\eta(\tau) \geqslant \nu(\tau) \geqslant 0$ при $\tau \geq 0$.
  
-Since $ \varphi(\tau) $ is not necessarily bounded at the zero, $\Phi(T)$ can take values equal to $+\infty$. 
+Поскольку $\varphi(\tau)$ не обязательно ограничено в нуле, $\Phi(T)$ может принимать значения, равные $+\infty$.
 \begin{lemma}%\label{lem:Phi}
-The following properties of $\Phi(T)$ are valid:
+Верны следующие свойства $\Phi(T)$:
 \begin{enumerate}
- \item If $\Phi(T) < \infty $ for at least one $T$, then $\Phi(T) < \infty $ for all $T \in (0, \overline{T}]$.
-\item If $\Phi(T) < \infty $ then $\Phi(T)$ is continuous and increasing on  $ [0,\overline{T}]$.
+ \item Если $\Phi(T) < \infty $ хотя бы для одного $T$, то $\Phi(T) < \infty $ для всех $T \in (0, \overline{T}]$.
+\item Если $\Phi(T) < \infty $, то $\Phi(T)$ непрерывная и возрастающая функция на $ [0,\overline{T}]$.
  \end{enumerate}
 \end{lemma}
-\doc Follows from  properties of improper integrals.
-	\hfill $ \square $
+\doc. Следует из свойств несобственных интегралов. \hfill $ \square $
 \begin{assumption}\label{asm2}
-There exists $ 0 < \beta \leqslant 1$ such that $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} \to 0$ as $T \to 0$.
+Существует такое $ 0 < \beta \leqslant 1$ что $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} \to 0$ при $T \to 0$.
 \end{assumption}
-If $\Phi(T)$ is finite there is at most one root of the equation $\Phi(T)=1$ on $(0,\overline{T}]$,  denote it by $T^*$.  If $\Phi(T)<1$  $T\in (0,\overline{T}]$ put $T^*=\overline{T}$. Clearly, for any  $ 0 < \beta \leqslant 1$  $\Phi^\beta(T)\geqslant \Phi(T)$ if $T \leqslant T^*$.
+Если $\Phi(T)$ конечна, то существует не более одного корня уравнения $\Phi(T)=1$ на $(0,\overline{T}]$, обозначим этот корень через $T^*$.   
+Если $\Phi(T)<1$ при $T\in (0,\overline{T}]$ положим $T^*=\overline{T}$. 
+Очевидно, что для всех  $ 0 < \beta \leqslant 1$,   $\Phi^\beta(T)\geqslant \Phi(T)$ если $T \leqslant T^*$.
 
-For a given $T\in (0, \overline{T}]$ consider a quadratic form $V_T(t,z)=z^{\top}Q_T(t)z$.  
+При фиксированном $T\in (0, \overline{T}]$ рассмотрим квадратичную форму $V_T(t,z)=z^{\top}Q_T(t)z$.  
 \begin{lemma}\label{lem:vest}
- Let Assumption \ref{asm1} be fulfilled. Let $T\leqslant T^*$ and $z(t)$ be a trajectory of system\eqref{nonlinear_closed} such that   $z(t)  \in B(0,r)\;0<t \leqslant T$ and $V_T(0,z(0))\leqslant 1/(4k^2\Phi^{2\beta}(T))$ for some $0<\beta \leqslant 1$. Then 
- $$V_T(t,z(t)) \leqslant \frac{1}{k^2\Phi^{2\beta}(T)}, \qquad 0 \leqslant t \leqslant T. $$
+ Пусть выполнено \ref{asm1}. Если $T\leqslant T^*$ и $z(t)$ --- такая траектория системы \eqref{nonlinear_closed} что  $z(t)  \in B(0,r)$ при $0<t \leqslant T$ и $V_T(0,z(0))\leqslant 1/(4k^2\Phi^{2\beta}(T))$ для некоторого $0<\beta \leqslant 1$. 
+ Тогда 
+ \begin{gather*}
+    V_T(t,z(t)) \leqslant \frac{1}{k^2\Phi^{2\beta}(T)}, \qquad 0 \leqslant t \leqslant T. 
+ \end{gather*}
 \end{lemma}
-\doc
-Differentiating $V_T$ along the solution $z(t)$ of  system \eqref{sec22:nonlinear}  on the time interval $[0, T]$ we obtain
+\doc. 
+Продифференцировав $V_T$ вдоль траекториии $z(t)$ системы \eqref{sec22:nonlinear}  на интервале $[0, T]$, мы получим
 \begin{gather*}
     \frac{d}{dt}V_T(t,z) = \frac{d}{dt}z^{\top}Q_Tz = \dot{z}^{\top} Q_T z + z^{\top} \dot{Q_T} z + z^{\top} Q_T \dot{z} = \\
     =\left(z^{\top} A^{\top} + R^{\top}(z)- z^{\top} Q_T B B^{\top}\right) Q_T z + \\ +
@@ -175,7 +186,8 @@ Differentiating $V_T$ along the solution $z(t)$ of  system \eqref{sec22:nonlinea
     = R^{\top}(z)Q_T z + z^{\top} Q_T R(z) - z^{\top} (Q_T B B^{\top} Q_T) z = \\
     = 2 \left( R(z), Q_Tz \right) - z^{\top} Q_T B B^{\top} Q_T z 
 \end{gather*}
-While $z$ and $Q_T$  depend on $t$ here, for brevity, we omit the explicit dependence in the notation. Since $z^{\top} Q_T B B^{\top} Q_T z\geqslant 0$, it follows that
+Хотя здесь $z$ и $Q_T$ зависят от $t$, для краткости мы опускаем явную зависимость в обозначениях.  
+Из $z^{\top} Q_T B B^{\top} Q_T z\geqslant 0$, следует, что
 \begin{gather}\label{dvt_first}
     \frac{d}{dt}V_T(t,z) \leqslant 2 \left( R(z), Q_T z\right)=2(R(z),z)_{Q_T} \leqslant 2 \| R(z) \|_{Q_T} \| z \|_{Q_T},
 \end{gather}
@@ -376,19 +388,22 @@ we obtain $ z^{\top}(t_k) W^{-1}(T-t_k) z(t_k) \leqslant 4\delta^2/9$.
  As the $ W^{-1}(\tau_k) = Q(t_k)$, the inequality above contradicts the inequality \eqref{zqz_geq_del2}. This means, that $V_{T}(t,z(t))  =z^{\top}(t)Q(t)z(t) \to 0$  as $t \to T$.
 	\hfill $ \square $
 
-\subsubsection{Examples}
+\subsubsection{Примеры}
 
 
-In this section, we  present the results of numerical experiments that are intended to illustrate the application of the theorems \ref{th:tends_to_zero} and \ref{th:functional_error_estimate}. Here we deal with the Duffing oscillator, whose equations
+В этом разделе мы приводим результаты численных экспериментов, которые призваны проиллюстрировать применение теорем \ref{th:tends_to_zero} и \ref{th:functional_error_estimate}. 
+Здесь мы имеем дело с осциллятором Дуффинга, уравнения которого
 \begin{gather}\label{Duffing}
     \dot{z}_1 = z_2, \qquad \dot{z}_2 = -z_1 - 10z_1^3 + u,\qquad 0\leqslant t 
     \leqslant T
 \end{gather}
-describe the motion of a non-linear elastic spring under the influence of an external force $u$. The desired final state is $z_1(T) = z_2(T) = 0$. This state is also a state of equilibrium. 
+описывают движение нелинейной упругой пружины под действием внешней силы $u$. Желаемое конечное состояние - $z_1(T) = z_2(T) = 0$. 
+Это состояние также является состоянием равновесия. 
 
-Now let us check whether the right-hand side of the system \eqref{Duffing} has a property \ref{prop:Residial_term_bounds}. It is not difficult to see that it is fulfilled with $k = 10$, $r = 1$: for all $z_1$, $z_2$ such that $z_1^2+z_2^2 \leqslant 1$, $\|R(z)\| = 10|z_1|^3 < 10 (z_1^2+z_2^2)$.
+Теперь проверим, обладает ли правая часть системы \eqref{Duffing} свойством \ref{prop:Residial_term_bounds}. 
+Нетрудно видеть, что оно выполняется при $k = 10$, $r = 1$: для всех $z_1$, $z_2$ таких, что $z_1^2+z_2^2 \leqslant 1$, $\|R(z)\| = 10|z_1|^3 < 10 (z_1^2+z_2^2)$.
 
-Linearization of the system \eqref{Duffing} at the origin results in a system described by the following pair of matrices
+Линеаризация системы \eqref{Duffing} в начале координат приводит к системе, описываемой следующей парой матриц
 \begin{gather}\label{LinearDuffing}
 A = \begin{pmatrix} 0 & 1\\
                     -1 & 0
@@ -398,20 +413,21 @@ A = \begin{pmatrix} 0 & 1\\
     \end{pmatrix}.
 \end{gather}
 
-To select the function $\varphi(\tau)$, we have to write out the controllability Gramian's eigenvalues of the system \eqref{LinearDuffing}
-    $\nu(t) = \frac{t^3}{12} + O(t^5), \qquad \eta(t) = t - \frac{t^3}{12}+ O(t^5)$.
-These eigenvalues allow us to choose $\varphi(t) = \frac{4}{\sqrt{t}}$. In this case, $\Phi(T) = 8\sqrt{T}$ and $\overline{T}$ could be as large as one wants. We set $\beta = 0.5$ to have 
+Для выбора функции $\varphi(\tau)$ выпишем собственные значения грамиана управляемости системы \eqref{LinearDuffing} $\nu(t) = \frac{t^3}{12} + O(t^5), \qquad \eta(t) = t - \frac{t^3}{12}+ O(t^5)$.
+Эти собственные значения позволяют установить$\varphi(t) = \frac{4}{\sqrt{t}}$. 
+В этом случае, $\Phi(T) = 8\sqrt{T}$ и $\overline{T}$ могут быть сколь угодно большими. 
+Выберем $\beta = 0.5$ чтобы получить 
 \begin{gather*}
     \frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} =  \frac{\sqrt{30}\,t^{0.25}\,\sqrt{t^4-20\,t^2+240}}{240} \to 0  \mbox{ as } T \to 0.
 \end{gather*} 
 
-In the first series of experiments, the initial conditions $z_0 = (-0.0108; 0.2722)$ 
-are fixed, and only the length of the time interval $T$ is varied. The point $ z_0 
-$ is chosen such that it lies inside the null-controllable set of the system 
-\eqref{Duffing} at $T = 0.075$ and $\mu = 1$, that is, $z_0 \in G_{-}(0.075,1)$.
+В первой серии экспериментов начальные условия $z_0 = (-0,0108; 0,2722)$ 
+фиксированы, и изменяется только длина временного интервала $T$.
+Точки $z_0 $ выбираются так, чтобы они лежали внутри множества нуль-управляемости системы 
+\eqref{Duffing} при $T = 0.075$ и $\mu = 1$, то есть $z_0 \in G_{-}(0.075,1)$.
 
 \begin{table}
-\caption{Results of experiments with variable $T$}
+\caption{Результаты экспериментов с переменным $T$}
 \label{ExampleTable1}
 \begin{center}
 \begin{tabular}{c|c|c|c|c}
@@ -429,14 +445,14 @@ $ is chosen such that it lies inside the null-controllable set of the system
 \end{center}
 \end{table}
 
-Now, by changing $T$, we will calculate $Q_T(0)$ and simulate the motion of the system \eqref{Duffing}, closed by the linear feedback $u(t) = -B^{\top}Q_T(t)x$.
-The simulation results are shown in figure \ref{fig:series1} and in table 
-\ref{ExampleTable1}. The green areas denote the null-controllable set 
-$G_{-}(T,1)$ of the system \eqref{Duffing} at $T = \{0.075, 0.1, 0.25, 0.5, 0.75, 1.0,\\ 1.25, 1.5\}$, the solid lines show the trajectories of the system at the same $T$. 
-The symbol "$\blacklozenge$" represents the point $z_0$, and "$\bullet$" --- 
-the target point located at the origin of the coordinates. The lower left part of the drawing shows 
-the zoomed area around the origin, marked in red 
-rectangle. The heading of the table uses the notation 
+Теперь, изменяя $T$, будем вычислять $Q_T(0)$ и моделировать движение системы \eqref{Duffing}, замкнутой линейной обратной связью $u(t) = -B^{\top}Q_T(t)x$.
+Результаты моделирования показаны на рисунке \ref{fig:series1} и в таблице 
+\ref{ExampleTable1}.
+Зеленые области обозначают множество нуль- управляемости 
+$G_{-}(T,1)$ системы \eqref{Duffing} при $T = \{0.075, 0.1, 0.25, 0.5, 0.75, 1.0,\\\ 1.25, 1.5\}$, сплошные линии показывают траектории системы при тех же $T$. 
+Символ "$\blacklozenge$" обозначает точку $z_0$, а "$\bullet$" --- целевую точку, расположенную в начале координат.  
+В левой нижней части рисунка показана увеличенная область вокруг начала координат, отмеченная красным прямоугольником.
+В заголовке таблицы используется обозначение  
 \begin{gather*}
     \Delta_J = \frac{| J_0(T,z_0) - J(T,z_0) |}{J_0(T,z_0)}.
 \end{gather*}
@@ -445,20 +461,22 @@ rectangle. The heading of the table uses the notation
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/GusevMIOsipov_Duffing_fixed_z0.eps}
-    \caption{Results of experiments with variable $T$.}
+    \caption{Результаты экспериментов с переменным $T$.}
     \label{fig:series1}
 \end{figure}
 
-Despite the fact that condition $z_0 \in B(0,r_1(T))$ of Theorem \ref{th:tends_to_zero} is not satisfied with $r_1(T)$ used in the proof, the trajectories still tend to zero. This can be explained by a too strict choice of $r_1(T)$ and by the fact that Theorem \ref{th:tends_to_zero} only formulates sufficient conditions for trajectories to tend to zero. One can observe that in the case of fixed initial conditions, as $T$ decreases, the relative difference of the functionals $\Delta_J$ decreases, as follows from the estimate obtained in the theorem \ref{th:functional_error_estimate}.
+Несмотря на то, что условие $z_0 \in B(0,r_1(T))$ Теоремы \ref{th:tends_to_zero} не выполняется при $r_1(T)$, используемом в доказательстве, траектории по-прежнему стремятся к нулю. 
+Это можно объяснить слишком строгим выбором $r_1(T)$ и тем, что теорема \ref{th:tends_to_zero} формулирует только достаточные условия для того, чтобы траектории стремились к нулю. 
+Можно заметить, что в случае фиксированных начальных условий с уменьшением $T$ относительная разность функционалов $\Delta_J$ уменьшается, что следует из оценки, полученной в теореме \ref{th:functional_error_estimate}.
 
-Now we will change the conditions of the experiment quite a bit. We will change not only $T$ but also 
-the initial conditions $z_0$ so that, firstly, the equality 
-$z_0^{\top} Q_T(0) z_0 = 1$, and second, so that the point $z_0$ is inside 
-the corresponding null-controllable set $G_{-}(T,1)$.
+Теперь мы немного изменим условия эксперимента. 
+Мы изменим не только $T$, но и начальные условия $z_0$ так, чтобы, во-первых, выполнялось равенство 
+$z_0^{\top} Q_T(0) z_0 = 1$, а во-вторых, чтобы точка $z_0$ находилась внутри 
+соответствующего множества нуль-управляемости $G_{-}(T,1)$.
 
 
 \begin{table}
-\caption{Results of experiments with variable $T$ and $z_0$}
+\caption{Результаты экспериментов с изменением $T$ и $z_0$}
 \label{ExampleTable2}
 \begin{center}
 \begin{tabular}{c|c|c|c|c|c|c}
@@ -473,31 +491,36 @@ the corresponding null-controllable set $G_{-}(T,1)$.
 \end{center}
 \end{table} 
 
-The results of this series of experiments 
-are shown in figure \ref{fig:series2} and in table 
-\ref{ExampleTable2}. The notations are generally similar to figure \ref{fig:series1}: 
-The green areas denote the null-controllable sets $G_{-}(T,1)$ of the system 
-\eqref{Duffing} at $T = \{0.25, 0.5, 0.75, 1.0, 1.25, 1.5\}$, the dashed lines 
-lines show the boundaries of the null-controllable sets of the linearized system 
-\eqref{LinearDuffing}, the solid lines show the trajectories of the non-linear system 
-at different $T$. The symbols "$\blacklozenge$" in different colours represent 
-initial conditions $z_0$, and "$\bullet$" --- the target point located at 
-at the origin. 
+Результаты этой серии экспериментов 
+показаны на рисунке \ref{fig:series2} и в таблице 
+\ref{ExampleTable2}.
+Зелеными областями обозначены множества нуль-управляемости $G_{-}(T,1)$ системы 
+\eqref{Дуффинг} при $T = \{0.25, 0.5, 0.75, 1.0, 1.25, 1.5\}$, пунктирные линии 
+линии показывают границы множества нуль-управляемости линеаризованной системы 
+\eqref{LinearDuffing}, сплошные линии показывают траектории нелинейной системы 
+при различных $T$. 
+Символы "$\blacklozenge$" разных цветов обозначают 
+начальные условия $z_0$, а "$\bullet$" --- целевую точку, расположенную в 
+в начале координат. 
 
-The remark about not fulfilling the condition from the first part of the example is also relevant here. Table \ref{ExampleTable2} shows that the values of $\Delta_J$ also decrease with decreasing $T$, but the decrease is not monotonic. This appears to be due to the fact that not only $T$ but also $z_0$ is changing. 
+Замечание о невыполнении условия из первой части примера актуально и здесь. 
+Из таблицы \ref{ExampleTable2} видно, что значения $\Delta_J$ также уменьшаются с уменьшением $T$, но это уменьшение не монотонно. 
+По-видимому, это связано с тем, что меняется не только $T$, но и $z_0$.
 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/GusevMIOsipov_Duffing_variable_z0.eps}
-    \caption{Results of experiments with variable $T$ and $z_0$.}
+    \caption{Результаты экспериментов с изменением $T$ и $z_0$}
     \label{fig:series2}
 \end{figure}
 
-Also, in figure \ref{fig:series2} we can observe that the null-controllable sets of the nonlinear and linearized systems are close in form at $ T \leqslant 0.75$. 
+Также на рисунке \ref{fig:series2} видно, что множества нуль-управляемости нелинейной и линеаризованной систем близки по форме при $ T \leqslant 0.75$. 
 
-\subsubsection{Conclusion}
-It is shown that the linearization method may be applied
-to the problem of an optimal control synthesis on a finite time interval. The  linear feedback controller, designed for the linearized  system, also provides a local solution to synthesis problem  for the nonlinear system if the interval is sufficiently small.  This requires fairly strict restrictions on the   controllability Gramian asymptotics, which  coincide with sufficient conditions ensuring the asymptotic equivalence of reachable  (null-controllable) sets. Under these conditions the estimate for the relative error  values of an integral cost was given. We used an example of a nonlinear spring system under the influence of an external force to demonstrate the implementation of the described synthesis method. 
-
+\subsubsection{Заключение}
+Показано, что метод линеаризации может быть применен к задаче синтеза оптимального управления на конечном интервале времени. 
+Линейная обратная связь, расчитанная для линеаризованной системы, также обеспечивает локальное решение задачи синтеза для нелинейной системы, если промежуток времени достаточно мал.   
+Для этого требуются достаточно строгие ограничения на асимптотику грамиана управляемости, которые совпадают с достаточными условиями, обеспечивающими асимптотическую эквивалентность множеств достижимости (множеств нуль-управляемости). 
+При этих условиях получена оценка для относительных значений погрешности интегрального функционала. 
+Для демонстрации реализации описанного метода синтеза приведен пример нелинейной упругой системы под действием внешней силы. 
 
 \end{document}
