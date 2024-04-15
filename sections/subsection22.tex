@@ -189,94 +189,99 @@ $G_{-}(\tau,\mu)$ and $G_{-}^0(\tau,\mu)$ асимптотически экви�
 Хотя здесь $z$ и $Q_T$ зависят от $t$, для краткости мы опускаем явную зависимость в обозначениях.  
 Из $z^{\top} Q_T B B^{\top} Q_T z\geqslant 0$, следует, что
 \begin{gather}\label{dvt_first}
-    \frac{d}{dt}V_T(t,z) \leqslant 2 \left( R(z), Q_T z\right)=2(R(z),z)_{Q_T} \leqslant 2 \| R(z) \|_{Q_T} \| z \|_{Q_T},
+    \frac{d}{dt}V_T(t,z) \leqslant 2 \left( R(z), Q_T z\right)=2(R(z),z)_{Q_T} \leqslant 2 \| R(z) \|_{Q_T} \| z \|_{Q_T}.
 \end{gather}
-where for $x,y\in \mathbb R^n$ we denote $(x,y)_{Q_T}=x^\top Q_Ty$,  $\| x \|_{Q_T} =\sqrt{(x,x)_{Q_T}}$. As $z = z(t) \in B(0,r)$ then, taking into account that $\|R(z)\| \leqslant k\|z\|^2$  and applying lemma \ref{lem:zqz}, we find that 
+Здесь использованы обозначения $(x,y)_{Q_T}=x^\top Q_Ty$ и  $\| x \|_{Q_T} =\sqrt{(x,x)_{Q_T}}$ для $x,y\in \mathbb R^n$. 
+Так как $z = z(t) \in B(0,r)$ то, учитывая, что $\|R(z)\| \leqslant k\|z\|^2$  и применяя Лемму \ref{lem:zqz}, получаем 
 \begin{equation}\label{rqr_est}
      \| R(z) \|_{Q_T} \leqslant \frac{1}{\sqrt{\nu(T - t)}} \|R(z)\| \leqslant \frac{k}{\sqrt{\nu(T - t)}}\|z\|^2 \leqslant k \frac{\eta(T-t)}{\sqrt{\nu(T-t)}}V_T.
 \end{equation}
-Recall, that  $ Q_T^{-1}(t) = W(T-t) $.
-Substituting the  above estimate into \eqref{dvt_first} we obtain
+Напомним, что  $ Q_T^{-1}(t) = W(T-t) $.
+Подставляя полученную выше оценку в \eqref{dvt_first} приходим к
 \begin{equation}\label{dvt}
     \frac{d}{dt}V_T \leqslant 2 k \frac{\eta(T-t)}{\sqrt{\nu(T-t)}}V_T^{\frc{3}{2}} \leqslant 2k \varphi(T-t) V_T^{\frc{3}{2}}
 \end{equation}
-Let's introduce the system 
+Давайте введем систему
 \begin{equation}\label{comparison_system}
-    \dot{\psi} = 2k \varphi(T-t) \psi
+    \dot{\psi} = 2k \varphi(T-t) \psi,
 \end{equation}
-called  a comparison system for \eqref{dvt}.  Integrating this system we have
+которую мы будем использовать как систему сравнения для \eqref{dvt}. 
+Проинтегрировав эту систему, мы имеем
 \begin{gather*}
     d\psi^{-\frc{1}{2}} = -k \varphi(T-t) dt, \quad
     \psi^{-\frc{1}{2}}(t) = -k \int\limits_0^t \varphi(T-\zeta) d\zeta + C,
 \end{gather*}
-where
+где
 \begin{gather*}
     0 < \int\limits_0^t \varphi(T-\zeta) d\zeta \leqslant \int\limits_0^T \varphi(T-\zeta) d\zeta = 
     \int\limits_0^T \varphi(\tau) d\tau = \Phi(T) 
 \end{gather*}
-Choose  $C = 2k (\Phi(T))^{\beta}$ then $\psi^{-\frc{1}{2}} \geqslant 2k (\Phi(T))^{\beta} - k \Phi(T) = k (2\Phi^\beta - \Phi)\geqslant k\Phi^\beta $.
+Выберем $C = 2k (\Phi(T))^{\beta}$ then $\psi^{-\frc{1}{2}} \geqslant 2k (\Phi(T))^{\beta} - k \Phi(T) = k (2\Phi^\beta - \Phi)\geqslant k\Phi^\beta $.
 %% \\ \frac{2\Phi^\beta - \Phi}{\Phi} = 2 - \Phi^{1 - \beta} \to 2, \mbox{  while } \Phi \to 0   
-Therefore, $\psi(t) \leqslant \big(k^2\Phi^{2\beta}(T)\big)^{-1}$ for all $ 0 \leqslant t \leqslant T^* $ and $\psi(0) = \big(4k^2\Phi^{2\beta}(T)\big)^{-1} $.
-Thus, $V_T(0,z(0))\leqslant \psi(0)$ and the comparison theorem \cite{walter} applied to \eqref{dvt}, \eqref{comparison_system}
-implies inequality $V_T(t,z(t))\leqslant \psi(t)$. This completes the proof.
+Тогда $\psi(t) \leqslant \big(k^2\Phi^{2\beta}(T)\big)^{-1}$ для всех $ 0 \leqslant t \leqslant T^* $ и $\psi(0) = \big(4k^2\Phi^{2\beta}(T)\big)^{-1} $.
+Таким образом, $V_T(0,z(0))\leqslant \psi(0)$ и теорема сравнения \cite{walter}, примененная к \eqref{dvt}, \eqref{comparison_system}, означает, что выполняется неравенство $V_T(t,z(t))\leqslant \psi(t)$. 
+Это завершает доказательство.
 	\hfill $ \square $
 
 \begin{theorem}\label{th:tends_to_zero}
-    Let Assumptions \ref{asm1}, \ref{asm2} be fulfilled. Then there exists $ T_1 \leqslant T^*$ such that for any $ T \leqslant T_1$, there exist $ r_1(T)$ such that the trajectories of \eqref{nonlinear_closed} with $z(0) = z_0 \in B(0,r_1(T))$ tends to 0 as $t \to T$.
+    Пусть выполнены предположения \ref{asm1}, \ref{asm2}. Тогда существует такое $ T_1 \leqslant T^*$ что для всех $ T \leqslant T_1$, найдется такой $ r_1(T)$ что траектории системы \eqref{nonlinear_closed} выходящие из $z(0) = z_0 \in B(0,r_1(T))$ стремятся к $0$ при $t \to T$.
 \end{theorem}
 
-\doc 
-Since $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} $ tends to $0$ as $T$ tends to $0$, there exists $ T_1 \leqslant T^*$, such that the following inequality holds 
+\doc. 
+Поскольку $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} $ стремится к $0$ если $T$ стремится к $0$, то найдется такой $ T_1 \leqslant T^*$, что выполняется следующее неравенство
 $ \sqrt{\eta(T)}/(k\Phi^\beta(T))  \leqslant r/{2}, \; \forall T \in [0;T_1]$.
 
-Define $r_1(T)$ by the equality
+Определим $r_1(T)$ равенством
 \begin{gather}\label{r1}
     r_1(T) = \min \left\{ \frac{r}{4}, \frac{\sqrt{\nu(T)}}{2k\Phi^\beta(T)} \right\}.
 \end{gather}
 
 
-Here we need to prove that the entire trajectory $z(t)$ lies in the sphere $B(0,r)$ in order to use the estimate \eqref{z_est} from the previous section. According to the theorem, $z_0 \in B(0,r_1(T)) \subset B(0,r) $, since $r_1(T) < r$. Furthermore, the continuity of the trajectory $z(t)$ implies that for values of $t$ close to zero the condition $z(t) \in B(0,r) $ is also satisfied.  
+Здесь нам нужно доказать, что вся траектория $z(t)$ лежит в сфере $B(0,r)$, чтобы использовать оценку \eqref{z_est} из предыдущего раздела. 
+Из \eqref{r1} немедленно следует, что  $r_1(T) < r$.  Отсюда и из условий теоремы и  следует, что $z_0 \in B(0,r_1(T)) \subset B(0,r) $. 
+Более того, непрерывность траектории  $z(t)$ означает, что условие $z(t) \in B(0,r) $ выполняется и для близких к нулю значений  $t$.  
 
-Denote $t^* = \sup \left\{ t: z(t) \in B\left(0,0.5r\right)\right\} $.
-Suppose, that $t^* < T$, this means that  $z(t) \notin B(0,0.5r)$, for $t > t^*$. Thus, we can choose  a positive  $ \varepsilon$ such that $z(t) \in B(0,r)$ for $0 \leqslant t \leqslant t^* + \varepsilon$. 
+Обозначим $t^* = \sup \left\{ t: z(t) \in B\left(0,0.5r\right)\right\} $.
+Предположим, что $t^* < T$, это означает, что  $z(t) \notin B(0,0.5r)$, при $t > t^*$. Тогда, мы можем выбрать такое положительное  $ \varepsilon$, что включение $z(t) \in B(0,r)$ будет выполняться для всех $0 \leqslant t \leqslant t^* + \varepsilon$. 
 
-Since \eqref{r1}, for $0 \leqslant t \leqslant t^* + \varepsilon$ the following condition is met
+Из условия \eqref{r1} следует, что для $0 \leqslant t \leqslant t^* + \varepsilon$ будет выполняться следующее условие
 \begin{gather*}
     V_T(0,z_0) \leqslant \frac{1}{\nu(T)} \|z_0\|^2 \leqslant \frac{1}{\nu(T)} r_1^2 \leqslant \frac{1}{4k^2\Phi^{2\beta}(T)}.
 \end{gather*}
-From Lemma \ref{lem:vest} it follows that 
-$V_T(t, z(t))  \leqslant \psi(t) $ and
+Из Леммы \ref{lem:vest} вытекает, что  
+$V_T(t, z(t))  \leqslant \psi(t) $ и
 \begin{gather}\label{z_est}
     \|z(t)\|^2 \leqslant \eta(T-t) V_T(t,z(t)) \leqslant \eta(T-t) \psi(t) \leqslant  \frac{\eta(T)}{k^2\Phi^{2\beta}(T)},
 \end{gather}
-so, $\|z(t)\| \leqslant \frac{\sqrt{\eta(T)}}{k\Phi^\beta(T)} \leqslant r/2$  for $0\leqslant t \leqslant t^*+\varepsilon$,
-which is contrary to the definition of $t^*$.  Therefore, $z(t) \in B(0,r) $  and inequality  $V_T(t,z(t)\leqslant \psi(t)$ takes place  for all $t \in [0; T]$
+поэтому, $\|z(t)\| \leqslant \frac{\sqrt{\eta(T)}}{k\Phi^\beta(T)} \leqslant r/2$  для всех $0\leqslant t \leqslant t^*+\varepsilon$,
+что противоречит определению $t^*$.  
+А значит, включение $z(t) \in B(0,r) $  и неравенство  $V_T(t,z(t)\leqslant \psi(t)$ справедливы для всех $t \in [0; T]$.
         
-Conclusively,  $ \|z(t)\|^2 \leqslant \eta(T-t)\psi(t) \leqslant \eta(T-t)\big(k^2\Phi^{2\beta}(T)\big)^{-1} $,\\
-where $\eta(T-t) \to 0$ as $t \to T$, which means, that $\|z(t)\|$ also tends to zero.
+Наконец, $ \|z(t)\|^2 \leqslant \eta(T-t)\psi(t) \leqslant \eta(T-t)\big(k^2\Phi^{2\beta}(T)\big)^{-1} $, 
+где $\eta(T-t) \to 0$ при $t \to T$, а это означает, что $\|z(t)\|$ тоже стремится к нулю.
 	\hfill $ \square $
 \begin{corollary}%\label{cor:1}
-Let there exist $ l > 0$, $\tau_0 > 0$ and $\alpha > 0$ such that for any $0 < \tau \leqslant \tau_0 $
+Пусть существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$ что для всех $0 < \tau \leqslant \tau_0 $ выполняется
 		\begin{gather}\label{asymp}
 			\nu(\tau)\geqslant l\tau^{4-\alpha}.
 		\end{gather}
- Then  Assumptions \ref{asm1} and \ref{asm2} are satisfied
- and hence the assertion of Theorem \ref{th:tends_to_zero}
- is valid.
+ Тогда справедливы Предположения \ref{asm1} и \ref{asm2} и, следовательно, утверждение Теоремы \ref{th:tends_to_zero} является верным.
 \end{corollary}
-\doc
-Let us put $\overline{T}=\tau_0$. There esists $m>0$ such that $\eta(\tau)\leqslant m \tau$, $0 < \tau \leqslant\overline{T}$ (see,for example, \cite{GusevOsipov}). Hence, we have $
+\doc. 
+Положим $\overline{T}=\tau_0$. 
+Существует такое $m>0$, что $\eta(\tau)\leqslant m \tau$,  для $0 < \tau \leqslant\overline{T}$ (см,например, \cite{GusevOsipov}). 
+Следоватльно, имеем $
 \eta(\tau)/\sqrt{\nu(\tau)} \leqslant  
 	 ml^{-1/2}\tau^{-1+\alpha/2},$
-and we can take  $\varphi(\tau):=  
+и можем взять  $\varphi(\tau):=  
 	 ml^{-1/2}\tau^{-1+\alpha/2}$. 
-In this case 
-$\Phi(T)=2mT^{\alpha/2}/(l^{-1/2}\alpha)$,
-and Assumption \ref{asm1} is, clearly, fulfilled. Since 
+В этом случае 
+$\Phi(T)=2mT^{\alpha/2}/(l^{-1/2}\alpha)$, и Предположение \ref{asm1}, очевидно, выполняется. 
+Поскольку 
 $\sqrt{\eta(T)}/\Phi^\beta(T) \leqslant c_0T^{(1-\alpha\beta)/2},$
-where $c_0$ is a constant, to fulfill  Assumption \ref{asm2}, it is enough to take $\beta < 1/\alpha$.
+где $c_0$ --- константа, то для выполнения Предполжения  \ref{asm2} достаточно взять $\beta < 1/\alpha$.
 	\hfill $ \square $
-Note that inequality \eqref{asymp} coincides with the condition that implies  Theorem 1 from \cite{GusevOsipov}. 
+Заметим, что неравенство \eqref{asymp} совпадает с условием, из которого следует Теорема 1 из \cite{GusevOsipov}.
 
 \subsubsection{Error estimates for the value of cost functional}
 
