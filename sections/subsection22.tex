@@ -283,70 +283,85 @@ $\sqrt{\eta(T)}/\Phi^\beta(T) \leqslant c_0T^{(1-\alpha\beta)/2},$
 	\hfill $ \square $
 Заметим, что неравенство \eqref{asymp} совпадает с условием, из которого следует Теорема 1 из \cite{GusevOsipov}.
 
-\subsubsection{Error estimates for the value of cost functional}
+\subsubsection{Оценка погрешностей в значениях функционала}
 
-In this part  of the paper, we will focus on the value of integral functional \eqref{cost}, when applying linear feedback \eqref{linear_feedback} to a non-linear system \eqref{sec22:nonlinear}. Recall that in the linear case of system \eqref{sec22:linear}, this functional takes the minimum value on the control \eqref{linear_feedback}. We previously denote it by $J_0(T,z_0)$. The designation $J(T,z_0)$ we use for the value of the functional on the trajectory  of system \eqref{nonlinear_closed}.
- In order to obtain an  expression for $J(T,z_0)$ we need to integrate \eqref{dvt_first} from $0$ to $t$:
+В этой части работы мы сосредоточимся на значении интегрального функционала \eqref{cost} при применении линейной обратной связи \eqref{linear_feedback} к нелинейной системе \eqref{sec22:nonlinear}.
+Напомним, что в линейном случае системы \eqref{sec22:linear} этот функционал принимает минимальное значение на управлении \eqref{linear_feedback}.
+Ранее мы обозначили это значение через $J_0(T,z_0)$.
+А обозначение $J(T,z_0)$ мы используем для значения функционала на траектории системы \eqref{nonlinear_closed}. 
+Для того, чтобы получить выражение для $J(T,z_0)$ нам нужен проинтегрировать  \eqref{dvt_first} от $0$ до $t$:
 \begin{gather}\label{J}
 	z^{\top}(t) Q_T(t)z(t) = z_0^{\top} Q_T(0)z_0 - \int_{0}^{t} u^{\top}(\xi)  u(\xi) \, d\xi + 2\int_{0}^{t}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi,
 \end{gather}
-    where $ u(\xi) = -B^{\top} Q_T(\xi) z(\xi)$ is a control at time $\xi$. In the linear case, $R(z) \equiv 0$ and $z^{\top}(t) Q_T(t)z(t) \to 0 $ as $t \to T$ so
+    где $ u(\xi) = -B^{\top} Q_T(\xi) z(\xi)$ --- это управление в момент времени $\xi$. В линейном случае, $R(z) \equiv 0$ и $z^{\top}(t) Q_T(t)z(t) \to 0 $ при $t \to T$, так что
 \begin{gather*}
     J_0(T,z_0) = z_0^{\top} Q_T(0)z_0 = \int_{0}^{t} u^{\top}(\xi)  u(\xi) \, d\xi.
 \end{gather*}
-Further, we are going to investigate the behaviour of the quadratic form $z^{\top}(t) Q_T(t)z(t) $ and the residual term in \eqref{J}, which we denote by
+Далее мы собираемся исследовать поведение квадратичной формы $z^{\top}(t) Q_T(t)z(t) $ и остаточного члена в \eqref{J}, который мы обозначим через
 \begin{gather*}
 			\gamma (t,z_0) = 
 		 2\int_{0}^{t}  R^{\top}(z(\xi,z_0))Q(\xi) z(\xi,z_0) d\xi.
 \end{gather*}
 
 \begin{theorem}\label{th:functional_error_estimate}
-  Let Assumption \ref{asm1} be fulfilled. Let $x(t)$ be a trajectory of system \eqref{nonlinear_closed}  such that $x(t)\in B(0,r)$, $0\leqslant t  \leqslant \tilde{T} \leqslant \overline{T} $ and $V_{\tilde{T}}(t,x(t))\to 0$ as $t\to \tilde{T}$. Then there exists $T_2 \leqslant \tilde{T}$ such that for all $0 < T < T_2 $ the following estimate holds
+  Пусть выполено предположение \ref{asm1}. Пусть $x(t)$ --- такая траектория системы  \eqref{nonlinear_closed}, что $x(t)\in B(0,r)$, при $0\leqslant t  \leqslant \tilde{T} \leqslant \overline{T} $ и $V_{\tilde{T}}(t,x(t))\to 0$ при $t\to \tilde{T}$.  
+  Тогда существует такое $T_2 \leqslant \tilde{T}$ что для всех  $0 < T < T_2 $ выполняется следующая оценка
    \begin{gather} \label{est}
 	 \left| \frac{	J(T) - J_0(T)}{J_0(T)}\right| \leqslant 16k\Phi({T})J^{1/2}_0(T).
     \end{gather}
-    Here $J(T)=J(T,x(\tilde{T}-T))$, $J_0(T)=J_0(T,x(\tilde{T}-T))$ are the values of functional $I(T,u(\cdot))$ on the trajectories of nonlinear and linearized systems accordingly.
+    Здесь $J(T)=J(T,x(\tilde{T}-T))$, $J_0(T)=J_0(T,x(\tilde{T}-T))$ --- значения функционала $I(T,u(\cdot))$ на траекториях нелинейной и линеаризованной системы соответственно.
 \end{theorem}
-\doc
-Let $T\leqslant \tilde{T}$. Denote by $z(t)$ the trajectory  of system \eqref{nonlinear_closed} with initial state $z(0)=x(\tilde{T}-T)$ on the interval $[0,T)$. Then we have 
+\doc. 
+Пусть $T\leqslant \tilde{T}$. Через $z(t)$ обозначим траекторию системы  \eqref{nonlinear_closed} с начальным условием $z(0)=x(\tilde{T}-T)$ и определенную на интервале $[0,T)$. 
+Тогда мы имеем 
 \begin{gather*}
 Q_T(t)=W^{-1}(T-t)=W^{-1}(\tilde{T}-(\tilde{T}-T+t))=Q_{\tilde{T}}(\tilde{T}-T+t) = Q(\tau), \\ V_T(t,z(t))=z^\top(t)Q_T(t)z(t)=V_{\tilde{T}}(\tau,x(\tau)),
 \end{gather*}
-where $\tau=\tilde{T}-T+t$. $V_T(0,z(0))=V_{\tilde{T}}(\tilde{T}-T, x(\tilde{T}-T))$, $V_{\tilde{T}}(t,x(t))\to 0$ as $t\to \tilde{T}$. Since  $V_{\tilde{T}}(t,x(t))\to 0$,  $t\to \tilde{T}$ we have that $V_T(0,z(0))=J_0(T)$  tends to zero as $T\to 0$.
-Clearly,  $V_T(t,z(t))=z^\top(t)Q_T(t)z(t)=V_{\tilde{T}}(\tau,x(\tau))$ tends to zero as $t\to T$.
-Using this, let us rewrite \eqref{J} 
+где $\tau=\tilde{T}-T+t$. 
+$V_T(0,z(0))=V_{\tilde{T}}(\tilde{T}-T, x(\tilde{T}-T))$, $V_{\tilde{T}}(t,x(t))\to 0$ при $t\to \tilde{T}$. 
+Поскольку  $V_{\tilde{T}}(t,x(t))\to 0$,  $t\to \tilde{T}$ мы получаем, что $V_T(0,z(0))=J_0(T)$  стремится к нулю при $T\to 0$.
+Ясно, что  $V_T(t,z(t))=z^\top(t)Q_T(t)z(t)=V_{\tilde{T}}(\tau,x(\tau))$ стремится к нулю при $t\to T$.
+Используя это, перепишем \eqref{J} 
 \begin{gather}\label{J1}
 	 \int_{0}^{T} u^{\top}(\xi)  u(\xi) \, d\xi - z_0^{\top} Q_T(0)z_0= 2\int_{0}^{T}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi=\gamma(T,z(0)),
 \end{gather}
-and take a closer look at the integrand $\left( R(z), Q_T z\right)=(R(z),z)_{Q_T} \leqslant \| R(z) \|_{Q_T} \| z \|_{Q_T}$.
-Repeating the steps \eqref{rqr_est},\eqref{dvt} from the proof of the lemma \ref{lem:vest}, we obtain an upper bound
+и изучим подробнее подынтегральное выражения $\left( R(z), Q_T z\right)=(R(z),z)_{Q_T} \leqslant \| R(z) \|_{Q_T} \| z \|_{Q_T}$.
+Повторяя шаги  \eqref{rqr_est}, \eqref{dvt} из доказательства леммы  \ref{lem:vest}, приходим к следующей оценке сверху
 \begin{gather}\label{rqz}
     2 \left( R(z), Q_T z\right) \leqslant 2 k \frac{\eta(T-t)}{\sqrt{\nu(T-t)}}V_T^{\frc{3}{2}} \leqslant 2k \varphi(T-t) V_T^{\frc{3}{2}},
 \end{gather}
-which is identical to \eqref{dvt}. However, further steps with the comparison system are slightly modified here. Integrating the comparison system $\dot{\psi} = 2k \varphi(T-t) \psi$ we have
+которая аналогична \eqref{dvt}. 
+Однако дальнейшие действия с системой сравнения здесь несколько изменены. 
+Интегрируя систему сравнения $\dot{\psi} = 2k \varphi(T-t)\psi$, имеем
 \begin{gather*}
     d\psi^{-\frc{1}{2}} = -k \varphi(T-t) dt, \quad
     \psi^{-\frc{1}{2}}(t) = -k \int\limits_0^t \varphi(T-\zeta) d\zeta + C.
 \end{gather*}
-Since $V_T(0,z(0))\to 0$ and $\Phi(T) \to 0$ as $T\to 0$ there exists  $T_2$ such that for $T\leqslant T_2$ we have $\Phi(T) \sqrt{V_T(0,z(0))}  \leqslant 1/2k$, this implies the inequality $$\frac{1}{2\sqrt{V_T(0,z(0))}} \geqslant k\Phi(T).$$  
-Let us take  $C = 1/\sqrt{V_T(0,z(0))}$, then   
-$$\psi^{-\frc{1}{2}}(t) = -k \int\limits_0^t \varphi(T-\zeta) d\zeta + C\geqslant -k\Phi(T)+C\geqslant \frac{1}{2\sqrt{V_T(0,z(0))}}, $$
-hence $\psi(t) \leqslant 4V_T(0,z(0))=4J_0(T)$. Since $\psi(0)=V_T(0,z(0))$, by the comparison theorem we obtain
-that $V_T(t,z(t))\leqslant \psi(t) \leqslant 4J_0(T)$, for $\quad 0\leqslant t <T$.
+Поскольку $V_T(0,z(0))\to 0$ и $\Phi(T) \to 0$ при $T\to 0$, то найдется такое   $T_2$, что при всех $T\leqslant T_2$ выполняется неравенство $\Phi(T) \sqrt{V_T(0,z(0))}  \leqslant 1/2k$. Переписав это неравенство, получаем
+\begin{gather*}
+	\frac{1}{2\sqrt{V_T(0,z(0))}} \geqslant k\Phi(T).
+\end{gather*}  
+Выберем $C = 1/\sqrt{V_T(0,z(0))}$, тогда
+ \begin{gather*}
+\psi^{-\frc{1}{2}}(t) = -k \int\limits_0^t \varphi(T-\zeta) d\zeta + C\geqslant -k\Phi(T)+C\geqslant \frac{1}{2\sqrt{V_T(0,z(0))}}, 
+\end{gather*}  
+таким образом, $\psi(t) \leqslant 4V_T(0,z(0))=4J_0(T)$. 
+Поскольку $\psi(0)=V_T(0,z(0))$, из теоремы сравнения мы получаем, что $V_T(t,z(t))\leqslant \psi(t) \leqslant 4J_0(T)$, при $ 0\leqslant t <T$.
 
-Substituting this estimate into \eqref{rqz} we get  $\left( R(z), Q_T z\right) \leqslant k \varphi(T-t) \left( 4J_0(T) \right) ^{\frc{3}{2}} $.
-Now we only need to integrate this expression to use it in \eqref{J1},
+Подставляя эту оценку в  \eqref{rqz} мы получаем  $\left( R(z), Q_T z\right) \leqslant k \varphi(T-t) \left( 4J_0(T) \right) ^{\frc{3}{2}} $.
+Теперь нам остается только проинтегрировать это выражение и использовать его в  \eqref{J1},
 \begin{gather*}
 J(T)-J_0(T)=		\gamma (T,z(0)) = 
-		 2\int_{0}^{T}  R^{\top}(z(\xi))Q_T(\xi) z(\xi) d\xi\leqslant 2k \Phi(T) (4J_0(T))^{3/2}
+		 2\int_{0}^{T}  R^{\top}(z(\xi))Q_T(\xi) z(\xi) d\xi\leqslant 2k \Phi(T) (4J_0(T))^{3/2}, 
 \end{gather*}
-that implies \eqref{est}.
-	\hfill $ \square $
-Since under the assumptions of Theorem \ref{th:functional_error_estimate}  $\Phi(T)$ and $J_0(T)$ tends to zero, the right hand side of \eqref{est} also tends to zero as $T\to 0$.
+откуда и следует \eqref{est}.
+	\hfill $ \square $ \\
+Так как при предположениях Теоремы \ref{th:functional_error_estimate}  $\Phi(T)$ и $J_0(T)$ стремятся к нулю, то правая часть  \eqref{est} тоже стремится к нулю при $T\to 0$.
 
-In theorem \ref{th:tends_to_zero} we prove  that the trajectory $z(t)$  of system\eqref{nonlinear_closed} tends to zero as $t\to T$ and $V_{T}(t,z(t))$ is bounded in the neighborhood of $T$. The following theorem gives conditions under which  $V_{T}(t,z(t))\to 0$ as $t\to T$.
+В теореме  \ref{th:tends_to_zero} мы доказали, что траектория $z(t)$  системы \eqref{nonlinear_closed} стремится к нулю при $t\to T$ и $V_{T}(t,z(t))$ --- ограничена в окрестности $T$. 
+Следующая теорема дает условия, при которых $V_{T}(t,z(t))\to 0$ as $t\to T$.
 \begin{theorem}
-    Let the inequality \eqref{gramas} holds. Let $T \leqslant \overline{T}$ and the trajectory $z(t)$  of system\eqref{nonlinear_closed} tends to zero as $t\to T$. Then  $V_{T}(t,z(t))  =z^{\top}(t)Q(t)z(t) \to 0$  as $t \to T$.
+    Пусть выполнено неравенство \eqref{gramas}. Пусть $T \leqslant \overline{T}$ и траектория  $z(t)$ системы \eqref{nonlinear_closed} стремится к нулю при $t\to T$. Тогда  $V_{T}(t,z(t))  =z^{\top}(t)Q(t)z(t) \to 0$  при $t \to T$.
 \end{theorem}
 %\textbf{An alternative formulation of theorem 3}. {\it Let all the following statements be true.
 %\begin{enumerate}
@@ -357,10 +372,11 @@ In theorem \ref{th:tends_to_zero} we prove  that the trajectory $z(t)$  of syste
     %\item $z(t) \in B(0,r) $ for all $t \in (0,T] $.
      %\item The smallest eigenvalue of the Gramian of system \eqref{linear_} satisfy the inequality \eqref{gramas} for all $\tau \in (0, %\tau_0] $, where $\tau_0$ is a positive number.
 %\end{enumerate} Then $V_{T}(t,z(t)) = z^{\top}(t)Q_T(t)z(t) $ tends to $ 0$ as $t $ tends to $T$.} 
-\doc
-    Note that the function $ u(\xi) = -B^{\top} Q(\xi) z(\xi)$ is continuous at $0 \leqslant \xi <T$. 
+\doc. 
+    Заметим, что функция $ u(\xi) = -B^{\top} Q(\xi) z(\xi)$ --- непрерывна на интервале $0 \leqslant \xi <T$. 
 
-    Also note that the function $V_{T}(t,z(t))$ can only be infinite in the neighborhood of $t = T$. However, taking into account that the fulfillment of the inequality \eqref{gramas} implies the fulfillment of the assumption, one can see that it follows from  $z(t) \to 0 $ that the conditions of lemma \ref{lem:vest} will be met for $t$ from the neighborhood of $T$.
+    Also note that the function $V_{T}(t,z(t))$ can only be infinite in the neighborhood of $t = T$. 
+    However, taking into account that the fulfillment of the inequality \eqref{gramas} implies the fulfillment of the assumption, one can see that it follows from  $z(t) \to 0 $ that the conditions of lemma \ref{lem:vest} will be met for $t$ from the neighborhood of $T$.
     Hence, $V_{T}(t,z(t))$ is bounded along the whole trajectory $z(t)$. It is now clear from relation \eqref{J} that the integral cost $I(t,u) = \int_{0}^{t} u^{\top}(\xi)u(\xi) d\xi$  is uniformly bounded with respect to $t\in [0,T]$. Hence, $u(\cdot)$ belongs to the space $\mathbb L_2[0,T]$. 
     
    Let us assume, that the form $z^{\top}(t)Q_T(t)z(t) $ doesn't tends to zero as $t$ tend to $T$.
