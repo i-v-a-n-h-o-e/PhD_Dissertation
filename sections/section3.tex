@@ -3,21 +3,19 @@
 \clearpage
 \section{Выпуклость множеств достижимости квазилинейных систем с интегральными ограничениями на управление}
 В этой главе исследуется выпуклость множеств достижимости для квазилинейных систем с интегральными ограничениями.  
-Drawing inspiration from B.\,T.~Polyak's work on small Hilbert ball image under nonlinear mappings, the study extends the analysis to scenarios where a small nonlinearity exists on the system's right-hand side. 
+Опираясь на работы Б.\,Т.~Поляка \cite{Polyak2001,Polyak2004} по изображению малого гильбертова шара при нелинейных отображениях, исследование распространяет анализ на сценарии, когда в правой части системы существует малая нелинейность. 
 Если малый параметр принимает нулевое значение, то квазилинейная система становится линейной, а ее множество достижимости выпуклым. 
-The investigation reveals that to maintain convexity of reachable sets of these systems, the nonlinear mapping's derivative must be Lipschitz continuous. 
-Доказательство следует схеме Поляка. 
-Структура раздела включает в себя The paper's structure encompasses problem formulation, exploration of parameter linear mapping and image transformation, application to quasilinear control systems, and concludes with illustrative examples. 
+Выясняется, что для сохранения выпуклости множества достижимости этих систем производная нелинейного отображения должна быть непрерывной по Липшицу. Доказательство следует схеме Поляка.  
 
 Глава организована следующим образом. 
 Постановка задачи и некоторые предварительные замечания составляют первый раздел. 
 Второй раздел содержит исследование нелинейного отображения, зависящего от параметра.  
-В следующем разделе, мы применям результаты предыдущего раздела к отображению, порождаемому квазилинейной системой. 
-Наконец, в третьем разделе, мы приводим два illustrative примера.
+В следующем разделе, мы применяем результаты предыдущего раздела к отображению, порождаемому квазилинейной системой. 
+Наконец, в третьем разделе, мы приводим два иллюстративных примера.
 
 \subsection{Постановка задачи и предварительные замечания}
 
-\todo[inline]{Найти место для следующего абзаца в начале.}
+\todo[inline]{Найти место для следующего абзаца в начале работы.}
 Further we use the following notation. By $A^{\top}$ we denote the transpose of a real matrix $A$, $I$ is an identity matrix, $0$ stands for a zero vector or a zero matrix of appropriate dimension. 
 %For $x,\ y \in \mathbb{R}^n $ let $(x,y)=x^{\top}y$ denotes the inner product of two vectors, $x = (x_1,\dots,x_n)$, $\|x\| = (x,x)^{\frac{1}{2}}$ be the Euclidean norm, and $ B_X(\overline{x},r)=\{x\in\mathbb{R}^n : \|x - \overline{x}\|\leqslant r\}$ is the ball in Hilbert space $X$ with radius $r>0$ centered at $x$.
 For a real $n \times n$ matrix $A$ a spectral matrix norm induced by the Euclidean vector norm is denoted as $\|A\|$.
@@ -230,7 +228,6 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \hfill$\square$\\[1ex]%--- P r o o f.
 
 \subsection{О свойства решений квазилинейных систем}
-\setcounter{equation}{0}
 
 
 В этом разделе исследуются решения \eqref{sec3:nonlinear} для того, чтобы обосновать применение результатов предыдущего раздела, а именно Теоремы \ref{th:ImageConvexity}. 
@@ -581,7 +578,6 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \end{zam}
 
 \subsection{Примеры}
-\setcounter{equation}{0}
 
 В этом разделе представлены результаты численных экспериментов, которые призваны проиллюстрировать применение теорем \ref{th:ImageConvexity} и \ref{th:ReachableSetsConvexity}. 
 
