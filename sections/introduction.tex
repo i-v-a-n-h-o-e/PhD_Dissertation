@@ -3,19 +3,23 @@
 \clearpage
 \section*{Введение}
 \addcontentsline{toc}{section}{Введение}
-\textbf{Актуальность темы.} В теории управления хорошо развиты методы, разработанные для линейных систем. В ряде задач оптимального управления для линейных систем удается получать аналитические решения. В случае же нелинейных систем, аналитическое решение является скорее исключением, чем правилом. Поэтому в задачах управления нелинейными системами часто применяются решения, найденные в линеаризованной постановке. Иногда такой подход может быть строго обоснован. Например, согласно теореме об устойчивости по первому приближению(см., например \cite{Barbashin_book}), из устойчивости линеаризации в окрестности положения равнвесия следует локальная устойчивость исходной нелинейной системы. При решении задачи стабилизации это позволяет приближенно заменять нелинейную систему ее линеаризацией в окрестности положения равновесия. И если линеаризованная система окажется вполне управляемой (стабилизируемой), то линейная обратная связь, стабилизирующая эту систему, будет локально (в некоторой окрестности положения равновесия) стабилизировать и нелинейную систему\cite{Kras_add, Stab_lectures, Khalil, Polyak_book}.  Однако зачастую, метод линеаризации применяется без должного обоснования, так как соответсвующие условия либо сложны для проверки, либо вообще отсутствуют.
+\textbf{Актуальность темы.} В теории управления хорошо развиты методы, разработанные для линейных систем. 
+В ряде задач оптимального управления для линейных систем удается получать аналитические решения. 
+В случае же нелинейных систем, аналитическое решение является скорее исключением, чем правилом. 
+Поэтому в задачах управления нелинейными системами часто применяются решения, найденные в линеаризованной постановке. 
+Иногда такой подход может быть строго обоснован. 
+Например, согласно теореме об устойчивости по первому приближению(см., например \cite{Barbashin_book}), из устойчивости линеаризации в окрестности положения равновесия следует локальная устойчивость исходной нелинейной системы. 
+При решении задачи стабилизации это позволяет приближенно заменять нелинейную систему ее линеаризацией в окрестности положения равновесия. 
+И если линеаризованная система окажется вполне управляемой (стабилизируемой), то линейная обратная связь, стабилизирующая эту систему, будет локально (в некоторой окрестности положения равновесия) стабилизировать и нелинейную систему\cite{Kras_add, Stab_lectures, Khalil, Polyak_book}.  Однако зачастую, метод линеаризации применяется без должного обоснования, так как соответствующие условия либо сложны для проверки, либо вообще отсутствуют.
 
 Данная работа посвящена изучению свойств множеств достижимости для аффинно-управляемых систем, описываемых обыкновенными дифференциальными уравнениями, с интегральными ограничениями на управление. 
 
 \textbf{Структура работы.}  \textbf{Глава 1. }В первой главе показывается, как на основе условия выпуклости нелинейного шара в гильбертовом пространстве получить условия выпуклости множеств достижимости рассматриваемых нелинейных систем на малых интервалах времени. Проверка этих условий требует изучения асимптотики наименьшего собственного числа грамиана управляемости линеаризованной системы. Один из возможных способов проверки асимптотики собственных чисел грамиана предлагается в последнем разделе этой главы. Там же приводится доказательство выпуклости множеств достижимости на малых интервалах времени для некоторых классов нелинейных систем второго порядка. 
 
 \textbf{Глава 2. }
-Вторая главая состоит из двух разделов, связанных общим понятием - асимптотической эквивалентностью множеств достижимости. 
+Вторая глава состоит из двух разделов, связанных общим понятием --- асимптотической эквивалентностью множеств достижимости. 
 
-В первом разделе этой главы исследуются множества достижимости нелинейных систем по выходу на малых интервалах времени. Используя понятие асимптотической эквивалентности\cite{Ovs}, основанное на расстоянии Банаха-Мазура, доказывается близость множеств достижимости нелинейных систем по выходу соответсвующим множествам достижимости линеаризованных систем на малых интервалах времени. 
-
-В следующем разделе выводятся условия применимости метода линеаризации в задаче локального синтеза. Эти условия совпадают с условием асимптотической эквивиалентности множеств достижимости нелинейной и линеаризованной систем. 
-
+В первом разделе этой главы исследуются множества достижимости нелинейных систем по выходу на малых интервалах времени. Используя понятие асимптотической эквивалентности\cite{Ovs}, основанное на расстоянии Банаха-Мазура, доказывается близость множеств достижимости нелинейных систем по выходу соответствующим множествам достижимости линеаризованных систем на малых интервалах времени. 
 
 В следующем разделе предлагается метод решения задачи локального синтеза для аффинных по управлению систем на малом интервале времени.  
 Этот метод основан на линеаризации исходной нелинейной системы в окрестности точки равновесия. 
@@ -27,26 +31,25 @@
 Линейное управление с обратной связью, найденное для линеаризованной системы, используется в качестве входа исходной нелинейной системы. 
 Для линейной системы управления оптимальная обратная связь является линейной по состоянию, а коэффициент усиления неограниченно возрастает при приближении к конечному моменту времени. 
 Последнее затрудняет обоснование применимости метода линеаризации. 
-The restrictions on  asymptotics  of the controllability Gramian of the linearized system are needed in this case. 
-Unlike, for example, the stabilization problem for which controllability (stabilizability) of the linearized system implies stabilizability of the nonlinear system. 
-These restrictions coincide with the  asymptotic equivalence conditions for reachable  (null-controllable) sets of nonlinear and linearized systems. 
-In \cite{GusevOsipov} it was shown that, under these conditions the control in the form of a linear state feedback takes all trajectories starting from some neighborhood of zero to zero, if the control time interval is sufficiently small. 
+В этом случае необходимы ограничения на асимптотику грамиана управляемости линеаризованной системы. 
+В отличие, например, от задачи стабилизации, в которой управляемость (стабилизируемость) линеаризованной системы приводит к стабилизируемости нелинейной системы. 
+Эти ограничения совпадают с условиями асимптотической эквивалентности для множеств достижимости (множеств нуль-управляемости) нелинейных и линеаризованных систем. 
+В работе \cite{GusevOsipov} было показано, что при этих условиях управление в виде линейной обратной связи по состоянию приводит все траектории, начиная с некоторой окрестности нуля, к нулю, если интервал времени управления достаточно мал. 
 
-In this article, we generalize the main result of \cite{GusevOsipov}. 
-The proposed sufficient conditions have the form of an inequality for some improper integral. 
-They depend on the smallest and the largest eigenvalues of the controllability Gramian of the linearized system and contain a scalar parameter. 
-The choice of this parameter makes it possible to cover a wider class of control systems, the conditions from \cite{GusevOsipov} are obtained here as a special case for a certain value of the parameter.
+В этой части второй главы приведен обобщенный результат \cite{GusevOsipov}, которые был опубликован в \cite{GusevOsipovMotor}. 
+Предлагаемое достаточное условие имеет форму неравенства с некоторым несобственным интегралом. 
+Этот интеграл зависит от наименьшего и наибольшего собственного числа грамиана управляемости линеаризованной системы, которая содержит малый параметр. 
+Выбор параметров позволяет охватить более широкий класс систем управления, а условия из \cite{GusevOsipov} получены здесь как частный случай для определенного значения параметра.
 
-For a linearized system, the considered linear controller delivers the minimum value to the integral functional for any initial state.
-For a nonlinear system, this is not the case, so it is important to obtain an estimate of the resulting error. 
-This was done in the second part of the article, where  the relation between the values of the integral cost for the trajectories of the nonlinear and linearized systems was studied and  the estimate for the relative error was given. 
-
+Для линеаризованной системы рассматриваемый линейный регулятор обеспечивает минимальное значение интегрального функционала для любого начального состояния. 
+Для нелинейной системы это не так, поэтому важно получить оценку "неоптимальности" функционала. 
+Это и было сделано во заключительном разделе второй главы, где была исследована связь между значениями интегрального функционала для траекторий нелинейной и линеаризованной систем и дана оценка относительной погрешности. 
 
 \textbf{Глава 3. }
 Предметом исследования в этой главе являются множества достижимости квазилинейных систем с интегрально-квадратичными ограничениями.
 
-Как и другие главы, исследование продолжает работы Б.\,Т.~Поляка\cite{Polyak2001}, в которых были получены достаточные условия выпуклости нелинейного отображения малого гильбертова шара.
-%These conditions were further applied to problems in control theory, demonstrating that the reachable set of a nonlinear system exhibits convexity given a sufficient small control resource, provided that the linearized system is controllable. A series of papers \cite{GusOsSteklov, GusevUMJ, Osipov, GusOsUdmurt} used the convexity conditions of the small ball mapping to investigate the reachable sets of nonlinear systems under integral constraints over small time intervals. 
+Как и другие главы, третья глава продолжает работы Б.\,Т.~Поляка\cite{Polyak2001}, в которых были получены достаточные условия выпуклости нелинейного отображения малого гильбертова шара.
+%These conditions were further applied to problems in control theory, demonstrating that the reachable set of a nonlinear system exhibits convexity given a sufficient small control resource, provided that the linearized system is controllable. A series of papers \cite{GusOsSteklov, GusevUMJ, Osipov, GusevOsipov} used the convexity conditions of the small ball mapping to investigate the reachable sets of nonlinear systems under integral constraints over small time intervals. 
 % In this case, it is important to note that the controllability of the linearized system alone does not guarantee convexity of the reachable sets for the nonlinear system. 
 % Additional conditions related to the asymptotic behavior of the eigenvalues of the controllability Gramian of the linearized system need to be imposed.  
 % Once these conditions are fulfilled, the reachable sets of the nonlinear system not only exhibit convexity but are also asymptotically equivalent to the reachable sets of the linearized system.
@@ -55,17 +58,17 @@ This was done in the second part of the article, where  the relation between the
 В этой главе обсуждается еще один, третий вариант задачи о выпуклости множеств достижимости нелинейных систем с малым параметром, а именно, с малой нелинейностью в правой части. 
 
 Системы с малой нелинейностью в правой части обычно называют квазилинейными. 
-The study of such systems in control theory dates back to the 1960s \cite{Subbotin, Kiselev, Kras_book}.
-Э.\,Г.~Альбрех solved several problems concerning quasilinear systems \cite{Albrecht3}, including the optimal motion problem \cite{Albrecht1} and the game problem of quasilinear objects rendezvous\cite{Albrecht2}.
-Control problems for quasilinear systems are also addressed in the following works \cite{Dauer, Kremlev, KalininLavrinovich2018, Gabasov}.
+Изучение таких систем в теории управления началось еще в 1960-х годах \cite{Subbotin, Kiselev, Kras_book}.
+Э.\,Г.~Альбрехт решил несколько задач для квазилинейных систем \cite{Albrecht3}, в том числе задачу оптимального управления движением \cite{Albrecht1} и игровую задачу о встрече движений \cite{Albrecht2}.
+Задачи управления квазилинейными системами также рассматриваются в следующих работах \cite{Dauer, Kremlev, KalininLavrinovich2018, Gabasov}.
 В современных приложениях теории управления, квазилинейные системы возникают при использовании линеаризации обратной связью и стохастистической линеаризации \cite{Ching, Gui}.
 
 В этой главе изучается выпуклость множеств достижимости квазилинейных систем с интегральными ограничениями. 
-Как и в работах \cite{Polyak2001, Polyak2004, GusOsSteklov, GusevUMJ, Osipov, GusOsUdmurt}, \todo[inline]{Ссылаться ли здесь на статьи или на главы?} исследование сводится к анализу нелинейного отображения из пространства управлений в пространство концов траекторий, порожденных этими управлениями.
+Как и в работах \cite{Polyak2001, Polyak2004, GusOsSteklov, GusevUMJ, Osipov, GusevOsipov}, \todo[inline]{Ссылаться ли здесь на статьи или на главы?} исследование сводится к анализу нелинейного отображения из пространства управлений в пространство концов траекторий, порожденных этими управлениями.
 В таком случае, множество достижимости --- это образ шара при применении к его точкам этого отображения. 
 Основной особенностью отображения, определенного решением квазилинейной системы является тот факт, что при нулевом значении параметра, это отображение становится линейным по управлению.
-For the image of the ball to preserve its convexity for small values of the small parameter, it is necessary for the nonlinear part of the mapping to have a Lipschitz  continuous derivative. 
-The proof scheme for this statement is quite similar to the proof scheme for the main theorem in \cite{Polyak2001}.
+Чтобы образ шара сохранял свою выпуклость при малых значениях малого параметра, необходимо, чтобы производная нелинейной части отображения была липшицевой. 
+Схема доказательства этого утверждения похожа на схему доказательства основной теоремы в \cite{Polyak2001}.
 
 \textbf{Цель работы.} Изучение поведения множеств достижимости нелинейных систем с интегральными ограничениями на малых интервалах времени и исследование их взаимосвязи с множествами достижимости линеаризованных систем.
 	
@@ -86,8 +89,9 @@ The proof scheme for this statement is quite similar to the proof scheme for the
 	\item Теория оптимального управления и приложения (OCTA 2022),
 Екатеринбург, 27 июня – 1 июля 2022 г.
 	\item 7-я Международная школа-семинар  «Нелинейный анализ и экстремальные задачи» (NLA-2022), 15-22 июля, Иркутск.
-	\item MOTOR \todo[inline]{расписать }
-	\item ВСПУ  \todo[inline]{расписать }
+	\item 22nd INTERNATIONAL CONFERENCE MATHEMATICAL OPTIMIZATION THEORY AND OPERATIONS RESEARCH
+	(MOTOR 2023) DEDICATED TO 90th ANNIVERSARY OF ACADEMICIAN I.I.EREMIN JULY 2–8, 2023, EKATERINBURG
+	\item ВСПУ  XIV Всероссийское совещание по проблемам управления Россия, Москва, ИПУ РАН, 17-20 июня 2024
 \end{enumerate}
 	
 \textbf{Публикации.} Основные результаты исследования опубликованы в работах [1]--[7].
