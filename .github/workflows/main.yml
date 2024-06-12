@@ -72,8 +72,41 @@ jobs:
           name: output_pdf
           path: main.pdf
 
+  compare_versions:
+    needs: [build_latex]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current Version
+        uses: actions/checkout@v4
+      
+      - name: Checkout Previous Version
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.before }} # Checkout the commit before the latest push
+          path: prev_version # Store the previous version in a separate directory
+
+      - name: Run latexdiff
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexdiff
+          cd prev_version
+          latexdiff main.tex../main.tex > diff_main.tex
+          mv diff_main.tex../
+
+      - name: Compile Differences
+        run: |
+          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+
+      - name: Upload Diff PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: diff_output_pdf
+          path: diff_main.pdf
+
   create_and_upload_release:
-    needs: [build_latex, prepares]
+    needs: [build_latex, prepares, compare_versions]
     runs-on: ubuntu-latest
     steps:
       - name: Check outputs
