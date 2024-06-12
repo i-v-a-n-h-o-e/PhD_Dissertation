@@ -93,11 +93,14 @@ jobs:
           latexdiff main.tex ../main.tex > diff_main.tex
           mv diff_main.tex ../
 
-      - name: Compile Differences
-        run: |
-          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-          lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+      - name: LaTex Compile
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
 
       - name: Upload Diff PDF as Artifact
         uses: actions/upload-artifact@v4
