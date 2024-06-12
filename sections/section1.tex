@@ -9,7 +9,7 @@
     
     \subsection{Выпуклость отображения малого шара.}
     
-    Пусть $X$, $Y$ --- гильбертовы пространства, а $f: X \rightarrow Y$ --- нелинейное отображение с липшицевой производной, определенное  на шаре $B_X(a,r) = \{x \in X: \| x - a\| \leqslant r\}$, тогда 
+    Пусть $X$, $Y$ --- гильбертовы пространства, а $f: X \rightarrow Y$ --- нелинейное отображение с липшицевой производной, определенное  на шаре $B_X(a,r) $, тогда 
     \begin{gather}\label{lip_cond}
         \| f'(x) - f'(z) \| \leqslant L \| x - z \|, \quad \forall x,z \in B_X(a,r).
     \end{gather}
@@ -29,44 +29,70 @@
     
     \subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
     На интервале времени $ t_0 \leqslant t \leqslant \overline{T} $ рассмотрим нелинейную систему, аффинную по управлению
-	\begin{gather}\label{nonlinear}
+	\begin{gather}\label{sec1:nonlinear}
 		\begin{gathered}
-			\dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
+			\dot{x}(t)=f_1\big(t,x(t)\big)+f_2\big(t,x(t)\big)u(t), \qquad x(t_0) = x_0.
 		\end{gathered}
 	\end{gather}
 	Здесь $ x \in \mathbb{R}^n $ -- вектор состояния, $ u \in \mathbb{R}^r $ -- управление,  $ \overline{T} $ --- некоторое фиксированное положительное число.
 	
+	Функции $ f_1:\mathbb{R}^n \times [t_0, \overline{T}] \rightarrow \mathbb{R}^{n} $, $ f_2: \mathbb{R}^n \times [t_0, \overline{T}] \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными и непрерывно-дифференцируемыми по $ x $ в некотором выпуклом компакте $D  \subset \mathbb{R}^n$. 
 	
-	Функции $ f_1: \mathbb{R}^{n+1} \rightarrow \mathbb{R}^{n} $, $ f_2: \mathbb{R}^{n+1} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными и непрерывно-дифференциру-\\емыми по $ x $.
-	Также предполагается, что функции $ f_1 $, $ f_2 $ удовлетворяют условиям
-	\begin{gather*}
-		\begin{gathered}
-			\left\| f_1(t,x) \right\| \leqslant	l_1(t)(1 + \left\| x \right\| ), \\
-			\left\| f_2(t,x) \right\| \leqslant	l_2(t),  \qquad t_0 \leqslant t \leqslant \overline{T}, \qquad   x \in \mathbb{R}^n,
-		\end{gathered}
-	\end{gather*}
-	где $ l_1(\cdot) \in \mathbb{L}_1[t_0,\overline{T}] $, $ l_2(\cdot) \in \mathbb{L}_2[t_0,\overline{T}] $.
+%	Также предполагается, что функции $ f_1 $, $ f_2 $ удовлетворяют условиям
+%	\begin{gather*}
+%		\begin{gathered}
+%			\left\| f_1(t,x) \right\| \leqslant	l_1(t)(1 + \left\| x \right\| ), \\
+%			\left\| f_2(t,x) \right\| \leqslant	l_2(t),  \qquad t_0 \leqslant t \leqslant \overline{T}, \qquad   x \in \mathbb{R}^n,
+%		\end{gathered}
+%	\end{gather*}
+%	где $ l_1(\cdot) \in \mathbb{L}_1[t_0,\overline{T}] $, $ l_2(\cdot) \in \mathbb{L}_2[t_0,\overline{T}] $.
+%	
+%	Под $ \mathbb{L}_1[t_0,\overline{T}],  \mathbb{L}_2[t_0,\overline{T}]  $ будем понимать,  соответственно, пространства
+%	интегрируемых и интегрируемых с квадратом скалярных или вектор-функций  на $ [t_0,\overline{T}] $. Управление $u(t)$ будем выбирать из
+%	пространства $\mathbb{L}_2[t_0,\overline{T}]$ вектор-функций,  скалярное произведение в котором определено равенством
+%	\begin{gather*}
+%		\left(u(\cdot),\upsilon(\cdot) \right) = \int_{t_0}^{\overline{T}}u^{\top}(t)\upsilon(t) \, dt.
+%	\end{gather*}
+%	Управление $ u(\cdot) $ ограничим шаром радиуса $ \mu, \mu > 0 $
+%	\begin{gather}\label{constr}
+%		\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
+%	\end{gather}
+	Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ \mu > 0$.
 	
-	Под $ \mathbb{L}_1[t_0,\overline{T}],  \mathbb{L}_2[t_0,\overline{T}]  $ будем понимать,  соответственно, пространства
-	интегрируемых и интегрируемых с квадратом скалярных или вектор-функций  на $ [t_0,\overline{T}] $. Управление $u(t)$ будем выбирать из
-	пространства $\mathbb{L}_2[t_0,\overline{T}]$ вектор-функций,  скалярное произведение в котором определено равенством
-	\begin{gather*}
-		\left(u(\cdot),\upsilon(\cdot) \right) = \int_{t_0}^{\overline{T}}u^{\top}(t)\upsilon(t) \, dt.
-	\end{gather*}
-	Управление $ u(\cdot) $ ограничим шаром радиуса $ \mu, \mu > 0 $
-	\begin{gather}\label{constr}
-		\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
+	Каждому $ u(\cdot) \in \mathbb{L}_2 $ соответствует единственное абсолютно непрерывное решение $ x(t)=x(t,u(\cdot)) $ системы \eqref{sec1:nonlinear}, определённое на интервале $ [t_0,\overline{T}] $, удовлетворяющее начальному условию $ x(t_0, u(\cdot)) = x_0$.
+	
+	\todo[inline]{Вопрос о продолжимости? }
+
+	\begin{assumption}\label{as:right_hand_side_conditions_global}
+		Существует такое $\overline{\mu} > \mu $ что все решения $ x(t, u(\cdot)) $ системы \eqref{sec1:nonlinear} отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu})$  лежат в выпуклом компакте $D \subset \mathbb{R}^n$.
+	\end{assumption}
+
+	В частности, Предположение \ref{as:right_hand_side_conditions_global} выполняется, если  функции $f_1$ и $f_2$ удовлетворяют в $D \times [t_0, \overline{T}]$ условиям \cite[теорема 5]{Fillipov2}:
+	\begin{gather}
+		\left\|f_1\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \qquad  \left\| f_2(t,x) \right\| \leqslant l_2(t). 
 	\end{gather}
+
+	Сформулируем здесь несколько лем о свойствах решений системы \eqref{sec1:nonlinear} при условии, что выполнено условие Предположения \ref{as:right_hand_side_conditions_global}.
 	
-	В условиях описанных предположений, каждому $ u(\cdot) \in \mathbb{L}_2 $ соответствует единственное абсолютно непрерывное решение $ x(t)=x(t,u(\cdot)) $ системы \eqref{nonlinear}, определённое на интервале $ [t_0,\overline{T}] $.
-	
-	Все траектории $ x(t) $ системы \eqref{nonlinear}, отвечающие удовлетворяющим \eqref{constr} управлениям,  лежат внутри некоторого компактного множества $ D \subset \mathbb{R}^n $.
+	\begin{lemma}\label{lem:Lip_of_solutions_global}
+			Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}. Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu}) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
+			\begin{gather}
+			\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
+			\end{gather}
+		где $x_i(t) = x_i(t,u_i(\cdot))$, $i = 1,2$. 
+	\end{lemma}
+	\doc. 
+	Так как $x_i(t) \in D$ для всех $t\in [t_0,\overline{T}]$ из Предположения \ref{as:right_hand_side_conditions_global}, мы имеем, что функции $f_1$ и $f_2$ дифференцируемы на решениях $x_i(\cdot)$. Из интегрального соотношения
+	\begin{gather*}
+	\end{gather*}
+	имеем
+%	Все траектории $ x(t) $ системы \eqref{sec1:nonlinear}, отвечающие удовлетворяющим \eqref{constr} управлениям,  лежат внутри некоторого компактного множества $ D \subset \mathbb{R}^n $.
 	
 	Дадим здесь несколько определений, которыми будем пользоваться в дальнейшем.
 	
 	Пусть $ 0 <  T \leqslant \overline{T} $.
 	\begin{definition}
-		{\textit  Множеством достижимости} $ G(T,\mu) $ системы \eqref{nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
+		{\textit  Множеством достижимости} $ G(T,\mu) $ системы \eqref{sec1:nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
 		\begin{gather*}
 			G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,x^0,u(\cdot))\}.
 		\end{gather*}
@@ -76,7 +102,7 @@
 		\begin{gather}\label{linear}
 			\delta \dot{x} =  A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
 		\end{gather}
-		{\textit линеаризацией} системы \eqref{nonlinear} вдоль траектории $ x(t,x_0,u(\cdot)) $, если 
+		{\textit линеаризацией} системы \eqref{sec1:nonlinear} вдоль траектории $ x(t,x_0,u(\cdot)) $, если 
 		\begin{gather*}
 		    A(t) = \dfrac{\partial f_1}{\partial x} (t,x(t,x_0,u(\cdot))) + \dfrac{\partial f_2}{\partial x}(t,x(t,x_0,u(\cdot))) u(\cdot), \  B(t) = f_2 (t,x(t,0)).
 		\end{gather*} Здесь $ A(t) $ представляет собой матрицу Якоби функции $ f_1 + f_2 u(\cdot) $, вычисленную вдоль траектории $ x(t,u(\cdot)) $.
@@ -95,7 +121,7 @@
 
 	Система \eqref{linear} вполне управляема на  $ [t_0, T] $ тогда и только тогда, когда ее грамиан управляемости $W(T)$ --- положительно определенная матрица.
 	
-	При фиксированном $x_0$ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$: здесь $ x(T,u(\cdot))$ --- решение системы \eqref{nonlinear}, порожденное управлением $u(\cdot)$. 
+	При фиксированном $x_0$ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$: здесь $ x(T,u(\cdot))$ --- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$. 
 	
 	Это отображение имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) = \\=\delta x(T)$, где $\delta x(T)$ --- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{linear}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
 	
@@ -104,7 +130,7 @@
 	Применяя теорему \ref{PolyakTh} к отображению $F$, получим, что в условиях описанных преположений относительно функций $f_1$ и $f_2$, множество достижимости $G$ выпукло при достаточно малых $\mu > 0$.
 	
     \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
-    Рассмотрим здесь нелинейную систему \eqref{nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
+    Рассмотрим здесь нелинейную систему \eqref{sec1:nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
     \begin{gather}\label{nonlinearT}
 			\dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 	\end{gather}

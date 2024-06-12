@@ -15,13 +15,6 @@
 
 \subsection{Постановка задачи и предварительные замечания}
 
-\todo[inline]{Найти место для следующего абзаца в начале работы.}
-Further we use the following notation. By $A^{\top}$ we denote the transpose of a real matrix $A$, $I$ is an identity matrix, $0$ stands for a zero vector or a zero matrix of appropriate dimension. 
-%For $x,\ y \in \mathbb{R}^n $ let $(x,y)=x^{\top}y$ denotes the inner product of two vectors, $x = (x_1,\dots,x_n)$, $\|x\| = (x,x)^{\frac{1}{2}}$ be the Euclidean norm, and $ B_X(\overline{x},r)=\{x\in\mathbb{R}^n : \|x - \overline{x}\|\leqslant r\}$ is the ball in Hilbert space $X$ with radius $r>0$ centered at $x$.
-For a real $n \times n$ matrix $A$ a spectral matrix norm induced by the Euclidean vector norm is denoted as $\|A\|$.
-The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable and square summable functions respectively. The norms in these spaces are denoted as $\|\cdot\|_{\mathbb{L}_1}$ and $\|\cdot\|_{\mathbb{L}_2}$. By $B_X(a,r)$ we will denote the closed ball of radius $r>0$ centered at $a$, $B_X(a, r) = \{x\in X: \|x-a\|_X \leqslant r \}$. Here $X$ is some linear space with a norm $\|\cdot\|_X$.
-
-
 Рассмотрим квазилинейную систему
 \begin{gather}\label{sec3:nonlinear}
 	\dot{x}(t) = A(t)x(t)+B(t)u(t)+\varepsilon f\big(x(t),t\big), \qquad t_0 \leqslant t \leqslant T, \qquad x(t_0) = x_0,
@@ -35,7 +28,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 
 Далее, мы будем считать выполненными условия следующего предположения.
 
-\begin{assumption}\label{as:right_hand_side_conditions}
+\begin{assumption}\label{as:right_hand_side_conditions_quasilinear}
 	
 	Существует такое $\overline{\mu} > \mu $ что для любого $\varepsilon \in [0, \overline{\varepsilon}] $ все решения $ x(t,\varepsilon, u(\cdot)) $ отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu})$  лежат в выпуклом компакте $D \subset \mathbb{R}^n$.
 	Кроме этого, предполагается, что функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ и ее производная по $x$ удовлетворяют условию Липшица с константами $L_f$ и $l_f$ соответственно
@@ -45,8 +38,8 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	\end{gather*}
 \end{assumption} 
 
-В частности, первая часть Предположения \ref{as:right_hand_side_conditions} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Fillipov2}:
-\begin{gather}\label{sublinear_growth}
+В частности, первая часть Предположения \ref{as:right_hand_side_conditions_quasilinear} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Fillipov2}:
+\begin{gather}\label{sec3:sublinear_growth}
 	\left\|f\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \\ 
 	x \cdot f(x,t) \leqslant a(t) \|x\|^2 + b(t),
 \end{gather}
@@ -264,7 +257,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 Множество достижимости $G(T,\mu,\varepsilon) $  квазилинейной системы \eqref{sec3:nonlinear} --- это образ шара $B_{\mathbb{L}_2}(0,\mu)$ при его отображении $F$, $G(T,\mu,\varepsilon) = F(B_{\mathbb{L}_2}(0,\mu),\varepsilon)$.
 
 \begin{utv}\label{ReachableSetcloseness}
-	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
+	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
 \end{utv}
 \doc. 
 Доказательство следует из равностепенной непрерывности траекторий, равномерной ограниченности траекторий и слабой компактности $B_{\mathbb{L}_2}(0,\mu)$ (см., например \cite{GusZyk}).
@@ -272,14 +265,14 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 
 Для того, чтобы применить Теорему \ref{th:ImageConvexity} к отображению $F$,  нам необходимо показать, что Предположение \ref{as:derivative_of_A1} выполняется для $A_1$, определенного в \eqref{A1_def}.
 \begin{lemma}\label{lem:Lipx}
-	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
+	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
 	\begin{gather*}
 		\| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 	\end{gather*}
 	где $x_i(t) = x(t,\varepsilon,u_i(\cdot))$, $i = 1,2$. Кроме того, $L_x(\varepsilon) \leqslant L_x(\overline{\varepsilon})$. 
 \end{lemma}
 \doc.
-Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions}, мы имеем
+Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions_quasilinear}, мы имеем
 \begin{gather*}
 	\|f\big(x_1(t),t\big) - f\big(x_2(t),t\big)\| \leqslant L_f\|x_1(t) -  x_2(t)\|.
 \end{gather*}
@@ -359,7 +352,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	\overline{A}\big(t,\varepsilon,u(\cdot)\big) = A(t) +\varepsilon \frac{\partial f\big(x(t,\varepsilon,u(\cdot)\big),t\big)}{\partial x}.
 \end{gather*}
 \begin{lemma}\label{lem:Lipdx}
-	Пусть выполнено Предположение \ref{as:right_hand_side_conditions}.  Тогда найдется  $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$, 
+	Пусть выполнено Предположение \ref{as:right_hand_side_conditions_quasilinear}.  Тогда найдется  $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$, 
 	\begin{gather*}
 		\| \overline{F}'(\tau,\varepsilon, u_1(\cdot)) - \overline{F}'(\tau,\varepsilon, u_2(\cdot)) \| \leqslant L_u(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 	\end{gather*}
@@ -378,7 +371,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \begin{gather*}
 	\| \overline{X}(\tau,s,\varepsilon,u(\cdot)) \| \leqslant k_X, \qquad \tau \in [t_0,T], \qquad s \in [t_0,T]
 \end{gather*}
-для всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и достаточно малого $\varepsilon $. Для сокращения записи, обозначим $\overline{A}_i(t) = \overline{A}\big(t,\varepsilon,u_i(\cdot)\big) $ и $ \overline{X}_i(t,s) = \overline{X}(t,s,\varepsilon,u_i(\cdot))$. В условиях предположения \ref{as:right_hand_side_conditions} и используя Лемму \ref{lem:Lipx} мы можем получить оценку
+для всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и достаточно малого $\varepsilon $. Для сокращения записи, обозначим $\overline{A}_i(t) = \overline{A}\big(t,\varepsilon,u_i(\cdot)\big) $ и $ \overline{X}_i(t,s) = \overline{X}(t,s,\varepsilon,u_i(\cdot))$. В условиях предположения \ref{as:right_hand_side_conditions_quasilinear} и используя Лемму \ref{lem:Lipx} мы можем получить оценку
 \begin{gather*}
 	\int\limits_{t_0}^{\tau} \|\overline{A}_1(s) - \overline{A}_2(s) \| ds \leqslant L_A \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}. 
 \end{gather*}
@@ -448,7 +441,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 \end{gather*}
 
 Так как $D$ выпукло, $ y + \xi h \in D$ для всех0 $\leqslant \xi \leqslant 1$.
-Значит, используя Предположение \ref{as:right_hand_side_conditions},  мы можем получить следующую оценку
+Значит, используя Предположение \ref{as:right_hand_side_conditions_quasilinear},  мы можем получить следующую оценку
 \begin{gather*}
 	\|\omega(y,h,\tau)\| \leqslant l_f \left( \int\limits_0^1  \left\| \xi h \right\| \ d\xi \right)h  \leqslant \frac{l_f}{2} \|h\|^2.
 \end{gather*}
@@ -567,7 +560,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 Таким образом, отображение $A_1(u(\cdot),\varepsilon)$, определенное в \eqref{A1_def}, удовлетворяет условию предположения \ref{as:derivative_of_A1}, и мы можем сформулировать основной результат этой главы в следующей теореме.
 
 \begin{theorem}\label{th:ReachableSetsConvexity}
-	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
+	Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
 \doc. 
 Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость  $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
@@ -604,7 +597,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	\end{gather*}
 	
 	Нелинейное слагаемое состоит из малого параметра и функции $f(x) = [-10x^3;0]$. 
-	Для такой нелинейной функции условие  \eqref{sublinear_growth} не выполняется. 
+	Для такой нелинейной функции условие  \eqref{sec3:sublinear_growth} не выполняется. 
 	Однако, мы можем использовать оценки, полученные в работе  \cite{Zykov2019} для того, чтобы показать, что все траектории системы \eqref{sec3:Duffing}, соответствующие допустимым управлениям и нулевым начальным условиям, лежат в компактном множестве D. 
 	
 	Положим $v_{\varepsilon}(t,x) = \frac{5}{2}\varepsilon x_1^4 + \frac{1}{2}x_1^2 + \frac{1}{2}x_2^2$ и вычислим производную в силу системы 
@@ -625,7 +618,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	Применяя теорему сравнения к этому неравенству, можно получить, что $v_{\varepsilon}(\tau,x(\tau)) \leqslant \tau$ и, следовательно, $\|x(\tau)\|^2 \leqslant 2 \tau$. 
 	Используя известную технику, можно сделать вывод, что любое решение \eqref{sec3:Duffing}, порожденное управлением $u(\cdot)\ в B_{\mathbb{L}_2}(0,1)$ и нулевым начальным состоянием, может быть продолжено на временной интервал $[0,2]$ и принадлежит выпуклому множеству $D = B_{\mathbb{R}^n}(0,2)$.
 	
-	Условия предположения \ref{as:right_hand_side_conditions} выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и ее производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве D.
+	Условия предположения \ref{as:right_hand_side_conditions_quasilinear} выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и ее производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве D.
 	
 	\begin{figure}[t]
 		\centerline{
@@ -696,7 +689,7 @@ The symbols $\mathbb{L}_1$ and $\mathbb{L}_2$ stand for the spaces of summable a
 	
 	Начальные состояние --- нулевые, $x_1(0) = x_2(0) = x_3(0) $, ограничения на управление такие же, как и в первом примере, но мы будем рассматривать эту систему на временном интервале $0 \leqslant t \leqslant 1$.
 	
-	Как и в предыдущем примере, условия предположения \ref{as:right_hand_side_conditions} выполнены, что позволяет применить Теорему \ref{th:ReachableSetsConvexity}. 
+	Как и в предыдущем примере, условия предположения \ref{as:right_hand_side_conditions_quasilinear} выполнены, что позволяет применить Теорему \ref{th:ReachableSetsConvexity}. 
 	На рисунке \ref{fig:LinearDubins} показаны проекции на плоскость $(x_1,x_2)$ численно построенных множеств достижимости $G^{\varepsilon}(T,\mu)$ для системы \eqref{Linear+Dubins}. 
 	
 	Видно, что проекции множеств $G^{0.001}(1,1) $ и $G^{0.01}(1,1) $ близки к проекции множества $G^{0}(1,1) $, построенной для линейной системы. 
