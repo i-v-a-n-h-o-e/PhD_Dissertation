@@ -1,49 +1,15 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \clearpage
-\section{Свойства множеств достижимости нелинейных систем с интегральными ограничениями на малых интервалах времени}
-    Первая глава начинается с описания известных результатов, на которые опираются дальнейшие исследования. 
-	Так, в первом разделе описывается условие выпуклости нелинейного отображения малого шара в гильбертовом пространстве, полученное  Б.Т. Поляком\cite{Polyak2001, Polyak2001ru}.
-	Второй раздел посвящен применениям этого условия для обоснования выпуклости множеств достижимости нелинейных систем при интегральных ограничениях на управление. Этот раздел содержит две постановки, в первой из которых ограничения на управления заданы шаром достаточно малого радиуса \cite{Polyak2004}, а во второй постановке ограничения на управление не обязательно малы, но вся задача рассматривается на малом промежутке времени \cite{GusevMotor, GusOsSteklov}.
+\section{Множества достижимости нелинейных систем с интегральными ограничениями}
+    Первая глава посвящена исследованию свойств множеств достижимости нелинейных систем с интегральными ограничении и малым параметром. В первом разделе исследуются решения нелинейных систем с интегральными ограничениями. Здесь описаны основные предположения, которые распространяются на всю работу. В условиях этих предположений доказываются некоторые важные свойства, которые будут использоваться далее. 
+    
+    Второй раздел посвящен выпуклости множеств достижимости.  Он начинается с описания известного результата, условия выпуклости нелинейного отображения малого шара в гильбертовом пространстве, полученного  Б.Т. Поляком\cite{Polyak2001, Polyak2001ru}.
+	Затем  это условие применяется для обоснования выпуклости множеств достижимости нелинейных систем при интегральных ограничениях на управление. Приведено две постановки, в первой из которых ограничения на управления заданы шаром достаточно малого радиуса \cite{Polyak2004}, а во второй постановке ограничения на управление не обязательно малы, но вся задача рассматривается на малом промежутке времени \cite{GusevMotor, GusOsSteklov}.
 	Наконец, в третьем разделе приведен один из возможных методов проверки условия, при которых множества достижимости нелинейных систем с интегральными ограничениями оказываются выпуклыми на малых интервалах времени. 
-    
-    \subsection{Выпуклость отображения малого шара.}
-    
-    Пусть $X$, $Y$~--- гильбертовы пространства, а $f: X \rightarrow Y$~--- нелинейное отображение с липшицевой производной Фреше $f'$, определенное  на шаре $B_X(a,r) $, т.е. 
-    \begin{gather}\label{lip_cond}
-        \| f'(x) - f'(z) \| \leqslant L \| x - z \|, \quad \forall x,z \in B_X(a,r).
-    \end{gather}
-    Предположим, что $a$~--- регулярная точка отображения $f$, то есть линейный оператор $f'(a)$ сюръективен: он отображает $X$ на $Y$, $ f'(a) X = Y $.  Последнее равенство означает, что 
-    \begin{gather*}
-    	  \forall y \in Y, \quad \exists x \in X, \quad f'(a) x = y.
-    \end{gather*}
-   В доказательстве теоремы об открытом отображении показано \cite[Теорема 2.11, Теорема 4.13]{Rudin}, что существует такая константа $\nu > 0$, что $f'(a) O_X^1 \supset \nu O_Y^1$, где $ O_X^1$ и  $O_Y^1$~--- открытые единичные шары в $X$ и $Y$, соответственно ($O_{X(Y)}^1 = \{x\in X(Y): \|x\|_{X(Y)} < 1 \}$). Отсюда следует, что
-   \begin{gather}\label{LyusternikConditionProof}
-   	\| f'(a)^* y \| = \sup\limits_{x \in O_X^1} \big(x,\  f'(a)^* y\big) =  \sup\limits_{x \in O_X^1} \big(f'(a) x,\  y\big) \geqslant  \sup\limits_{\overline{y} \in \nu O_Y^1} \big(\overline{y},\  y\big) = \nu \|y\|,
-	\end{gather}
-	для всех $y \in Y$. Здесь $A^*$ обозначает сопряженный к $A$ линейный оператор.
-    Неравенство \eqref{LyusternikConditionProof} известно как условие Люстерника\cite{Dmitruk1980}:
-    \begin{gather}\label{regularity_cond}
-      \exists \nu > 0, \quad  \| f'(a)^*y\| \geqslant \nu \| y\|, \quad \forall y \in Y.
-    \end{gather}
-    
-    Например, если множества $X,\ Y$~--- конечномерные, $X = \mathbb{R}^n$, $Y = \mathbb{R}^m$, то условие \eqref{regularity_cond} выполняется, если  $ \operatorname{rank} f'(a) = m$. В этом случае $\nu$~--- наименьшее сингулярное число $f'(a)$. 
-    \begin{theorem}[\cite{Polyak2001, Polyak2001ru}]\label{PolyakTh}
-        Если выполняются \eqref{lip_cond}, \eqref{regularity_cond}  и 
-        \begin{gather}
-            \varepsilon < \min\left\{r,\frac{\nu}{2L}\right\},
-        \end{gather}
-        тогда образ шара $B_X(a,\varepsilon) = \{x \in X: \| x - a\| \leqslant \varepsilon\}$ при отображении $f$ выпуклый, то есть $F = 
-        \{f(x): x \in B_X(a,\varepsilon)\}$~--- выпуклое множество в $Y$. Более того, это множество сильно выпуклое и его граница состоит из образов граничных точек шара: $\partial F \subset f(\partial B_X(a,\varepsilon))$.
-    \end{theorem}
-    
-    В работах \cite{Polyak2001, Polyak2001ru} теорема доказывается с помощью леммы о решении нелинейного уравнения в гильбертовом пространстве, обоснованной в \cite{Polyak1964} c помощью метода Ньютона. Отметим, что доказательство теоремы \ref{PolyakTh} может быть построено с опорой и на другие результаты, примыкающие к теореме Люстерника и приведенные в \cite{Dmitruk1980, Ioffe}.
-    
-    Результат теоремы \ref{PolyakTh} можно объяснить следующим образом. Шар $B_x(a,\varepsilon)$ сильно выпукл, поэтому его образ при линейном отображении $f'(a)$ тоже сильно выпукл. Но свойство сильной выпуклости устойчиво к малым возмущениям, поэтому оно не теряется при замене линейного отображения $f'(a)$ на близкое нелинейное отображение $f'(x)$. 
-    
-    Из этого соображения видно, что теорема не может быть обобщена на банаховы пространства, в которых нет свойства сильной выпуклости шара. Однако результат можно расширить, если вместо шара $B_x(a,\varepsilon) $ взять любое другое сильно выпуклое множество. Наконец, предположения о гладкости $f$ нельзя существенно ослабить. 
-        
-    \subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
+     
+      
+    \subsection{Некоторые свойства решений нелинейных систем с интегральными ограничениями}
     На интервале времени $ t_0 \leqslant t \leqslant \overline{T} $ рассмотрим нелинейную систему, аффинную по управлению
 	\begin{gather}\label{sec1:nonlinear}
 		\begin{gathered}
@@ -52,8 +18,9 @@
 	\end{gather}
 	Здесь $ x \in \mathbb{R}^n $ ~--- вектор состояния, $ u \in \mathbb{R}^r $~--- управление,  $ \overline{T} $ ~--- некоторое фиксированное положительное число.
 	
-	Функции $ f_1: [t_0, \overline{T}] \times  \mathbb{R}^n \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, \overline{T}]  \times \mathbb{R}^n \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x,t)$ и непрерывно-дифференцируемыми по $ x $ в некотором выпуклом компакте $D  \subset \mathbb{R}^n$. 
+	Функции $ f_1: [t_0, \overline{T}] \times  \mathbb{R}^n \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, \overline{T}]  \times \mathbb{R}^n \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x,t)$ и обладающими непрерывными производными по $ x $ на  $ [t_0, \overline{T}] \times \Omega $, где $\Omega$~--- некоторая область, $\Omega \subset \mathbb{R}^n$. 
 	
+	Всюду далее будем считать, что $x_0$ фиксирован и  $x_0 \in \operatorname{int} \Omega $, где $\operatorname{int} \Omega $~--- множество внутренних точек $\Omega$. 
 %	Также предполагается, что функции $ f_1 $, $ f_2 $ удовлетворяют условиям
 %	\begin{gather*}
 %		\begin{gathered}
@@ -77,22 +44,27 @@
 	Каждому управлению $ u(\cdot) \in \mathbb{L}_2 $ соответствует единственное абсолютно непрерывное решение $ x(t)=x(t,u(\cdot)) $ системы \eqref{sec1:nonlinear}, удовлетворяющее условию $ x(t_0, u(\cdot)) = x_0$ и определённое на интервале $ [t_0, t_0 + \Delta] $, $\Delta > 0$, $ t_0 + \Delta < \overline{T}$.
 
 	\begin{assumption}\label{as:right_hand_side_conditions_global}
-		Существует такое $\overline{\mu} > 0 $ что все решения $ x(t, u(\cdot)) $ системы \eqref{sec1:nonlinear}, отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu})$,  определены на интервале $ [t_0,\overline{T}] $ и лежат в выпуклом компакте $D \subset \mathbb{R}^n$. 
+		Существует такое $\overline{\mu} > 0 $ что все решения $ x(t, u(\cdot)) $ системы \eqref{sec1:nonlinear}, отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu})$,  определены на интервале $ [t_0,\overline{T}] $ и лежат в некотором выпуклом компакте $D \subset \Omega \subset \mathbb{R}^n$. 
 	\end{assumption}
+	
+	Заметим, что из Предположения  \ref{as:right_hand_side_conditions_global} следует, что $x_0 \in D$, будем считать, что $x_0 \in \operatorname{int} D$.
 
-	В частности, Предположение \ref{as:right_hand_side_conditions_global} выполняется, если  функции $f_1$ и $f_2$ удовлетворяют в $ [t_0, \overline{T}] \times D$ условиям \cite[теорема 5]{Fillipov2}:
-	\begin{gather}
+	В частности, Предположение \ref{as:right_hand_side_conditions_global} выполняется, если  функции $f_1$ и $f_2$ удовлетворяют в $ [t_0, \overline{T}] \times D$ условиям:
+	\begin{gather}\label{RightHandSideCond}
 		\left\|f_1\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \qquad  \left\| f_2(t,x) \right\| \leqslant l_2(t), 
 	\end{gather}
 	
-	где $ l_1(\cdot) \in  \mathbb{L}_1$, $ l_1(\cdot) \in  \mathbb{L}_2$.
+	где $ l_1(\cdot) \in  \mathbb{L}_1$, $ l_2(\cdot) \in  \mathbb{L}_2$. В \cite[Теорема 5]{Fillipov2} доказано, что из условия \eqref{RightHandSideCond} следует непрерывность траекторий, а компактность множества траекторий при этом условии доказана в \cite[Утверждение 2]{GusZyk}.
+	\todo[inline]{Близкое условие есть в Kh. G. Guseinov, A. S. Nazlipinar, Attainable sets of the control system with limited resources, Тр. ИММ УрО РАН, 2010, том 16, номер 5, 261–268,  там предполагается, что $\|f(t,x,u)\| \leqslant c(1 + \|x\|)(1 + \|u\|)$, $c > 0$, что несколько строже, чем \ref{RightHandSideCond}}
+	
+	Известны также другие односторонние оценки, при наличии которых справедливо Предположение  \ref{as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2}).
 	
 	В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ 0 < \mu < \overline{\mu} $.
 	
 	\begin{lemma}\label{lem:Lip_of_solutions_global}
 			Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}. Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu}) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
 			\begin{gather}
-			\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
+			\left\| x_1(t) - x_2(t) \right\|_2 \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, 
 			\end{gather}
 		где $x_i(t) = x_i(t,u_i(\cdot))$, $i = 1,2$. 
 	\end{lemma}
@@ -124,31 +96,27 @@
 		 \big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|, \\
 		 \left\| \Big(f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) \Big) u_2(\tau) \right\| \leqslant  L_{f_2} \|u_2(\tau)\| \|x_1(\tau) - x_2(\tau)\|,
   	\end{gather*}
-  	где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_1}{\partial x} (\tau, x) $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_1}{\partial x} (\tau, x)$.
+  	где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_1}{\partial x} (\tau, x) $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_2}{\partial x} (\tau, x)$.
   	
   	Используя полученные соотношения, в \eqref{diff_of_solution} получаем
   	\begin{gather*}
   		\| x_1(t) - x_2(t) \| \leqslant \int\limits_{t_0}^{t} (L_{f_1} + L_{f_2} \| u_2(\tau)\|)  \|x_1(\tau) - x_2(\tau)\| \ d\tau +  k_{f_2} \| u_1(\cdot) - u_2(\cdot) \|,
   	\end{gather*}
   	где $ k_{f_2} = (\overline{T} - t_0) \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| ^{1/2}$. Из леммы Грануолла следует утверждение леммы
-  	\begin{gather*}
+  	\begin{gather}\label{lip_of_solution}
   		\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
-  	\end{gather*}
+  	\end{gather}
   	где $L_x = k_{f_2}  \exp\big(L_{f_1}(\overline{T} - t_0)  + L_{f_2}  \mu(\overline{T} - t_0)^{1/2}\big)$.
 	\hfill $\square$
-	
-%	Все траектории $ x(t) $ системы \eqref{sec1:nonlinear}, отвечающие удовлетворяющим \eqref{constr} управлениям,  лежат внутри некоторого компактного множества $ D \subset \mathbb{R}^n $.
-	
-	Дадим здесь несколько определений, которыми будем пользоваться в дальнейшем.
+	\begin{zam}
+		Константа Липшица $L_x$ в Лемме \ref{lem:Lip_of_solutions_global} выбрана не зависящий от $t$. Таким образом, неравенство \eqref{lip_of_solution} выполняется для всех $t_0 \leqslant t \leqslant \overline{T}$.  То есть, справедливо 
+		\begin{gather}
+					\left\| x_1(\cdot) - x_2(\cdot) \right\|_\mathbb{C} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
+		\end{gather}
+	\end{zam}
 	
 	Пусть $ 0 <  T \leqslant \overline{T} $.
-	\begin{definition}
-		{\textit  Множеством достижимости} $ G(T,\mu) $ системы \eqref{sec1:nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
-		\begin{gather*}
-			G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,u(\cdot))\}.
-		\end{gather*}
-	\end{definition}
-	\begin{definition}
+	\begin{definition}\label{def:linearized_system}
 		Пусть $ x(t,u(\cdot)) $ ~--- движение, отвечающее управлению $ u(\cdot)$. Назовем систему
 		\begin{gather}\label{linear}
 			\delta \dot{x} =  A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
@@ -159,102 +127,219 @@
 		    B(t) = f_2 \Big(t,x\big(t,u(\cdot)\big)\Big).
 		\end{gather*} Здесь $ A(t) $ представляет собой матрицу Якоби функции $ f_1 + f_2 u(\cdot) $, вычисленную вдоль траектории $ x(t,u(\cdot)) $.
 	\end{definition}
-	\begin{definition}
-	Симметричная матрица, определённая равенством
-		\begin{gather*}
-			W(T) = \int_{t_0}^{T}X(T,t)B(t)B^{\top}(t)X^{\top}(T,t) \, dt,
-		\end{gather*}
-	называется грамианом управляемости системы \eqref{linear} на интервале времени $  t_0 \leqslant t \leqslant T $.
-	\end{definition}
-	Здесь $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, где $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению 
+	Решение системы \eqref{linear} имеет вид $\delta x(t) =  \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau $. Здесь $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, где $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению 
 	\begin{gather*}
 		\dot{\Phi}(t) = A(t) \Phi(t), \qquad \Phi(t_0) = I.
 	\end{gather*}
-
-	Система \eqref{linear} вполне управляема на  $ [t_0, T] $ тогда и только тогда, когда ее грамиан управляемости $W(T)$ ~--- положительно определенная матрица.
+	
+	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$: здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$. 
+	
+	\begin{lemma}\label{FrechetDerivative}
+		Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}.  Тогда отображение $F$ имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) =\delta x(T)$, где $\delta x(T)$ ~--- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{linear}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
+	\end{lemma}
+	\doc. 
+	Выберем произвольные $u(\cdot)$, $\Delta u(\cdot)$ так, что $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $ u(\cdot) +  \Delta u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$. Решения системы \eqref{sec1:nonlinear}, порожденные управлениями  $u(\cdot)$ и $u(\cdot) + \Delta u(\cdot)$, обозначим через  $x(\cdot) = x(\cdot,u(\cdot))$ и $ x(\cdot) + \Delta x(\cdot) = x(\cdot, u(\cdot) + \Delta u(\cdot))$. По аналогии с \eqref{diff_of_solution} получаем
+	\begin{gather}\label{sec1:dx}
+		\begin{gathered}
+			\Delta \dot{x}(t) =
+			\Big( f_1\big(t, x(t)+\Delta x(t)\big) - f_1\big(t, x(t)\big) \Big)  +  \\ + 
+			 \Big( f_2\big(t, x(t)+\Delta x(t)\big) - f_2\big(t,x(t)\big) \Big) u(t)  + \\ +
+			 f_2\big(t, x(t)+\Delta x(t)\big)  \Delta u(t) . 
+		\end{gathered}
+	\end{gather}
+	
+	Продолжая рассуждения \eqref{sec1:meanvalue}, запишем 
+	\begin{gather*}
+		\begin{gathered}
+			f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
+			f_2(t, x(t)+\Delta x(t)) - f_2(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(t, x(t)) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t)=  \\  = \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \beta\Big(x(t),\Delta x(t), t\Big) \Delta x(t), 
+		\end{gathered}
+	\end{gather*}
+	где 
+	\begin{gather*}
+		\alpha\Big(x(t),\Delta x(t), t\Big) = 
+		  \int\limits_0^1 \left[ \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big)  - \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \right] \ d\xi ,\\
+		\beta\Big(x(t),\Delta x(t), t\Big) = 
+		  \int\limits_0^1 \left[ \frac{\partial f_2}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big)  - \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big)  \right] \ d\xi.
+	\end{gather*}
+	
+	Перепишем \eqref{sec1:dx}
+	\begin{gather}\label{sec1:dx1}
+		\Delta \dot{x}(t) =
+		A(t) \Delta x(t)  + 
+		B(t) \Delta u(t)  + 
+		\omega(t),
+	\end{gather}
+	где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{linear}, а
+	\begin{gather*}
+		\begin{gathered}
+			\omega(t) = 
+			 \alpha\big(x(t),\Delta x(t), t\big) \Delta x(t)  + 
+			 \beta\big(x(t),\Delta x(t), t\big)  \Delta x(t) u(t)  + \\ +
+			  \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big) \Delta x(t) \Delta u(t) + 
+			  \beta\Big(x(t),\Delta x(t), t\Big) \Delta x(t) \Delta u(t) 
+		\end{gathered}	
+	\end{gather*}
+	Из Леммы \ref{lem:Lip_of_solutions_global} следует, что при $\|\Delta u(\cdot)\|_{\mathbb{L}_2} \to 0$, $\|\Delta x(t)\| \to 0$ равномерно при всех $t_0 \leqslant t \leqslant T$.  Заметим, что при $\|\Delta x(t)\| \to 0$, то $	 \left\|  \alpha(x(t),\Delta x(t), t) \right\|  \to 0 $ и $ \left\|  \beta(x(t)),\Delta x(t), t) \right\|  \to 0 $ также равномерно для всех  $ t_0 \leqslant t \leqslant T $ . Это следует из равномерной непрерывности производных $\frac{\partial f_1}{\partial x}$, $\frac{\partial f_2}{\partial x}$ в $[t_0, \overline{T}] \times D$.  Таким образом, равномерно по $t$,
+	\begin{gather}\label{lim_omega}
+		\lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| \omega(t) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0, \qquad  t_0 \leqslant t \leqslant T .
+	\end{gather}
+	
+	По формуле Коши, приходим к 
+	\begin{gather*}
+		\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau,
+	\end{gather*}
+	где первое слагаемое является решением линеаризованной системы \eqref{linear}.
+	Учитывая, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $ \cite[док-во Теоремы 3]{Fillipov},  из \eqref{lim_omega} следует, что 
+	\begin{gather*}
+		\left\|\int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  \right\| = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0
+	\end{gather*}
+	
+	То есть, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot)$ , что подтверждает справедливость утверждения Леммы
+	\begin{gather}\label{lem2_assert}
+		  F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau
+	\end{gather}
+	\hfill $\square$
+	
+	\begin{definition}
+		{\textit  Множеством достижимости} $ G(T,\mu) $ системы \eqref{sec1:nonlinear} в пространстве состояний в момент времени $ T $ назовем множество всех концов траекторий $ x(T) \in \mathbb{R}^n $,  которые могут быть порождены управлениями	$ u(t) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace  $,
+		\begin{gather*}
+			G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,u(\cdot))\}.
+		\end{gather*}
+	\end{definition}
+	
+	Заметим, что множество достижимости $G(T,\mu)$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu)$ при его отображении $F$.
+	
+	\begin{definition}\label{def:Grammian}
+		Симметричная матрица, определённая равенством
+		\begin{gather*}
+			W(T) = \int_{t_0}^{T}X(T,t)B(t)B^{\top}(t)X^{\top}(T,t) \, dt,
+		\end{gather*}
+		называется грамианом управляемости линейной системы $\dot{y} = A(t) y + B(t) u $ на интервале времени $  t_0 \leqslant t \leqslant T $. Как и в Определении \ref{def:linearized_system}, здесь $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, где $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению $ \dot{\Phi}(t) = A(t) \Phi(t)$, $ \Phi(t_0) = I $.
+	\end{definition}
+	
+	 Линейная система вполне управляема на  $ [t_0, T] $ тогда и только тогда, когда ее грамиан управляемости $W(T)$ ~--- положительно определенная матрица. Линеаризованная система \eqref{linear} является частным случаем линейной системы из Определения \ref{def:Grammian}. 
+	 
+	 Обозначим грамиан управляемости системы \eqref{linear} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{sec1:nonlinear}, вдоль которой проводится линеаризация. Тогда, из Определения \ref{def:Grammian} и \eqref{lem2_assert} видно, что положительная определенность $W(T,0)$ (управляемость системы \eqref{linear} при $u(\cdot) \equiv 0 $) означает регулярность отображения $F$ в точке $u(\cdot) = 0$. 
+	
+	\subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
+	\subsubsection{Выпуклость отображения малого шара.}
+	
+	Пусть $X$, $Y$~--- гильбертовы пространства, а $f: X \rightarrow Y$~--- нелинейное отображение с производной Фреше $f'$, непрерывной в некоторой точке $a \in X$.
+	
+	Будем предполагать, что $a$~--- регулярная точка отображения $f$, то есть линейный оператор $f'(a)$ сюръективен: он отображает $X$ на $Y$, $ f'(a) X = Y $.  Последнее равенство означает, что 
+	\begin{gather}\label{regularity_cond}
+		\forall y \in Y, \quad \exists x \in X, \quad f'(a) x = y.
+	\end{gather}
+	В доказательстве теоремы об открытом отображении показано \cite[Теорема 2.11, Теорема 4.13]{Rudin}, что существует такая константа $\nu > 0$, что $f'(a) O_X^1 \supset \nu O_Y^1$, где $ O_X^1$ и  $O_Y^1$~--- открытые единичные шары в $X$ и $Y$, соответственно ($O_{X(Y)}^1 = \{x\in X(Y): \|x\|_{X(Y)} < 1 \}$). Отсюда следует, что
+	\begin{gather}\label{LyusternikConditionProof}
+		\| f'(a)^* y \| = \sup\limits_{x \in O_X^1} \big(x,\  f'(a)^* y\big) =  \sup\limits_{x \in O_X^1} \big(f'(a) x,\  y\big) \geqslant  \sup\limits_{\overline{y} \in \nu O_Y^1} \big(\overline{y},\  y\big) = \nu \|y\|,
+	\end{gather}
+	для всех $y \in Y$. Здесь $A^*$ обозначает сопряженный к $A$ линейный оператор.
+	
+	Например, если множества $X,\ Y$~--- конечномерные, $X = \mathbb{R}^n$, $Y = \mathbb{R}^m$, то условие \eqref{regularity_cond} выполняется, если  $ \operatorname{rank} f'(a) = m$. В этом случае $\nu$ из правой части неравенства \eqref{LyusternikConditionProof} ~--- наименьшее сингулярное число $f'(a)$. 
+	\begin{theorem}[\cite{Polyak2001, Polyak2001ru}]\label{PolyakTh}
+		Пусть $a \in X$~--- регулярная точка отображения $f: X \rightarrow Y$, производная Фреше $f'$ существует и удовлетворяет условию Липшица на шаре  $B_X(a,r) $, $r > 0$  т.е. 
+		\begin{gather}\label{lip_cond}
+			\| f'(x) - f'(z) \| \leqslant L \| x - z \|, \quad \forall x,z \in B_X(a,r), \quad \exists L > 0,
+		\end{gather}
+		а также выполнено условие
+		\begin{gather}
+			\varepsilon < \min\left\{r,\frac{\nu}{2L}\right\},
+		\end{gather}
+		тогда образ шара $B_X(a,\varepsilon) = \{x \in X: \| x - a\| \leqslant \varepsilon\}$ при отображении $f$ выпуклый, то есть $F = 
+		\{f(x): x \in B_X(a,\varepsilon)\}$~--- выпуклое множество в $Y$. Более того, это множество сильно выпуклое и его граница состоит из образов граничных точек шара: $\partial F \subset f(\partial B_X(a,\varepsilon))$.
+	\end{theorem}
+	
+	В работах \cite{Polyak2001, Polyak2001ru} теорема доказывается с помощью леммы о решении нелинейного уравнения в гильбертовом пространстве, обоснованной в \cite{Polyak1964} c помощью метода Ньютона. Отметим, что доказательство теоремы \ref{PolyakTh} может быть построено с опорой и на другие результаты, примыкающие к теореме Люстерника и приведенные в \cite{Dmitruk1980, Ioffe}.
+	
+	Результат теоремы \ref{PolyakTh} можно объяснить следующим образом. Шар $B_x(a,\varepsilon)$ сильно выпукл, поэтому его образ при линейном отображении $f'(a)$ тоже сильно выпукл. Но свойство сильной выпуклости устойчиво к малым возмущениям, поэтому оно не теряется при замене линейного отображения $f'(a)$ на близкое нелинейное отображение $f'(x)$. 
+	
+	Результат теоремы можно расширить, если вместо шара $B_x(a,\varepsilon) $ взять любое другое сильно выпуклое множество. Наконец, предположения о гладкости $f$ нельзя существенно ослабить.
+	
+	Из этих соображений видно, что теорема не может быть обобщена на банаховы пространства, в которых нет свойства сильной выпуклости шара. Однако достаточное условие выпуклости  образов выпуклых множеств в банаховых пространствах, не использующее свойство сильной выпуклости, было получено в работе \cite{Ledyaev}. 
 	
 	\subsubsection{Выпуклость множеств достижимости при малых ограничениях на управление}
 	
-	При фиксированном $x_0$ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$: здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$. 
+	Продолжим рассматривать здесь нелинейную систему \eqref{sec1:nonlinear} , предполагая, что справедливо Предположение \ref{as:right_hand_side_conditions_global} и следующее.
+	 \begin{assumption}\label{as:right_hand_side_diff_lip}
+		Функции $f_1(t,x)$ и $f_2(t,x)$ имеют непрерывные производные по $x$, которые удовлетворяют условию Липшица при всех $t \in [t_0;T]$, $x_1, x_2 \in D$.
+		\begin{gather*}
+			\left\| \frac{\partial f_1}{\partial x}(t,x_1) - \frac{\partial f_1}{\partial x}(t,x_2) \right\| \leqslant l_{f_1} \| x_1 - x_2\|, \quad 	\left\| \frac{\partial f_2}{\partial x}(t,x_1) - \frac{\partial f_2}{\partial x}(t,x_2) \right\| \leqslant l_{f_2} \| x_1 - x_2\|,
+		\end{gather*}
+		где $l_{f_1} > 0$ и $l_{f_2} > 0$.
+	\end{assumption}
 	
-	\begin{lemma}\label{FrechetDerivative}
-			Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}.  Тогда отображение $F$ имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) =\delta x(T)$, где $\delta x(T)$ ~--- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{linear}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
+	Введем отображение $\overline{F}: [t_0,T]  \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- это решение системы \eqref{sec1:nonlinear} в момент $t$ порожденное управлением $u(\cdot)$.  Производная Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $, согласно Лемме \ref{FrechetDerivative} --- это решение линеаризованной системы, 
+	\begin{gather}\label{dF}
+		\overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
+	\end{gather}
+	где $\delta x(t)$ --- это решение системы \eqref{linear} и отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям.
+	\begin{lemma}\label{lem:Lipdx_gloabal}
+		Пусть выполнены Предположения \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip}.  Тогда найдется  $L_u > 0$ такая, что для всех  $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t \in [t_0,T]$, 
+		\begin{gather*}
+			\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \| \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
+		\end{gather*}
+		где $i = 1,2$.
 	\end{lemma}
-		\doc. 
-		Выберем произвольные $u(\cdot)$, $\Delta u(\cdot)$ так, что $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $ u(\cdot) +  \Delta u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$. Решения системы \eqref{sec1:nonlinear}, порожденные управлениями  $u(\cdot)$ и $u(\cdot) + \Delta u(\cdot)$, обозначим через  $x(\cdot) = x(\cdot,u(\cdot))$ и $ x(\cdot) + \Delta x(\cdot) = x(\cdot, u(\cdot) + \Delta u(\cdot))$. По аналогии с \eqref{diff_of_solution} получаем
-		\begin{gather}\label{sec1:dx}
-			\begin{gathered}
-			\Delta x(t) =
-			  \int\limits_{t_0}^{t} \Big( f_1\big(\tau, x(\tau)+\Delta x(\tau)\big) - f_1\big(\tau, x(\tau)\big) \Big) \ d\tau +  \\ + 
-			  \int\limits_{t_0}^{t} \Big( f_2\big(\tau, x(\tau)+\Delta x(\tau)\big) - f_2\big(\tau,x(\tau)\big) \Big) u(\tau) \ d\tau + \\ +
-			 \int\limits_{t_0}^{t} f_2\big(\tau, x(\tau)+\Delta x(\tau)\big)  \Delta u(\tau)  \ d\tau. 
-			 \end{gathered}
-		\end{gather}
-		
-		Продолжая рассуждения \eqref{sec1:meanvalue}, запишем 
-		\begin{gather*}
-			\begin{gathered}
-				f_1(\tau, x(\tau)+\Delta x(\tau)) - f_1(\tau, x(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x(\tau) + \xi \Delta x(\tau)\Big) \ d\xi \right) \Delta x(\tau) =  \\  = \frac{\partial f_1}{\partial x} \Big(\tau, x(\tau)\Big)  \Delta x(\tau) + \alpha(x(\tau),\Delta x(\tau), \tau), \\ 
-				f_2(\tau, x(\tau)+\Delta x(\tau)) - f_2(\tau, x(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(\tau, x(\tau) + \xi \Delta x(\tau)\Big) \ d\xi \right) \Delta x(\tau)=  \\  = \frac{\partial f_2}{\partial x} \Big(\tau, x(\tau)\Big)  \Delta x(\tau) + \beta(x(\tau),\Delta x(\tau), \tau), 
-			\end{gathered}
-		\end{gather*}
-		где 
-		\begin{gather*}
-			\alpha(x(\tau),\Delta x(\tau), \tau) = 
-			\left(  \int\limits_0^1 \left[ \frac{\partial f_1}{\partial x} \Big(\tau, x(\tau) + \xi \Delta x(\tau)\Big)  - \frac{\partial f_1}{\partial x} \Big(\tau, x(\tau)\Big)  \right] \ d\xi \right) \Delta x(\tau),\\
-			\beta(x(\tau),\Delta x(\tau), \tau) = 
-				\left(  \int\limits_0^1 \left[ \frac{\partial f_2}{\partial x} \Big(\tau, x(\tau) + \xi \Delta x(\tau)\Big)  - \frac{\partial f_2}{\partial x} \Big(\tau, x(\tau)\Big)  \right] \ d\xi \right) \Delta x(\tau).
-		\end{gather*}
-		
-		Заметим, что если $\|\Delta x(\cdot)\|_{\mathbb{C}} \to 0$, то $	\|  \alpha(x(\tau),\Delta x(\tau), \tau) \| \to 0 $ и $	\|  \beta(x(\tau),\Delta x(\tau), \tau) \| \to 0 $ равномерно для всех $ t_0 \leqslant \tau \leqslant \overline{T} $. Это следует из непрерывности производных $\frac{\partial f_1}{\partial x}$, $\frac{\partial f_2}{\partial x}$ в $[t_0, \overline{T}] \times D$.
-		
-		Перепишем \eqref{sec1:dx}
-		\begin{gather}\label{sec1:dx1}
-			\Delta x(t) =
-			\int\limits_{t_0}^{t} A(\tau) \Delta x(\tau) \ d\tau + 
-			\int\limits_{t_0}^{t} B(\tau) \Delta u(\tau) \ d\tau + 
-			\omega(t),
-		\end{gather}
-		где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{linear}, а
-		\begin{gather*}
-			\begin{gathered}
-				\omega(t) = \int\limits_{t_0}^{t}  \alpha\Big(x(\tau),\Delta x(\tau), \tau\Big) \ d\tau + 
-				 \int\limits_{t_0}^{t}  \beta\Big(x(\tau),\Delta x(\tau), \tau\Big) u(\tau) \ d\tau + \\ +
-				 \int\limits_{t_0}^{t}  \frac{\partial f_2}{\partial x} \Big(\tau, x(\tau)\Big) \Delta x(\tau) \Delta u(\tau)  \ d\tau + 
-				  \int\limits_{t_0}^{t}  \beta\Big(x(\tau),\Delta x(\tau), \tau\Big) \Delta u(\tau) \ d\tau
-			\end{gathered}	
-		\end{gather*}
-		Дифференцируя \eqref{sec1:dx1}, для почти всех $t$ получим $\Delta\dot{x}(t) = A(t) \Delta x(t) + B(t)\Delta u(t) + \dot{\omega}(t) $. По формуле Коши, приходим к 
-		\begin{gather*}
-			\Delta x(t) = \int\limits_{t_0}^{t} X(t_1, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{t}  X(t_1, \tau) \dot{\omega}(t) \ d\tau 
-		\end{gather*}
-		Учитывая, что существует $k_X > 0$, такое что $\|X(t_1, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $ \cite[док-во Теоремы 3]{Fillipov},  оценим последний член равенства:
-		\begin{gather*}
-			 \left\|\int\limits_{t_0}^{t}  X(t_1, \tau) \dot{\omega}(t) \ d\tau  \right\| \leqslant 
-		\end{gather*}
-		\hfill $\square$
-		
-		
-	 Тогда, управляемость системы \eqref{linear} означает регулярность отображения $F$ в точке $u(\cdot)$, а множество достижимости $G(T,\mu)$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu)$ при его отображении $F$.
+	\doc. 
+	Решение \eqref{linear} имеет вид
+	\begin{gather}\label{xu}
+		\delta x\big(t, u_i(\cdot),\delta u(\cdot)\big) = \int\limits_{t_0}^{t}  X(t,s,u_i(\cdot)) B(s) \delta u(s) \ ds,
+	\end{gather}
+	где $X(t,s,u(\cdot)) $ --- фундаментальная матрица системы \eqref{linear}, которая является решением уравнения
+	\begin{gather*}
+		\frac{\partial X(t, s, u(\cdot))}{\partial s} = -A\big(s,u(\cdot)\big)^{\top} X(t, s, u(\cdot)), \quad X\big(t, t, u(\cdot)\big) = I.
+	\end{gather*}
+	\todo[inline]{Для доказательства ограниченности решения этого уравнения можно попробовать использовать условия Каратеодори. Правая часть непрерывна по $X(t, s, u(\cdot))$, интегрируема по $s$, но непонятно, как выбрать интегрируемую верхную грань для такой правой части, ведь, строго говоря $A(\cdot, u(\cdot))$ не обязана быть ограниченной. }
+	Известно (например, это следует из доказательства Теоремы 3 из \cite{Fillipov}), что существует такая константа $k_X>0$ что
+	\begin{gather*}
+		\| X(t,s, u(\cdot)) \| \leqslant k_X, \qquad t \in [t_0,T], \qquad s \in [t_0,T]
+	\end{gather*}
+	для всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$. Для сокращения записи, обозначим $A_i(t) = A\big(t, u_i(\cdot)\big) $ и $ X_i(t,s) = X(t, s, u_i(\cdot))$. В условиях предположения \ref{as:right_hand_side_diff_lip} и используя Лемму \ref{lem:Lip_of_solutions_global} мы можем получить оценку
+	\begin{gather*}
+		\| A_1(t) - A_2(t) \| \leqslant 
+		\left\| \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_1(\cdot)\big)\Big) - \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_2(\cdot)\big)\Big) \right\| + \\ +
+		\left\| \left[ \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_1(\cdot)\big)\Big)  - \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \right] u_1(t) \right\| + 
+		\left\| \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \Big(u_1(t) - u_2(t)\Big) \right\| \leqslant \\ \leqslant
+		(l_{f_1} L_x  + l_{f_2} L_x \mu   +  L_{f_2} ) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \qquad t_0 \leqslant t \leqslant T,\\
+		\int\limits_{t_0}^{\tau} \|A_1(s) - A_2(s) \| ds \leqslant L_A \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}. 
+	\end{gather*}
+	Здесь $L_A>0$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$. Используя,
+	\begin{gather*}
+		\frac{\partial}{\partial t} \left(X_1(t,s) - X_2(t,s) \right) = -A_1^{\top}(t) \left(X_1(t,s) - X_2(t,s) \right) + (A_2(t) - A_1(t))^{\top} X_2(t,s), \quad t \in [s,\tau]
+	\end{gather*}
+	мы приходим к
+	\begin{gather*}
+		X_1(\tau,s) - X_2(\tau,s) = \int\limits_s^{\tau} Y(t,s) \big(A_2(t) - A_1(t)\big)^{\top} X_2(t,s) dt.
+	\end{gather*}
+	Здесь $Y(t,s)$ --- это фундаментальная матрица системы 
+	\begin{gather*}
+		\dot{y} = -A_1(t) y.
+	\end{gather*}
+	Как и $X_i(\tau,s)$, эта матрица тоже ограниченна: существует $k_Y>0$ такая, что
+	\begin{gather*}
+		\|Y(t,s)\| \leqslant k_Y, \quad t,s \in [t_0, \tau]
+	\end{gather*}
+	для всех $u(\cdot) \in B(0,\mu)$. Мы имеем
+	\begin{gather*}
+		\| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{where} \quad L_X = k_Y L_A k_X (T - t_0) .
+	\end{gather*}
+	Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u = L_X t $.
+	\hfill$\square$\\[1ex]%--- P r o o f.
 	
-	Применяя теорему \ref{PolyakTh} к отображению $F$, получим, что в условиях описанных преположений относительно функций $f_1$ и $f_2$, множество достижимости $G$ выпукло при достаточно малых $\mu > 0$.
+	Применяя теорему \ref{PolyakTh} к отображению $F$, получим, что в условиях описанных Предположений \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} и управляемости линеаризованной системы \eqref{linear} при $u(\cdot) \equiv 0$, множество достижимости $G(T,\mu)$ выпукло при достаточно малых $\mu > 0$. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен Б.Т.~Поляком в \cite{Polyak2004}.
 	
     \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
     Рассмотрим здесь нелинейную систему \eqref{sec1:nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
     \begin{gather}\label{nonlinearT}
 			\dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 	\end{gather}
-    Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число, а кроме принятых в предыдущем разделе допущений относительно функций $f_1$ и $f_2$, которые предполагаются справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ введем следующее.
-    \begin{assumption}\label{Pred}
-    	Функции $f_1(t,x)$ и $f_2(t,x)$ имеют непрерывные производные по $x$, которые удовлетворяют условию Липшица при всех $t \in [t_0;t_0+\varepsilon]$,$x_1, x_2 \in D$.
-    	\begin{gather*}
-    			\left\| \frac{\partial f_1}{\partial x}(t,x_1) - \frac{\partial f_1}{\partial x}(t,x_2) \right\| \leqslant L_3 \| x_1 - x_2\|, \quad 	\left\| \frac{\partial f_2}{\partial x}(t,x_1) - \frac{\partial f_2}{\partial x}(t,x_2) \right\| \leqslant L_4 \| x_1 - x_2\|,
-    	\end{gather*}
-    	где $L_i \geqslant 0$ для $i = 3,4$.
-    \end{assumption}
+    Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число. Принятые в предыдущих разделах Предположения \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
+   
 
      Управление $u(\cdot)$ будем выбирать из
-    пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $ \mu > 0 $ в этом пространстве
+    пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $ \overline{\mu} > \mu > 0 $ в этом пространстве
     \begin{gather*}
     	\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
     \end{gather*}
@@ -338,7 +423,7 @@
  Производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\left( z(t,\upsilon(\cdot)),\upsilon(\cdot)\right)  $ системы \eqref{epslinear}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях.
  
  
- При выполнении условий предположения \ref{Pred} отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой $L(\varepsilon) = L_0 + L_1\varepsilon$, $ L_0, L_1 \geqslant 0 $. Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
+ При выполнении условий предположения \ref{as:right_hand_side_diff_lip} отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой $L(\varepsilon) = L_0 + L_1\varepsilon$, $ L_0, L_1 \geqslant 0 $. Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
   
   Для самосопряженного оператора $S'(0)S'(0)^*$ верно равенство $S'(0)S'(0)^* = \widetilde{W}(\varepsilon)$.
   
