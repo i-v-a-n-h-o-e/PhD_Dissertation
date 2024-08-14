@@ -127,9 +127,17 @@
 		\end{gather*} Здесь $ A(\cdot) $ представляет собой матрицу Якоби функции $ f_1(\cdot, x) + f_2(\cdot, x) u(\cdot) $, вычисленную вдоль траектории $ x(\cdot,u(\cdot)) $.
 	\end{definition}
 	Решение системы \eqref{linear} имеет вид $\delta x(t) =  \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau $. Здесь $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, где $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению 
-	\begin{gather*}
+	\begin{gather}\label{fundumental_matrix_eq}
 		\dot{\Phi}(t) = A(t) \Phi(t), \qquad \Phi(t_0) = I.
+	\end{gather}
+	
+	Заметим, что интеграл $\int_0^t \| A(\tau)\|  \ d\tau$ равномерно ограничен по $u(\cdot) $ на $  B_{\mathbb{L}_2}(0,\mu)$. Для каждого фиксированного  $u(\cdot) $ существует такое $\tau > t_0$, что решение \eqref{fundumental_matrix_eq} определено на интервале $ [t_0, \tau] $.  Проинтегрировав \eqref{fundumental_matrix_eq} от $t_0$ до $\tau$, получим
+	\begin{gather*}
+		\Phi(\tau) = I + \int\limits_{t_0}^{\tau} A(s)  \Phi(s) \ ds, \\
+		\|	\Phi(\tau) \| \leqslant 1 +  \int\limits_{t_0}^{\tau} \| A(s)\| \|\Phi(s)\| \ ds,
 	\end{gather*}
+	Из Леммы Гронуолла-Беллмана \cite{Bellman} следует, что  $	\|	\Phi(\tau) \| \leqslant \exp \left( \int_{t_0}^{\tau}  \| A(s)\| \ ds \right)$. Используя известную технику, можно сделать вывод, что при всех $u(\cdot) \in  B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение  \eqref{fundumental_matrix_eq}, определенное на интервале $[t_0, T]$.
+	
 	
 	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством 
 	\begin{gather}\label{sec1:solution_endpoint_mapping}
@@ -194,7 +202,7 @@
 		\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau,
 	\end{gather*}
 	где первое слагаемое является решением линеаризованной системы \eqref{linear}.
-	Учитывая, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $ \cite[док-во Теоремы 3]{Fillipov},  из \eqref{lim_omega} следует, что 
+	Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -A(\tau)X(T, \tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{fundumental_matrix_eq}  получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $. Тогда из \eqref{lim_omega} следует, что 
 	\begin{gather*}
 		\left\|\int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  \right\| = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0
 	\end{gather*}
@@ -294,8 +302,7 @@
 	\begin{gather*}
 		\frac{\partial X(t, s, u(\cdot))}{\partial s} = -A\big(s,u(\cdot)\big)^{\top} X(t, s, u(\cdot)), \quad X\big(t, t, u(\cdot)\big) = I.
 	\end{gather*}
-	\todo[inline]{Для доказательства ограниченности решения этого уравнения можно попробовать использовать условия Каратеодори. Правая часть непрерывна по $X(t, s, u(\cdot))$, интегрируема по $s$, но непонятно, как выбрать интегрируемую верхную грань для такой правой части, ведь, строго говоря $A(\cdot, u(\cdot))$ не обязана быть ограниченной. }
-	Известно (например, это следует из доказательства Теоремы 3 из \cite{Fillipov}), что существует такая константа $k_X>0$ что
+	Аналогично \eqref{fundumental_matrix_eq}, решение этого уравнение ограниченно, то есть существует такая константа $k_X>0$ что
 	\begin{gather*}
 		\| X(t,s, u(\cdot)) \| \leqslant k_X, \qquad t \in [t_0,T], \qquad s \in [t_0,T]
 	\end{gather*}
