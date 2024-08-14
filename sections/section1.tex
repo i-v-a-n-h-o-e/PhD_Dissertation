@@ -56,7 +56,7 @@
 	
 	где $ l_1(\cdot) \in  \mathbb{L}_1$, $ l_2(\cdot) \in  \mathbb{L}_2$. В \cite[Теорема 5]{Fillipov2} доказано, что из условия \eqref{RightHandSideCond} следует непрерывность траекторий, а компактность множества траекторий при этом условии доказана в \cite[Утверждение 2]{GusZyk}.
 	
-	Известны также другие односторонние оценки, при наличии которых справедливо Предположение  \ref{as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2, Guseinov}).
+	Известны также другие  оценки на правую часть системы, при наличии которых справедливо Предположение  \ref{as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2, Guseinov}).
 	
 	В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ 0 < \mu < \overline{\mu} $.
 	
@@ -131,9 +131,14 @@
 		\dot{\Phi}(t) = A(t) \Phi(t), \qquad \Phi(t_0) = I.
 	\end{gather*}
 	
-	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$. Здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$, $0 \leqslant T \leqslant \overline{T}$. 
+	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством 
+	\begin{gather}\label{sec1:solution_endpoint_mapping}
+			Fu(\cdot) = x(T,u(\cdot)).
+	\end{gather}
 	
-	\begin{lemma}\label{FrechetDerivative}
+	 Здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$, $0 \leqslant T \leqslant \overline{T}$. 
+	
+	\begin{lemma}\label{lem:FrechetDerivative}
 		Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}.  Тогда отображение $F$ имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) =\delta x(T)$, где $\delta x(T)$ ~--- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{linear}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
 	\end{lemma}
 	\doc. 
@@ -274,12 +279,11 @@
 		\overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
 	\end{gather}
 	где $\delta x(t)$ --- это решение системы \eqref{linear} и отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям.
-	\begin{lemma}\label{lem:Lipdx_gloabal}
-		Пусть выполнены Предположения \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip}.  Тогда найдется  $L_u > 0$ такая, что для всех  $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t \in [t_0,T]$, 
+	\begin{lemma}\label{lem:lip_dx_global}
+		Пусть выполнены Предположения \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip}.  Тогда найдется  $L_u > 0$ такая, что для всех  $u_1(\cdot),\, u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t \in [t_0,T]$, 
 		\begin{gather*}
-			\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \| \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
+			\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \| \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
 		\end{gather*}
-		где $i = 1,2$.
 	\end{lemma}
 	\doc. 
 	Решение \eqref{linear} имеет вид
@@ -316,7 +320,7 @@
 	\begin{gather*}
 		\dot{y} = -A_1(t) y.
 	\end{gather*}
-	Как и $X_i(\tau,s)$, эта матрица тоже ограниченна: существует $k_Y>0$ такая, что
+	Как и $X_i(\tau,s)$, эта матрица тоже ограничена: существует $k_Y>0$ такая, что
 	\begin{gather*}
 		\|Y(t,s)\| \leqslant k_Y, \quad t,s \in [t_0, \tau]
 	\end{gather*}
@@ -327,7 +331,9 @@
 	Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u = L_X T$.
 	\hfill$\square$\\[1ex]%--- P r o o f.
 	
-	Применяя теорему \ref{PolyakTh} к отображению $F$, получим, что в условиях описанных Предположений \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} и управляемости линеаризованной системы \eqref{linear} при $u(\cdot) \equiv 0$, множество достижимости $G(T,\mu)$ выпукло при достаточно малых $\mu > 0$. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен Б.Т.~Поляком в \cite{Polyak2004}.
+	Применим теорему \ref{PolyakTh} к отображению $F$, определенному в \eqref{sec1:solution_endpoint_mapping}. Роль точки $a$ играет нулевое управление $u(\cdot) \equiv 0$. Регулярность отображения  $F$ в этой точки следует из управляемости линеаризованной системы \eqref{linear} при $u(\cdot) \equiv 0$, Предположения  \ref{as:right_hand_side_conditions_global} и Леммы \ref{lem:FrechetDerivative}. Липшицевость производной Фреше на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{lem:lip_dx_global} в условиях Предположения \ref{as:right_hand_side_diff_lip}. 
+	
+	Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \frac{\nu}{2L_u} $, где $\nu$~--- наименьшее собственное число грамиана управляемости $W(T, 0)$ системы  \eqref{linear}, линеаризованной вдоль пары $\big(x(\cdot, 0), 0 \big)$, а константа $L_u $ определена в Лемме  \ref{lem:lip_dx_global}. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен в \cite{Polyak2004}.
 	
     \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
     Рассмотрим здесь нелинейную систему \eqref{sec1:nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
@@ -338,7 +344,7 @@
    
 
      Управление $u(\cdot)$ будем выбирать из
-    пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $ \overline{\mu} > \mu > 0 $ в этом пространстве
+    пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $  0 < \mu < \overline{\mu} $ в этом пространстве
     \begin{gather*}
     	\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
     \end{gather*}
@@ -354,6 +360,8 @@
     \begin{gather}\label{epscond}
     	\int_0^1 \upsilon^{\top}(\tau) \upsilon(\tau) \, d\tau \leqslant \left( \mu \sqrt{\varepsilon}\right)^2.
     \end{gather}
+    Заметим, что функции $\widetilde{f}_1$ и $\widetilde{f}_2$  удовлетворяют Предположениям  \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} в области $[0, 1]\times D$. 
+    
     Обозначим через $\widetilde{G}(\varepsilon)$ множество достижимости данной системы в момент времени $\tau=1$
     \begin{gather*}
     	\widetilde{G}(\varepsilon)=\{z\in \mathbb{R}^n:\exists v(\cdot)\in \mathbb{L}_2[0,1],  \lVert v(\cdot)\rVert^2_{\mathbb{L}_2[0,1]}
