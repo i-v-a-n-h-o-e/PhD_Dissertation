@@ -55,14 +55,13 @@
 	\end{gather}
 	
 	где $ l_1(\cdot) \in  \mathbb{L}_1$, $ l_2(\cdot) \in  \mathbb{L}_2$. В \cite[Теорема 5]{Fillipov2} доказано, что из условия \eqref{RightHandSideCond} следует непрерывность траекторий, а компактность множества траекторий при этом условии доказана в \cite[Утверждение 2]{GusZyk}.
-	\todo[inline]{Близкое условие есть в Kh. G. Guseinov, A. S. Nazlipinar, Attainable sets of the control system with limited resources, Тр. ИММ УрО РАН, 2010, том 16, номер 5, 261–268,  там предполагается, что $\|f(t,x,u)\| \leqslant c(1 + \|x\|)(1 + \|u\|)$, $c > 0$, что несколько строже, чем \ref{RightHandSideCond}}
 	
-	Известны также другие односторонние оценки, при наличии которых справедливо Предположение  \ref{as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2}).
+	Известны также другие односторонние оценки, при наличии которых справедливо Предположение  \ref{as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2, Guseinov}).
 	
 	В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ 0 < \mu < \overline{\mu} $.
 	
 	\begin{lemma}\label{lem:Lip_of_solutions_global}
-			Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}. Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu}) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
+			Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}. Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
 			\begin{gather}
 			\left\| x_1(t) - x_2(t) \right\|_2 \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, 
 			\end{gather}
@@ -102,37 +101,37 @@
   	\begin{gather*}
   		\| x_1(t) - x_2(t) \| \leqslant \int\limits_{t_0}^{t} (L_{f_1} + L_{f_2} \| u_2(\tau)\|)  \|x_1(\tau) - x_2(\tau)\| \ d\tau +  k_{f_2} \| u_1(\cdot) - u_2(\cdot) \|,
   	\end{gather*}
-  	где $ k_{f_2} = (\overline{T} - t_0) \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| ^{1/2}$. Из леммы Грануолла следует утверждение леммы
+  	где $ k_{f_2} = (\overline{T} - t_0) \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| ^{1/2}$. Из леммы Гронуолла — Беллмана \cite{Bellman} следует неравенство
   	\begin{gather}\label{lip_of_solution}
-  		\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
+  		\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, 
   	\end{gather}
   	где $L_x = k_{f_2}  \exp\big(L_{f_1}(\overline{T} - t_0)  + L_{f_2}  \mu(\overline{T} - t_0)^{1/2}\big)$.
 	\hfill $\square$
 	\begin{zam}
 		Константа Липшица $L_x$ в Лемме \ref{lem:Lip_of_solutions_global} выбрана не зависящий от $t$. Таким образом, неравенство \eqref{lip_of_solution} выполняется для всех $t_0 \leqslant t \leqslant \overline{T}$.  То есть, справедливо 
 		\begin{gather}
-					\left\| x_1(\cdot) - x_2(\cdot) \right\|_\mathbb{C} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|, 
+					\left\| x_1(\cdot) - x_2(\cdot) \right\|_\mathbb{C} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|.
 		\end{gather}
 	\end{zam}
 	
 	Пусть $ 0 <  T \leqslant \overline{T} $.
 	\begin{definition}\label{def:linearized_system}
-		Пусть $ x(t,u(\cdot)) $ ~--- движение, отвечающее управлению $ u(\cdot)$. Назовем систему
+		Пусть $ x(\cdot,u(\cdot)) $ ~--- движение, отвечающее управлению $ u(\cdot)$. Назовем систему
 		\begin{gather}\label{linear}
 			\delta \dot{x} =  A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
 		\end{gather}
-		{\textit линеаризацией} системы \eqref{sec1:nonlinear} вдоль пары траектории и управления $\left( x(t,u(\cdot)),u(\cdot)\right)   $ , если 
+		{\textit линеаризацией} системы \eqref{sec1:nonlinear} вдоль пары траектории и управления $\left( x(\cdot,u(\cdot)),u(\cdot)\right)   $ , если 
 		\begin{gather*}
 		    A(t) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u(\cdot)\big)\Big) + \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u(\cdot)\big)\Big) u(t), \  
 		    B(t) = f_2 \Big(t,x\big(t,u(\cdot)\big)\Big).
-		\end{gather*} Здесь $ A(t) $ представляет собой матрицу Якоби функции $ f_1 + f_2 u(\cdot) $, вычисленную вдоль траектории $ x(t,u(\cdot)) $.
+		\end{gather*} Здесь $ A(\cdot) $ представляет собой матрицу Якоби функции $ f_1(\cdot, x) + f_2(\cdot, x) u(\cdot) $, вычисленную вдоль траектории $ x(\cdot,u(\cdot)) $.
 	\end{definition}
 	Решение системы \eqref{linear} имеет вид $\delta x(t) =  \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau $. Здесь $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, где $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению 
 	\begin{gather*}
 		\dot{\Phi}(t) = A(t) \Phi(t), \qquad \Phi(t_0) = I.
 	\end{gather*}
 	
-	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$: здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$. 
+	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством $Fu(\cdot) = x(T,u(\cdot))$. Здесь $ x(T,u(\cdot))$ ~--- решение системы \eqref{sec1:nonlinear}, порожденное управлением $u(\cdot)$, $0 \leqslant T \leqslant \overline{T}$. 
 	
 	\begin{lemma}\label{FrechetDerivative}
 		Пусть выполнено условие Предположения \ref{as:right_hand_side_conditions_global}.  Тогда отображение $F$ имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) =\delta x(T)$, где $\delta x(T)$ ~--- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{linear}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
@@ -148,7 +147,7 @@
 		\end{gathered}
 	\end{gather}
 	
-	Продолжая рассуждения \eqref{sec1:meanvalue}, запишем 
+	Применяя формулы  \eqref{sec1:meanvalue}, запишем 
 	\begin{gather*}
 		\begin{gathered}
 			f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
@@ -195,7 +194,7 @@
 		\left\|\int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  \right\| = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0
 	\end{gather*}
 	
-	То есть, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot)$ , что подтверждает справедливость утверждения Леммы
+	То есть, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot))$ , что подтверждает справедливость утверждения Леммы
 	\begin{gather}\label{lem2_assert}
 		  F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau
 	\end{gather}
@@ -220,7 +219,7 @@
 	
 	 Линейная система вполне управляема на  $ [t_0, T] $ тогда и только тогда, когда ее грамиан управляемости $W(T)$ ~--- положительно определенная матрица. Линеаризованная система \eqref{linear} является частным случаем линейной системы из Определения \ref{def:Grammian}. 
 	 
-	 Обозначим грамиан управляемости системы \eqref{linear} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{sec1:nonlinear}, вдоль которой проводится линеаризация. Тогда, из Определения \ref{def:Grammian} и \eqref{lem2_assert} видно, что положительная определенность $W(T,0)$ (управляемость системы \eqref{linear} при $u(\cdot) \equiv 0 $) означает регулярность отображения $F$ в точке $u(\cdot) = 0$. 
+	 Обозначим грамиан управляемости системы \eqref{linear} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{sec1:nonlinear}, вдоль которой проводится линеаризация. Тогда, из Определения \ref{def:Grammian} и \eqref{lem2_assert} видно, что положительная определенность $W(T,0)$ (управляемость системы \eqref{linear} линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right)   $) означает регулярность отображения $F$ в точке $u(\cdot) $. 
 	
 	\subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
 	\subsubsection{Выпуклость отображения малого шара.}
@@ -231,9 +230,9 @@
 	\begin{gather}\label{regularity_cond}
 		\forall y \in Y, \quad \exists x \in X, \quad f'(a) x = y.
 	\end{gather}
-	В доказательстве теоремы об открытом отображении показано \cite[Теорема 2.11, Теорема 4.13]{Rudin}, что существует такая константа $\nu > 0$, что $f'(a) O_X^1 \supset \nu O_Y^1$, где $ O_X^1$ и  $O_Y^1$~--- открытые единичные шары в $X$ и $Y$, соответственно ($O_{X(Y)}^1 = \{x\in X(Y): \|x\|_{X(Y)} < 1 \}$). Отсюда следует, что
+	В доказательстве теоремы об открытом отображении показано \cite[Теорема 2.11, Теорема 4.13]{Rudin}, что существует такая константа $\nu > 0$, что $f'(a) O_X(0, 1) \supset \nu O_Y(0, 1)$, где $ O_X(0, 1)$ и  $O_Y(0, 1)$~--- открытые единичные шары в $X$ и $Y$, соответственно. Отсюда следует, что
 	\begin{gather}\label{LyusternikConditionProof}
-		\| f'(a)^* y \| = \sup\limits_{x \in O_X^1} \big(x,\  f'(a)^* y\big) =  \sup\limits_{x \in O_X^1} \big(f'(a) x,\  y\big) \geqslant  \sup\limits_{\overline{y} \in \nu O_Y^1} \big(\overline{y},\  y\big) = \nu \|y\|,
+		\| f'(a)^* y \| = \sup\limits_{x \in O_X(0, 1)} \big(x,\  f'(a)^* y\big) =  \sup\limits_{x \in O_X(0, 1)} \big(f'(a) x,\  y\big) \geqslant  \sup\limits_{\overline{y} \in \nu O_Y(0, 1)} \big(\overline{y},\  y\big) = \nu \|y\|,
 	\end{gather}
 	для всех $y \in Y$. Здесь $A^*$ обозначает сопряженный к $A$ линейный оператор.
 	
@@ -255,9 +254,9 @@
 	
 	Результат теоремы \ref{PolyakTh} можно объяснить следующим образом. Шар $B_x(a,\varepsilon)$ сильно выпукл, поэтому его образ при линейном отображении $f'(a)$ тоже сильно выпукл. Но свойство сильной выпуклости устойчиво к малым возмущениям, поэтому оно не теряется при замене линейного отображения $f'(a)$ на близкое нелинейное отображение $f'(x)$. 
 	
-	Результат теоремы можно расширить, если вместо шара $B_x(a,\varepsilon) $ взять любое другое сильно выпуклое множество. Наконец, предположения о гладкости $f$ нельзя существенно ослабить.
+	Результат теоремы можно обобщить, если вместо шара $B_x(a,\varepsilon) $ взять любое другое сильно выпуклое множество. Наконец, предположения о гладкости $f$ нельзя существенно ослабить \cite{Polyak2001, Polyak2001ru}.
 	
-	Из этих соображений видно, что теорема не может быть обобщена на банаховы пространства, в которых нет свойства сильной выпуклости шара. Однако достаточное условие выпуклости  образов выпуклых множеств в банаховых пространствах, не использующее свойство сильной выпуклости, было получено в работе \cite{Ledyaev}. 
+	Из этих соображений видно, что теорема не может быть обобщена на банаховы пространства, в которых нет свойства сильной выпуклости шара. Отметим, что достаточное условие выпуклости  образов выпуклых множеств в банаховых пространствах, не использующее свойство сильной выпуклости, было получено в работе \cite{Ledyaev}. 
 	
 	\subsubsection{Выпуклость множеств достижимости при малых ограничениях на управление}
 	
@@ -323,9 +322,9 @@
 	\end{gather*}
 	для всех $u(\cdot) \in B(0,\mu)$. Мы имеем
 	\begin{gather*}
-		\| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{where} \quad L_X = k_Y L_A k_X (T - t_0) .
+		\| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{где} \quad L_X = k_Y L_A k_X (T - t_0) .
 	\end{gather*}
-	Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u = L_X t $.
+	Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u = L_X T$.
 	\hfill$\square$\\[1ex]%--- P r o o f.
 	
 	Применяя теорему \ref{PolyakTh} к отображению $F$, получим, что в условиях описанных Предположений \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} и управляемости линеаризованной системы \eqref{linear} при $u(\cdot) \equiv 0$, множество достижимости $G(T,\mu)$ выпукло при достаточно малых $\mu > 0$. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен Б.Т.~Поляком в \cite{Polyak2004}.
