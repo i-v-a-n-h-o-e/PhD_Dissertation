@@ -91,26 +91,28 @@
 	\end{gather}
 	
 	Так как для $0 \leqslant \xi \leqslant 1 $ и  $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big) \in D$, из Предположения \ref{as:right_hand_side_conditions_global} мы имеем, что 
-	\begin{gather*}
+	\begin{gather}\label{lip_f}
+		\begin{gathered}
 		 \big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|, \\
 		 \left\| \Big(f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) \Big) u_2(\tau) \right\| \leqslant  L_{f_2} \|u_2(\tau)\| \|x_1(\tau) - x_2(\tau)\|,
-  	\end{gather*}
-  	где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_1}{\partial x} (\tau, x) $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \frac{\partial f_2}{\partial x} (\tau, x)$.
+		 \end{gathered}
+  	\end{gather}
+  	где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \dfrac{\partial f_1}{\partial x} (\tau, x) $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \dfrac{\partial f_2}{\partial x} (\tau, x)$.
   	
   	Используя полученные соотношения, в \eqref{diff_of_solution} получаем
   	\begin{gather*}
-  		\| x_1(t) - x_2(t) \| \leqslant \int\limits_{t_0}^{t} (L_{f_1} + L_{f_2} \| u_2(\tau)\|)  \|x_1(\tau) - x_2(\tau)\| \ d\tau +  k_{f_2} \| u_1(\cdot) - u_2(\cdot) \|,
+  		\| x_1(t) - x_2(t) \| \leqslant \int\limits_{t_0}^{t} (L_{f_1} + L_{f_2} \| u_2(\tau)\|)  \|x_1(\tau) - x_2(\tau)\| \ d\tau +  k_{f_2} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
   	\end{gather*}
-  	где $ k_{f_2} = (\overline{T} - t_0) \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| ^{1/2}$. Из леммы Гронуолла — Беллмана \cite{Bellman} следует неравенство
+  	где $ k_{f_2} = \sqrt{\overline{T} - t_0} \max\limits_{(\tau,\, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| $. Из леммы Гронуолла — Беллмана \cite{Bellman} следует неравенство
   	\begin{gather}\label{lip_of_solution}
   		\left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, 
   	\end{gather}
-  	где $L_x = k_{f_2}  \exp\big(L_{f_1}(\overline{T} - t_0)  + L_{f_2}  \mu(\overline{T} - t_0)^{1/2}\big)$.
+  	где $L_x = k_{f_2}  \exp\big(L_{f_1}(\overline{T} - t_0)  + L_{f_2}  \mu\sqrt{\overline{T} - t_0}\big)$.
 	\hfill $\square$
 	\begin{zam}
 		Константа Липшица $L_x$ в Лемме \ref{lem:Lip_of_solutions_global} выбрана не зависящий от $t$. Таким образом, неравенство \eqref{lip_of_solution} выполняется для всех $t_0 \leqslant t \leqslant \overline{T}$.  То есть, справедливо 
 		\begin{gather}
-					\left\| x_1(\cdot) - x_2(\cdot) \right\|_\mathbb{C} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|.
+					\left\| x_1(\cdot) - x_2(\cdot) \right\|_\mathbb{C} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}.
 		\end{gather}
 	\end{zam}
 	
@@ -136,7 +138,7 @@
 		\Phi(\tau) = I + \int\limits_{t_0}^{\tau} A(s)  \Phi(s) \ ds, \\
 		\|	\Phi(\tau) \| \leqslant 1 +  \int\limits_{t_0}^{\tau} \| A(s)\| \|\Phi(s)\| \ ds,
 	\end{gather*}
-	Из Леммы Гронуолла-Беллмана \cite{Bellman} следует, что  $	\|	\Phi(\tau) \| \leqslant \exp \left( \int_{t_0}^{\tau}  \| A(s)\| \ ds \right)$. Используя известную технику, можно сделать вывод, что при всех $u(\cdot) \in  B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение  \eqref{fundumental_matrix_eq}, определенное на интервале $[t_0, T]$.
+	Из Леммы Гронуолла-Беллмана \cite{Bellman} следует, что  $	\|	\Phi(\tau) \| \leqslant \exp \left( \int_{t_0}^{\tau}  \| A(s)\| \ ds \right)$. Продолжая рассуждения, можно заключить,  что при всех $u(\cdot) \in  B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение  \eqref{fundumental_matrix_eq}, определенное на интервале $[t_0, T]$.
 	
 	
 	При фиксированном $x_0 \in \operatorname{int} D $ введем отображение $F: \mathbb{L}_2[0,T] \rightarrow \mathbb{R}^n $ равенством 
@@ -295,7 +297,7 @@
 	\end{lemma}
 	\doc. 
 	Решение \eqref{linear} имеет вид
-	\begin{gather}\label{xu}
+	\begin{gather}\label{sec1:xu}
 		\delta x\big(t, u_i(\cdot),\delta u(\cdot)\big) = \int\limits_{t_0}^{t}  X(t,s,u_i(\cdot)) B(s) \delta u(s) \ ds,
 	\end{gather}
 	где $X(t,s,u(\cdot)) $ --- фундаментальная матрица системы \eqref{linear}, которая является решением уравнения
@@ -312,10 +314,10 @@
 		\left\| \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_1(\cdot)\big)\Big) - \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_2(\cdot)\big)\Big) \right\| + \\ +
 		\left\| \left[ \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_1(\cdot)\big)\Big)  - \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \right] u_1(t) \right\| + 
 		\left\| \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \Big(u_1(t) - u_2(t)\Big) \right\| \leqslant \\ \leqslant
-		(l_{f_1} L_x  + l_{f_2} L_x \mu   +  L_{f_2} ) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \qquad t_0 \leqslant t \leqslant T,\\
+		\Big(l_{f_1} L_x  + l_{f_2} L_x \|u_1(t) \|\Big) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2} +  L_{f_2} \| u_1(t) - u_2(t) \|, \qquad t_0 \leqslant t \leqslant T,\\
 		\int\limits_{t_0}^{\tau} \|A_1(s) - A_2(s) \| ds \leqslant L_A \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}. 
 	\end{gather*}
-	Здесь $L_A>0$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$. Используя,
+	Здесь $L_A = l_{f_1} L_x (T - t_0) + l_{f_2} L_x \mu \sqrt{T - t_0} + L_{f_2} \sqrt{T - t_0}$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$. Используя,
 	\begin{gather*}
 		\frac{\partial}{\partial t} \left(X_1(t,s) - X_2(t,s) \right) = -A_1^{\top}(t) \left(X_1(t,s) - X_2(t,s) \right) + (A_2(t) - A_1(t))^{\top} X_2(t,s), \quad t \in [s,\tau]
 	\end{gather*}
@@ -333,14 +335,14 @@
 	\end{gather*}
 	для всех $u(\cdot) \in B(0,\mu)$. Мы имеем
 	\begin{gather*}
-		\| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{где} \quad L_X = k_Y L_A k_X (T - t_0) .
+		\| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{где} \quad L_X = k_Y L_A k_X.
 	\end{gather*}
-	Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u = L_X T$.
+	Отсюда и из \eqref{sec1:xu} следует утверждение Леммы и $L_u = L_X (T -t_0)$.
 	\hfill$\square$\\[1ex]%--- P r o o f.
 	
 	Применим теорему \ref{PolyakTh} к отображению $F$, определенному в \eqref{sec1:solution_endpoint_mapping}. Роль точки $a$ играет нулевое управление $u(\cdot) \equiv 0$. Регулярность отображения  $F$ в этой точки следует из управляемости линеаризованной системы \eqref{linear} при $u(\cdot) \equiv 0$, Предположения  \ref{as:right_hand_side_conditions_global} и Леммы \ref{lem:FrechetDerivative}. Липшицевость производной Фреше на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{lem:lip_dx_global} в условиях Предположения \ref{as:right_hand_side_diff_lip}. 
 	
-	Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \frac{\nu}{2L_u} $, где $\nu$~--- наименьшее собственное число грамиана управляемости $W(T, 0)$ системы  \eqref{linear}, линеаризованной вдоль пары $\big(x(\cdot, 0), 0 \big)$, а константа $L_u $ определена в Лемме  \ref{lem:lip_dx_global}. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен в \cite{Polyak2004}.
+	Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \dfrac{\nu}{2L_u} $, где $\nu$~--- наименьшее собственное число грамиана управляемости $W(T, 0)$ системы  \eqref{linear}, линеаризованной вдоль пары $\big(x(\cdot, 0), 0 \big)$, а константа $L_u $ определена в Лемме  \ref{lem:lip_dx_global}. Этот результат, при несколько иных предположениях о правой части системы \eqref{sec1:nonlinear}, был получен в \cite{Polyak2004}.
 	
     \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
     Рассмотрим здесь нелинейную систему \eqref{sec1:nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
@@ -367,8 +369,15 @@
     \begin{gather}\label{epscond}
     	\int_0^1 \upsilon^{\top}(\tau) \upsilon(\tau) \, d\tau \leqslant \left( \mu \sqrt{\varepsilon}\right)^2.
     \end{gather}
-    Заметим, что функции $\widetilde{f}_1$ и $\widetilde{f}_2$  удовлетворяют Предположениям  \ref{as:right_hand_side_conditions_global} и \ref{as:right_hand_side_diff_lip} в области $[0, 1]\times D$. 
+    Обозначим $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
     
+    Заметим, что система \eqref{epsnonlinear}  удовлетворяет Предположению  \ref{as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $.  Из этого следует, что Лемма \ref{lem:Lip_of_solutions_global} справедлива для системы  \eqref{epsnonlinear}.  Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют условию Липшица по $x$ на множестве $[0, 1]\times D$ с константами $\widetilde{L}_{f_1} = \varepsilon L_{f_1} $ и  $\widetilde{L}_{f_2} = L_{f_2} $ соответственно. 
+    
+    Из неравенства \eqref{lip_of_solution} примененного  к системе \eqref{epsnonlinear}, следует
+    \begin{gather*}
+    	\left\| z_1(t) - z_2(t) \right\| \leqslant L_z \left\|\upsilon_1(\cdot) - \upsilon_2(\cdot) \right\|_{\mathbb{L}_2},
+    \end{gather*}
+    где $ L_z = \dfrac{L_x}{\sqrt{\varepsilon}}$.
     Обозначим через $\widetilde{G}(\varepsilon)$ множество достижимости данной системы в момент времени $\tau=1$
     \begin{gather*}
     	\widetilde{G}(\varepsilon)=\{z\in \mathbb{R}^n:\exists v(\cdot)\in \mathbb{L}_2[0,1],  \lVert v(\cdot)\rVert^2_{\mathbb{L}_2[0,1]}
@@ -434,7 +443,9 @@
     
  Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{nonlinearT}, порожденное управлением $\upsilon(\cdot)$. 
  
- Производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\left( z(t,\upsilon(\cdot)),\upsilon(\cdot)\right)  $ системы \eqref{epslinear}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях.
+ Применяя Лемму \ref{lem:FrechetDerivative} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\left( z(t,\upsilon(\cdot)),\upsilon(\cdot)\right)  $ системы \eqref{epslinear}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях.
+ 
+  Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$ с константами $\widetilde{l}_{f_1} = \varepsilon l_{f_1} $ и  $\widetilde{l}_{f_2} = l_{f_2} $ соответственно. 
  
  
  При выполнении условий предположения \ref{as:right_hand_side_diff_lip} отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой $L(\varepsilon) = L_0 + L_1\varepsilon$, $ L_0, L_1 \geqslant 0 $. Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
