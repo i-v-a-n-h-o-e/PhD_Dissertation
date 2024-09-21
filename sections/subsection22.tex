@@ -19,13 +19,13 @@
 
 Рассмотрим нелинейную систему, аффинную по управлению
 \begin{gather}\label{sec22:nonlinear}
-	\dot{z}(t)=f(z(t))+B u(t),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+    \dot{z}(t)=f(z(t))+B u(t),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{gather}
  где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, а $ 
 T$ --- некоторое положительное число. 
 Будем считать, что функция $f$ обладает следующим свойством.
 \begin{property}\label{prop:Residial_term_bounds}
-	 Найдутся такие  $r>0$, $k>0$  что при всех $ z \in B(0,r) $, функция  $f(z)$ может быть представлена в форме  $ f(z) = Az + R(z) $, причем  $ \|R(z) \| \leqslant k \| z\|^2  $. 
+     Найдутся такие  $r>0$, $k>0$  что при всех $ z \in B(0,r) $, функция  $f(z)$ может быть представлена в форме  $ f(z) = Az + R(z) $, причем  $ \|R(z) \| \leqslant k \| z\|^2  $. 
 \end{property}
 Здесь $ B(0,r) $ --- это шар радиуса $r$  с центром в точке $0 \in \mathbb{R}^n$. 
 Это свойство выполняется, если if $f(0) = 0 $, $\frac{\partial f}{\partial x}(0) 
@@ -33,21 +33,21 @@ T$ --- некоторое положительное число.
 
 Напомним, что пространство скалярных или векторных функций интегрируемых с квадратом  на $ [0,T] $ обозначаются через $ \mathbb{L}_2 = \mathbb{L}_2[0,T] $. Шар в пространстве $\mathbb{L}_2$ обозначим через $B_{\mathbb{L}_2}(0,r)$. В качестве функционала мы рассматриваем 
 \begin{gather}\label{cost}
-		I(T,u):=\int_0^Tu^\top (t)u(t)dt= 	\lVert u(\cdot)\rVert^2_{\mathbb{L}_2.} 
+        I(T,u):=\int_0^Tu^\top (t)u(t)dt=     \lVert u(\cdot)\rVert^2_{\mathbb{L}_2.} 
 \end{gather}
 Задача состоит в синтезе закона управления $u(t)=u(t,z(t))$ который бы приводил траектории замкнутой системы  
 \begin{gather*}
-	\dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+    \dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{gather*}
 в начало координат за время $T$ и обеспечивал при этом минимальное значение $I(T,u)$. 
 
 Рассмотрим линейный случай ($R(z)=0$)
 \begin{gather}\label{sec22:linear}
-	\dot{z} =  A  z + B u, \qquad 0 \leqslant t \leqslant T.
+    \dot{z} =  A  z + B u, \qquad 0 \leqslant t \leqslant T.
 \end{gather}
 Если система \eqref{sec22:linear} управляема, то решение описанной выше задачи --- это линейный по состоянию закон управления 
 \begin{gather}\label{linear_feedback}
-	u(t,z) = -B^{\top} Q_T(t) z
+    u(t,z) = -B^{\top} Q_T(t) z
 \end{gather}
 (см, например, \cite{Abgar,Kur1,GusevOsipov}).
 Здесь $Q_T(t)=W^{-1}(T-t)$, а $W(t)$ --- грамиан управляемости системы $\dot{x} = -A x - B u$:
@@ -57,7 +57,7 @@ T$ --- некоторое положительное число.
 Грамиан $W(t)$ положительно определен при $t>0$ тогда и только того, когда   
 система \eqref{sec22:linear} управляема. Можно показать, что $Q_T(t)$ --- решение дифференциального уравнения 
 \begin{gather}\label{eqQ}
-	\dot{Q_T}  = Q_T B B^{\top} Q_T - A^{\top}Q_T - Q_T A, \quad Q_T(0)=W^{-1}(T).
+    \dot{Q_T}  = Q_T B B^{\top} Q_T - A^{\top}Q_T - Q_T A, \quad Q_T(0)=W^{-1}(T).
 \end{gather}
 Таким образом, чтобы найти $Q_T(t)$ на $(0,T]$, нужно сначала вычислить $W(T)$, а затем проинтегрировать систему \eqref{eqQ}.
 Поскольку $W(0)=0$, $Q_T(t)$ определена для $t<T$ и $\|Q_T(t)\| \to \infty$ при $t\to T$. 
@@ -75,20 +75,20 @@ T$ --- некоторое положительное число.
 Далее, мы будем использовать понятие асимптотической эквивалентности множеств, введенное в разделе \ref{sec21:AsymptoticEquality}. 
 Рассмотрим систему, уравнения которой получаются из \eqref{sec22:nonlinear} обращением времени. Положив $\tau=T-t$ мы имеем
 \begin{gather}\label{nonlinear_}
-			\dot{x}(\tau)=-f(x(\tau))-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
+            \dot{x}(\tau)=-f(x(\tau))-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
 \end{gather}
 здесь $x(\tau)=z(T-\tau)$, $v(\tau)=u(T-\tau)$.
 При заданном $\mu>0$ обозначим через $ G_{-} (T,\mu)$ множество достижимости системы \eqref{nonlinear_} с интегральными квадратичными ограничениями на управление, $G_{-}(T,\mu)=\{x\in \mathbb{R}^n:\exists v(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x( T,v(\cdot)))\}$.
-		 
+         
 Здесь $x( \tau,v(\cdot)))$ обозначает решение системы  \eqref{nonlinear_} с нулевыми начальными условиями. 
 Свойства множеств достижимости нелинейных систем с интегральными ограничениями на управление изучались во многих работах (см., например, \cite{Guseinov,Rousse,GusZykIFAC}).
 Рассмотрим также линейную систему 
 \begin{gather}\label{linear_}
-			\dot{x}(\tau)=-Ax(\tau)-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
+            \dot{x}(\tau)=-Ax(\tau)-B v(\tau),\qquad 0 \leqslant \tau \leqslant T; 
 \end{gather}
 эта система является линеаризацией системы  \eqref{nonlinear_} в начале координат. 
 Множество достижимости этой системы обозначим через $G_{-}^0(T,\mu)$. 
-Это множество --- эллипсоид в $\mathbb{R}^n$, описываемый неравенством $G_{-}^0(T,\mu)=\{x \in \mathbb{R}^n: x^\top W^{-1}(T)x\leqslant \mu^2\}$.			
+Это множество --- эллипсоид в $\mathbb{R}^n$, описываемый неравенством $G_{-}^0(T,\mu)=\{x \in \mathbb{R}^n: x^\top W^{-1}(T)x\leqslant \mu^2\}$.            
 
 %Let $X,Y \subset \mathbb R^n $ be convex compact sets such that the origin is an interior point of both the sets.
 %\begin{definition}[see, for example, \cite{Lassak,Ovs}]
@@ -98,15 +98,15 @@ T$ --- некоторое положительное число.
 %From the definition it follows that for any $c>0$, $\rho(cX,cY)=\rho(X,Y)$ and two inclusions are valid: $X\subset \exp(\rho(X,Y))Y$ and $Y\subset \exp(\rho(X,Y))X$.
 
 %Assume that  $X,Y$ depend on a small positive parameter $\tau$,  $0<\tau\leqslant\tau_0$  and set-valued mappings  $X(\tau), Y(\tau)$ are bounded. 
-%\begin{definition}[\cite{Ovs}]	
+%\begin{definition}[\cite{Ovs}]    
 % The sets $ X (\tau), Y (\tau) $ are called asymptotically equal under $\tau \to 0$ if $ \rho (X (\tau), Y (\tau)) \to 0,\;\; \tau \to 0$.
 %\end{definition}
 Через $\nu(\tau), \eta(\tau)$ обозначим наименьшее и наибольшее собственное число $W(\tau)$ соответственно. Из результатов  \cite{Polyak2001,GusOsSteklov,Osipov,GusevMotor} следует, что множества достижимости  
 $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквивалентны при $\tau \to 0$ если пара  $(A,B)$ --- управляема 
 и существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$ что для всех $0 < \tau \leqslant \tau_0 $
-		\begin{gather}\label{gramas}
-			\nu(\tau)\geqslant l\tau^{4-\alpha}.
-		\end{gather}
+        \begin{gather}\label{gramas}
+            \nu(\tau)\geqslant l\tau^{4-\alpha}.
+        \end{gather}
 
 \begin{zam}
     Множество достижимости $G_{-}(T,\mu)$ системы \eqref{nonlinear_} совпадает с множеством нуль-\\-управляемости системы \eqref{sec22:nonlinear}, т.е. множества таких начальных условий, из которых система может быть переведена в начало координат управлениями из $B_{\mathbb{L}_2}(0,\mu) $ за время $T$. 
@@ -118,9 +118,9 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
 Далее мы будем предполагать, что пара $A,/ B$ является управляемой, не уточняя это отдельно.
 
 В этом разделе мы исследуем асимптотическое поведение траекторий системы \eqref{sec22:nonlinear}, замкнутой линейной обратной связью $ u(t,z) = -B^{\top} Q_T(t) z$:
-\begin{equation}\label{nonlinear_closed}
-	\dot{z} = f(z) - B B^{\top} Q_T(t) z, \qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
-\end{equation}
+\begin{gather}\label{nonlinear_closed}
+    \dot{z} = f(z) - B B^{\top} Q_T(t) z, \qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+\end{gather}
 Напомним, что это управление приводит траектории линейной системы $\dot{z} = A z + B z$ к началу координат в момент времени $T$ и обеспечивает минимальное значение функционала. 
 Это значение равно $J_0(T,z_0) =z_0^{\top}Q_T(0)z_0$.
 
@@ -141,14 +141,14 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
     \end{gather*}
 \begin{assumption} \label{asm1}   
    Пусть существует $\overline{T}>0$ и непрерывная положительная функция $\varphi(\tau): (0, \overline{T}] \to \mathbb{R}$ такие, что
-\begin{equation*}
+\begin{gather*}
     0 < \frac{\eta(\tau)}{\sqrt{\nu(\tau)}} \leqslant \varphi(\tau), \qquad 0 < \tau \leqslant \overline{T},\quad \int\limits_0^ {\overline{T}}\varphi(\tau) d\tau<\infty.
-\end{equation*} 
+\end{gather*} 
 \end{assumption}
 Введем функцию $\Phi(T): [0, \overline{T}] \to \mathbb{R}$
-\begin{equation*}
+\begin{gather*}
     \Phi(T)= \int\limits_0^ {T}\varphi(\tau) d\tau,\quad 0 <  T \leqslant \overline{T},\quad  \Phi(0)=0.
-\end{equation*} 
+\end{gather*} 
 
 Напомним, что $\eta(\tau)$ и $\nu(\tau)$ --- это наименьшее и наибольшее собственные числа $W(\tau)$. 
 Далее будем считать систему \eqref{linear_} полностью управляемой, поэтому $\eta(\tau) \geqslant \nu(\tau) \geqslant 0$ при $\tau \geq 0$.
@@ -182,7 +182,7 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
 \begin{gather*}
     \frac{d}{dt}V_T(t,z) = \frac{d}{dt}z^{\top}Q_Tz = \dot{z}^{\top} Q_T z + z^{\top} \dot{Q_T} z + z^{\top} Q_T \dot{z} = \\
     =\left(z^{\top} A^{\top} + R^{\top}(z)- z^{\top} Q_T B B^{\top}\right) Q_T z + \\ +
-		z^{\top} Q_T \left(A +R(z) - B B^{\top} Q_T\right)z + z^{\top} \left(Q B B^{\top} Q_T - A^{\top}Q - Q_T A \right) z = \\
+        z^{\top} Q_T \left(A +R(z) - B B^{\top} Q_T\right)z + z^{\top} \left(Q B B^{\top} Q_T - A^{\top}Q - Q_T A \right) z = \\
     = R^{\top}(z)Q_T z + z^{\top} Q_T R(z) - z^{\top} (Q_T B B^{\top} Q_T) z = \\
     = 2 \left( R(z), Q_Tz \right) - z^{\top} Q_T B B^{\top} Q_T z 
 \end{gather*}
@@ -193,18 +193,18 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
 \end{gather}
 Здесь использованы обозначения $(x,y)_{Q_T}=x^\top Q_Ty$ и  $\| x \|_{Q_T} =\sqrt{(x,x)_{Q_T}}$ для $x,y\in \mathbb R^n$. 
 Так как $z = z(t) \in B(0,r)$ то, учитывая, что $\|R(z)\| \leqslant k\|z\|^2$  и применяя Лемму \ref{lem:zqz}, получаем 
-\begin{equation}\label{rqr_est}
+\begin{gather}\label{rqr_est}
      \| R(z) \|_{Q_T} \leqslant \frac{1}{\sqrt{\nu(T - t)}} \|R(z)\| \leqslant \frac{k}{\sqrt{\nu(T - t)}}\|z\|^2 \leqslant k \frac{\eta(T-t)}{\sqrt{\nu(T-t)}}V_T.
-\end{equation}
+\end{gather}
 Напомним, что  $ Q_T^{-1}(t) = W(T-t) $.
 Подставляя полученную выше оценку в \eqref{dvt_first} приходим к
-\begin{equation}\label{dvt}
+\begin{gather}\label{dvt}
     \frac{d}{dt}V_T \leqslant 2 k \frac{\eta(T-t)}{\sqrt{\nu(T-t)}}V_T^{\frc{3}{2}} \leqslant 2k \varphi(T-t) V_T^{\frc{3}{2}}
-\end{equation}
+\end{gather}
 Давайте введем систему
-\begin{equation}\label{comparison_system}
+\begin{gather}\label{comparison_system}
     \dot{\psi} = 2k \varphi(T-t) \psi,
-\end{equation}
+\end{gather}
 которую мы будем использовать как систему сравнения для \eqref{dvt}. 
 Проинтегрировав эту систему, мы имеем
 \begin{gather*}
@@ -221,7 +221,7 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
 Тогда $\psi(t) \leqslant \big(k^2\Phi^{2\beta}(T)\big)^{-1}$ для всех $ 0 \leqslant t \leqslant T^* $ и $\psi(0) = \big(4k^2\Phi^{2\beta}(T)\big)^{-1} $.
 Таким образом, $V_T(0,z(0))\leqslant \psi(0)$ и теорема сравнения \cite{walter}, примененная к \eqref{dvt}, \eqref{comparison_system}, означает, что выполняется неравенство $V_T(t,z(t))\leqslant \psi(t)$. 
 Это завершает доказательство.
-	\hfill $ \square $
+    \hfill $ \square $
 
 \begin{theorem}\label{th:tends_to_zero}
     Пусть выполнены предположения \ref{asm1}, \ref{asm2}. Тогда существует такое $ T_1 \leqslant T^*$ что для всех $ T \leqslant T_1$, найдется такой $ r_1(T)$ что траектории системы \eqref{nonlinear_closed} выходящие из $z(0) = z_0 \in B(0,r_1(T))$ стремятся к $0$ при $t \to T$.
@@ -259,12 +259,12 @@ $V_T(t, z(t))  \leqslant \psi(t) $ и
         
 Наконец, $ \|z(t)\|^2 \leqslant \eta(T-t)\psi(t) \leqslant \eta(T-t)\big(k^2\Phi^{2\beta}(T)\big)^{-1} $, 
 где $\eta(T-t) \to 0$ при $t \to T$, а это означает, что $\|z(t)\|$ тоже стремится к нулю.
-	\hfill $ \square $
+    \hfill $ \square $
 \begin{corollary}%\label{cor:1}
 Пусть существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$ что для всех $0 < \tau \leqslant \tau_0 $ выполняется
-		\begin{gather}\label{asymp}
-			\nu(\tau)\geqslant l\tau^{4-\alpha}.
-		\end{gather}
+        \begin{gather}\label{asymp}
+            \nu(\tau)\geqslant l\tau^{4-\alpha}.
+        \end{gather}
  Тогда справедливы Предположения \ref{asm1} и \ref{asm2} и, следовательно, утверждение Теоремы \ref{th:tends_to_zero} является верным.
 \end{corollary}
 \doc. 
@@ -272,15 +272,15 @@ $V_T(t, z(t))  \leqslant \psi(t) $ и
 Существует такое $m>0$, что $\eta(\tau)\leqslant m \tau$,  для $0 < \tau \leqslant\overline{T}$ (см,например, \cite{GusevOsipov}). 
 Следовательно, имеем $
 \eta(\tau)/\sqrt{\nu(\tau)} \leqslant  
-	 ml^{-1/2}\tau^{-1+\alpha/2},$
+     ml^{-1/2}\tau^{-1+\alpha/2},$
 и можем взять  $\varphi(\tau):=  
-	 ml^{-1/2}\tau^{-1+\alpha/2}$. 
+     ml^{-1/2}\tau^{-1+\alpha/2}$. 
 В этом случае 
 $\Phi(T)=2mT^{\alpha/2}/(l^{-1/2}\alpha)$, и Предположение \ref{asm1}, очевидно, выполняется. 
 Поскольку 
 $\sqrt{\eta(T)}/\Phi^\beta(T) \leqslant c_0T^{(1-\alpha\beta)/2},$
 где $c_0$ --- константа, то для выполнения Предположения  \ref{asm2} достаточно взять $\beta < 1/\alpha$.
-	\hfill $ \square $
+    \hfill $ \square $
 Заметим, что неравенство \eqref{asymp} совпадает с условием, из которого следует Теорема 1 из \cite{GusevOsipov}.
 
 \subsubsection{Оценка погрешностей в значениях функционала}
@@ -291,7 +291,7 @@ $\sqrt{\eta(T)}/\Phi^\beta(T) \leqslant c_0T^{(1-\alpha\beta)/2},$
 А обозначение $J(T,z_0)$ мы используем для значения функционала на траектории системы \eqref{nonlinear_closed}. 
 Для того, чтобы получить выражение для $J(T,z_0)$ нам нужен проинтегрировать  \eqref{dvt_first} от $0$ до $t$:
 \begin{gather}\label{J}
-	z^{\top}(t) Q_T(t)z(t) = z_0^{\top} Q_T(0)z_0 - \int_{0}^{t} u^{\top}(\xi)  u(\xi) \, d\xi + 2\int_{0}^{t}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi,
+    z^{\top}(t) Q_T(t)z(t) = z_0^{\top} Q_T(0)z_0 - \int_{0}^{t} u^{\top}(\xi)  u(\xi) \, d\xi + 2\int_{0}^{t}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi,
 \end{gather}
     где $ u(\xi) = -B^{\top} Q_T(\xi) z(\xi)$ --- это управление в момент времени $\xi$. В линейном случае, $R(z) \equiv 0$ и $z^{\top}(t) Q_T(t)z(t) \to 0 $ при $t \to T$, так что
 \begin{gather*}
@@ -299,15 +299,15 @@ $\sqrt{\eta(T)}/\Phi^\beta(T) \leqslant c_0T^{(1-\alpha\beta)/2},$
 \end{gather*}
 Далее мы собираемся исследовать поведение квадратичной формы $z^{\top}(t) Q_T(t)z(t) $ и остаточного члена в \eqref{J}, который мы обозначим через
 \begin{gather*}
-			\gamma (t,z_0) = 
-		 2\int_{0}^{t}  R^{\top}(z(\xi,z_0))Q(\xi) z(\xi,z_0) d\xi.
+            \gamma (t,z_0) = 
+         2\int_{0}^{t}  R^{\top}(z(\xi,z_0))Q(\xi) z(\xi,z_0) d\xi.
 \end{gather*}
 
 \begin{theorem}\label{th:functional_error_estimate}
   Пусть выполнено предположение \ref{asm1}. Пусть $x(t)$ --- такая траектория системы  \eqref{nonlinear_closed}, что $x(t)\in B(0,r)$, при $0\leqslant t  \leqslant \tilde{T} \leqslant \overline{T} $ и $V_{\tilde{T}}(t,x(t))\to 0$ при $t\to \tilde{T}$.  
   Тогда существует такое $T_2 \leqslant \tilde{T}$ что для всех  $0 < T < T_2 $ выполняется следующая оценка
    \begin{gather} \label{est}
-	 \left| \frac{	J(T) - J_0(T)}{J_0(T)}\right| \leqslant 16k\Phi({T})J^{1/2}_0(T).
+     \left| \frac{    J(T) - J_0(T)}{J_0(T)}\right| \leqslant 16k\Phi({T})J^{1/2}_0(T).
     \end{gather}
     Здесь $J(T)=J(T,x(\tilde{T}-T))$, $J_0(T)=J_0(T,x(\tilde{T}-T))$ --- значения функционала $I(T,u(\cdot))$ на траекториях нелинейной и линеаризованной системы соответственно.
 \end{theorem}
@@ -323,7 +323,7 @@ $V_T(0,z(0))=V_{\tilde{T}}(\tilde{T}-T, x(\tilde{T}-T))$, $V_{\tilde{T}}(t,x(t))
 Ясно, что  $V_T(t,z(t))=z^\top(t)Q_T(t)z(t)=V_{\tilde{T}}(\tau,x(\tau))$ стремится к нулю при $t\to T$.
 Используя это, перепишем \eqref{J} 
 \begin{gather}\label{J1}
-	 \int_{0}^{T} u^{\top}(\xi)  u(\xi) \, d\xi - z_0^{\top} Q_T(0)z_0= 2\int_{0}^{T}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi=\gamma(T,z(0)),
+     \int_{0}^{T} u^{\top}(\xi)  u(\xi) \, d\xi - z_0^{\top} Q_T(0)z_0= 2\int_{0}^{T}  R^{\top}(z(\xi))Q(\xi) z(\xi) d\xi=\gamma(T,z(0)),
 \end{gather}
 и изучим подробнее подынтегральное выражения $\left( R(z), Q_T z\right)=(R(z),z)_{Q_T} \leqslant \| R(z) \|_{Q_T} \| z \|_{Q_T}$.
 Повторяя шаги  \eqref{rqr_est}, \eqref{dvt} из доказательства леммы  \ref{lem:vest}, приходим к следующей оценке сверху
@@ -339,7 +339,7 @@ $V_T(0,z(0))=V_{\tilde{T}}(\tilde{T}-T, x(\tilde{T}-T))$, $V_{\tilde{T}}(t,x(t))
 \end{gather*}
 Поскольку $V_T(0,z(0))\to 0$ и $\Phi(T) \to 0$ при $T\to 0$, то найдется такое   $T_2$, что при всех $T\leqslant T_2$ выполняется неравенство $\Phi(T) \sqrt{V_T(0,z(0))}  \leqslant 1/2k$. Переписав это неравенство, получаем
 \begin{gather*}
-	\frac{1}{2\sqrt{V_T(0,z(0))}} \geqslant k\Phi(T).
+    \frac{1}{2\sqrt{V_T(0,z(0))}} \geqslant k\Phi(T).
 \end{gather*}  
 Выберем $C = 1/\sqrt{V_T(0,z(0))}$, тогда
  \begin{gather*}
@@ -351,11 +351,11 @@ $V_T(0,z(0))=V_{\tilde{T}}(\tilde{T}-T, x(\tilde{T}-T))$, $V_{\tilde{T}}(t,x(t))
 Подставляя эту оценку в  \eqref{rqz} мы получаем  $\left( R(z), Q_T z\right) \leqslant k \varphi(T-t) \left( 4J_0(T) \right) ^{\frc{3}{2}} $.
 Теперь нам остается только проинтегрировать это выражение и использовать его в  \eqref{J1},
 \begin{gather*}
-J(T)-J_0(T)=		\gamma (T,z(0)) = 
-		 2\int_{0}^{T}  R^{\top}(z(\xi))Q_T(\xi) z(\xi) d\xi\leqslant 2k \Phi(T) (4J_0(T))^{3/2}, 
+J(T)-J_0(T)=        \gamma (T,z(0)) = 
+         2\int_{0}^{T}  R^{\top}(z(\xi))Q_T(\xi) z(\xi) d\xi\leqslant 2k \Phi(T) (4J_0(T))^{3/2}, 
 \end{gather*}
 откуда и следует \eqref{est}.
-	\hfill $ \square $ \\
+    \hfill $ \square $ \\
 Так как при предположениях Теоремы \ref{th:functional_error_estimate}  $\Phi(T)$ и $J_0(T)$ стремятся к нулю, то правая часть  \eqref{est} тоже стремится к нулю при $T\to 0$.
 
 В теореме  \ref{th:tends_to_zero} мы доказали, что траектория $z(t)$  системы \eqref{nonlinear_closed} стремится к нулю при $t\to T$ и $V_{T}(t,z(t))$ --- ограничена в окрестности $T$. 
@@ -398,7 +398,7 @@ J(T)-J_0(T)=		\gamma (T,z(0)) =
 Обозначим $\tau_k = T - t_k$ и заметим, что $\tau_k $ сходятся к нулю. Действительно,  
 \begin{gather*}
     \int_{0}^{\tau_k} \upsilon^{\top}(\xi)\upsilon(\xi) 
-	d\xi \leqslant \frac{\delta^2}{4},
+    d\xi \leqslant \frac{\delta^2}{4},
 \end{gather*}
 
     
@@ -414,13 +414,13 @@ J(T)-J_0(T)=		\gamma (T,z(0)) =
  Поскольку $t_k \to T$, $\rho(T-t_k) \to 0$, $\exp(\rho(T-t_k)) \to 1$, то существует такое $k_1$, что для всех $k > k_1$ выполнено $\exp(\rho(T-t_k))\delta/2 \leqslant 2\delta/3$. 
 Используя формулу
 \begin{gather*}
-G_{-}^0(T-t_k, \delta/2)=\left\{x \in \mathbb{R}^n: x W^{-1}(T-t_k) x \leqslant \frac{4\delta^2}{9} \right\},	
+G_{-}^0(T-t_k, \delta/2)=\left\{x \in \mathbb{R}^n: x W^{-1}(T-t_k) x \leqslant \frac{4\delta^2}{9} \right\},    
 \end{gather*}
 мы получаем $ z^{\top}(t_k) W^{-1}(T-t_k) z(t_k) \leqslant 4\delta^2/9$.
 
  Так как $ W^{-1}(\tau_k) = Q(t_k)$, неравенство выше противоречит неравенству \eqref{zqz_geq_del2}. 
  Это означает, что $V_{T}(t,z(t))  = z^{\top}(t)Q(t)z(t) \to 0$ при $t \to T$.
-	\hfill $ \square $
+    \hfill $ \square $
 
 \subsubsection{Примеры}
 
