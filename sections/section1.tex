@@ -517,14 +517,6 @@
     \frac{dX_{\varepsilon}(\tau,\xi)}{d\tau} = \varepsilon A(\varepsilon \tau + t_0) X_{\varepsilon}(\tau,\xi), \qquad X_{\varepsilon}(\tau,\tau) = I
 \end{gather*}
 
-Фундаментальные матрицы систем \eqref{sec1:linearized_system} и \eqref{sec1:eps_linearized} эквивалентны с учётом замены времени и обозначения $ \widetilde{X}_{\varepsilon}(\tau,\xi) = X(\varepsilon \tau + t_0,\varepsilon \xi + t_0) $.
-\begin{gather*}
-    \frac{dX(t,\zeta)}{dt} = A(t) X(t,\zeta), \\
-    \zeta = \varepsilon \xi + t_0, \qquad t = \varepsilon \tau + t_0, \\
-    \frac{dX(\varepsilon \tau + t_0,\varepsilon \xi + t_0)}{d(\varepsilon \tau + t_0)} = A(\varepsilon \tau + t_0) X(\varepsilon \tau + t_0,\varepsilon \xi + t_0), \\
-    \frac{dX_{ \varepsilon}(\tau,\xi)}{d\tau} = \varepsilon A(\varepsilon \tau + t_0) X_{ \varepsilon}(\tau,\xi), \qquad X_{\varepsilon}(\tau,\tau) = I
-\end{gather*}
-
 Обозначим через $ \widetilde{W}(\varepsilon) $ грамиан управляемости системы \eqref{sec1:eps_linearized} на отрезке $ [0,1] $.
 Справедливо следующее утверждение.
 
@@ -538,6 +530,14 @@
 
 \doc. 
 Действительно, равенства областей достижимости следует из равенств $ x(t_0 + \varepsilon) = z(1) $, где $ x(t) = x(t,u(\cdot)) $, $ z(\tau) = z(\tau,\nu(\cdot))  $, $ \nu(\tau) = \varepsilon u(\varepsilon \tau + t_0)  $.
+
+Фундаментальные матрицы систем \eqref{sec1:linearized_system} и \eqref{sec1:eps_linearized} эквивалентны с учётом замены времени и обозначения $ \widetilde{X}_{\varepsilon}(\tau,\xi) = X(\varepsilon \tau + t_0,\varepsilon \xi + t_0) $.
+\begin{gather*}
+	\frac{dX(t,\zeta)}{dt} = A(t) X(t,\zeta), \\
+	\zeta = \varepsilon \xi + t_0, \qquad t = \varepsilon \tau + t_0, \\
+	\frac{dX(\varepsilon \tau + t_0,\varepsilon \xi + t_0)}{d(\varepsilon \tau + t_0)} = A(\varepsilon \tau + t_0) X(\varepsilon \tau + t_0,\varepsilon \xi + t_0), \\
+	\frac{dX_{ \varepsilon}(\tau,\xi)}{d\tau} = \varepsilon A(\varepsilon \tau + t_0) X_{ \varepsilon}(\tau,\xi), \qquad X_{\varepsilon}(\tau,\tau) = I
+\end{gather*}
 
 Для грамианов управляемости мы имеем
 \begin{gather*}
@@ -558,11 +558,13 @@
         X(t_0+\varepsilon,t)
         B(t)
         B^{\top}(t)
-        X^{\top}(t_0+\varepsilon,t) \, dt = \dfrac{1}{\varepsilon} W(\varepsilon). \\ \hfill \square
+        X^{\top}(t_0+\varepsilon,t) \, dt = \dfrac{1}{\varepsilon} W(\varepsilon). 
 \end{gathered}
 \end{gather*}
 
-Таким образом грамиан линеаризованной системы с замененным временем \eqref{sec1:eps_linearized} может быть выражен через грамиан линеаризованной в исходном времени системы \eqref{sec1:linearized_system}.
+Таким образом грамиан линеаризованной системы с замененным временем \eqref{sec1:eps_linearized} может быть выражен через грамиан линеаризованной в исходном времени системы \eqref{sec1:linearized_system}.  
+
+\hfill $\square$
         
 Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{sec1:common_nonlinear_small_time}, порожденное управлением $\upsilon(\cdot)$. 
  
