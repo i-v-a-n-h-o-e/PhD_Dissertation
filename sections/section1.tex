@@ -496,12 +496,11 @@
 	\| \widetilde{f}_2 (\tau,z_1) - \widetilde{f}_2 (\tau,z_2) \| =  \| f_2(\varepsilon \tau + t_0,z_1) - f_2(\varepsilon \tau + t_0,z_2) \| \leqslant  L_{f_2} \|z_1 - z_2 \|.
 \end{gather*}
     
-Применяя Лемму \ref{sec1:lem:lip_of_solutions_global}   к системе \eqref{sec1:eps_nonlinear}, получаем
+Из  Леммы \ref{sec1:lem:lip_of_solutions_global}, примененной  к системе \eqref{sec1:eps_nonlinear}, следует
 \begin{gather*}
-    \left\| z_1(t) - z_2(t) \right\| \leqslant L_z \left\|\upsilon_1(\cdot) - \upsilon_2(\cdot) \right\|_{\mathbb{L}_2},
+    \left\| z_1\big(t, \upsilon_1(\cdot) \big) - z_2\big(t, \upsilon_2(\cdot)\big) \right\| \leqslant L_z \left\|\upsilon_1(\cdot) - \upsilon_2(\cdot) \right\|_{\mathbb{L}_2},
 \end{gather*}
-где $ L_z = k_{f_2} \exp\Big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \Big) = \dfrac{L_x}{\sqrt{\varepsilon}}$.
-Здесь $L_x$ --- константа Липшица для решений системы \eqref{sec1:common_nonlinear_small_time} по управлению.
+где $ L_z = k_{f_2} \exp\Big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \Big) \leqslant k_{f_2} \exp\Big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \Big)$.
     
 Обозначим через $\widetilde{G}(\varepsilon)$ множество достижимости системы \eqref{sec1:eps_nonlinear} в момент времени $\tau=1$
 \begin{gather*}
