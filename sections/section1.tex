@@ -441,7 +441,7 @@
     
 \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
 Рассмотрим здесь нелинейную систему \eqref{sec1:common_nonlinear} на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
-\begin{gather}\label{sec1:common_nonlinearT}
+\begin{gather}\label{sec1:common_nonlinear_small_time}
     \dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 \end{gather}
 Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число.
@@ -456,7 +456,7 @@
  
     
 Далее, используя замену времени, мы сведем задачу описания множества достижимости на малом интервале к аналогичной задаче на фиксированном интервале для системы, уравнения которой и интегральные ограничения на управления зависят от малого параметра.
-Произведя замену времени $ t = \varepsilon \tau + t_0 $ и приняв обозначения $ z(\tau) = x(\varepsilon \tau + t_0) $ и $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $  получим из \eqref{sec1:common_nonlinearT}
+Произведя замену времени $ t = \varepsilon \tau + t_0 $ и приняв обозначения $ z(\tau) = x(\varepsilon \tau + t_0) $ и $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $  получим из \eqref{sec1:common_nonlinear_small_time}
 \begin{gather}\label{sec1:eps_nonlinear}
     \dot{z}(\tau)=\widetilde{f}_1(\tau,z(\tau))+\widetilde{f}_2(\tau,z(\tau))\upsilon(\tau), \qquad 0 \leqslant \tau \leqslant 1, \qquad z(0) = x_0,
 \end{gather}
@@ -465,8 +465,10 @@
     \int_0^1 \upsilon^{\top}(\tau) \upsilon(\tau) \, d\tau \leqslant \left( \mu \sqrt{\varepsilon}\right)^2.
 \end{gather}
 Обозначим $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
-    
-Заметим, что система \eqref{sec1:eps_nonlinear}  удовлетворяет Предположению  \ref{sec1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $.
+
+Каждому решению $z(\cdot, \upsilon(\cdot))$ системы \eqref{sec1:eps_nonlinear} на нормированном интервале времени, отвечающему управлению $\upsilon(\cdot) \in B_{\mathbb{L}_2[0, 1]} (0, \overline{\mu} \sqrt{\varepsilon})$ можно поставить в соответствие решение $x(\cdot, u(\cdot))$ системы \eqref{sec1:common_nonlinear_small_time}, отвечающее управлению $u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \varepsilon]} (0, \overline{\mu})$, причем для всех $\tau \in [0, 1] $ выполняется $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)$ и $ z(\tau, \upsilon(\cdot)) = x(\varepsilon \tau + t_0, u(\cdot)) $.
+Из последнего равенства и справедливости Предположения \ref{sec1:as:right_hand_side_conditions_global} для системы \eqref{sec1:common_nonlinear_small_time} следует, что для всех  $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon})$ и всех $\tau \in [0, 1] $ выполняется $z(\tau, \upsilon(\cdot)) \in D$. 
+Таким образом, система \eqref{sec1:eps_nonlinear}  удовлетворяет Предположению  \ref{sec1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $.
 Из этого следует, что Лемма \ref{sec1:lem:lip_of_solutions_global} справедлива для системы  \eqref{sec1:eps_nonlinear}.
 Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют условию Липшица по $x$ на множестве $[0, 1]\times D$ с константами $\widetilde{L}_{f_1} = \varepsilon L_{f_1} $ и  $\widetilde{L}_{f_2} = L_{f_2} $ соответственно. 
     
@@ -475,7 +477,7 @@
     \left\| z_1(t) - z_2(t) \right\| \leqslant L_z \left\|\upsilon_1(\cdot) - \upsilon_2(\cdot) \right\|_{\mathbb{L}_2},
 \end{gather*}
 где $ L_z = k_{f_2} \exp\Big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \Big) = \dfrac{L_x}{\sqrt{\varepsilon}}$.
-Здесь $L_x$ --- константа Липшица для решений системы \eqref{sec1:common_nonlinearT} по управлению.
+Здесь $L_x$ --- константа Липшица для решений системы \eqref{sec1:common_nonlinear_small_time} по управлению.
     
 Обозначим через $\widetilde{G}(\varepsilon)$ множество достижимости системы \eqref{sec1:eps_nonlinear} в момент времени $\tau=1$
 \begin{gather*}
@@ -504,7 +506,7 @@
 Справедливо следующее утверждение.
 
 \begin{utv}\label{sec1:utv:connection_with_scaled_system}
-    {\textit Для множеств достижимости систем \eqref{sec1:common_nonlinearT} и \eqref{sec1:eps_nonlinear} и грамианов управляемости систем \eqref{sec1:linearized_system} и \eqref{sec1:eps_linearized} имеют место равенства}
+    {\textit Для множеств достижимости систем \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} и грамианов управляемости систем \eqref{sec1:linearized_system} и \eqref{sec1:eps_linearized} имеют место равенства}
     \begin{gather*}
         \widetilde{G}(\varepsilon)=G(\varepsilon),  \qquad
         \widetilde{W}(\varepsilon) = \dfrac{1}{\varepsilon} W(\varepsilon)
@@ -539,7 +541,7 @@
 
 Таким образом грамиан линеаризованной системы с замененным временем \eqref{sec1:eps_linearized} может быть выражен через грамиан линеаризованной в исходном времени системы \eqref{sec1:linearized_system}.
         
-Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{sec1:common_nonlinearT}, порожденное управлением $\upsilon(\cdot)$. 
+Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{sec1:common_nonlinear_small_time}, порожденное управлением $\upsilon(\cdot)$. 
  
 Применяя Лемму \ref{sec1:lem:frechet_derivative_common} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big)  $ системы \eqref{sec1:eps_linearized}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях.
  
@@ -574,7 +576,7 @@
  
 Используя теорему \ref{sec1:th:PolyakTh}, сформулируем следующую
 \begin{theorem}\label{sec1:th:sec1:th:small_time_convexity}
-     Множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinearT} выпукло, если найдутся такие $K > 0$, $ \alpha > 0$, $ 0 < \varepsilon_0 < \bar{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$
+     Множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time} выпукло, если найдутся такие $K > 0$, $ \alpha > 0$, $ 0 < \varepsilon_0 < \bar{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$
      \begin{gather}\label{sec1:small_time_convexity_condition}
          \nu(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
          {K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
