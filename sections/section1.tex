@@ -441,15 +441,15 @@
     F'(0) \big(F'(0)\big)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
 \end{gather}
 Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system} при $u(\cdot) \equiv 0$. 
-Константа $\nu$ из неравенства \eqref{sec1:lyusternik_condition_proof} есть ни что иное, как квадрат наименьшего собственное число матрицы $W(T,0) $.
-Обозначим его через $\nu\big(W(T,0)\big)$.
+
+При этом, константа $\nu$ из неравенства \eqref{sec1:lyusternik_condition_proof} связана с наименьшим собственным числом $\lambda$ матрицы $W(T,0) $,  $\lambda\big(W(T,0)\big) = \nu^2$.
     
 Липшицевость производной Фреше $F'$ на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{sec1:lem:lip_dx_global} в условиях Предположения \ref{sec1:as:right_hand_side_diff_lip}. 
     
 Применим теорему \ref{sec1:th:PolyakTh} к $F$, с нулевым управление $u(\cdot) \equiv 0$ в роли точки $a$. 
 Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \mu_0 $, где  
 \begin{gather}\label{sec1:mu0}
-    \mu_0 = \min\left( \dfrac{\sqrt{\nu\big(W(T,0)\big)}}{2L_u}, \overline{\mu} \right), 
+    \mu_0 = \min\left( \dfrac{\sqrt{\lambda\big(W(T,0)\big)}}{2L_u}, \overline{\mu} \right), 
 \end{gather}
 а константа $L_u $ определена в Лемме  \ref{sec1:lem:lip_dx_global}. 
 \hfill$\square$\\[1ex]%--- P r o o f.
