@@ -368,7 +368,7 @@
     Пусть выполнены Предположения \ref{sec1:as:right_hand_side_conditions_global} и \ref{sec1:as:right_hand_side_diff_lip}.
     Тогда найдется  $L_u > 0$ такая, что для всех  $u_1(\cdot),\, u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t \in [t_0,T]$, 
     \begin{gather*}
-        \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\| \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
+        \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
     \end{gather*}
 \end{lemma}
 \doc. 
@@ -399,8 +399,15 @@
     \leqslant \\ \leqslant 
     \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}  \| \delta u(\cdot) \|_{\mathbb{L}_2} 
 \end{gathered}
-\end{gather}    
-Отсюда и из \eqref{sec1:xu} следует утверждение Леммы и $L_u = \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} $.
+\end{gather}
+Тогда для производных Фреше имеем
+\begin{gather*}
+	 \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} = 
+	 \max\limits_{\|\delta u(\cdot)\|_{\mathbb{L}_2} = 1} \left\| \Big(  \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big) \delta u(\cdot) \right\| = \\ =
+	  \max\limits_{\|\delta u(\cdot)\|_{\mathbb{L}_2} = 1} \Big\| \overline{F}'(t, u_1(\cdot)) \delta u(\cdot) - \overline{F}'(t, u_2(\cdot)) \delta u(\cdot) \Big\| \leqslant \\ \leqslant  \max\limits_{\|\delta u(\cdot)\|_{\mathbb{L}_2} = 1} \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}  \| \delta u(\cdot) \|_{\mathbb{L}_2} = \\ =
+	   \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}
+\end{gather*}
+Таким образом, получаем  утверждение Леммы и $L_u = \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} $.
 \hfill$\square$\\[1ex]%--- P r o o f.
     
 Заметим, что для отображения $F: B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$ определенного в \eqref{sec1:solution_endpoint_mapping}, выполняется $\overline{F}(T, u(\cdot)) = F(u(\cdot))$.
