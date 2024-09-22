@@ -484,9 +484,17 @@
 
 Каждому решению $z(\cdot, \upsilon(\cdot))$ системы \eqref{sec1:eps_nonlinear} на нормированном интервале времени, отвечающему управлению $\upsilon(\cdot) \in B_{\mathbb{L}_2[0, 1]} (0, \overline{\mu} \sqrt{\varepsilon})$ можно поставить в соответствие решение $x(\cdot, u(\cdot))$ системы \eqref{sec1:common_nonlinear_small_time}, отвечающее управлению $u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \varepsilon]} (0, \overline{\mu})$, причем для всех $\tau \in [0, 1] $ выполняется $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)$ и $ z(\tau, \upsilon(\cdot)) = x(\varepsilon \tau + t_0, u(\cdot)) $.
 Из последнего равенства и справедливости Предположения \ref{sec1:as:right_hand_side_conditions_global} для системы \eqref{sec1:common_nonlinear_small_time} следует, что для всех  $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon})$ и всех $\tau \in [0, 1] $ выполняется $z(\tau, \upsilon(\cdot)) \in D$. 
+
 Таким образом, система \eqref{sec1:eps_nonlinear}  удовлетворяет Предположению  \ref{sec1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $.
 Из этого следует, что Лемма \ref{sec1:lem:lip_of_solutions_global} справедлива для системы  \eqref{sec1:eps_nonlinear}.
 Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют условию Липшица по $x$ на множестве $[0, 1]\times D$ с константами $\widetilde{L}_{f_1} = \varepsilon L_{f_1} $ и  $\widetilde{L}_{f_2} = L_{f_2} $ соответственно. 
+
+Действительно, для произвольных $z_1, z_2 \in D$ и всех  $\tau \in [0, 1]$ справедливо
+\begin{gather*}
+	\|  \widetilde{f}_1(\tau, z_1) -  \widetilde{f}_1(\tau, z_2) \| = \|  \varepsilon f_1(\varepsilon \tau + t_0, z_1) -   \varepsilon f_1(\varepsilon \tau + t_0, z_2) \| = \\ =
+	\varepsilon \|  f_1(\varepsilon \tau + t_0, z_1) -  f_1(\varepsilon \tau + t_0, z_2) \| \leqslant \varepsilon L_{f_1} \|z_1 - z_2 \|, \\
+	\| \widetilde{f}_2 (\tau,z_1) - \widetilde{f}_2 (\tau,z_2) \| =  \| f_2(\varepsilon \tau + t_0,z_1) - f_2(\varepsilon \tau + t_0,z_2) \| \leqslant  L_{f_2} \|z_1 - z_2 \|.
+\end{gather*}
     
 Применяя Лемму \ref{sec1:lem:lip_of_solutions_global}   к системе \eqref{sec1:eps_nonlinear}, получаем
 \begin{gather*}
