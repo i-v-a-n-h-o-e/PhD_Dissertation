@@ -422,14 +422,23 @@
     
 Верно равенство (см.  Лемму \ref{sec1:lem:frechet_derivative_common} в условиях Предположения  \ref{sec1:as:right_hand_side_conditions_global})
 \begin{gather*}
-    F'(0) \delta u(\cdot) =  \int\limits_{t_0}^{t} X(t, \tau, 0) B(\tau, 0) \delta u(\tau) \ d\tau,
+    F'(0) \delta u(\cdot) =  \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) \delta u(\tau) \ d\tau,
 \end{gather*}
 где матрицы $X(\cdot, \cdot, 0)$  и $B(\cdot, 0)$ определены для системы \eqref{sec1:linearized_system}, линеаризованной вдоль пары $\Big(x(\cdot, 0), 0\Big) $.
-    
+
+Рассмотрим скалярное произведение $ \Big(l,  F'(0) \delta u(\cdot)\Big) $, где $ l \in \mathbb{R}^n$
+\begin{gather*}
+	\Big(l,  F'(0) \delta u(\cdot)\Big)_{\mathbb{R}^n} =
+	 l^{\top}  \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) \delta u(\tau) \ d\tau = \\ = 
+	  \int\limits_{t_0}^{T} l^{\top} X(t, \tau, 0) B(\tau, 0)  \delta u(\tau) \ d\tau =
+	   \Big(\big(F'(0)\big)^* l,  \delta u(\cdot)\Big)_{\mathbb{L}_2},
+\end{gather*}
+где $ \big(F'(0)\big)^* l =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
+
 Обозначим через  $W(T,0) $ грамиан управляемости этой системы.
 Тогда 
 \begin{gather}
-    W(T,0) = F'(0) \big(F'(0)\big)^*.
+    F'(0) \big(F'(0)\big)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
 \end{gather}
 Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system} при $u(\cdot) \equiv 0$. 
 Константа $\nu$ из неравенства \eqref{sec1:lyusternik_condition_proof} есть ни что иное, как квадрат наименьшего собственное число матрицы $W(T,0) $.
