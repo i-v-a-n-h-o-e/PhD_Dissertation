@@ -568,9 +568,23 @@
         
 Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{sec1:common_nonlinear_small_time}, порожденное управлением $\upsilon(\cdot)$. 
  
-Применяя Лемму \ref{sec1:lem:frechet_derivative_common} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big)  $ системы \eqref{sec1:eps_linearized}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях.
+Применяя Лемму \ref{sec1:lem:frechet_derivative_common} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big)  $ системы \eqref{sec1:eps_linearized}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях, то есть
+\begin{gather*}
+	S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \int\limits_0^1  \widetilde{X}_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}(\tau, \upsilon(\cdot))  \delta\upsilon(\tau)\ d\tau. 
+\end{gather*}
  
 Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{sec1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$ с константами $\widetilde{l}_{f_1} = \varepsilon l_{f_1} $ и  $\widetilde{l}_{f_2} = l_{f_2} $ соответственно. 
+
+Действительно, для произвольных $z_1, z_2 \in D$ и всех  $\tau \in [0, 1]$ справедливо
+\begin{gather*}
+	 \left\| \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_1) - \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_1) \right\| = 
+	 \left\| \varepsilon \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_1) - \varepsilon \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_2) \right\| = \\ =
+	 \varepsilon \left\|  \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_1) - \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_2) \right\| 
+	 \leqslant \varepsilon l_{f_1} \| z_1 - z_2\|,  \\
+	 \left\| \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) - \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) \right\| = 
+	\left\| \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_1) - \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_2) \right\| 
+	\leqslant l_{f_2} \| z_1 - z_2\|.
+\end{gather*}
   
 По аналогии с \eqref{sec1:lip_a}, для произвольных $ \upsilon_1(\cdot), \upsilon_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$, можем выписать
 \begin{gather*}
