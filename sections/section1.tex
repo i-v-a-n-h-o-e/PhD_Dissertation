@@ -56,7 +56,7 @@
     \end{gather}
     где $x_i(t) = x_i(t,u_i(\cdot))$, $i = 1,2$. 
 \end{lemma}
-\doc. 
+\doc
 Из интегрального соотношения
 \begin{gather*}
      x_i(t) = x_0 + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau)\ d\tau + \int\limits_{t_0}^{t} f_2(\tau,x_i(\tau))u_i(\tau)\ d\tau 
@@ -150,7 +150,7 @@
     Пусть выполнено условие Предположения \ref{sec1:as:right_hand_side_conditions_global}.
     Тогда отображение $F$ имеет непрерывную производную Фреше, определяемую равенством $ F'(u(\cdot))\delta u(\cdot) =\delta x(T)$, где $\delta x(T)$ ~--- решение линеаризованной вдоль пары $\left( x(t,u(\cdot)),u(\cdot)\right)  $ системы \eqref{sec1:linearized_system}, порожденное управлением $\delta u(\cdot)$ при нулевых начальных условиях.
 \end{lemma}
-\doc. 
+\doc 
 Выберем произвольные $u(\cdot)$, $\Delta u(\cdot)$ так, что $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $ u(\cdot) +  \Delta u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$.
 Решения системы \eqref{sec1:common_nonlinear}, порожденные управлениями  $u(\cdot)$ и $u(\cdot) + \Delta u(\cdot)$, обозначим через  $x(\cdot) = x(\cdot,u(\cdot))$ и $ x(\cdot) + \Delta x(\cdot) = x(\cdot, u(\cdot) + \Delta u(\cdot))$.
 По аналогии с \eqref{sec1:diff_of_solution} получаем
@@ -163,7 +163,7 @@
 \end{gathered}
 \end{gather}
     
-Применяя формулы  \eqref{sec1:meanvalue}, запишем 
+Применяя формулы \eqref{sec1:meanvalue}, запишем 
 \begin{gather*}
 \begin{gathered}
     f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
@@ -309,8 +309,7 @@
     \end{gather*}
     где $X(t,s,u_1(\cdot)) $ и $X(t,s,u_2(\cdot)) $ --- фундаментальные матриц систем \eqref{sec1:linearized_system}, линеаризованных вдоль траекторий $x(\cdot, u_1(\cdot)) $ и $x(\cdot, u_2(\cdot)) $ соответственно. 
 \end{lemma}
-\doc.
-        
+\doc
 Фундаментальная матрица $X(t,s,u(\cdot)) $  системы \eqref{sec1:linearized_system} является решением уравнения
 \begin{gather*}
     \frac{\partial X(t, s, u(\cdot))}{\partial s} = -A\big(s,u(\cdot)\big)^{\top} X(t, s, u(\cdot)), \quad X\big(t, t, u(\cdot)\big) = I.
@@ -371,7 +370,7 @@
         \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
     \end{gather*}
 \end{lemma}
-\doc. 
+\doc 
 Решение \eqref{sec1:linearized_system} имеет вид
 \begin{gather}\label{sec1:xu}
     \delta x\big(t, u_i(\cdot),\delta u(\cdot)\big) = \int\limits_{t_0}^{t}  X(t,s,u_i(\cdot)) B(s, u_i(\cdot)) \delta u(s) \ ds,
@@ -437,7 +436,7 @@
 
 Обозначим через  $W(T,0) $ грамиан управляемости этой системы.
 Тогда 
-\begin{gather}
+\begin{gather}\label{sec1:self_adjoint_with_derivative}
     F'(0) \big(F'(0)\big)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
 \end{gather}
 Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system} при $u(\cdot) \equiv 0$. 
@@ -528,8 +527,8 @@
     \end{gather*}
 \end{utv}
 
-\doc. 
-Действительно, равенства областей достижимости следует из равенств $ x(t_0 + \varepsilon) = z(1) $, где $ x(t) = x(t,u(\cdot)) $, $ z(\tau) = z(\tau,\nu(\cdot))  $, $ \nu(\tau) = \varepsilon u(\varepsilon \tau + t_0)  $.
+\doc 
+Действительно, равенства областей достижимости следует из равенств $ x(t_0 + \varepsilon) = z(1) $, где $ x(t) = x(t,u(\cdot)) $, $ z(\tau) = z(\tau,\upsilon(\cdot))  $, $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)  $.
 
 Фундаментальные матрицы систем \eqref{sec1:linearized_system} и \eqref{sec1:eps_linearized} эквивалентны с учётом замены времени и обозначения $ \widetilde{X}_{\varepsilon}(\tau,\xi) = X(\varepsilon \tau + t_0,\varepsilon \xi + t_0) $.
 \begin{gather*}
@@ -596,46 +595,64 @@
      L_{f_2} + k_{f_2} \Big( l_{f_1}  \varepsilon  + l_{f_2}  \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big).
  \end{gather}
  
- Применяя Лемму \eqref{sec1:lem:lip_dx_global} к отображению $S$, получаем, что отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой 
+ Применяя Лемму \ref{sec1:lem:lip_dx_global} к отображению $S$, получаем, что отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой 
+ \begin{gather}\label{sec1:lip_eps}
+ \begin{gathered}
+ 	 L_u(\varepsilon) = k_{f_2} k_X k_Y \widetilde{L}_A + \widetilde{L}_{f_2} k_X  = \\ = 
+ 	L_{f_2} k_X + 
+ 	k_{f_2} k_X k_Y \Big[ L_{f_2} + k_{f_2} \Big( l_{f_1}  \varepsilon  + l_{f_2}  \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) \Big] \leqslant 
+ 	L_0 + L_1  \varepsilon,
+ \end{gathered}
+ \end{gather} 
+ где 
  \begin{gather*}
-     L_u(\varepsilon) = k_{f_2} k_X k_Y \widetilde{L}_A + \widetilde{L}_{f_2} k_X  = \\ = 
-      L_{f_2} k_X + 
-      k_{f_2} k_X k_Y \Big[ L_{f_2} + k_{f_2} \Big( l_{f_1}  \varepsilon  + l_{f_2}  \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) \Big] = \\ =
-     L_0 + L_1 \sqrt{\varepsilon} \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) + L_2 \varepsilon \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big),
- \end{gather*} 
- где $ L_0 = L_{f_2} k_X (1 + k_{f_2}  k_Y) \geqslant 0$, $L_1 = k_{f_2}^2 k_X k_Y l_{f_2}  \mu \geqslant 0 $ и $L_2 = k_{f_2}^2 k_X k_Y l_{f_1} \geqslant 0 $. 
- Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$ и $L_1 = 0$. 
+ 	L_0 = L_{f_2} k_X (1 + k_{f_2}  k_Y) + 
+ 	k_{f_2}^2 k_X k_Y l_{f_2}  \mu \sqrt{\overline{\varepsilon}} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu  \sqrt{\overline{\varepsilon}} \big) \geqslant 0, \\
+ 	 L_1 = k_{f_2}^2 k_X k_Y l_{f_1} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0.
+ \end{gather*}  
+ 
+ Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
   
-Для самосопряженного оператора $S'(0)S'(0)^*$ верно равенство $S'(0)S'(0)^* = \widetilde{W}(\varepsilon)$.
+По аналогии с \eqref{sec1:self_adjoint_with_derivative}, для самосопряженного оператора $S'(0)\big(S'(0)\big)^*$ верно равенство $S'(0)\big(S'(0)\big)^* = \widetilde{W}(\varepsilon)$.
   
-Тогда, управляемость системы \eqref{sec1:eps_linearized} (минимальное собственное число $ \nu(\varepsilon) $ грамиана управляемости $\widetilde{W}(\varepsilon)$ должно быть строго положительно) означает регулярность отображения $S$ при $\upsilon = 0$, а множество достижимости $\widetilde{G}(\varepsilon)$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$ при его отображении $S$.
-   
-В данном случае, $S'(0)B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon}) = \widetilde{W}^{1/2}(\varepsilon)B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}) $ ~--- множество достижимости в момент $t = 1$ системы \eqref{sec1:eps_linearized}, линеаризованной вдоль траектории, отвечающей нулевому управлению.
-Здесь $W^{1/2}(\varepsilon)$ ~--- арифметический квадратных корень из матрицы $W(\varepsilon)$, $ B_{\mathbb{R}^n}(0,\mu) $ ~--- евклидов шар радиуса $ \mu $ в $ \mathbb{R}^n $.
+Тогда, управляемость системы \eqref{sec1:eps_linearized} (минимальное собственное число $ \lambda(\varepsilon) $ грамиана управляемости $\widetilde{W}(\varepsilon)$ должно быть строго положительно) означает регулярность отображения $S$ при $\upsilon = 0$, а множество достижимости $\widetilde{G}(\varepsilon)$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$ при его отображении $S$.
  
 Используя теорему \ref{sec1:th:PolyakTh}, сформулируем следующую
-\begin{theorem}\label{sec1:th:sec1:th:small_time_convexity}
-     Множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time} выпукло, если найдутся такие $K > 0$, $ \alpha > 0$, $ 0 < \varepsilon_0 < \bar{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$
+\begin{theorem}\label{sec1:th:small_time_convexity}
+     Множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time} выпукло, если найдутся такие $K > 0$, $ \alpha \leqslant 0$, $ 0 < \varepsilon_0 < \bar{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$
      \begin{gather}\label{sec1:small_time_convexity_condition}
-         \nu(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
+         \lambda(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
          {K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
          {K\varepsilon ^{1 - \alpha}}, \mbox{\ в противном случае}.
          \end{array}} \right.
      \end{gather}
  \end{theorem}
-% \doc
-% Применим теорему \ref{sec1:th:sec1:th:small_time_convexity} к системе \eqref{sec1:eps_nonlinear}.
-% Условие \eqref{sec1:mu0} в этом случае примет вид
-% \begin{gather*}
-%     \nu(\varepsilon) \geqslant 4 \mu^2 \varepsilon L_u^2 (\varepsilon).
-% \end{gather*}
-% Учитывая, что при $  \varepsilon > 0 $, $ \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) > 1 $, запишем
-%   \begin{gather*}
-%      \nu(\varepsilon) \geqslant 4 \mu^2 \varepsilon \Big( L_0 + L_1 \sqrt{\varepsilon}  + L_2 \varepsilon \Big)^2 \geqslant .
-%  \end{gather*}
-% \hfill$\square$\\[1ex]%--- P r o o f.
+ \doc
+ Применим теорему \ref{sec1:th:small_control_convexity} к системе \eqref{sec1:eps_nonlinear}.
+ Условие \eqref{sec1:mu0} в этом случае примет вид
+ \begin{gather}\label{sec1:th3_proof_origin_condition}
+     \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon L_u^2 (\varepsilon).
+ \end{gather}
+ Заметим, что $ \lambda(\varepsilon)  $ удовлетворяющие условию 
+ \begin{gather}\label{sec1:th3_proof_condition_with_f2}
+ 	 \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon (L_0 + L_1  \varepsilon)^2 = 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3.
+ \end{gather}
+ будут удовлетворять и условию \eqref{sec1:th3_proof_origin_condition}. Константы $L_0$ и $L_1$ определены в \eqref{sec1:lip_eps}.  
+ В случае, если $f_2(t,x)$ не зависит от $x$, $L_0 = 0$ и условие \eqref{sec1:th3_proof_condition_with_f2} принимает вид
+ \begin{gather}
+ 	\lambda(\varepsilon) \geqslant   4 \mu^2  L_1^2 \varepsilon^3.
+ \end{gather}
+ В этом случае, $ K =  4 \mu^2  L_1^2$, а $\alpha = 0$.
+ В общем случае, когда $f_2(t,x)$ зависит от $x$, константы выбираются так, чтобы было выполнено условие
+ \begin{gather*}
+ 	K \geqslant 4 \mu^2 L_0^2 \overline{\varepsilon}^{\alpha} + + 8 \mu^2 L_0 L_1 \overline{\varepsilon}^{1 + \alpha} +  4 \mu^2  L_1^2 \overline{\varepsilon}^{2 + \alpha}.
+ \end{gather*}
+ Такой выбор констант обеспечивает, что при выполнении условия \eqref{sec1:small_time_convexity_condition}, выполняется и условие \eqref{sec1:th3_proof_origin_condition}. 
+ Справедливость этого неравенства, в соответствии с теоремой \ref{sec1:th:small_control_convexity} гарантирует выпуклость множеств достижимости системы \eqref{sec1:common_nonlinear_small_time}. 
+ Но в соответствии с Утверждением \ref{sec1:utv:connection_with_scaled_system} множества достижимости систем  \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} совпадают.
+ \hfill$\square$\\[1ex]%--- P r o o f.
  \subsection{Асимптотика собственных чисел грамиана управляемости линейной системы с малым параметром} 
-Для проверки условий теоремы \ref{sec1:th:sec1:th:small_time_convexity} необходимо оценивать асимптотику минимального собственного числа грамиана управляемости линеаризованной системы с малым параметром.
+Для проверки условий теоремы \ref{sec1:th:small_time_convexity} необходимо оценивать асимптотику минимального собственного числа грамиана управляемости линеаризованной системы с малым параметром.
 В этом разделе предложен один из возможных способов проверки асимптотики собственных чисел грамиана управляемости таких систем.
 Из полученной асимптотики следует выпуклость множеств достижимости на малых интервалах времени для некоторых классов нелинейных систем второго порядка.
 Это свойство продемонстрировано на ряде примеров.
