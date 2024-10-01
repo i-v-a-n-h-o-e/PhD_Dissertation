@@ -413,7 +413,7 @@
 Таким образом, из Леммы \ref{sec1:lem:lip_dx_global} следует, что производная Фреше $F'(u(\cdot)) $ является липшицевой. 
     
 \begin{theorem}\label{sec1:th:small_control_convexity}
-    Пусть выполнены Предположения \ref{sec1:as:right_hand_side_conditions_global} и \ref{sec1:as:right_hand_side_diff_lip}.
+    Пусть выполнены Предположения \ref{sec1:as:right_hand_side_conditions_global} и \ref{sec1:as:right_hand_side_diff_lip}, а также пара  матриц $(A, B)$, соответствующая линеаризованной вдоль пары $\left( x(\cdot,0),0\right)   $ системе \eqref{sec1:common_nonlinear}, является управляемой.
     Тогда найдется такое $\mu_0 > 0$, что при всех $0 < \mu <  \mu_0 $ множества достижимости $G(T, \mu)$ системы \eqref{sec1:common_nonlinear} будут выпуклыми.
 \end{theorem}
 \doc
@@ -432,7 +432,7 @@
 	  \int\limits_{t_0}^{T} l^{\top} X(t, \tau, 0) B(\tau, 0)  \delta u(\tau) \ d\tau =
 	   \Big(\big(F'(0)\big)^* l,  \delta u(\cdot)\Big)_{\mathbb{L}_2},
 \end{gather*}
-где $ \big(F'(0)\big)^* l =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
+где $ \big(F'(0)\big)^* =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
 
 Обозначим через  $W(T,0) $ грамиан управляемости этой системы.
 Тогда 
@@ -619,17 +619,18 @@
  
 Используя теорему \ref{sec1:th:PolyakTh}, сформулируем следующую
 \begin{theorem}\label{sec1:th:small_time_convexity}
-     Множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time} выпукло, если найдутся такие $K > 0$, $ \alpha \leqslant 0$, $ 0 < \varepsilon_0 < \bar{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$
+     Если найдутся такие $K > 0$, $ \alpha > 0$, $ 0 < \varepsilon_0 < \overline{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$ выполняется условие
      \begin{gather}\label{sec1:small_time_convexity_condition}
          \lambda(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
          {K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
-         {K\varepsilon ^{1 - \alpha}}, \mbox{\ в противном случае}.
+         {K\varepsilon ^{1 - \alpha}}, \mbox{\ в противном случае},
          \end{array}} \right.
      \end{gather}
+  то существует такое $ \varepsilon_1 > 0 $, что множество достижимости $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time} выпукло при всех $\varepsilon < \varepsilon_1 $.
  \end{theorem}
  \doc
- Применим теорему \ref{sec1:th:small_control_convexity} к системе \eqref{sec1:eps_nonlinear}.
- Условие \eqref{sec1:mu0} в этом случае примет вид
+Применим теорему \ref{sec1:th:small_control_convexity} к системе \eqref{sec1:eps_nonlinear}. 
+Получаем, что множество достижимости $\widetilde{G}(\varepsilon)$ будет выпукло при выполнении  условия \eqref{sec1:mu0}, которое в этом случае примет вид
  \begin{gather}\label{sec1:th3_proof_origin_condition}
      \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon L_u^2 (\varepsilon).
  \end{gather}
@@ -637,20 +638,51 @@
  \begin{gather}\label{sec1:th3_proof_condition_with_f2}
  	 \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon (L_0 + L_1  \varepsilon)^2 = 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3.
  \end{gather}
- будут удовлетворять и условию \eqref{sec1:th3_proof_origin_condition}. Константы $L_0$ и $L_1$ определены в \eqref{sec1:lip_eps}.  
- В случае, если $f_2(t,x)$ не зависит от $x$, $L_0 = 0$ и условие \eqref{sec1:th3_proof_condition_with_f2} принимает вид
- \begin{gather}
+ будут удовлетворять и условию \eqref{sec1:th3_proof_origin_condition}. 
+ Константы $L_0$ и $L_1$ определены в \eqref{sec1:lip_eps}.  
+ В соответствии с Утверждением \ref{sec1:utv:connection_with_scaled_system} множества достижимости систем  \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} совпадают, поэтому \eqref{sec1:th3_proof_condition_with_f2} является условие выпуклости не только множества достижимости $\widetilde{G}(\varepsilon)$ системы  \eqref{sec1:eps_nonlinear}, но и $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time}.
+ 
+ Рассмотрим случай, когда  $f_2(t,x)$ не зависит от $x$.
+ Тогда  $L_0 = 0$ и условие \eqref{sec1:th3_proof_condition_with_f2} принимает вид
+ \begin{gather}\label{sec1:th3_proof_condition_without_f2}
  	\lambda(\varepsilon) \geqslant   4 \mu^2  L_1^2 \varepsilon^3.
  \end{gather}
- В этом случае, $ K =  4 \mu^2  L_1^2$, а $\alpha = 0$.
- В общем случае, когда $f_2(t,x)$ зависит от $x$, константы выбираются так, чтобы было выполнено условие
+ 
+ Фактически, необходимо доказать, что если для каких-то $K > 0$, $\alpha > 0$ и $ 0 < \varepsilon_0 < \overline{\varepsilon}$ условие $ \lambda(\varepsilon) \geqslant  K\varepsilon ^{3 - \alpha} $ выполняется при всех $\varepsilon \leqslant \varepsilon_0$, то существует такое $ \varepsilon_1 > 0 $, что при  $\varepsilon < \varepsilon_1 $ справедливо и условие \eqref{sec1:th3_proof_condition_without_f2}.
+Для этого необходимо, чтобы 
+\begin{gather}\label{sec1:th3_proof_final_condition_without_f2}
+	K\varepsilon ^{3 - \alpha} \geqslant 4 \mu^2  L_1^2 \varepsilon^3.
+\end{gather}
+
+ Отсюда,
  \begin{gather*}
- 	K \geqslant 4 \mu^2 L_0^2 \overline{\varepsilon}^{\alpha} + + 8 \mu^2 L_0 L_1 \overline{\varepsilon}^{1 + \alpha} +  4 \mu^2  L_1^2 \overline{\varepsilon}^{2 + \alpha}.
+ 	\varepsilon \leqslant \sqrt[\alpha]{\frac{K}{4 \mu^2  L_1^2}}.
  \end{gather*}
- Такой выбор констант обеспечивает, что при выполнении условия \eqref{sec1:small_time_convexity_condition}, выполняется и условие \eqref{sec1:th3_proof_origin_condition}. 
- Справедливость этого неравенства, в соответствии с теоремой \ref{sec1:th:small_control_convexity} гарантирует выпуклость множеств достижимости системы \eqref{sec1:common_nonlinear_small_time}. 
- Но в соответствии с Утверждением \ref{sec1:utv:connection_with_scaled_system} множества достижимости систем  \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} совпадают.
+ 
+ Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \sqrt[\alpha]{\frac{K}{4 \mu^2  L_1^2}}\right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{sec1:th3_proof_final_condition_without_f2}, а значит и \eqref{sec1:th3_proof_condition_without_f2}.
+ 
+
+Теперь вернемся к рассмотрению общего случая, когда $f_2(t,x)$ зависит от $x$.
+Здесь мы доказываем, что если для каких-то $K > 0$, $\alpha > 0$ и $ 0 < \varepsilon_0 < \overline{\varepsilon}$ условие $ \lambda(\varepsilon) \geqslant  K\varepsilon ^{1 - \alpha} $ выполняется при всех $\varepsilon \leqslant \varepsilon_0$, то существует такое $ \varepsilon_1 > 0 $, что при  $\varepsilon < \varepsilon_1 $ справедливо и условие \eqref{sec1:th3_proof_condition_with_f2}. 
+Для этого необходимо, чтобы 
+\begin{gather}\label{sec1:th3_proof_final_condition_with_f2}
+\begin{gathered}
+	K\varepsilon ^{1 - \alpha} \geqslant 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3, \\
+	K \geqslant 4 \mu^2 \varepsilon^{\alpha} (L_0^2 + 2 L_0 L_1 \varepsilon + L_1^2 \varepsilon^2).
+\end{gathered}
+\end{gather}
+ 
+ Заметим, что правая часть обращается в нуль при $\varepsilon = 0$ и монотонно возрастает при $\varepsilon > 0$, а значит существует такое $\varepsilon_2 > 0$, что $ K = 4 \mu^2 \varepsilon_2^{\alpha} (L_0^2 + 2 L_0 L_1 \varepsilon_2 + L_1^2 \varepsilon_2^2)$. 
+ Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \varepsilon_2\right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{sec1:th3_proof_final_condition_with_f2}, а значит и \eqref{sec1:th3_proof_condition_with_f2}.
+ 
  \hfill$\square$\\[1ex]%--- P r o o f.
+ 
+ \begin{zam}
+ 	Теорема \ref{sec1:th:small_time_convexity} дает удобное условие выпуклости множеств достижимости нелинейных систем \eqref{sec1:common_nonlinear_small_time} на малых интервалах времени, не требующее трудоемкого вычисления констант $L_0$ и $L_1$.
+ 	Однако, величина $\varepsilon_1$, полученная таким образом может оказаться очень осторожной.
+ 	Для того, чтобы приблизить ее к границе, на которой условие \eqref{sec1:th3_proof_origin_condition} действительно перестанет выполняться, имеет смысл выбирать $\alpha$ как можно меньше, а $K$ как можно больше. 
+ 	Либо, если необходима точная оценка этой границы, использовать непосредственно условие \eqref{sec1:th3_proof_origin_condition}.
+ \end{zam}
  \subsection{Асимптотика собственных чисел грамиана управляемости линейной системы с малым параметром} 
 Для проверки условий теоремы \ref{sec1:th:small_time_convexity} необходимо оценивать асимптотику минимального собственного числа грамиана управляемости линеаризованной системы с малым параметром.
 В этом разделе предложен один из возможных способов проверки асимптотики собственных чисел грамиана управляемости таких систем.

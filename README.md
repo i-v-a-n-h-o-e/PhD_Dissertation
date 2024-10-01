@@ -12,7 +12,7 @@
 По этой кнопке можно скачать актуальную версию
 
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/2024-09-24--23-14-49_Dissertation.pdf)
+[![Download pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/2024-10-01--10-55-56_Dissertation.pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
 ## Notion Sprints
@@ -24,4 +24,4 @@
 
 
  
-Last updated: 2024-09-24--23-14-49
+Last updated: 2024-10-01--10-55-56
