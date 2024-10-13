@@ -71,6 +71,32 @@ jobs:
         with:
           name: output_pdf
           path: main.pdf
+    
+  get_prev_state:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+        # Determine HEAD~1 commit
+      - name: Get HEAD~1 commit
+        id: get_previous_commit
+        run: |
+          COMMIT_SHA=$(git rev-parse HEAD~1)
+          echo "Commit SHA: $COMMIT_SHA"
+          echo "commit_sha=$COMMIT_SHA" >> $GITHUB_ENV
+
+        # Checkout the repo at HEAD~2
+      - name: Checkout at HEAD~2
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.commit_sha }}
+
+      - name: Upload tex as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prev_main_tex
+          path: main.tex
 
   # compare_versions:
   #   needs: [build_latex]
@@ -144,3 +170,19 @@ jobs:
           asset_path: ./main.pdf
           asset_name: ${{ needs.prepares.outputs.file_name }}
           asset_content_type: application/pdf
+      
+      - name: Download tex artifact
+        uses: actions/download-artifact@v4
+        with:
+            name: prev_main_tex
+
+      - name: Upload tex to Release
+        id: upload_tex_to_release      
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.tex
+          asset_name: main_prev.tex
+          asset_content_type: text/plain
