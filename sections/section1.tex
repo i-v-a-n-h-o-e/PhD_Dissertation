@@ -388,7 +388,7 @@
 \end{gather*} 
 где $ L_X = k_Y L_A k_X$.
 \hfill$\square$\\[1ex]%-
-Введем отображение $\overline{F}: [t_0,T]  \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- это решение системы \eqref{sec1:common_nonlinear} в момент $t$ порожденное управлением $u(\cdot)$.
+Введем отображение $\overline{F}: [t_0,T]  \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- это решение системы \eqref{sec1:common_nonlinear} в момент $t$, порожденное управлением $u(\cdot)$.
 Дифференциал Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $, согласно Лемме \ref{sec1:lem:frechet_derivative_common} --- это решение линеаризованной системы, 
 \begin{gather}\label{sec1:diff_of_mapping_F}
     \overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
@@ -456,7 +456,16 @@
 \begin{gather*}
     F'(0) \delta u(\cdot) =  \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) \delta u(\tau) \ d\tau,
 \end{gather*}
-где матрицы $X(\cdot, \cdot, 0)$  и $B(\cdot, 0)$ определены для системы \eqref{sec1:linearized_system}, линеаризованной вдоль пары $\Big(x(\cdot, 0), 0\Big) $.
+где матрицы $X(\cdot, \cdot, 0)$  и $B(\cdot, 0)$ определены для системы
+ \begin{gather}\label{sec1:linearized_system_zero_control}
+ \begin{gathered}
+ 		\delta \dot{x} =  A(t, 0) \delta x + B(t, 0) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,  \\
+ 		A(t, 0) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,0\big)\Big), \qquad
+ 		B(t, 0) = f_2 \Big(t,x\big(t,0\big)\Big).
+ \end{gathered}
+\end{gather}
+ Система \eqref{sec1:linearized_system_zero_control} является линеаризацией системы \eqref{sec1:common_nonlinear} вдоль пары $\Big(x(\cdot, 0), 0\Big) $.
+Здесь $0$ означает нулевое управление $0(\cdot) \in \mathbb{L}_2$.
 
 Рассмотрим скалярное произведение $ \Big(l,  F'(0) \delta u(\cdot)\Big) $, где $ l \in \mathbb{R}^n$
 \begin{gather*}
@@ -467,12 +476,13 @@
 \end{gather*}
 где $ \big(F'(0)\big)^* =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
 
-Обозначим через  $W(T,0) $ грамиан управляемости этой системы.
+Обозначим через  $W(T,0) $ грамиан управляемости системы \eqref{sec1:linearized_system_zero_control}.
 Тогда 
 \begin{gather}\label{sec1:self_adjoint_with_derivative}
     F'(0) \big(F'(0)\big)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
 \end{gather}
-Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system} при $u(\cdot) \equiv 0$. 
+
+Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system_zero_control}. 
 
 При этом, константа $\nu$ из неравенства \eqref{sec1:lyusternik_condition_proof} связана с наименьшим собственным числом $\lambda$ матрицы $W(T,0) $,  $\lambda\big(W(T,0)\big) = \nu^2$.
     
