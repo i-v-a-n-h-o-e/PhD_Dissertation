@@ -72,44 +72,44 @@ jobs:
           name: output_pdf
           path: main.pdf
 
-  compare_versions:
-    needs: [build_latex]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Current Version
-        uses: actions/checkout@v4
+  # compare_versions:
+  #   needs: [build_latex]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Current Version
+  #       uses: actions/checkout@v4
       
-      - name: Checkout Previous Version
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.before }} # Checkout the commit before the latest push
-          path: prev_version # Store the previous version in a separate directory
+  #     - name: Checkout Previous Version
+  #       uses: actions/checkout@v4
+  #       with:
+  #         ref: ${{ github.event.before }} # Checkout the commit before the latest push
+  #         path: prev_version # Store the previous version in a separate directory
 
-      - name: Run latexdiff
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexdiff
-          cd prev_version
-          latexdiff main.tex ../main.tex > diff_main.tex
-          mv diff_main.tex ../
+  #     - name: Run latexdiff
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install -y latexdiff
+  #         cd prev_version
+  #         latexdiff main.tex ../main.tex > diff_main.tex
+  #         mv diff_main.tex ../
 
-      - name: LaTex Compile
-        uses: xu-cheng/texlive-action@v2
-        with:
-          scheme: full
-          run: |
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+  #     - name: LaTex Compile
+  #       uses: xu-cheng/texlive-action@v2
+  #       with:
+  #         scheme: full
+  #         run: |
+  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
 
-      - name: Upload Diff PDF as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: diff_output_pdf
-          path: diff_main.pdf
+  #     - name: Upload Diff PDF as Artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: diff_output_pdf
+  #         path: diff_main.pdf
 
   create_and_upload_release:
-    needs: [build_latex, prepares, compare_versions]
+    needs: [build_latex, prepares]
     runs-on: ubuntu-latest
     steps:
       - name: Check outputs
@@ -117,6 +117,7 @@ jobs:
         run: |
           echo "${{ needs.prepares.outputs.date_time }}"
           echo "${{ needs.prepares.outputs.file_name }}"
+  
       - name: Download PDF artifact
         uses: actions/download-artifact@v4
         with:
@@ -132,8 +133,10 @@ jobs:
           release_name: Release ${{ needs.prepares.outputs.date_time }}
           draft: false
           prerelease: false
-         
-      - uses: actions/upload-release-asset@v1
+      
+      - name: Upload pdf to Release
+        id: upload_pdf_to_release      
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
@@ -141,16 +144,3 @@ jobs:
           asset_path: ./main.pdf
           asset_name: ${{ needs.prepares.outputs.file_name }}
           asset_content_type: application/pdf
-  
-
-  # test_checkout:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - run: |
-  #           date > generated.txt
-  #           git config user.name github-actions
-  #           git config user.email github-actions@github.com
-  #           git add .
-  #           git commit -m "generated"
-  #           git push
