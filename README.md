@@ -9,10 +9,17 @@
 
 [![LaTex Compile&Upload](https://github.com/i-v-a-n-h-o-e/LatexTest/actions/workflows/main.yml/badge.svg)](https://github.com/i-v-a-n-h-o-e/LatexTest/actions/workflows/main.yml)
 
-По этой кнопке можно скачать актуальную версию
+По этой кнопкам можно скачать актуальные версии
 
+"Чистовая" версия:
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/2024-10-16--23-07-01_Dissertation.pdf)
+[![Download final pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/2024-10-16--23-15-24_Dissertation.pdf)
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+Версия с подписанными названиями источников для проверки ссылок:
+(так же подписаны нумерованные формулы и теоремы, леммы и т.д.)
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/LatexTest/releases/latest/download/2024-10-16--23-07-01_Dissertation[keys].pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
 ## Notion Sprints
@@ -24,4 +31,4 @@
 
 
  
-Last updated: 2024-10-16--23-07-01
+Last updated: 2024-10-16--23-15-24
