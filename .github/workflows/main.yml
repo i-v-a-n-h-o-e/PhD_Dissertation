@@ -65,12 +65,21 @@ jobs:
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "main".tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "main".tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "main".tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error -jobname=captioned_output "\def\showlabels{}\input{main.tex}"         
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error -jobname=captioned_output "\def\showlabels{}\input{main.tex}"         
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error -jobname=captioned_output "\def\showlabels{}\input{main.tex}"         
 
-      - name: Upload PDF as artifact
+      - name: Upload main PDF as artifact
         uses: actions/upload-artifact@v4
         with:
           name: output_pdf
           path: main.pdf
+
+      - name: Upload captioned PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: captioned_output_pdf
+          path: captioned_output.pdf
     
   get_prev_state:
     runs-on: ubuntu-latest
@@ -88,8 +97,8 @@ jobs:
           echo "Commit SHA: $COMMIT_SHA"
           echo "commit_sha=$COMMIT_SHA" >> $GITHUB_ENV
 
-        # Checkout the repo at HEAD~2
-      - name: Checkout at HEAD~2
+        # Checkout the repo at HEAD~1
+      - name: Checkout at HEAD~1
         uses: actions/checkout@v3
         with:
           ref: ${{ env.commit_sha }}
