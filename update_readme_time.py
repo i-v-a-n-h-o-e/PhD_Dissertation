@@ -25,9 +25,15 @@ pattern = re.compile(r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation.pdf')
 # Replace the old "Last updated" line with the new one
 filename_content = pattern.sub(f'{current_time}_Dissertation.pdf', timestamp_content)
 
+# Define a pattern to find the link to YYYY-MM-DD--HH-MM-SS_Dissertation.pdf
+pattern = re.compile(r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_keys.pdf')
+
+# Replace the old "Last updated" line with the new one
+keys_filename_content = pattern.sub(f'{current_time}_Dissertation_keys.pdf', filename_content)
+
 # Write the updated content back to README.md
 with open('README.md', 'w') as file:
-    file.write(filename_content)
+    file.write(keys_filename_content)
 
 with open('main.tex', 'r') as file:
     content = file.read()
