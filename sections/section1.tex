@@ -53,9 +53,9 @@
 \begin{lemma}\label{sec1:lem:lip_of_solutions_global}
     Пусть выполнено Предположение \ref{sec1:as:right_hand_side_conditions_global}.
     Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
-    \begin{gather}
+    \begin{gather*}
         \left\| x_1(t) - x_2(t) \right\|_2 \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2[t_0, \overline{T}]}, 
-    \end{gather}
+    \end{gather*}
     где $x_i(t) = x_i(t,u_i(\cdot))$, $i = 1,2$. 
 \end{lemma}
 \doc
@@ -111,13 +111,9 @@
 \end{zam}
     
 Пусть $ 0 <  T \leqslant \overline{T} $.  
-Далее будем рассматривать только такие управления $u(\cdot) \in \mathbb{L}_2[t_0, \overline{T}]$, для которых справедливо
-\begin{gather}\label{sec1:zero_tail}
-	u(t) = 0, \qquad \mbox{при всех} \qquad T \leqslant t  \leqslant \overline{T}.
-\end{gather}
-
-Очевидно, что на интервале $[t_0, T]$ такие управления лежат в пространстве $\mathbb{L}_2[t_0, T]$. 
-Более того, если $u(\cdot) \in B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $ и выполняется \eqref{sec1:zero_tail}, то $u(\cdot) \in B_{\mathbb{L}_2[t_0, T]}(0,\mu) $. 
+Рассмотрим сужения управлений $u(\cdot) \in \mathbb{L}_2[t_0, \overline{T}]$ на интервал $[t_0, T]$.
+Заметим, что если $u(\cdot) \in B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, то его сужение на интервал $[t_0, T]$ будет принадлежать $ B_{\mathbb{L}_2[t_0, T]}(0,\mu) $.  
+Для сужений управлений на интервал  $[t_0, T]$  сохраним обозначение $u(\cdot) $.
 Так как везде далее в этом разделе будет рассматриваться интервал $[t_0, T]$, то для краткости будем опускать интервал в определении пространства, считая, что $\mathbb{L}_2[t_0, T] = \mathbb{L}_2$.
 
 Дополнительно заметим, что свойства системы \eqref{sec1:common_nonlinear}, такие как непрерывность функций $f_1$, $f_2$ и их производных, а также единственность решений и ограниченность множества решений (Предположение \ref{sec1:as:right_hand_side_conditions_global}), которые предполагались справедливыми на интервале $[t_0, \overline{T}]$, будут справедливы и на интервале $[t_0, T]$.
@@ -145,10 +141,10 @@
     \dot{\Phi}(t) = A(t) \Phi(t), \qquad \Phi(t_0) = I.
 \end{gather}
 
-Докажем, что решение этого уравнение определено на интервале $[t_0, T]$. 
-Заметим, что интеграл $\int_0^t \| A(\tau)\|  \ d\tau$ равномерно ограничен по $u(\cdot) $ на $  B_{\mathbb{L}_2}(0,\mu)$.
+Так как $A(t)$ измерима, то решение \eqref{sec1:fundumental_matrix_eq} определено в некоторой окрестности $t_0$ и единственно\cite[с. 46]{Fillipov2}. 
+Докажем, что решение может быть продолжено на интервале $[t_0, T]$. 
 Для каждого фиксированного  $u(\cdot) $ найдется такое $\tau > t_0$, что решение \eqref{sec1:fundumental_matrix_eq} определено на интервале $ [t_0, \tau] $.
-Выберем наибольшее из $\tau$.
+Выберем наибольшее из таких $\tau$.
 Предположим, что $\tau < T$. 
 Тогда проинтегрируем \eqref{sec1:fundumental_matrix_eq} от $t_0$ до $\tau$, получив
 \begin{gather*}
@@ -159,6 +155,7 @@
 Из Леммы Гронуолла-Беллмана следует, что  $ \| \Phi(\tau) \| \leqslant \exp \left( \int_{t_0}^{\tau}  \| A(s)\| \ ds \right)$, а значит $\Phi(\cdot)$ может быть продолжено при $t > \tau$. 
 Получаем противоречие.
 
+Заметим, что интеграл $\int_0^t \| A(\tau)\|  \ d\tau$ равномерно ограничен по $u(\cdot) $ на $  B_{\mathbb{L}_2}(0,\mu)$.
 Таким образом, можно заключить,  что при всех $u(\cdot) \in  B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение  \eqref{sec1:fundumental_matrix_eq}, определенное на интервале $[t_0, T]$.
     
     
@@ -252,7 +249,7 @@
 Заметим, что множество достижимости $G(T,\mu)$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu)$ при его отображении $F$.
    
 \begin{definition}
-	Линейная система $\dot{y} = A(t) y + B(t) u $ называется управляемой на интервале времени $  t_0 \leqslant t \leqslant T $, если управляемой, если для любых $y_0, y_1 \in \mathbb{R}^n$ найдется управление $u(\cdot) \in \mathbb{L}_2$, переводящее систему из $y(0, u(\cdot)) = y_0 $ в $y(T, u(\cdot)) = y_1 $.
+	Линейная система $\dot{y} = A(t) y + B(t) u $ называется управляемой (вполне управляемой) на интервале времени $  t_0 \leqslant t \leqslant T $,  если для любых $y_0, y_1 \in \mathbb{R}^n$ найдется управление $u(\cdot) \in \mathbb{L}_2$, переводящее систему из $y(0, u(\cdot)) = y_0 $ в $y(T, u(\cdot)) = y_1 $.
 \end{definition}
    
 \begin{definition}\label{sec1:def:grammian}
@@ -272,14 +269,15 @@
     
 \subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
 \subsubsection{Выпуклость отображения малого шара.}
-Пусть $X$, $Y$~--- гильбертовы пространства, а $f: X \rightarrow Y$~--- нелинейное отображение с производной Фреше $f'$, которая существует и непрерывна в некоторой области  $U \in X$.
+Пусть $X$, $Y$~--- гильбертовы пространства, а $f: X \rightarrow Y$~--- нелинейное отображение с производной Фреше $f'$, которая существует и непрерывна в точке $a \in X$.
     
-Будем называть точку $a \in U$~--- регулярной точкой отображения $f$, если линейный оператор $f'(a)$ сюръективен: он отображает $X$ на $Y$, $ f'(a) X = Y $.
+Будем называть точку $a$~--- регулярной точкой отображения $f$, если линейный оператор $f'(a)$ сюръективен, т.е. $ f'(a) X = Y $.
 Последнее равенство означает, что 
 \begin{gather}\label{sec1:regularity_cond}
     \forall y \in Y, \quad \exists x \in X, \quad f'(a) x = y.
 \end{gather}
 
+Условие \eqref{sec1:regularity_cond} называют условием Люстерника\cite{Dmitruk1980}.
 В доказательстве теоремы об открытом отображении показано \cite[Теорема 2.11, Теорема 4.13]{Rudin}, что для непрерывного, линейного и сюръективного оператора $f'(a)$ существует такая константа $\nu > 0$, что $f'(a) O_X(0, 1) \supset \nu O_Y(0, 1)$, где $ O_X(0, 1)$ и  $O_Y(0, 1)$~--- открытые единичные шары в $X$ и $Y$, соответственно.
 Отсюда следует, что
 \begin{gather}\label{sec1:lyusternik_condition_proof}
@@ -290,6 +288,8 @@
     
 Например, если множества $X,\ Y$~--- конечномерные, $X = \mathbb{R}^n$, $Y = \mathbb{R}^m$, то условие \eqref{sec1:regularity_cond} выполняется, если  $ \operatorname{rank} f'(a) = m$.
 В этом случае $\nu$ из правой части неравенства \eqref{sec1:lyusternik_condition_proof} ~--- наименьшее сингулярное число $f'(a)$. 
+
+В дальнейшем изложении будем опираться на результаты Б.Т. Поляка о выпуклости образа малого шара при его нелинейном отображении, сформулированные в следующей теореме. 
 \begin{theorem}[\cite{Polyak2001, Polyak2001ru}]\label{sec1:th:PolyakTh}
     Пусть $a \in X$~--- регулярная точка отображения $f: X \rightarrow Y$, производная Фреше $f'$ существует и удовлетворяет условию Липшица на шаре  $B_X(a,r) $, $r > 0$  т.е. 
     \begin{gather}\label{sec1:lip_cond}
@@ -304,7 +304,8 @@
     {Будем называть множество $M $ сильно выпуклым, если существует такая константа $\gamma > 0$, что для любых точек $x, y \in M$ и всех $\lambda \in [0, 1]$ выполняется 
     \begin{gather*}
     	\lambda x + (1 - \lambda) y + \frac{\gamma}{2}\lambda (1 - \lambda) \| x - y \|^2 \in M.
-    \end{gather*}}
+    \end{gather*}
+Известны и другие определения сильно выпуклого множества. Их эквивалентность показана в \cite{vial}.}
      и его граница состоит из образов граничных точек шара: $\partial F \subset f(\partial B_X(a,\varepsilon))$.
 \end{theorem}
     
@@ -353,7 +354,7 @@
 \end{gather*}
 для всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$. 
 Для сокращения записи, обозначим $A_i(t) = A\big(t, u_i(\cdot)\big) $ и $ X_i(t,s) = X(t, s, u_i(\cdot))$. 
-Используя Лемму \ref{sec1:lem:lip_of_solutions_global} в условиях предположения \ref{sec1:as:right_hand_side_diff_lip}, мы можем получить оценку
+Используя Лемму \ref{sec1:lem:lip_of_solutions_global}, в условиях предположения \ref{sec1:as:right_hand_side_diff_lip} мы можем получить оценку
 \begin{gather}\label{sec1:lip_a}
 \begin{gathered}
     \| A_1(t) - A_2(t) \| \leqslant 
@@ -446,7 +447,7 @@
 Таким образом, из Леммы \ref{sec1:lem:lip_dx_global} следует, что производная Фреше $F'(u(\cdot)) $ является липшицевой. 
     
 \begin{theorem}\label{sec1:th:small_control_convexity}
-    Пусть выполнены Предположения \ref{sec1:as:right_hand_side_conditions_global} и \ref{sec1:as:right_hand_side_diff_lip}, а также линеаризованная вдоль пары $\left( x(\cdot,0),0\right)   $ система \eqref{sec1:common_nonlinear} является управляемой.
+    Пусть выполнены Предположения \ref{sec1:as:right_hand_side_conditions_global} и \ref{sec1:as:right_hand_side_diff_lip}, и пусть линеаризованная вдоль пары $\left( x(\cdot,0),0\right)   $ система \eqref{sec1:common_nonlinear} является управляемой.
     Тогда найдется такое $\mu_0 > 0$, что при всех $0 < \mu <  \mu_0 $ множества достижимости $G(T, \mu)$ системы \eqref{sec1:common_nonlinear} будут выпуклыми.
 \end{theorem}
 \doc
@@ -472,14 +473,14 @@
 	\Big(l,  F'(0) \delta u(\cdot)\Big)_{\mathbb{R}^n} =
 	 l^{\top}  \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) \delta u(\tau) \ d\tau = \\ = 
 	  \int\limits_{t_0}^{T} l^{\top} X(t, \tau, 0) B(\tau, 0)  \delta u(\tau) \ d\tau =
-	   \Big(\big(F'(0)\big)^* l,  \delta u(\cdot)\Big)_{\mathbb{L}_2},
+	   \Big(F'(0)^* l,  \delta u(\cdot)\Big)_{\mathbb{L}_2},
 \end{gather*}
-где $ \big(F'(0)\big)^* =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
+где $ F'(0)^* =  B^{\top} (\cdot, 0) X^{\top}(T, \cdot, 0)$.
 
 Обозначим через  $W(T,0) $ грамиан управляемости системы \eqref{sec1:linearized_system_zero_control}.
 Тогда 
 \begin{gather}\label{sec1:self_adjoint_with_derivative}
-    F'(0) \big(F'(0)\big)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
+    F'(0) F'(0)^* = \int\limits_{t_0}^{T} X(t, \tau, 0) B(\tau, 0) B^{\top} (\tau, 0) X^{\top}(T, \tau, 0) \ d\tau= W(T,0).
 \end{gather}
 
 Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{sec1:linearized_system_zero_control}. 
@@ -551,10 +552,10 @@
 \end{gather*}
 По аналогии с \eqref{sec1:linearized_system_zero_control}, линеаризуем \eqref{sec1:eps_nonlinear} вдоль траектории $ z(\cdot,0) = x(\cdot, 0) $
 \begin{gather}\label{sec1:eps_linearized}
-    \delta\dot{z} = \widetilde{A}(\tau, 0) \delta z(\tau) +\widetilde{B}(\tau, 0) \delta \upsilon(t),\qquad 0 \leqslant \tau \leqslant 1,  \qquad \delta z(0) = 0,
+    \delta\dot{z} = \widetilde{A}_{\varepsilon}(\tau, 0) \delta z(\tau) +\widetilde{B}_{\varepsilon}(\tau, 0) \delta \upsilon(t),\qquad 0 \leqslant \tau \leqslant 1,  \qquad \delta z(0) = 0,
 \end{gather}
-где $ \widetilde{A}(\tau, \upsilon(\cdot)) = \varepsilon A(\varepsilon \tau + t_0, u(\cdot)) $,  $\widetilde{B}(\tau, \upsilon(\cdot)) = B(\varepsilon \tau + t_0, u(\cdot)) $. 
-Для сокращения записи введем обозначения $A_{\varepsilon}(\tau) = \widetilde{A}(\tau, 0)$ и $B_{\varepsilon}(\tau) = \widetilde{B}(\tau, 0)$.
+где $ \widetilde{A}_{\varepsilon}(\tau, \upsilon(\cdot)) = \varepsilon A(\varepsilon \tau + t_0, u(\cdot)) $,  $\widetilde{B}_{\varepsilon}(\tau, \upsilon(\cdot)) = B(\varepsilon \tau + t_0, u(\cdot)) $. 
+Для сокращения записи введем обозначения $A_{\varepsilon}(\tau) = \widetilde{A}_{\varepsilon}(\tau, 0)$ и $B_{\varepsilon}(\tau) = \widetilde{B}_{\varepsilon}(\tau, 0)$.
 Фундаментальная матрица $ X_{\varepsilon}(\tau,\xi) $ системы \eqref{sec1:eps_linearized} определяется, как решение уравнения
 \begin{gather*}
     \frac{dX_{\varepsilon}(\tau,\xi)}{d\tau} = A_{\varepsilon}(\tau) X_{\varepsilon}(\tau,\xi), \qquad X_{\varepsilon}(\tau,\tau) = I. 
@@ -617,7 +618,7 @@
  
 Применяя Лемму \ref{sec1:lem:frechet_derivative_common} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big)  $ системы \eqref{sec1:eps_linearized}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях, то есть
 \begin{gather*}
-	S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \int\limits_0^1  X_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}(\tau, \upsilon(\cdot))  \delta\upsilon(\tau)\ d\tau. 
+	S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \int\limits_0^1  X_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}_{\varepsilon}(\tau, \upsilon(\cdot))  \delta\upsilon(\tau)\ d\tau. 
 \end{gather*}
  
 Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{sec1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$ с константами $\widetilde{l}_{f_1} = \varepsilon l_{f_1} $ и  $\widetilde{l}_{f_2} = l_{f_2} $ соответственно. 
@@ -635,7 +636,7 @@
   
 По аналогии с \eqref{sec1:lip_a}, для произвольных $ \upsilon_1(\cdot), \upsilon_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$, можем выписать
 \begin{gather*}
-      \int\limits_{0}^{1} \|\widetilde{A}(s, \upsilon_1(\cdot)) - \widetilde{A}(s, \upsilon_1(\cdot)) \| ds \leqslant \widetilde{L}_A \| \upsilon_1(\cdot) - \upsilon_2(\cdot) \|_{\mathbb{L}_2},
+      \int\limits_{0}^{1} \|\widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) - \widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) \| ds \leqslant \widetilde{L}_A \| \upsilon_1(\cdot) - \upsilon_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
  где 
 \begin{gather}\label{sec1:eps_lip_a}
@@ -660,11 +661,11 @@
  \end{gather*}  
  
  Причем, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
-Действительно, в этом случае, для любых $x_1, x_2 \in D$, $t\in [t_0, t_0 + \overline{\varepsilon}]$, выполняется $f_2(t,x_1) = f_2(t, x_2)$ и $\dfrac{\partial f_2}{\partial x} (t, x_1) = \dfrac{\partial f_2}{\partial x} (t, x_2)$, то соответствующие константы Липшица можно выбрать нулевыми:   $ L_{f_2} = 0$ и $l_{f_2} = 0$.
+Действительно, в этом случае, для любых $x_1, x_2 \in D$, $t\in [t_0, t_0 + \overline{\varepsilon}]$, выполняется $f_2(t,x_1) = f_2(t, x_2)$ и $\dfrac{\partial f_2}{\partial x} (t, x_1) = \dfrac{\partial f_2}{\partial x} (t, x_2)$, поэтому соответствующие константы Липшица можно выбрать нулевыми:   $ L_{f_2} = 0$ и $l_{f_2} = 0$.
   
-По аналогии с \eqref{sec1:self_adjoint_with_derivative}, для самосопряженного оператора $S'(0)\big(S'(0)\big)^*$ верно равенство 
+По аналогии с \eqref{sec1:self_adjoint_with_derivative}, для самосопряженного оператора $S'(0)S'(0)^*$ верно равенство 
 \begin{gather*}
-	S'(0)\big(S'(0)\big)^* = W_{\varepsilon}. 
+	S'(0)S'(0)^* = W_{\varepsilon}. 
 \end{gather*}
   
 Тогда, управляемость системы \eqref{sec1:eps_linearized} (минимальное собственное число $ \lambda(\varepsilon) $ грамиана управляемости $W_{\varepsilon}$ должно быть строго положительно) означает регулярность отображения $S$ при $\upsilon = 0$, а множество достижимости $G_{\varepsilon}$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$ при его отображении $S$.
@@ -692,7 +693,7 @@
  \end{gather}
  будут удовлетворять и условию \eqref{sec1:th3_proof_origin_condition}. 
  Константы $L_0$ и $L_1$ определены в \eqref{sec1:lip_eps}.  
- В соответствии с Утверждением \ref{sec1:utv:connection_with_scaled_system} множества достижимости систем  \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} совпадают, поэтому \eqref{sec1:th3_proof_condition_with_f2} является условие выпуклости не только множества достижимости $\widetilde{G}(\varepsilon)$ системы  \eqref{sec1:eps_nonlinear}, но и $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time}.
+ В соответствии с Утверждением \ref{sec1:utv:connection_with_scaled_system} множества достижимости систем  \eqref{sec1:common_nonlinear_small_time} и \eqref{sec1:eps_nonlinear} совпадают, поэтому \eqref{sec1:th3_proof_condition_with_f2} является условием выпуклости не только множества достижимости $\widetilde{G}(\varepsilon)$ системы  \eqref{sec1:eps_nonlinear}, но и $G(\varepsilon)$ системы \eqref{sec1:common_nonlinear_small_time}.
  
  Рассмотрим случай, когда  $f_2(t,x)$ не зависит от $x$.
  Тогда  $L_0 = 0$ и условие \eqref{sec1:th3_proof_condition_with_f2} принимает вид
@@ -711,20 +712,21 @@
  	\varepsilon \leqslant \left(\frac{K}{4 \mu^2  L_1^2}\right)^{\frac{1}{\alpha}}.
  \end{gather*}
  
- Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \sqrt[\alpha]{\frac{K}{4 \mu^2  L_1^2}}\right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{sec1:th3_proof_final_condition_without_f2}, а значит и \eqref{sec1:th3_proof_condition_without_f2}.
+ Обозначим $\varepsilon_1 = \min \left(\varepsilon_0,  \left(\frac{K}{4 \mu^2  L_1^2}\right)^{\frac{1}{\alpha}} \right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{sec1:th3_proof_final_condition_without_f2}, а значит и \eqref{sec1:th3_proof_condition_without_f2}.
  
 
 Теперь вернемся к рассмотрению общего случая, когда $f_2(t,x)$ зависит от $x$.
 Здесь мы доказываем, что если для каких-то $K > 0$, $\alpha > 0$ и $ 0 < \varepsilon_0 < \overline{\varepsilon}$ условие $ \lambda(\varepsilon) \geqslant  K\varepsilon ^{1 - \alpha} $ выполняется при всех $\varepsilon \leqslant \varepsilon_0$, то существует такое $ \varepsilon_1 > 0 $, что при  $\varepsilon < \varepsilon_1 $ справедливо и условие \eqref{sec1:th3_proof_condition_with_f2}. 
 Для этого необходимо, чтобы 
+\begin{gather*}
+	K\varepsilon ^{1 - \alpha} \geqslant 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3,
+\end{gather*}
+т.е. 
 \begin{gather}\label{sec1:th3_proof_final_condition_with_f2}
-\begin{gathered}
-	K\varepsilon ^{1 - \alpha} \geqslant 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3, \\
 	K \geqslant 4 \mu^2 \varepsilon^{\alpha} (L_0^2 + 2 L_0 L_1 \varepsilon + L_1^2 \varepsilon^2).
-\end{gathered}
 \end{gather}
  
- Заметим, что правая часть обращается в нуль при $\varepsilon = 0$ и монотонно возрастает при $\varepsilon > 0$, а значит существует такое $\varepsilon_2 > 0$, что $ K = 4 \mu^2 \varepsilon_2^{\alpha} (L_0^2 + 2 L_0 L_1 \varepsilon_2 + L_1^2 \varepsilon_2^2)$. 
+ Заметим, что правая часть \eqref{sec1:th3_proof_final_condition_with_f2} обращается в нуль при $\varepsilon = 0$ и непрерывна при $\varepsilon > 0$, а значит существует такое $\varepsilon_2 > 0$, что  \eqref{sec1:th3_proof_final_condition_with_f2} выполняется при всех $\varepsilon < \varepsilon_2 $.
  Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \varepsilon_2\right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{sec1:th3_proof_final_condition_with_f2}, а значит и \eqref{sec1:th3_proof_condition_with_f2}.
  
  \hfill$\square$\\[1ex]%--- P r o o f.
@@ -802,20 +804,21 @@
 Если матрица $ A $ системы \eqref{sec1:eps_linear_system}~--- нильпотентна, со степенью нильпотентности $ k $, то ряд \eqref{sec1:gram1} конечен, так как коэффициенты $ U_i, \ i \geqslant k$ содержат $ A $ в степенях больше $ k$ и, следовательно, равны нулю.
 
 В противном случае, необходимо убедиться, что ряд  \eqref{sec1:gram1}  сходится. 
+Введем обозначение $ S_i = \dfrac{\varepsilon^i U_i}{(i + 1)!} $, $i \in \mathbb{N}$, тогда $W_{\varepsilon} = \sum\limits_{i = 0}^{\infty} S_i$.
 Оценим норму коэффициентов $ U_i $, $ i \geqslant 0$
 \begin{gather*}
 	\| U_i \| \l \leqslant C \|A\|^i \|U_0\|, 
 \end{gather*}
 где $C > 0$. 
-Тогда 
+Тогда, для всех $i$
 \begin{gather}\label{sec1:compare}
-		W_{\varepsilon} \leqslant \sum\limits_{i = 0}^{\infty} \frac{C \|A\|^i \|U_0\| \varepsilon^i}{(i + 1)!}.
+		\|S_i\| \leqslant \frac{C \|A\|^i \|U_0\| \varepsilon^i}{(i + 1)!}.
 \end{gather} 
  
  Отсюда следует, что ряд \eqref{sec1:gram1} сходится, так как сходится ряд справа в \eqref{sec1:compare}.
  
 \subsubsection{Некоторые частные случаи}
-Приведено  несколько примеров линейных систем второго порядка, для которых выполняется условие \eqref{sec1:small_time_convexity_condition}.
+Приведем  несколько примеров линейных систем второго порядка, для грамианов управляемости которых выполняется условие \eqref{sec1:small_time_convexity_condition}.
 Рассмотрим простейшую систему, а также более общие случаи, такие как произвольные системы с одним входом, а также системы с двумя входами и вырожденной/невырожденной матрицей управления.
 
 После этого, продемонстрируем применение описанного в предыдущем разделе метода к проверке выпуклости множеств достижимости двух нелинейных систем, используя теорему \ref{sec1:th:small_time_convexity}.
@@ -904,7 +907,36 @@
 
 \paragraph{Система второго порядка с одним входом.}
 Можно показать, что любую линейную управляемую систему второго порядка можно привести к форме Фробениуса c помощью эквивалентных преобразований.
-При этом, такие преобразования, не меняют асимптотику грамиана управляемости, так как не влияют на собственные числа матрицы $A$  системы.
+При этом, такие преобразования, не меняют асимптотику грамиана управляемости.
+
+Рассмотрим невырожденное преобразование системы \eqref{sec1:eps_linear_system}
+\begin{gather}\label{sec1:eps_transformed_system}
+\begin{gathered}
+	\hat{x} = P x, \qquad \hat{A} = P A P^{-1}, \qquad \hat{B} = P B, \\
+	\dot{\hat{x}} = \varepsilon \hat{A} \hat{x} + \hat{B} u. 
+\end{gathered}
+\end{gather}
+
+По аналогии с \eqref{sec1:We} выпишем выражения для грамиана управляемости системы \eqref{sec1:eps_transformed_system} $\hat{W}_{\varepsilon}$  и коэффициентов разложения $\hat{U_i}$, $i \in \mathbb{N}$.
+\begin{gather*}
+	\hat{U}_0 = \hat{B} \hat{B}^{\top} = P B B^{\top} P^{\top} = P U_0 P^{\top}, 
+\end{gather*}
+
+Теперь покажем, что и для $i \geqslant 1$ выполняется  равенство $\hat{U}_i = P U_i P^{\top}$.
+Действительно,
+\begin{gather*}
+	\hat{U}_i  = \hat{A} \hat{U}_{i-1} + \hat{U}_{i-1} \hat{A}^T = \left(P A P^{-1} \right)  \left(  P U_i P^{\top} \right)  +  \left(  P U_i P^{\top}\right) \left(P A P^{-1} \right)^{\top} = \\ 
+	= P A U_i P^{\top}   +  P U_i A^{\top} P^{\top} = P \left( A U_i   +  U_i A^{\top} \right) P^{\top}  = P U_i P^{\top}.
+\end{gather*}
+
+Подставляя полученные выражения для $\hat{U}_i$ в \eqref{sec1:We}, получим, что  грамиан управляемости  системы \eqref{sec1:eps_transformed_system} связан с грамианом управляемости системы \eqref{sec1:eps_linear_system} равенством
+\begin{gather}
+	\hat{W}_{\varepsilon} = P W_{\varepsilon} P^{\top}.
+\end{gather}
+
+Отсюда следует, что если $\lambda_{min}(W_{\varepsilon}) > 0$,  то и  $\lambda_{min}(\hat{W}_{\varepsilon}) > 0$ \cite[теорема 4.5.8]{horn2012}.
+Более того, так как $P$ --- невырожденная и квадратная матрица, которая не зависит от $\varepsilon$, то из \cite[теорема 4.5.10]{horn2012} вытекает, что $\lambda_{min}(W_{\varepsilon}) = \theta \lambda_{min}(\hat{W}_{\varepsilon}) $, причем $\theta $ зависит от $P$ и не зависит от $W_{\varepsilon} $ и $\hat{W}_{\varepsilon}$.
+
 Поэтому, не теряя общности, будем рассматривать системы вида
  \begin{gather}\label{sec1:system32}
      \left[ {\begin{array}{*{20}{c}}
@@ -986,7 +1018,7 @@
 \end{gather}
  
 Из предположения об управляемости пары матриц $ (A,B) $ следует положительность собственных чисел $ \lambda_{min} $ и $ \lambda_{max} $.
-Значит, из \eqref{sec1:lambdamax} следует, что при достаточно малых $\varepsilon$.
+Значит, из \eqref{sec1:lambdamax} следует, что при достаточно малых $\varepsilon$
 \begin{gather*}
     \lambda_{max} \leqslant \left(\frac{2\,{a_{2}}^2}{3}+\frac{a_{1}}{3}+\frac{1}{3}\right)\varepsilon^2+a_{2}\varepsilon+1 < 2.
 \end{gather*}
@@ -999,9 +1031,9 @@
  
 Для получения нижней границы минимального собственного числа $ \lambda_{\varepsilon} $ грамиана $ W_{\varepsilon}$ воспользуемся свойством суммы собственных значений симметричных матриц\cite{Wilkinson}.
 Если к матрице $ M_1 $ добавить матрицу $ M_2 $, то все собственные числа матрицы $ M_1 $ увеличатся не менее, чем на минимальное собственное число матрицы $ M_2 $.
-Применяя это свойство к собственным числам частичной суммы и остатка, получим
+Применяя это свойство к собственным числам частичной суммы и остатка, получим, что найдутся $C > 0$ и $\alpha > 0 $, такие, что
 \begin{gather}
-    \lambda_{\varepsilon} \geqslant \lambda_{min}(S_{\varepsilon}^{2}) + \lambda_{min}(R(\varepsilon)) \geqslant  C \varepsilon^{3-\alpha}, \qquad C > 0, \quad \alpha > 0.
+    \lambda_{\varepsilon} \geqslant \lambda_{min}(S_{\varepsilon}^{2}) + \lambda_{min}(R(\varepsilon)) \geqslant  C \varepsilon^{3-\alpha}.
 \end{gather}
  
 Таким образом, нелинейные системы с интегральными ограничениями, линеаризация которых приводит к системам вида \eqref{sec1:system32},  так же обладают выпуклыми множествами достижимости на малых промежутках времени.
@@ -1173,8 +1205,9 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
 		\varphi ({t_1}) =  y_2. 
 	\end{array}
 \end{gather*}
+
 На рисунке  \ref{sec1:fig:fig31} показаны множества достижимости для различных $ \varepsilon $.
-Видно, что малых значениях $\varepsilon$ множества достижимости выпуклы, но при увеличении $\varepsilon $ становятся невыпуклыми.
+Видно, что малых значениях $\varepsilon$ множества достижимости выпуклы (правый рисунок), но при увеличении $\varepsilon $ становятся невыпуклыми (левый рисунок).
  % ссылка на тарасьева
 \paragraph{Машина Дубинса.} 
 Рассмотрим систему 
@@ -1224,6 +1257,112 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
  
 Воспользовавшись численным алгоритмом построения множеств достижимости систем с интегральными ограничениями \cite{GusevZykov2018} построим множество достижимости \eqref{sec1:system6} для $ \mu = 1  $ и $ \varepsilon = 0.0001  $ c. 
  
-Моделирование показывает, что множество достижимости <<машины Дубинса>> невыпукло и при достаточно малых $ \varepsilon $; это можно показать и теоретически, но строгое доказательство невыпуклости выходит за рамки этого раздела.
+Моделирование показывает, что множество достижимости <<машины Дубинса>> невыпукло и при достаточно малых $ \varepsilon $.
+
+Покажем, что множество достижимости системы  $G(\varepsilon)$ в данном случае также не является выпуклым при любом $\varepsilon >0$.
+Рассмотрим задачу оптимального управления с линейным терминальным критерием
+\begin{equation}\label{problem}
+	x_1(\varepsilon) \rightarrow \mathrm{min}, \qquad
+	x(\varepsilon) \in G(\varepsilon).
+\end{equation}
+
+Так как множество достижимости замкнуто \cite{GusZyk2017}, то решение задачи существует. Выберем какую-либо оптимальную траекторию и обозначим эту траекторию и порождающее ее управление через $x^0(t) $ и $ u^0(t) $, соответственно.
+
+Решение задачи не единственно, т.\,к. понятно, что для управления $ \overline{u}(t) = -u^0(t) $ мы будем иметь  $ \overline{x}_3(t) = -x_3^0(t), \ \overline{x}_1(t) = x_1^0(t), \ \overline{x}_2(t) = -x_2^0(t) $. То есть $ \overline{u}(t) $ --- также оптимальное управление.
+
+Введя дополнительную переменную $ x_4 $ равенством
+$
+\dot{x}_4(t) = u^2(t)
+$
+задачу (\ref{problem}) представим в виде
+\begin{equation}\label{problem2}
+	x_1(\varepsilon)  \rightarrow \mathrm{min}
+\end{equation}
+при ограничениях
+\begin{equation}\label{system2}
+	\begin{array}{l}
+		\left\{ {{{\begin{array}{l}
+						{{{\dot x}_1} = \cos {x_3}}\\
+						{{{\dot x}_2} = \sin {x_3}}\\
+						{{{\dot x}_3} = u}\\
+						{{{\dot x}_4} = {u^2}}
+		\end{array}}}} \right.{x_i}\left( 0 \right) = 0, \ i = 1,...,4,\\
+	\end{array}
+\end{equation}
+\begin{equation}\label{constraints2}
+	{x_4}\left( \varepsilon  \right) \le {\mu ^2}.
+\end{equation}
+Выпишем условие принципа максимума Понтрягина для данной задачи.  Рассмотрим функцию Понтрягина
+$
+H(p,x,u) = p_1 \cos{x_3} + p_2 \sin {x_3} + p_3 u + p_4 u^2
+$
+и функцию
+$
+l(\lambda_0,\lambda_1,x) = \lambda_0 x_1  + \lambda_1 (x_4 - \mu^2).
+$
+Оптимальное управление $ u^0(t) $ удовлетворяет  условию: существуют множители Лагранжа  $ \lambda_0 \geq 0 $, $ \lambda_1 \geq 0 $, $ (\lambda_0,\lambda_1) \neq 0 $, такие что
+$$H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leq t \leq \varepsilon, $$
+где $ p(t) = \left(p_1(t),p_2(t),p_3(t),p_4(t) \right)  $ -- решение сопряженной системы
+\begin{equation*}
+	\begin{array}{l}
+		\left\{ {{{\begin{array}{l}
+						{{{\dot p}_1} = -H_{x_1} = 0}\\
+						{{{\dot p}_2} = -H_{x_2} = 0}\\
+						{{{\dot p}_3} = -H_{x_3} = p_1 \sin x_3^0(t) - p_2 \cos x_3^0(t)}\\
+						{{{\dot p}_4} = -H_{x_4} = 0}
+		\end{array}}}} \right.
+	\end{array}
+\end{equation*}
+удовлетворяющее условию трансверсальности
+$
+p(\varepsilon) = -l_x(\lambda_0,\lambda_1, x^0(\varepsilon)) = - (\lambda_0,0,0,\lambda_1).
+$
+Выполнены так же условия дополняющей нежесткости
+%\begin{equation*}
+$\lambda_1 (x_4^0(\varepsilon) - \mu^2) = 0$.
+%\end{equation*}
+
+
+Из принципа максимума следует, что
+$H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
+В итоге получаем
+\begin{equation*}
+	\begin{array}{l}
+		\left\{ {{{\begin{array}{l}
+						{p_1 = -\lambda_0}\\
+						{p_2 = 0}\\
+						{{{\dot p}_3} = -\lambda_0 \sin x_3^0(t)}\\
+						{p_4 =  -\lambda_1}
+		\end{array}}}} \right.
+	\end{array}
+\end{equation*}
+Если $ \lambda_1 = 0 $, то максимум $ H $ по $ u $ не достигается, что противоречит принципу максимума. Значит $ \lambda_1 \neq 0 $ и, следовательно, $p_4=-\lambda_1  \neq 0$. Если $ \lambda_0 = 0 $, то $ p_3(t) \equiv 0 $, и значит $ u^0(t) \equiv 0 $. Но при нулевом управлении $ x_3(t) \equiv 0 $, $ \cos x_3 \equiv 1 $, что соответствует максимальному, а не минимальному значению $ x_1(\varepsilon) $.
+
+
+Таким образом, $ \lambda_0 \neq 0 $, $ u^0(t) = \dfrac{1}{2}\lambda_1^{-1}p_3 $, и пара $ (x_3^0,p_3) $ есть решение краевой задачи.
+\begin{equation}\label{boundary}
+	\begin{array}{l}
+		\left\{ {{{\begin{array}{l}
+						{{{\dot p}_3} = -\lambda_0 \sin x_3}\\
+						{{{\dot x}_3} =  \dfrac{1}{2}\lambda_1^{-1}p_3}\\
+						{p_3(\varepsilon) = 0} \\
+						{x_3(0) = 0}
+		\end{array}}}} \right.
+	\end{array}
+\end{equation}
+
+Из второго уравнения системы \eqref{system2} получаем
+\begin{equation*}
+	\int_0^\varepsilon \sin x_3^0(\tau) d\tau = 0.
+\end{equation*}
+
+Интегрируя первое из уравнений системы (\ref{boundary}) с учетом равенства $ p_3(\varepsilon) = 0 $ будем иметь $ p_3(0) = 0 $. Таким образом, $ p_3(t), x_3^0(t) $  -- решение системы \eqref{boundary} с нулевыми начальными условиями, в силу теоремы единственности решения дифференциального уравнения имеем $ p_3(t) \equiv 0$, $ x_3^0(t) \equiv 0 $. Но $ x_3^0(t) \equiv 0 $ соответствует решению задачи на максимум, а не минимум $ x_1(\varepsilon) $.
+
+Условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{problem}. Выбрав $ \bar{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \bar{x}(t) $, для которой $ \bar{x}_2(t) = -x_2^0(t) $, $ \bar{x}_1(t) = x_1^0(t) $.
+Рассмотрим точку $ \hat{x} = \dfrac{1}{2}x^0(\varepsilon) + \dfrac{1}{2}\bar{x}(\varepsilon) $, у которой $ \hat{x}_1 = x_1^0(\varepsilon) $, $ \hat{x}_2 = 0 $. Покажем, что $ \hat{x} \notin G(\varepsilon) $. Действительно, если $ \hat{x} \in G(\varepsilon) $, то найдется допустимая траектория $ \hat{x}(t) $, такая что $ \hat{x}(\varepsilon) = \hat{x} $. Т.к. $ \hat{x}_1 = \hat{x}_1(\varepsilon) $, то $  \hat{x}(t) $ -- оптимальная траектория. Но при этом $ \hat{x}_2(\varepsilon) = 0 $, что противоречит доказанному выше утверждению. Таким образом, полусумма точек $ x^0(\varepsilon) $, $ \bar{x}(\varepsilon) \in G(\varepsilon) $ не принадлежит $ G(\varepsilon) $, т.е. $ G(\varepsilon) $ невыпукла при любом $ \varepsilon > 0 $.
+
+
+
+
  
 \end{document}
