@@ -13,13 +13,13 @@
 
 "Чистовая" версия:
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download final pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2024-10-29--23-30-26_Dissertation.pdf)
+[![Download final pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2024-11-05--21-04-36_Dissertation.pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
 Версия с подписанными названиями источников для проверки ссылок:
 (так же подписаны нумерованные формулы и теоремы, леммы и т.д.)
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2024-10-29--23-30-26_Dissertation_keys.pdf)
+[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2024-11-05--21-04-36_Dissertation_keys.pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
 ## Notion Sprints
@@ -31,4 +31,4 @@
 
 
  
-Last updated: 2024-10-29--23-30-26
+Last updated: 2024-11-05--21-04-36
