@@ -82,12 +82,12 @@
 \end{gather}
     
 Так как для $0 \leqslant \xi \leqslant 1 $ и  $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big) \in D$, то из Предположения \ref{s1:as:right_hand_side_conditions_global}, учитывая непрерывность производных $\frac{\partial f_1}{\partial x} $ и $\frac{\partial f_2}{\partial x}$, а также компактность множества $D$, мы имеем, что 
-\begin{gather}\label{s1:lip_f}
+\begin{gather*}%\label{s1:lip_f}
 \begin{gathered}
      \big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|, \\
      \left\| \Big(f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) \Big) u_2(\tau) \right\| \leqslant  L_{f_2} \|u_2(\tau)\| \|x_1(\tau) - x_2(\tau)\|,
  \end{gathered}
-\end{gather}
+\end{gather*}
 где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D} \left\| \dfrac{\partial f_1}{\partial x} (\tau, x) \right\| $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \left\| \dfrac{\partial f_2}{\partial x} (\tau, x) \right\|$ .
       
 Используя полученные соотношения, в \eqref{s1:diff_of_solution} получаем
@@ -105,9 +105,9 @@
 Константа Липшица $L_x$ в Лемме \ref{s1:lem:lip_of_solutions_global} выбрана не зависящий от $t$.
 Таким образом, неравенство \eqref{s1:lip_of_solution} выполняется для всех $t_0 \leqslant t \leqslant \overline{T}$.
 То есть, справедливо 
-\begin{gather}
+\begin{gather*}
     \left\| x_1(\cdot) - x_2(\cdot) \right\|_{\mathbb{C}[t_0, \overline{T}]} \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2[t_0, \overline{T}]}.
-\end{gather}
+\end{gather*}
 \end{zam}
     
 Пусть $ 0 <  T \leqslant \overline{T} $.  
@@ -198,12 +198,12 @@
 \end{gather*}
     
 Перепишем \eqref{s1:delta_x}
-\begin{gather}\label{s1:delta_x_rewritten}
+\begin{gather*}%\label{s1:delta_x_rewritten}
     \Delta \dot{x}(t) =
     A(t) \Delta x(t)  + 
     B(t) \Delta u(t)  + 
     \omega(t),
-\end{gather}
+\end{gather*}
 где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{s1:linearized_system}, а
 \begin{gather*}
 \begin{gathered}
@@ -292,13 +292,13 @@
 В дальнейшем изложении будем опираться на результаты Б.Т. Поляка о выпуклости образа малого шара при его нелинейном отображении, сформулированные в следующей теореме. 
 \begin{theorem}[\cite{Polyak2001, Polyak2001ru}]\label{s1:th:PolyakTh}
     Пусть $a \in X$~--- регулярная точка отображения $f: X \rightarrow Y$, производная Фреше $f'$ существует и удовлетворяет условию Липшица на шаре  $B_X(a,r) $, $r > 0$  т.е. 
-    \begin{gather}\label{s1:lip_cond}
+    \begin{gather*}%\label{s1:lip_cond}
         \| f'(x) - f'(z) \| \leqslant L \| x - z \|, \quad \forall x,z \in B_X(a,r), \quad \exists L > 0,
-    \end{gather}
+    \end{gather*}
     а также выполнено условие
-    \begin{gather}
+    \begin{gather*}
         \varepsilon < \min\left\{r,\frac{\nu}{2L}\right\},
-    \end{gather}
+    \end{gather*}
     тогда образ шара $B_X(a,\varepsilon) = \{x \in X: \| x - a\| \leqslant \varepsilon\}$ при отображении $f$ выпуклый, то есть $F = \{f(x): x \in B_X(a,\varepsilon)\}$~--- выпуклое множество в $Y$.
     Более того, это множество сильно выпуклое\footnote
     {Будем называть множество $M $ сильно выпуклым, если существует такая константа $\gamma > 0$, что для любых точек $x, y \in M$ и всех $\lambda \in [0, 1]$ выполняется 
@@ -391,9 +391,9 @@
 \hfill$\square$\\[1ex]%-
 Введем отображение $\overline{F}: [t_0,T]  \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- это решение системы \eqref{s1:common_nonlinear} в момент $t$, порожденное управлением $u(\cdot)$.
 Дифференциал Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $, согласно Лемме \ref{s1:lem:frechet_derivative_common} --- это решение линеаризованной системы, 
-\begin{gather}\label{s1:diff_of_mapping_F}
+\begin{gather*}%\label{s1:diff_of_mapping_F}
     \overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
-\end{gather}
+\end{gather*}
 где $\delta x(t)$ --- это решение системы \eqref{s1:linearized_system} и отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям.
     
 \begin{lemma}\label{s1:lem:lip_dx_global}
@@ -424,7 +424,7 @@
     \Big\| \Big[ X_1(t,s) - X_2(t,s) \Big] B_2(s)\Big\|. 
 \end{gather*}
 Теперь подставляем это неравенство в оценку нормы разности $\overline{F}'(t, u_1(\cdot)) \delta u(\cdot) $ и $\overline{F}'(t, u_2(\cdot)) \delta u(\cdot) $ и применяем Лемму \ref{s1:lem:lip_fundumental_matrix}
-\begin{gather}
+\begin{gather*}
 \begin{gathered}
     \Big\| \overline{F}'(t, u_1(\cdot)) \delta u(\cdot) - \overline{F}'(t, u_2(\cdot)) \delta u(\cdot) \Big\| \leqslant
     \int\limits_{t_0}^{t} L_{f_2}   \Big\| X_1(t,s) \Big\|  \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}  \left\|  \delta u(s) \right\| \ ds + \\ + 
@@ -432,7 +432,7 @@
     \leqslant \\ \leqslant 
     \Big( k_{f_2} L_X + L_{f_2} k_X \Big) \sqrt{T - t_0} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}  \| \delta u(\cdot) \|_{\mathbb{L}_2} 
 \end{gathered}
-\end{gather}
+\end{gather*}
 Тогда для производных Фреше имеем
 \begin{gather*}
 	 \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} = 
@@ -521,9 +521,9 @@
     \dot{z}(\tau)=\widetilde{f}_1(\tau,z(\tau))+\widetilde{f}_2(\tau,z(\tau))\upsilon(\tau), \qquad 0 \leqslant \tau \leqslant 1, \qquad z(0) = x_0,
 \end{gather}
 где $ \widetilde{f}_1(\tau,z) = \varepsilon f_1(\varepsilon \tau + t_0,z) $, $ \widetilde{f}_2 (\tau,z) = f_2(\varepsilon \tau + t_0,z)$, а управление $ \upsilon(\cdot) $ удовлетворяет ограничениям
-\begin{gather}\label{s1:eps_control_constaint}
+\begin{gather*}%\label{s1:eps_control_constaint}
     \int_0^1 \upsilon^{\top}(\tau) \upsilon(\tau) \, d\tau \leqslant \left( \mu \sqrt{\varepsilon}\right)^2.
-\end{gather}
+\end{gather*}
 Обозначим $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
 
 Каждому решению $z(\cdot, \upsilon(\cdot))$ системы \eqref{s1:eps_nonlinear} на нормированном интервале времени, отвечающему управлению $\upsilon(\cdot) \in B_{\mathbb{L}_2[0, 1]} (0, \overline{\mu} \sqrt{\varepsilon})$ можно поставить в соответствие решение $x(\cdot, u(\cdot))$ системы \eqref{s1:common_nonlinear_small_time}, отвечающее управлению $u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \varepsilon]} (0, \overline{\mu})$, причем для всех $\tau \in [0, 1] $ выполняется $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)$ и $ z(\tau, \upsilon(\cdot)) = x(\varepsilon \tau + t_0, u(\cdot)) $.
@@ -640,10 +640,10 @@
       \int\limits_{0}^{1} \|\widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) - \widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) \| ds \leqslant \widetilde{L}_A \| \upsilon_1(\cdot) - \upsilon_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
  где 
-\begin{gather}\label{s1:eps_lip_a}
+\begin{gather*}%\label{s1:eps_lip_a}
      \widetilde{L}_A = \widetilde{l}_{f_1} L_z  + \widetilde{l}_{f_2} L_z \mu \sqrt{\varepsilon} + \widetilde{L}_{f_2} = 
      L_{f_2} + k_{f_2} \Big( l_{f_1}  \varepsilon  + l_{f_2}  \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big).
- \end{gather}
+ \end{gather*}
  
  Применяя Лемму \ref{s1:lem:lip_dx_global} к отображению $S$, получаем, что отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой 
  \begin{gather}\label{s1:lip_eps}
@@ -932,9 +932,9 @@
 \end{gather*}
 
 Подставляя полученные выражения для $\hat{U}_i$ в \eqref{s1:We}, получим, что  грамиан управляемости  системы \eqref{s1:eps_transformed_system} связан с грамианом управляемости системы \eqref{s1:eps_linear_system} равенством
-\begin{gather}
+\begin{gather*}
 	\hat{W}_{\varepsilon} = P W_{\varepsilon} P^{\top}.
-\end{gather}
+\end{gather*}
 
 Отсюда следует, что если $\lambda_{min}(W_{\varepsilon}) > 0$,  то и  $\lambda_{min}(\hat{W}_{\varepsilon}) > 0$ \cite[теорема 4.5.8]{horn2012}.
 Более того, так как $P$ --- невырожденная и квадратная матрица, которая не зависит от $\varepsilon$, то из \cite[теорема 4.5.10]{horn2012} вытекает, что $a \lambda_{min}(W_{\varepsilon}) \leqslant \lambda_{min}(\hat{W}_{\varepsilon}) \leqslant b \lambda_{min}(W_{\varepsilon})$, причем $a > 0 $,  $b > 0$.
@@ -1041,9 +1041,9 @@
 Для получения нижней границы минимального собственного числа $ \lambda_{\varepsilon} $ грамиана $ W_{\varepsilon}$ воспользуемся свойством суммы собственных значений симметричных матриц\cite{Wilkinson}.
 Если к матрице $ M_1 $ добавить матрицу $ M_2 $, то все собственные числа матрицы $ M_1 $ увеличатся не менее, чем на минимальное собственное число матрицы $ M_2 $.
 Применяя это свойство к собственным числам частичной суммы и остатка, получим, что найдутся $C > 0$ и $\alpha > 0 $, такие, что
-\begin{gather}
+\begin{gather*}
     \lambda_{\varepsilon} \geqslant \lambda_{min}(S_{\varepsilon}^{2}) + \lambda_{min}(R(\varepsilon)) \geqslant  C \varepsilon^{3-\alpha}.
-\end{gather}
+\end{gather*}
  
 Таким образом, нелинейные системы с интегральными ограничениями, линеаризация которых приводит к системам вида \eqref{s1:system32},  так же обладают выпуклыми множествами достижимости на малых промежутках времени.
 
@@ -1231,9 +1231,9 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
 \end{gather}
 на отрезке $ \left[0;\varepsilon \right] $, где $ \varepsilon > 0 $.
 Ограничения на $ u\left(t \right) $ заданы неравенством 
-\begin{gather}\label{s1:constraints*}
+\begin{gather*}%\label{s1:constraints}
     \int_{0}^{\vartheta} u^2(\tau) d\tau \leqslant \mu^2.
-\end{gather}
+\end{gather*}
  
 При $  u_1(t) \equiv 0 $ получаем траекторию $ x_1(t) = t, \ x_2(t) = x_3(t) \equiv 0 $.
 Как и в предыдущем примере, линеаризуем систему вдоль траектории, порожденной нулевым управлением
@@ -1259,7 +1259,7 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
      \centering
      \includegraphics[width=1\linewidth]{images/fig52.eps}
      \caption{Множество достижимости машины Дубинса для $\varepsilon = 10^{-4}, \mu = 1$.}
-     \label{s1:fig:fig3}
+     %\label{s1:fig:fig3}
 \end{figure}
 Очевидно, что система \eqref{s1:system6l} неуправляема по 1-ой координате, следовательно, ее граммиан управляемости содержит нулевое собственное число, из-за которого условие \eqref{s1:small_time_convexity_condition} не выполняется.
 Следовательно, система \eqref{s1:system6} может иметь невыпуклые множества достижимости на малых промежутках времени.
@@ -1270,25 +1270,25 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
 
 Покажем аналитически, что $G(\varepsilon)$ не является выпуклым при любом $\varepsilon >0$.
 Для этого рассмотрим задачу оптимального управления с линейным терминальным критерием
-\begin{equation}\label{problem}
+\begin{gather}\label{s1:opt_problem}
 	x_1(\varepsilon) \rightarrow \mathrm{min}, \qquad
 	x(\varepsilon) \in G(\varepsilon).
-\end{equation}
+\end{gather}
 
 Так как множество достижимости замкнуто \cite{GusZyk2017}, то решение задачи существует. Выберем какую-либо оптимальную траекторию и обозначим эту траекторию и порождающее ее управление через $x^0(t) $ и $ u^0(t) $, соответственно.
 
 Решение задачи не единственно, т.\,к. понятно, что для управления $ \overline{u}(t) = -u^0(t) $ мы будем иметь  $ \overline{x}_3(t) = -x_3^0(t), \ \overline{x}_1(t) = x_1^0(t), \ \overline{x}_2(t) = -x_2^0(t) $. То есть $ \overline{u}(t) $ --- также оптимальное управление.
 
 Введя дополнительную переменную $ x_4 $ равенством
-$
-\dot{x}_4(t) = u^2(t)
-$
-задачу (\ref{problem}) представим в виде
-\begin{equation}\label{problem2}
+\begin{gather*}
+	\dot{x}_4(t) = u^2(t)
+\end{gather*}
+задачу \eqref{s1:opt_problem} представим в виде
+\begin{gather*}%\label{s1:problem2}
 	x_1(\varepsilon)  \rightarrow \mathrm{min}
-\end{equation}
+\end{gather*}
 при ограничениях
-\begin{equation}\label{system2}
+\begin{gather}\label{s1:system2}
 	\begin{array}{l}
 		\left\{ {{{\begin{array}{l}
 						{{{\dot x}_1} = \cos {x_3}}\\
@@ -1297,22 +1297,24 @@ $
 						{{{\dot x}_4} = {u^2}}
 		\end{array}}}} \right.{x_i}\left( 0 \right) = 0, \ i = 1,...,4,\\
 	\end{array}
-\end{equation}
-\begin{equation}\label{constraints2}
+\end{gather}
+\begin{gather*}%\label{s1:constraints2}
 	{x_4}\left( \varepsilon  \right) \le {\mu ^2}.
-\end{equation}
+\end{gather*}
 Выпишем условие принципа максимума Понтрягина для данной задачи.  Рассмотрим функцию Понтрягина
 $
-H(p,x,u) = p_1 \cos{x_3} + p_2 \sin {x_3} + p_3 u + p_4 u^2
+	H(p,x,u) = p_1 \cos{x_3} + p_2 \sin {x_3} + p_3 u + p_4 u^2
 $
 и функцию
 $
-l(\lambda_0,\lambda_1,x) = \lambda_0 x_1  + \lambda_1 (x_4 - \mu^2).
+	l(\lambda_0,\lambda_1,x) = \lambda_0 x_1  + \lambda_1 (x_4 - \mu^2).
 $
 Оптимальное управление $ u^0(t) $ удовлетворяет  условию: существуют множители Лагранжа  $ \lambda_0 \geq 0 $, $ \lambda_1 \geq 0 $, $ (\lambda_0,\lambda_1) \neq 0 $, такие что
-$$H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leq t \leq \varepsilon, $$
+\begin{gather*}
+	H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leq t \leq \varepsilon,
+\end{gather*}
 где $ p(t) = \left(p_1(t),p_2(t),p_3(t),p_4(t) \right)  $ -- решение сопряженной системы
-\begin{equation*}
+\begin{gather*}
 	\begin{array}{l}
 		\left\{ {{{\begin{array}{l}
 						{{{\dot p}_1} = -H_{x_1} = 0}\\
@@ -1321,7 +1323,7 @@ $$H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leq t \leq \varepsilon,
 						{{{\dot p}_4} = -H_{x_4} = 0}
 		\end{array}}}} \right.
 	\end{array}
-\end{equation*}
+\end{gather*}
 удовлетворяющее условию трансверсальности
 $
 p(\varepsilon) = -l_x(\lambda_0,\lambda_1, x^0(\varepsilon)) = - (\lambda_0,0,0,\lambda_1).
@@ -1349,7 +1351,7 @@ $H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
 
 
 Таким образом, $ \lambda_0 \neq 0 $, $ u^0(t) = \dfrac{1}{2}\lambda_1^{-1}p_3 $, и пара $ (x_3^0,p_3) $ есть решение краевой задачи.
-\begin{equation}\label{boundary}
+\begin{gather}\label{s1:boundary}
 	\begin{array}{l}
 		\left\{ {{{\begin{array}{l}
 						{{{\dot p}_3} = -\lambda_0 \sin x_3}\\
@@ -1358,16 +1360,16 @@ $H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
 						{x_3(0) = 0}
 		\end{array}}}} \right.
 	\end{array}
-\end{equation}
+\end{gather}
 
-Из второго уравнения системы \eqref{system2} получаем
+Из второго уравнения системы \eqref{s1:system2} получаем
 \begin{equation*}
 	\int_0^\varepsilon \sin x_3^0(\tau) d\tau = 0.
 \end{equation*}
 
-Интегрируя первое из уравнений системы (\ref{boundary}) с учетом равенства $ p_3(\varepsilon) = 0 $ будем иметь $ p_3(0) = 0 $. Таким образом, $ p_3(t), x_3^0(t) $  -- решение системы \eqref{boundary} с нулевыми начальными условиями, в силу теоремы единственности решения дифференциального уравнения имеем $ p_3(t) \equiv 0$, $ x_3^0(t) \equiv 0 $. Но $ x_3^0(t) \equiv 0 $ соответствует решению задачи на максимум, а не минимум $ x_1(\varepsilon) $.
+Интегрируя первое из уравнений системы \eqref{s1:boundary} с учетом равенства $ p_3(\varepsilon) = 0 $ будем иметь $ p_3(0) = 0 $. Таким образом, $ p_3(t), x_3^0(t) $  -- решение системы \eqref{s1:boundary} с нулевыми начальными условиями, в силу теоремы единственности решения дифференциального уравнения имеем $ p_3(t) \equiv 0$, $ x_3^0(t) \equiv 0 $. Но $ x_3^0(t) \equiv 0 $ соответствует решению задачи на максимум, а не минимум $ x_1(\varepsilon) $.
 
-Условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{problem}. Выбрав $ \bar{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \bar{x}(t) $, для которой $ \bar{x}_2(t) = -x_2^0(t) $, $ \bar{x}_1(t) = x_1^0(t) $.
+Условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{s1:opt_problem}. Выбрав $ \bar{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \bar{x}(t) $, для которой $ \bar{x}_2(t) = -x_2^0(t) $, $ \bar{x}_1(t) = x_1^0(t) $.
 Рассмотрим точку $ \hat{x} = \dfrac{1}{2}x^0(\varepsilon) + \dfrac{1}{2}\bar{x}(\varepsilon) $, у которой $ \hat{x}_1 = x_1^0(\varepsilon) $, $ \hat{x}_2 = 0 $. Покажем, что $ \hat{x} \notin G(\varepsilon) $. Действительно, если $ \hat{x} \in G(\varepsilon) $, то найдется допустимая траектория $ \hat{x}(t) $, такая что $ \hat{x}(\varepsilon) = \hat{x} $. Т.к. $ \hat{x}_1 = \hat{x}_1(\varepsilon) $, то $  \hat{x}(t) $ -- оптимальная траектория. Но при этом $ \hat{x}_2(\varepsilon) = 0 $, что противоречит доказанному выше утверждению. Таким образом, полусумма точек $ x^0(\varepsilon) $, $ \bar{x}(\varepsilon) \in G(\varepsilon) $ не принадлежит $ G(\varepsilon) $, т.е. $ G(\varepsilon) $ невыпукла при любом $ \varepsilon > 0 $.
 
 
