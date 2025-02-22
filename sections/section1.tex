@@ -6,7 +6,7 @@
 Первая глава посвящена исследованию свойств множеств достижимости нелинейных систем с интегральными ограничениями и малым параметром.
 В первом разделе исследуются решения нелинейных систем с интегральными ограничениями.
 Здесь описаны основные предположения, которые распространяются на всю работу.
-В условиях этих предположений доказываются некоторые важные свойства, которые будут использоваться далее. 
+В условиях этих предположений доказываются некоторые важные свойства решений нелинейных систем, которые будут использоваться далее. 
     
 Второй раздел посвящен выпуклости множеств достижимости.
 Он начинается с описания известного результата, условия выпуклости нелинейного отображения малого шара в гильбертовом пространстве, полученного  Б.Т. Поляком\cite{Polyak2001, Polyak2001ru}.
@@ -22,7 +22,7 @@
     \dot{x}(t)=f_1\big(t,x(t)\big)+f_2\big(t,x(t)\big)u(t), \qquad x(t_0) = x_0.
 \end{gathered}
 \end{gather}
-Здесь $ x \in \mathbb{R}^n $ ~--- вектор состояния, $ u \in \mathbb{R}^r $~--- управление,  $ \overline{T} $ ~--- некоторое фиксированное положительное число.
+Здесь $ x \in \mathbb{R}^n $ ~--- вектор состояния, $ u \in \mathbb{R}^r $~--- управление,  $t_0$, $ \overline{T} $ ~--- некоторые фиксированные положительные числа.
     
 Функции $ f_1: [t_0, \overline{T}] \times  \mathbb{R}^n \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, \overline{T}]  \times \mathbb{R}^n \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x,t)$ и обладающими непрерывными производными по $ x $ на  $ [t_0, \overline{T}] \times \Omega $, где $\Omega$~--- некоторая область, $\Omega \subset \mathbb{R}^n$.  
 
@@ -48,7 +48,7 @@
     
 Известны также другие  оценки на правую часть системы, при наличии которых справедливо Предположение  \ref{s1:as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2, Guseinov2010}).
     
-В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $ где $ 0 < \mu < \overline{\mu} $.
+В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, где $ 0 < \mu < \overline{\mu} $.
     
 \begin{lemma}\label{s1:lem:lip_of_solutions_global}
     Пусть выполнено Предположение \ref{s1:as:right_hand_side_conditions_global}.
@@ -626,18 +626,18 @@
 
 Действительно, для произвольных $z_1, z_2 \in D$ и всех  $\tau \in [0, 1]$ справедливо
 \begin{gather*}
-	 \left\| \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_1) - \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_1) \right\| = 
+	 \left\| \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_1) - \frac{\partial \widetilde{f}_1}{\partial z}(\tau, z_2) \right\| = 
 	 \left\| \varepsilon \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_1) - \varepsilon \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_2) \right\| = \\ =
 	 \varepsilon \left\|  \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_1) - \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_2) \right\| 
 	 \leqslant \varepsilon l_{f_1} \| z_1 - z_2\|,  \\
-	 \left\| \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) - \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) \right\| = 
+	 \left\| \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) - \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_2) \right\| = 
 	\left\| \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_1) - \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_2) \right\| 
 	\leqslant l_{f_2} \| z_1 - z_2\|.
 \end{gather*}
   
 По аналогии с \eqref{s1:lip_a}, для произвольных $ \upsilon_1(\cdot), \upsilon_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$, можем выписать
 \begin{gather*}
-      \int\limits_{0}^{1} \|\widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) - \widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) \| ds \leqslant \widetilde{L}_A \| \upsilon_1(\cdot) - \upsilon_2(\cdot) \|_{\mathbb{L}_2},
+      \int\limits_{0}^{1} \|\widetilde{A}_{\varepsilon}(s, \upsilon_1(\cdot)) - \widetilde{A}_{\varepsilon}(s, \upsilon_2(\cdot)) \| ds \leqslant \widetilde{L}_A \| \upsilon_1(\cdot) - \upsilon_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
  где 
 \begin{gather*}%\label{s1:eps_lip_a}
@@ -808,7 +808,7 @@
 Введем обозначение $ S_i = \dfrac{\varepsilon^i U_i}{(i + 1)!} $, $i \in \mathbb{N}$, тогда $W_{\varepsilon} = \sum\limits_{i = 0}^{\infty} S_i$.
 Оценим норму коэффициентов $ U_i $, $ i \geqslant 0$
 \begin{gather*}
-	\| U_i \| \l \leqslant C \|A\|^i \|U_0\|, 
+	\| U_i \| \leqslant C \|A\|^i \|U_0\|, 
 \end{gather*}
 где $C > 0$. 
 Тогда, для всех $i$
@@ -819,6 +819,7 @@
  Отсюда следует, что ряд \eqref{s1:gram1} сходится, так как сходится ряд справа в \eqref{s1:compare}.
  
 \subsubsection{Некоторые частные случаи}
+\label{s1:examples}
 Приведем  несколько примеров линейных систем второго порядка, для грамианов управляемости которых выполняется условие \eqref{s1:small_time_convexity_condition}.
 Рассмотрим простейшую систему, а также более общие случаи, такие как произвольные системы с одним входом, а также системы с двумя входами и вырожденной/невырожденной матрицей управления.
 
@@ -1216,7 +1217,7 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
 \end{gather*}
 
 На рисунке  \ref{s1:fig:fig31} показаны множества достижимости для различных $ \varepsilon $.
-Видно, что малых значениях $\varepsilon$ множества достижимости выпуклы (правый рисунок), но при увеличении $\varepsilon $ становятся невыпуклыми (левый рисунок).
+Видно, что при малых значениях $\varepsilon$ множества достижимости выпуклы (правый рисунок), но при увеличении $\varepsilon $ становятся невыпуклыми (левый рисунок).
  % ссылка на тарасьева
 \paragraph{Машина Дубинса.} 
 Рассмотрим систему 
