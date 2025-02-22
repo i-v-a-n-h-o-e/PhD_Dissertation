@@ -111,41 +111,59 @@ jobs:
           name: prev_main_tex
           path: main.tex
 
-  # compare_versions:
-  #   needs: [build_latex]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Current Version
-  #       uses: actions/checkout@v4
-      
-  #     - name: Checkout Previous Version
-  #       uses: actions/checkout@v4
-  #       with:
-  #         ref: ${{ github.event.before }} # Checkout the commit before the latest push
-  #         path: prev_version # Store the previous version in a separate directory
+  compare_versions:
+    needs: [build_latex, get_prev_state]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create directory for previous version
+        run: mkdir -p prev_version
 
-  #     - name: Run latexdiff
-  #       run: |
-  #         sudo apt-get update
-  #         sudo apt-get install -y latexdiff
-  #         cd prev_version
-  #         latexdiff main.tex ../main.tex > diff_main.tex
-  #         mv diff_main.tex ../
+      - name: Download previous tex
+        uses: actions/download-artifact@v4
+        with:
+          name: prev_main_tex
+          path: prev_version
 
-  #     - name: LaTex Compile
-  #       uses: xu-cheng/texlive-action@v2
-  #       with:
-  #         scheme: full
-  #         run: |
-  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-  #           lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+      - name: Checkout current version
+        uses: actions/checkout@v4
 
-  #     - name: Upload Diff PDF as Artifact
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: diff_output_pdf
-  #         path: diff_main.pdf
+      - name: Install latexdiff
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexdiff
+
+      - name: Debug file locations
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Prev version directory contents:"
+          ls -la prev_version/
+
+      - name: Run latexdiff
+        run: |
+          if [ -f "prev_version/main.tex" ]; then
+            latexdiff "prev_version/main.tex" "main.tex" > "diff_main.tex"
+          else
+            echo "Error: prev_version/main.tex does not exist."
+            exit 1
+          fi
+
+      - name: Compile diff
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+
+      - name: Upload Diff PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: diff_output_pdf
+          path: diff_main.pdf
 
   create_and_upload_release:
     needs: [build_latex, prepares, get_prev_state]
