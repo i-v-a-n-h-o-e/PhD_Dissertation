@@ -6,7 +6,7 @@
 Первая глава посвящена исследованию свойств множеств достижимости нелинейных систем с интегральными ограничениями и малым параметром.
 В первом разделе исследуются решения нелинейных систем с интегральными ограничениями.
 Здесь описаны основные предположения, которые распространяются на всю работу.
-В условиях этих предположений доказываются некоторые важные свойства решений нелинейных управляемых систем, которые будут использоваться далее. 
+В условиях этих предположений доказываются некоторые важные свойства решений нелинейных управляемых систем которые будут использоваться далее. 
     
 Второй раздел посвящен выпуклости множеств достижимости.
 Он начинается с описания известного результата, условия выпуклости нелинейного отображения малого шара в гильбертовом пространстве, полученного  Б.Т. Поляком\cite{Polyak2001, Polyak2001ru}.
@@ -35,7 +35,7 @@
     Существует такое $\overline{\mu} > 0 $, что все решения (траектории) $ x(t, u(\cdot)) $ системы \eqref{s1:common_nonlinear}, отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\overline{\mu})$,  определены на интервале $ [t_0,\overline{T}] $ и лежат в некотором выпуклом компакте $D \subset \Omega \subset \mathbb{R}^n$. 
 \end{assumption}
     
-Заметим, что из Предположения  \ref{s1:as:right_hand_side_conditions_global} следует, что $x_0 \in D$, будем считать, что $x_0 \in \operatorname{int} D$, где $\operatorname{int} D $~--- множество внутренних точек $D$.
+Заметим, что из Предположения \ref{s1:as:right_hand_side_conditions_global} следует, что $x_0 \in D$, будем считать, что $x_0 \in \operatorname{int} D$, где $\operatorname{int} D $~--- множество внутренних точек $D$.
 
 В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если  функции $f_1$ и $f_2$ удовлетворяют в $ [t_0, \overline{T}] \times \mathbb{R}^n$ условиям:
 \begin{gather}\label{s1:right_hand_side_condition}
@@ -48,20 +48,20 @@
     
 Известны также другие  оценки на правую часть системы, при наличии которых справедливо Предположение  \ref{s1:as:right_hand_side_conditions_global} (см., например, \cite{Fillipov2, Guseinov2010}).
     
-В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, где $ 0 < \mu < \overline{\mu} $.
+В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, где $ 0 < \mu \leqslant \overline{\mu} $.
     
 \begin{lemma}\label{s1:lem:lip_of_solutions_global}
     Пусть выполнено Предположение \ref{s1:as:right_hand_side_conditions_global}.
     Тогда найдется такое $L_x > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, $i = 1,2$ и $t \in [t_0, \overline{T}]$, 
     \begin{gather*}
-        \left\| x_1(t) - x_2(t) \right\|_2 \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2[t_0, \overline{T}]}, 
+        \left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2[t_0, \overline{T}]}, 
     \end{gather*}
     где $x_i(t) = x_i(t,u_i(\cdot))$, $i = 1,2$. 
 \end{lemma}
 \doc
 Из интегрального соотношения
 \begin{gather*}
-     x_i(t) = x_0 + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau)\ d\tau + \int\limits_{t_0}^{t} f_2(\tau,x_i(\tau))u_i(\tau)\ d\tau 
+     x_i(t) = x_0 + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau))\ d\tau + \int\limits_{t_0}^{t} f_2(\tau,x_i(\tau))u_i(\tau)\ d\tau 
 \end{gather*}
 имеем 
 \begin{gather}\label{s1:diff_of_solution}
@@ -77,7 +77,7 @@
 \begin{gather}\label{s1:meanvalue}
 \begin{gathered}
     f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big), \\ 
-    f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big), 
+    f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big).
 \end{gathered}
 \end{gather}
     
@@ -148,7 +148,12 @@
 Предположим, что $\tau < T$. 
 Тогда проинтегрируем \eqref{s1:fundumental_matrix_eq} от $t_0$ до $\tau$, получив
 \begin{gather*}
-    \Phi(\tau) = I + \int\limits_{t_0}^{\tau} A(s)  \Phi(s) \ ds, \\
+    \Phi(\tau) = I + \int\limits_{t_0}^{\tau} A(s)  \Phi(s) \ ds.
+\end{gather*}
+
+Заметим, что $A(s)$ --- интегрируема, а $ \Phi(s)$ --- ограничена при $s \in [t_0, \tau]$, поэтому интеграл конечен.
+
+\begin{gather*}
     \| \Phi(\tau) \| \leqslant 1 +  \int\limits_{t_0}^{\tau} \| A(s)\| \|\Phi(s)\| \ ds.
 \end{gather*}
 
@@ -157,6 +162,10 @@
 
 Заметим, что интеграл $\int_0^t \| A(\tau)\|  \ d\tau$ равномерно ограничен по $u(\cdot) $ на $  B_{\mathbb{L}_2}(0,\mu)$.
 Таким образом, можно заключить,  что при всех $u(\cdot) \in  B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение  \eqref{s1:fundumental_matrix_eq}, определенное на интервале $[t_0, T]$.
+
+Заметим, что в Определении \ref{s1:def:linearized_system}, матрицы $A$ и $B$ зависят от управления $u$. 
+Очевидно, что матрица $X(\cdot, \cdot)$ также зависит от этого управления $u$.
+В случае, где эта зависимость важна, будет использовать обозначения $A(\cdot, u(\cdot))$, $B(\cdot, u(\cdot))$, $X(\cdot, \cdot, u(\cdot))$. 
     
     
 Напомним, что начальное условие $x_0 $~--- зафиксировано, а $ x(\cdot,u(\cdot))$ ~--- решение системы \eqref{s1:common_nonlinear},  порожденное управлением $u(\cdot)$ и удовлетворяющее условию $x(t_0, u(\cdot)) = x_0$. 
@@ -230,13 +239,14 @@
 Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -A(\tau)X(T, \tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq}  получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $.
 Тогда из \eqref{s1:lim_omega} следует, что 
 \begin{gather*}
-    \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0
+    \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0.
 \end{gather*}
     
 То есть, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot))$ , т.е.  справедливо равенство
 \begin{gather}\label{s1:lem2_assert}
     F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \delta u(\tau) \ d\tau.
 \end{gather}
+\todo[inline]{О Б С У Д И Т Ь.  В этом доказательстве $\frac{\partial f_2}{\partial x}$ и $\beta$ --- это многомерные линейные операторы, действующие из $\mathbb{R}^n$ в $\mathbb{R}^{n \times r}$ и выражения $\beta(t) \Delta x(t)$ это не умножение, а применение этого оператора к вектору. }
 \hfill $\square$
     
 \begin{definition}
@@ -301,18 +311,16 @@
     \end{gather*}
     тогда образ шара $B_X(a,\varepsilon) = \{x \in X: \| x - a\| \leqslant \varepsilon\}$ при отображении $f$ выпуклый, то есть $F = \{f(x): x \in B_X(a,\varepsilon)\}$~--- выпуклое множество в $Y$.
     Более того, это множество сильно выпуклое\footnote
-    {Будем называть множество $M $ сильно выпуклым, если существует такая константа $\gamma > 0$, что для любых точек $x, y \in M$ и всех $\lambda \in [0, 1]$ выполняется 
-    \begin{gather*}
-    	\lambda x + (1 - \lambda) y + \frac{\gamma}{2}\lambda (1 - \lambda) \| x - y \|^2 \in M.
-    \end{gather*}
+    {Будем называть множество $M $ сильно выпуклым, если существует такая константа $\rho > 0$, что для любой точки $x \in \partial M$ (границе множества), существует шар $B(y, \rho)$, такой, что $x \in B(y, \rho) \subset M$. То есть,  для каждой точки границы, существует шар радиуса $\rho$, который полностью содержится в $M$ и касается его границы в точке $x$.
+    	
 Известны и другие определения сильно выпуклого множества. Их эквивалентность показана в \cite{vial}.}
      и его граница состоит из образов граничных точек шара: $\partial F \subset f(\partial B_X(a,\varepsilon))$.
 \end{theorem}
     
 В работах \cite{Polyak2001, Polyak2001ru} теорема доказывается с помощью леммы о решении нелинейного уравнения в гильбертовом пространстве, обоснованной в \cite{Polyak1964} c помощью метода Ньютона.
-Отметим, что доказательство теоремы \ref{s1:th:PolyakTh} может быть построено с опорой и на другие результаты, примыкающие к теореме Люстерника и приведенные в \cite{Dmitruk1980, Ioffe}.
+Отметим, что доказательство Теоремы \ref{s1:th:PolyakTh} может быть построено с опорой и на другие результаты, примыкающие к теореме Люстерника и приведенные в \cite{Dmitruk1980, Ioffe}.
     
-Результат теоремы \ref{s1:th:PolyakTh} можно объяснить следующим образом.
+Результат Теоремы \ref{s1:th:PolyakTh} можно объяснить следующим образом.
 Шар $B_x(a,\varepsilon)$ сильно выпукл, поэтому его образ при линейном отображении $f'(a)$ тоже сильно выпукл.
 Но свойство сильной выпуклости устойчиво к малым возмущениям, поэтому оно не теряется при замене линейного отображения $f(a) + f'(a)(x - a)$ на близкое нелинейное отображение $f(x)$. 
     
@@ -390,7 +398,7 @@
 где $ L_X = k_Y L_A k_X$.
 \hfill$\square$\\[1ex]%-
 Введем отображение $\overline{F}: [t_0,T]  \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- это решение системы \eqref{s1:common_nonlinear} в момент $t$, порожденное управлением $u(\cdot)$.
-Дифференциал Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $, согласно Лемме \ref{s1:lem:frechet_derivative_common} --- это решение линеаризованной системы, 
+Дифференциал Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': \mathbb{L}_2 \to \mathbb{R}^n $, согласно Лемме \ref{s1:lem:frechet_derivative_common} --- это решение линеаризованной системы, 
 \begin{gather*}%\label{s1:diff_of_mapping_F}
     \overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
 \end{gather*}
@@ -489,7 +497,7 @@
     
 Липшицевость производной Фреше $F'$ на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{s1:lem:lip_dx_global} в условиях Предположения \ref{s1:as:right_hand_side_diff_lip}. 
     
-Применим теорему \ref{s1:th:PolyakTh} к $F$, с нулевым управление $u(\cdot) \equiv 0$ в роли точки $a$. 
+Применим Теорему \ref{s1:th:PolyakTh} к $F$, с нулевым управление $u(\cdot) \equiv 0$ в роли точки $a$. 
 Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \mu_0 $, где  
 \begin{gather}\label{s1:mu0}
     \mu_0 = \min\left( \dfrac{\sqrt{\lambda\big(W(T,0)\big)}}{2L_u}, \overline{\mu} \right), 
@@ -505,13 +513,13 @@
     \dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 \end{gather}
 Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число.
-Принятые в предыдущих разделах Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
-   
-
 Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $  0 < \mu < \overline{\mu} $ в этом пространстве
 \begin{gather*}
     \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
 \end{gather*}
+
+Принятые в предыдущих разделах Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
+
 Пусть $ 0 <  \varepsilon \leqslant \bar{\varepsilon} $.
  
     
@@ -524,9 +532,10 @@
 \begin{gather*}%\label{s1:eps_control_constaint}
     \int_0^1 \upsilon^{\top}(\tau) \upsilon(\tau) \, d\tau \leqslant \left( \mu \sqrt{\varepsilon}\right)^2.
 \end{gather*}
-Обозначим $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
 
-Каждому решению $z(\cdot, \upsilon(\cdot))$ системы \eqref{s1:eps_nonlinear} на нормированном интервале времени, отвечающему управлению $\upsilon(\cdot) \in B_{\mathbb{L}_2[0, 1]} (0, \overline{\mu} \sqrt{\varepsilon})$ можно поставить в соответствие решение $x(\cdot, u(\cdot))$ системы \eqref{s1:common_nonlinear_small_time}, отвечающее управлению $u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \varepsilon]} (0, \overline{\mu})$, причем для всех $\tau \in [0, 1] $ выполняется $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)$ и $ z(\tau, \upsilon(\cdot)) = x(\varepsilon \tau + t_0, u(\cdot)) $.
+Далее будем использовать обозначение $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
+
+Каждому решению $z(\cdot, \upsilon(\cdot))$ системы \eqref{s1:eps_nonlinear} на нормированном интервале времени $[0, 1]$, отвечающему управлению $\upsilon(\cdot) \in B_{\mathbb{L}_2[0, 1]} (0, \overline{\mu} \sqrt{\varepsilon})$ можно поставить в соответствие решение $x(\cdot, u(\cdot))$ системы \eqref{s1:common_nonlinear_small_time}, отвечающее управлению $u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \varepsilon]} (0, \overline{\mu})$, причем для $\tau \in [0, 1] $ выполняется $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0)$ и $ z(\tau, \upsilon(\cdot)) = x(\varepsilon \tau + t_0, u(\cdot)) $.
 Из последнего равенства и справедливости Предположения \ref{s1:as:right_hand_side_conditions_global} для системы \eqref{s1:common_nonlinear_small_time} следует, что для всех  $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon})$ и всех $\tau \in [0, 1] $ выполняется $z(\tau, \upsilon(\cdot)) \in D$. 
 
 Таким образом, система \eqref{s1:eps_nonlinear}  удовлетворяет Предположению  \ref{s1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $.
@@ -548,7 +557,7 @@
     
 Обозначим через $G_{\varepsilon}(\tau)$ множество достижимости системы \eqref{s1:eps_nonlinear} в момент времени $\tau$
 \begin{gather*}
-    G_{\varepsilon}(\tau) = \{z\in \mathbb{R}^n:\exists \upsilon(\cdot)\in \mathbb{L}_2[0,1],  \lVert \upsilon(\cdot)\rVert_{\mathbb{L}_2[0,1]}
+    G_{\varepsilon}(\tau) = \{z\in \mathbb{R}^n:\exists \upsilon(\cdot)\in \mathbb{L}_2,  \lVert \upsilon(\cdot)\rVert_{\mathbb{L}_2}
     \leqslant  \mu \sqrt{\varepsilon}, \; z=z(\tau, \upsilon(\cdot))\}.
 \end{gather*}
 По аналогии с \eqref{s1:linearized_system_zero_control}, линеаризуем \eqref{s1:eps_nonlinear} вдоль траектории $ z(\cdot,0) = x(\cdot, 0) $
@@ -584,7 +593,7 @@
 \begin{gather*}
 	\frac{dX(t,\zeta, 0)}{dt} = A(t, 0) X(t,\zeta, 0), \\
 	\zeta = \varepsilon \xi + t_0, \qquad t = \varepsilon \tau + t_0, \\
-	\frac{dX(\varepsilon \tau + t_0, \varepsilon \xi + t_0, 0)}{d(\varepsilon \tau + t_0)} = A(\varepsilon \tau + t_0, 0) X(\varepsilon \tau + t_0,\varepsilon \xi + t_0, 0), \\
+	\frac{dX(\varepsilon \tau + t_0, \varepsilon \xi + t_0, 0)}{d\tau} = A(\varepsilon \tau + t_0, 0) X(\varepsilon \tau + t_0,\varepsilon \xi + t_0, 0), \\
 	\frac{dX_{ \varepsilon}(\tau,\xi)}{d\tau} =  A_{\varepsilon}(\tau)  X_{ \varepsilon}(\tau,\xi), \qquad X_{\varepsilon}(\tau,\tau) = I
 \end{gather*}
 
@@ -671,7 +680,7 @@
   
 Тогда, управляемость системы \eqref{s1:eps_linearized} (минимальное собственное число $ \lambda(\varepsilon) $ грамиана управляемости $W_{\varepsilon}$ должно быть строго положительно) означает регулярность отображения $S$ при $\upsilon = 0$, а множество достижимости $G_{\varepsilon}$ есть образ гильбертова шара $B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$ при его отображении $S$.
  
-Используя теорему \ref{s1:th:PolyakTh}, сформулируем следующую
+Используя теорему \ref{s1:th:PolyakTh}, сформулируем следующую теорему.
 \begin{theorem}\label{s1:th:small_time_convexity}
      Если найдутся такие $K > 0$, $ \alpha > 0$, $ 0 < \varepsilon_0 < \overline{\varepsilon}$, что для всех $\varepsilon \leqslant \varepsilon_0$ выполняется условие
      \begin{gather}\label{s1:small_time_convexity_condition}
@@ -688,9 +697,9 @@
  \begin{gather}\label{s1:th3_proof_origin_condition}
      \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon L_u^2 (\varepsilon).
  \end{gather}
- Заметим, что $ \lambda(\varepsilon)  $ удовлетворяющие условию 
+ Заметим, что $ \lambda(\varepsilon)  $, удовлетворяющие условию 
  \begin{gather}\label{s1:th3_proof_condition_with_f2}
- 	 \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon (L_0 + L_1  \varepsilon)^2 = 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3.
+ 	 \lambda(\varepsilon) \geqslant 4 \mu^2 \varepsilon (L_0 + L_1  \varepsilon)^2 = 4 \mu^2 L_0^2 \varepsilon  + 8 \mu^2 L_0 L_1 \varepsilon^2 +  4 \mu^2  L_1^2 \varepsilon^3,
  \end{gather}
  будут удовлетворять и условию \eqref{s1:th3_proof_origin_condition}. 
  Константы $L_0$ и $L_1$ определены в \eqref{s1:lip_eps}.  
@@ -733,7 +742,7 @@
  \hfill$\square$\\[1ex]%--- P r o o f.
  
  \begin{zam}
- 	Теорема \ref{s1:th:small_time_convexity} дает удобное условие выпуклости множеств достижимости нелинейных систем \eqref{s1:common_nonlinear_small_time} на малых интервалах времени, не требующее трудоемкого вычисления констант $L_0$ и $L_1$.
+ 	Теорема \ref{s1:th:small_time_convexity} дает удобное условие достаточное выпуклости множеств достижимости нелинейных систем \eqref{s1:common_nonlinear_small_time} на малых интервалах времени, не требующее трудоемкого вычисления констант $L_0$ и $L_1$.
  	Однако, величина $\varepsilon_1$, полученная таким образом может оказаться консервативной. 
  	Для того, чтобы приблизить ее к границе, на которой условие \eqref{s1:th3_proof_origin_condition} действительно перестанет выполняться, имеет смысл выбирать $\alpha$ как можно меньше, а $K$ как можно больше. 
  	Либо, если необходима точная оценка этой границы, использовать непосредственно условие \eqref{s1:th3_proof_origin_condition}.
@@ -745,7 +754,7 @@
 Из полученной асимптотики следует выпуклость множеств достижимости на малых интервалах времени для некоторых классов нелинейных систем второго порядка.
 Это свойство продемонстрировано на ряде примеров.
 
-\paragraph{Постановка задачи.} На конечном интервале времени $ t = [0;1] $ рассматривается линейная динамическая система 
+\paragraph{Постановка задачи.} На конечном интервале времени $ t = [0;1] $ рассматривается линейная  стационарная динамическая система 
 \begin{gather}\label{s1:eps_linear_system}
      \dot{x} = \varepsilon A x + Bu, 
 \end{gather}
@@ -754,42 +763,42 @@
 Требуется оценить зависимость минимального собственного числа $ \lambda_{\varepsilon} $ грамиана управляемости $ W_{\varepsilon} $ системы \eqref{s1:eps_linear_system} от малого параметра $ \varepsilon  $.
 \subsubsection{Рекуррентная процедура}
 Напомним, что грамиан управляемости линейной стационарной вполне управляемой системы \eqref{s1:eps_linear_system}~--- положительно-определенная симметричная матрица, определяемая равенством
-\begin{gather*}
+\begin{gather}\label{s1:gram_int_def}
     W_{\varepsilon}(t) = \int \limits_0^t X(t,\tau) B B^{\top} X^{\top}(t,\tau) d\tau,
-\end{gather*}
+\end{gather}
 где $ X(t,\tau) $~--- фундаментальная матрица решений системы \eqref{s1:eps_linear_system} ($  \dot{X}(t,\tau) = \varepsilon A X(t,\tau), X(\tau,\tau) = I  $).
 Заметим также, что грамиан управляемости $ W_{\varepsilon}(t) $ может быть найден, как решение следующего линейного матричного дифференциального уравнения:
 \begin{gather}\label{s1:gram}
     \dot{W_{\varepsilon}}(t) = \varepsilon A W_{\varepsilon}(t) + \varepsilon W_{\varepsilon}(t) A^T + BB^T, \ W_{\varepsilon}(0) = 0.
 \end{gather}
- 
-Нас интересует значение грамиана управляемости в момент времени $ t = 1$, $ W_{\varepsilon}(1) $.
-Для краткости, обозначим $ W_{\varepsilon}(1) = W_{\varepsilon} $.
+
+Это проверяется дифференцированием равенства \eqref{s1:gram_int_def}.
+Нас интересует значение грамиана управляемости в момент времени $ t = 1$, $ W_{\varepsilon}(1) = W_{\varepsilon}$.
 Будем искать решение \eqref{s1:gram} в следующем виде
 \begin{gather}\label{s1:We}
-    W_{\varepsilon} = W_0 + \varepsilon W_1 + \varepsilon^2 W_2 + \dots + \varepsilon^n W_n + \dots 
+    W_{\varepsilon}(t) = W_0(t) + \varepsilon W_1(t) + \varepsilon^2 W_2(t) + \dots + \varepsilon^n W_n(t) + \dots 
 \end{gather}
  
 Продифференцируем \eqref{s1:We} по $ t $
 \begin{gather}\label{s1:dWe}
-    \dot{W_{\varepsilon}} = \dot{W_0} + \varepsilon \dot{W_1} + \varepsilon^2 \dot{W_2} + \dots + \varepsilon^n \dot{W_n} + \dots 
+    \dot{W_{\varepsilon}}(t) = \dot{W_0} + \varepsilon \dot{W_1} + \varepsilon^2 \dot{W_2} + \dots + \varepsilon^n \dot{W_n} + \dots 
 \end{gather}
  
 Подставим \eqref{s1:dWe} и \eqref{s1:We} в \eqref{s1:gram} и приравняем коэффициенты при соответствующих степенях $ \varepsilon $.
 При $ \varepsilon $ в нулевой степени:
 \begin{gather*}
-    \dot{W}_0 = B B ^T,  \ W_0(t) = B B ^Tt.
+    \dot{W}_0 = B B ^T,  \qquad W_0(t) = B B ^Tt.
 \end{gather*}
  
-Обозначив $ B B^T = U_0 $ и подставив $ t = 1$, получим $ W_0 = U_0$.
-Коэффициенты при $ \varepsilon ^ 1$:
+Обозначив $ B B^T = U_0 $ и подставив $ t = 1$, получим $ W_0(1) = U_0$.
+Коэффициенты при $ \varepsilon$:
 \begin{gather*}
-    \dot{W}_1 = A W_0 + W_0 A^T = t \left( A U_0 + U_0 A^T \right) = t U_1 ,  \ W_1(t) = \frac{t^2}{2}U_1.
+    \dot{W}_1 = A W_0 + W_0 A^T = t \left( A U_0 + U_0 A^T \right) = t U_1 ,  \qquad W_1(t) = \frac{t^2}{2}U_1.
 \end{gather*}
  
 Аналогично,
 \begin{gather*}
-    \dot{W}_2 = A W_1 + W_1 A^T = \dfrac{t^2}{2} \left( A U_1 + U_1 A^T \right) = \dfrac{t^2}{2} U_2 ,  \ W_2(t) = \dfrac{t^3}{6}U_2.
+    \dot{W}_2 = A W_1 + W_1 A^T = \dfrac{t^2}{2} \left( A U_1 + U_1 A^T \right) = \dfrac{t^2}{2} U_2 ,  \qquad W_2(t) = \dfrac{t^3}{6}U_2.
 \end{gather*}
  
 Продолжая данную цепочку равенств, разложение грамиана управляемости системы \eqref{s1:eps_linear_system} на интервале времени $t = [0;1] $ по степеням малого параметра $ \varepsilon $ можно записать как:
@@ -909,7 +918,7 @@
 
 \paragraph{Система второго порядка с одним входом.}
 Можно показать, что произвольную линейную управляемую систему второго порядка \eqref{s1:eps_linear_system} можно привести к форме Фробениуса c помощью эквивалентных преобразований.
-При этом, такие преобразования, не меняют асимптотику грамиана управляемости.
+Такие преобразования не меняют асимптотику грамиана управляемости.
 
 Рассмотрим невырожденное преобразование системы \eqref{s1:eps_linear_system}
 \begin{gather}\label{s1:eps_transformed_system}
@@ -1034,9 +1043,12 @@
 \end{gather*}
 Подставляя эту оценку в \eqref{s1:lambdamin}, получим
 \begin{gather*}
-     \lambda_{min} = \frac{1}{\lambda_{max}}\left(  \left(\frac{a_{1}}{9}-\frac{{a_{2}}^2}{36}\right)\varepsilon^4+\left(-\frac{a_{2}}{6}\right)\varepsilon^3+\frac{\varepsilon^2}{12}\right) \geqslant\frac{\varepsilon^2}{24}.
+     \lambda_{min} = \frac{1}{\lambda_{max}}\left(  \left(\frac{a_{1}}{9}-\frac{{a_{2}}^2}{36}\right)\varepsilon^4+\left(-\frac{a_{2}}{6}\right)\varepsilon^3+\frac{\varepsilon^2}{12}\right).
 \end{gather*}
- 
+Отсюда следует, что для достаточно малых $\varepsilon$ 
+\begin{gather*}
+	  \lambda_{min} \geqslant \frac{\varepsilon^2}{24}.
+\end{gather*} 
 Минимальное собственное число остаточного члена ряда $ R(\varepsilon) $ содержит $ \varepsilon $ в степенях не менее 3.
  
 Для получения нижней границы минимального собственного числа $ \lambda_{\varepsilon} $ грамиана $ W_{\varepsilon}$ воспользуемся свойством суммы собственных значений симметричных матриц\cite{Wilkinson}.
@@ -1046,7 +1058,8 @@
     \lambda_{\varepsilon} \geqslant \lambda_{min}(S_{\varepsilon}^{2}) + \lambda_{min}(R(\varepsilon)) \geqslant  C \varepsilon^{3-\alpha}.
 \end{gather*}
  
-Таким образом, нелинейные системы с интегральными ограничениями, линеаризация которых приводит к системам вида \eqref{s1:system32},  так же обладают выпуклыми множествами достижимости на малых промежутках времени.
+Таким образом, нелинейные системы второго порядка с интегральными ограничениями, линеаризация которых приводит к стационарным управляемым системам вида \eqref{s1:system32},  так же обладают выпуклыми множествами достижимости на малых промежутках времени.
+Примером такой системы является осцилятор Дуффинга, подробно рассмотренный в разделе \ref{s2:examples}.
 
 \paragraph{Система второго порядка с двумя входами и невырожденной матрицей $B$.}
 Если матрица $ B $ имеет полный ранг, то $\lambda_{\varepsilon} \geqslant \beta $, где $ \beta $~--- некоторое положительное число, и условие \eqref{s1:small_time_convexity_condition}, очевидно, выполняется.
