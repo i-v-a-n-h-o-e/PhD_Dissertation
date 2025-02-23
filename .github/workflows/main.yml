@@ -45,13 +45,13 @@ jobs:
       - name: Set output
         id: set_output
         run: |
-          echo "date_time=${{ steps.get_datetime.outputs.result }}" >> $GITHUB_OUTPUT
-          echo "file_name=${{ steps.get_datetime.outputs.result }}_Dissertation.pdf" >> $GITHUB_OUTPUT
-          echo "captioned_file_name=${{ steps.get_datetime.outputs.result }}_Dissertation_keys.pdf" >> $GITHUB_OUTPUT
+          echo "date_time=${{ steps.get_datetime.outputs.result }}" >> $GITHUB_ENV
+          echo "file_name=${{ steps.get_datetime.outputs.result }}_Dissertation.pdf" >> $GITHUB_ENV
+          echo "captioned_file_name=${{ steps.get_datetime.outputs.result }}_Dissertation_keys.pdf" >> $GITHUB_ENV
     outputs:
-      date_time: ${{ steps.set_output.outputs.date_time }}
-      file_name: ${{ steps.set_output.outputs.file_name }}
-      captioned_file_name: ${{ steps.set_output.outputs.captioned_file_name }}
+      date_time: ${{ env.date_time }}
+      file_name: ${{ env.file_name }}
+      captioned_file_name: ${{ env.captioned_file_name }}
 
   build_latex:
     runs-on: ubuntu-latest
@@ -105,11 +105,11 @@ jobs:
         with:
           ref: ${{ env.commit_sha }}
 
-      - name: Upload tex as artifact
+      - name: Upload repository as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: prev_main_tex
-          path: main.tex
+          name: prev_state_of_repository
+          path: .
 
   compare_versions:
     needs: [build_latex, get_prev_state]
@@ -176,45 +176,11 @@ jobs:
           echo "Date and Time: ${{ needs.prepares.outputs.date_time }}"
           echo "File Name: ${{ needs.prepares.outputs.file_name }}"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            main.pdf#${{ needs.prepares.outputs.file_name }}
+            captioned_output.pdf#${{ needs.prepares.outputs.captioned_file_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          tag_name: Release-${{ needs.prepares.outputs.date_time }}
-          release_name: Release ${{ needs.prepares.outputs.date_time }}
-          draft: false
-          prerelease: false
-  
-      - name: Download main PDF artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: output_pdf
-      
-      - name: Upload main PDF to Release
-        id: upload_pdf_to_release      
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./main.pdf
-          asset_name: ${{ needs.prepares.outputs.file_name }}
-          asset_content_type: application/pdf
-      
-      - name: Download captioned PDF artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: captioned_output_pdf
-
-      - name: Upload captioned PDF to Release
-        id: upload_captioned_pdf_to_release      
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./captioned_output.pdf
-          asset_name: ${{ needs.prepares.outputs.captioned_file_name }}
-          asset_content_type: application/pdf
