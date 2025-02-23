@@ -246,7 +246,7 @@
 \begin{gather}\label{s1:lem2_assert}
     F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \delta u(\tau) \ d\tau.
 \end{gather}
-\todo[inline]{О Б С У Д И Т Ь.  В этом доказательстве $\frac{\partial f_2}{\partial x}$ и $\beta$ --- это многомерные линейные операторы, действующие из $\mathbb{R}^n$ в $\mathbb{R}^{n \times r}$ и выражения $\beta(t) \Delta x(t)$ это не умножение, а применение этого оператора к вектору. }
+\todo[inline]{О Б С У Д И Т Ь.  В этом доказательстве $\frac{\partial f_2}{\partial x}$ и $\beta$ --- это многомерные линейные операторы, действующие из $\mathbb{R}^n$ в $\mathbb{R}^{n \times r}$ и выражения вида $\beta(t) \Delta x(t)$ это не умножение, а применение этого оператора к вектору. }
 \hfill $\square$
     
 \begin{definition}
@@ -493,7 +493,7 @@
 
 Отсюда следует, что  регулярность отображения  $F$ в точке $u(\cdot) \equiv 0$ определяется положительной определенностью грамиана  $W(T,0) $, то есть управляемостью линеаризованной системы \eqref{s1:linearized_system_zero_control}. 
 
-При этом, константа $\nu$ из неравенства \eqref{s1:lyusternik_condition_proof} связана с наименьшим собственным числом $\lambda$ матрицы $W(T,0) $,  $\lambda\big(W(T,0)\big) = \nu^2$.
+При этом, константа $\nu$ из неравенства \eqref{s1:lyusternik_condition_proof} связана с наименьшим собственным числом $\lambda$ матрицы $W(T,0) $ равенством $\lambda\big(W(T,0)\big) = \nu^2$.
     
 Липшицевость производной Фреше $F'$ на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{s1:lem:lip_dx_global} в условиях Предположения \ref{s1:as:right_hand_side_diff_lip}. 
     
@@ -504,7 +504,7 @@
 \end{gather}
 а константа $L_u $ определена в Лемме  \ref{s1:lem:lip_dx_global}. 
 \hfill$\square$\\[1ex]%--- P r o o f.
-Этот результат, при несколько иных предположениях о правой части системы \eqref{s1:common_nonlinear}, был получен в \cite{Polyak2004}.
+Аналогичный результат, при несколько иных предположениях о правой части системы \eqref{s1:common_nonlinear}, был получен в \cite{Polyak2004}.
     
 \subsubsection{Выпуклость множеств достижимости на малых интервалах времени}
 \label{s1:small_time_subsection}
@@ -513,7 +513,7 @@
     \dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 \end{gather}
 Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число.
-Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $  0 < \mu < \overline{\mu} $ в этом пространстве
+Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $  0 < \mu < \overline{\mu} $ в этом пространстве, который будем обозначать через $B_{\mathbb{L}_2}(0, \mu)$
 \begin{gather*}
     \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
 \end{gather*}
