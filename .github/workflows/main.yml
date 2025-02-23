@@ -182,5 +182,3 @@ jobs:
           files: |
             main.pdf#${{ needs.prepares.outputs.file_name }}
             captioned_output.pdf#${{ needs.prepares.outputs.captioned_file_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
