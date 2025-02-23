@@ -85,6 +85,7 @@ jobs:
     
   get_prev_state:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -114,6 +115,7 @@ jobs:
   compare_versions:
     needs: [build_latex, get_prev_state]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Create directory for previous version
         run: mkdir -p prev_version
@@ -166,7 +168,7 @@ jobs:
           path: diff_main.pdf
 
   create_and_upload_release:
-    needs: [build_latex, prepares, get_prev_state]
+    needs: [build_latex, prepares]
     runs-on: ubuntu-latest
     steps:
       - name: Check outputs
@@ -207,7 +209,7 @@ jobs:
         with:
             name: captioned_output_pdf
 
-      - name: Upload tex to Release
+      - name: Upload captioned PDF to Release
         id: upload_captioned_pdf_to_release      
         uses: actions/upload-release-asset@v1
         env:
