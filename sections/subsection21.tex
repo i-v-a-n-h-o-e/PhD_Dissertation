@@ -42,13 +42,81 @@
 
 \subsubsection{Расстояние Банаха-Мазура и асимптотическая эквивалентность множеств}\label{sec21:AsymptoticEquality}
 
-Расстоянием Банаха-Мазура между выпуклыми компактными множествами $ X,Y \subset \mathbb R^n $, такими, что $0 \in \operatorname{int}\ X$, $0 \in \operatorname{int}\ Y$ будем называть величину $ \rho (X, Y)  $, определенную равенством 
+Рассмотрим выпуклые компактные множества $ X,Y \subset \mathbb R^n $, такие, что $0 \in \operatorname{int}\ X$, $0 \in \operatorname{int}\ Y$. Тогда определена величина $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$. Расстоянием Банаха-Мазура  будем называть величину $ \rho (X, Y)  $, определенную равенством 
 \begin{gather*}
-    \rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)),
+    \rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)).
 \end{gather*}
-где $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$.
 
 Это определение является частным случаем определения расстояния Банаха-Мазура между нормированными пространствами \cite[Определение 2.4.6]{Thompson}.
+
+Проверим, что величина $ \rho (X, Y)$ удовлетворяет аксиомам метрики. 
+Напомним, что аксиомы метрики $\rho$ на множестве $\mathcal{X}$ таковы:
+\begin{enumerate}
+	\item Неотрицательность. $\rho(X,Y) \geqslant 0$.
+	\item Тождественность.  $\rho(X,Y) = 0 $ тогда и только тогда, когда $X = Y$.
+	\item Симметрия. $ \rho(X,Y) = \rho(Y,X) $.
+	\item Неравенство треугольника.  $ \rho(X,Z) \leqslant \rho(X,Y) + \rho(Y,Z) $.
+\end{enumerate}
+
+Проверим каждую из них. 
+Убедимся, что верна аксиома неотрицательности. 
+По определению, $r(X,Y) \geqslant 1$. 
+Аналогично, $ r(Y,X) \geqslant 1  $. 
+Следовательно, 
+\begin{gather*}
+	r(X,Y)\cdot r(Y,X)  \geqslant 1  \qquad \Rightarrow \qquad
+	 \log(r(X,Y) \cdot r(Y,X)) \geqslant \log(1) = 0.
+\end{gather*}
+
+Таким образом, $ \rho(X,Y) \geqslant 0 $.
+
+
+Теперь проверим аксиому тождественности нулю.
+Заметим, что $\rho(X,Y) = 0 $ тогда и только тогда, когда $ r(X,Y) \cdot r(Y,X) = 1$.
+Так как $r(X,Y) \geqslant 1 $ и $r(Y,X) \geqslant 1 $, равенство достигается только в случае $r(X,Y) = r(Y,X) = 1 $.
+Это означает, что
+\begin{gather*}
+	\inf\{t \geqslant 1 : tX \supset Y \} = 1, \\ 
+	\inf\{t \geqslant 1 : tY \supset X \} = 1.
+\end{gather*}
+
+Условие  $ r(X,Y)=1$ означает $X \supset Y$, а  $r(Y,X)=1$, то есть  $Y \supset X$. 
+Вместе они дают $X=Y$.
+Обратное тоже верно: если $X=Y$, то  $r(X,Y)=r(Y,X)=1$, значит $\rho(X,Y)=0$.
+Таким образом, тождественность нулю выполняется.
+
+Перейдем к проверке симметрии. 
+По определению 
+\begin{gather*}
+	\rho(X,Y)= \log(r(X,Y) \cdot r(Y,X)).
+\end{gather*}
+
+Меняя местами $X$ и $Y$, получаем:
+$\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
+Симметрия выполнена.
+
+Наконец проверим неравенство треугольника. 
+Нужно показать, что выполняется
+\begin{gather*}
+	\rho(X,Z) \geqslant \rho(X,Y) + \rho(Y,Z).
+\end{gather*}
+Подставив определения, получаем
+\begin{gather*}
+	\log(r(X,Z) \cdot r(Z,X)) \geqslant \log(r(X,Y) \cdot r(Y,X)) + \log(r(Y,Z) \cdot r(Z,Y)).
+\end{gather*}
+Экспоненцируем обе части неравенства, приходим к
+\begin{gather}\label{s2:triangle_axiom}
+	r(X,Z) \cdot r(Z,X) \leqslant r(X,Y) \cdot r(Y,X) \cdot r(Y,Z) \cdot r(Z,Y).
+\end{gather}
+Заметим, что $r(X,Z) \geqslant r(X,Y) \cdot r(Y,Z)$.
+Действительно, пусть $ r(X,Y) = t $ и $r(Y,Z) = s$.
+Тогда выполняются включения $tX \supset Y$, $sY \supset Z$.
+Подставляя одно в другое, получаем $Z \subset sY \subset s(tX) = (st) X$.
+Аналогично, можно показать, что $r(Z,X) \leqslant r(Z,Y) \cdot r(Y,X)$. 
+Перемножая два этих неравенства, получаем искомое \eqref{s2:triangle_axiom}.
+
+Таким образом, четыре аксиомы метрики выполнены, следовательно, $\rho(X,Y)$ действительно является расстоянием (метрикой) на множестве выпуклых компактных множеств с нулем во внутренности.
+
 %\todo[inline]{Описать преимущества расстояния Банаха Мазура для малых множеств. Пример с кругом и квадратом. Посмотреть статью МИ в УМЖ}
 
 Пусть $ X = X(\varepsilon) $,  $ Y = Y(\varepsilon) $ -- выпуклые компактные множества, такие, что $ 0 \in \operatorname{int}\,X(\varepsilon) $, $ 0 \in \operatorname{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.
