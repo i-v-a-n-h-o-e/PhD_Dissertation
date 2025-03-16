@@ -80,7 +80,7 @@
 	\inf\{t \geqslant 1 : tY \supset X \} = 1.
 \end{gather*}
 
-Условие  $ r(X,Y)=1$ означает $X \supset Y$, а  $r(Y,X)=1$, то есть  $Y \supset X$. 
+В силу замкнутости множеств $X$  и $Y$, условие  $ r(X,Y)=1$ означает $X \supset Y$, а  $r(Y,X)=1$ означает  $Y \supset X$. 
 Вместе они дают $X=Y$.
 Обратное тоже верно: если $X=Y$, то  $r(X,Y)=r(Y,X)=1$, значит $\rho(X,Y)=0$.
 Таким образом, тождественность нулю выполняется.
@@ -98,19 +98,19 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 Наконец проверим неравенство треугольника. 
 Нужно показать, что выполняется
 \begin{gather*}
-	\rho(X,Z) \geqslant \rho(X,Y) + \rho(Y,Z).
+	\rho(X,Z) \leqslant \rho(X,Y) + \rho(Y,Z).
 \end{gather*}
 Подставив определения, получаем
 \begin{gather*}
-	\log(r(X,Z) \cdot r(Z,X)) \geqslant \log(r(X,Y) \cdot r(Y,X)) + \log(r(Y,Z) \cdot r(Z,Y)).
+	\log(r(X,Z) \cdot r(Z,X)) \leqslant \log(r(X,Y) \cdot r(Y,X)) + \log(r(Y,Z) \cdot r(Z,Y)).
 \end{gather*}
-Экспоненцируем обе части неравенства, приходим к
+Используя монотонность логарифма, приходим к 
 \begin{gather}\label{s2:triangle_axiom}
 	r(X,Z) \cdot r(Z,X) \leqslant r(X,Y) \cdot r(Y,X) \cdot r(Y,Z) \cdot r(Z,Y).
 \end{gather}
-Заметим, что $r(X,Z) \geqslant r(X,Y) \cdot r(Y,Z)$.
+Заметим, что $r(X,Z) \leqslant r(X,Y) \cdot r(Y,Z)$.
 Действительно, пусть $ r(X,Y) = t $ и $r(Y,Z) = s$.
-Тогда выполняются включения $tX \supset Y$, $sY \supset Z$.
+Тогда, в силу замкнутости множеств, выполняются включения $tX \supset Y$, $sY \supset Z$.
 Подставляя одно в другое, получаем $Z \subset sY \subset s(tX) = (st) X$.
 Аналогично, можно показать, что $r(Z,X) \leqslant r(Z,Y) \cdot r(Y,X)$. 
 Перемножая два этих неравенства, получаем искомое \eqref{s2:triangle_axiom}.
