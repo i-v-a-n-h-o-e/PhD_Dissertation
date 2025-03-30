@@ -62,40 +62,101 @@
 \doc
 Из интегрального соотношения
 \begin{gather*}
-     x_i(t) = x_0 + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau))\ d\tau + \int\limits_{t_0}^{t} f_2(\tau,x_i(\tau))u_i(\tau)\ d\tau 
+     x_i(t) = x_0 
+     + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau))\ d\tau 
+     + \int\limits_{t_0}^{t} f_2(\tau,x_i(\tau))u_i(\tau)\ d\tau  
+     =  \\ = 
+     x_0 
+     + \int\limits_{t_0}^{t} f_1(\tau, x_i(\tau))\ d\tau 
+     +  \int\limits_{t_0}^{t} 
+     \sum\limits_{k = 1}^{r} 
+      f_2^k(\tau,x_i(\tau))u_i^k(\tau)\ d\tau,
 \end{gather*}
-имеем 
+где $f_2^k$ --- $k$-ый столбец матричнозначной функции $f_2$, а $u^k(t)$ --- $k$-ый компонент вектора управления $u(t)$, имеем 
 \begin{gather}\label{s1:diff_of_solution}
 \begin{gathered}
-    \| x_1(t) - x_2(t) \| \leqslant 
-    \left\|  \int\limits_{t_0}^{t} \Big( f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \Big) \ d\tau \right\| +  \\ + 
-    \left\|  \int\limits_{t_0}^{t} \Big( f_2(\tau, x_1(\tau)) - f_2(\tau,x_2(\tau)) \Big) u_2(\tau) \ d\tau \right\| + \\ +
-    \left\|  \int\limits_{t_0}^{t} f_2(\tau,x_1(\tau)) \big( u_1(\tau) - u_2(\tau) \big) \ d\tau \right\|. 
+    \| x_1(t) - x_2(t) \| 
+    \leqslant 
+    \left\|  
+    \int\limits_{t_0}^{t} \Big( f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \Big) \ d\tau 
+    \right.
+    +  \\ + 
+    \left.
+     \int\limits_{t_0}^{t}  
+    \sum\limits_{k = 1}^{r}
+    \Big( f_2^k(\tau, x_1(\tau)) - f_2^k(\tau, x_2(\tau)) \Big) u_2^k(\tau) \ d\tau 
+    \right\| 
+    + \\ +
+    \left\|  
+   \int\limits_{t_0}^{t} 
+    \sum\limits_{k = 1}^{r}
+    f_2^k(\tau,x_1(\tau)) \big( u_1^k(\tau) - u_2^k(\tau) \big) \ d\tau 
+    \right\|. 
 \end{gathered}
 \end{gather}
-    
-Перепишем первое и второе подынтегральное выражение в \eqref{s1:diff_of_solution}, используя представление приращения функции через интеграл по параметру
-\begin{gather}\label{s1:meanvalue}
-\begin{gathered}
-    f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big), \\ 
-    f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big).
-\end{gathered}
+
+Оценим приращение $f_1$ через интеграл по параметру:
+\begin{gather}\label{s1:meanvalue_f1}
+		f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big).
 \end{gather}
-    
-Так как для $0 \leqslant \xi \leqslant 1 $ и  $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big) \in D$, то из Предположения \ref{s1:as:right_hand_side_conditions_global}, учитывая непрерывность производных $\frac{\partial f_1}{\partial x} $ и $\frac{\partial f_2}{\partial x}$, а также компактность множества $D$, мы имеем, что 
-\begin{gather*}%\label{s1:lip_f}
-\begin{gathered}
-     \big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|, \\
-     \left\| \Big(f_2(\tau, x_1(\tau)) - f_2(\tau, x_2(\tau)) \Big) u_2(\tau) \right\| \leqslant  L_{f_2} \|u_2(\tau)\| \|x_1(\tau) - x_2(\tau)\|,
- \end{gathered}
+
+Так как для $0 \leqslant \xi \leqslant 1 $ и  $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big) \in D$, то из Предположения \ref{s1:as:right_hand_side_conditions_global}, учитывая непрерывность $\dfrac{\partial f_1}{\partial x} $, а также компактность множества $D$, мы имеем, что 
+\begin{gather}\label{s1:lip_f1}
+		\big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|,
+\end{gather}
+где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D} \left\| \dfrac{\partial f_1}{\partial x} (\tau, x) \right\| $.
+
+Аналогичное представление приращений столбцов матричнозначной функции $f_2^k$ имеет вид
+\begin{gather}\label{s1:meanvalue_f2}
+    f_2^k(\tau, x_1(\tau)) 
+    - 
+    f_2^k(\tau, x_2(\tau)) 
+    = \left(
+      \int\limits_0^1 
+      \frac{\partial f_2^k}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) 
+      \ d\xi \right) 
+      \big(x_1(\tau) - x_2(\tau)\big).
+\end{gather}
+Здесь $\dfrac{\partial f_2^k}{\partial x}: [t_0, \overline{T}]  \times \mathbb{R}^n \rightarrow \mathbb{R}^{n \times n} $ --- это матрица частных производных (якобиан) $k$-ого столбца функции $f_2$. 
+Тогда, в силу компактности $[t_0, \overline{T}] \times D$, существуют константы 
+\begin{gather*}
+	L_{f_2^k} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \left\| \dfrac{\partial f_2^k}{\partial x} (\tau, x) \right\|.
 \end{gather*}
-где  $L_{f_1} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D} \left\| \dfrac{\partial f_1}{\partial x} (\tau, x) \right\| $, $L_{f_2} = \max\limits_{(\tau, x ) \in  [t_0, \overline{T}] \times D}  \left\| \dfrac{\partial f_2}{\partial x} (\tau, x) \right\|$ .
+ 
+Следовательно,  
+\begin{gather}\label{s1:lip_f2}
+	\begin{gathered}
+	\left\|
+	 \sum\limits_{k = 1}^{r}
+	\Big( f_2^k(\tau, x_1(\tau)) - f_2^k(\tau, x_2(\tau)) \Big) u_2^k(\tau) \ d\tau 
+	\right\| 
+	\leqslant
+	\left\|
+	x_1(\tau) - x_2(\tau)
+	\right\|
+	 \sum\limits_{k = 1}^{r} 
+	 L_{f_2^k}
+	 \left|
+	  u_2^k(\tau)
+	  \right|
+	  \leqslant \\ \leqslant 
+	  \sqrt{\sum_{k=1}^r L_{f_2^k}^2} \cdot
+	 \left\|
+	 x_1(\tau) - x_2(\tau)
+	 \right\|  
+	 \| u_2(\tau) \|.
+	 \end{gathered}
+\end{gather}
       
-Используя полученные соотношения, в \eqref{s1:diff_of_solution} получаем
+Используя полученные соотношения \eqref{s1:lip_f1}, \eqref{s1:lip_f2}, в \eqref{s1:diff_of_solution} получаем
 \begin{gather*}
       \| x_1(t) - x_2(t) \| \leqslant \int\limits_{t_0}^{t} (L_{f_1} + L_{f_2} \| u_2(\tau)\|)  \|x_1(\tau) - x_2(\tau)\| \ d\tau +  k_{f_2} \sqrt{\overline{T} - t_0} \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2[t_0, \overline{T}]},
 \end{gather*}
-где $ k_{f_2} = \max\limits_{(\tau,\, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \| $.
+где 
+\begin{gather*}
+	k_{f_2} = \max\limits_{(\tau,\, x ) \in  [t_0, \overline{T}] \times D}  \|  f_2 (\tau, x) \|, \qquad
+	L_{f_2} =  \sqrt{\sum_{k=1}^r L_{f_2^k}^2}.
+\end{gather*}
 Из леммы Гронуолла — Беллмана \cite[Лемма 1]{Bellman} следует неравенство
 \begin{gather}\label{s1:lip_of_solution}
       \left\| x_1(t) - x_2(t) \right\| \leqslant L_x \left\|u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2[t_0, \overline{T}]}, 
@@ -127,7 +188,10 @@
     \end{gather}
     {\textit линеаризацией} системы \eqref{s1:common_nonlinear} вдоль пары траектории и управления $\left( x(\cdot,u(\cdot)),u(\cdot)\right)   $ , если 
     \begin{gather*}
-        A(t) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u(\cdot)\big)\Big) + \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u(\cdot)\big)\Big) u(t), \  
+        A(t) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u(\cdot)\big)\Big) 
+        + 
+         \sum\limits_{k = 1}^{r}
+         \dfrac{\partial f_2^k}{\partial x}\Big(t,x\big(t,u(\cdot)\big)\Big) u^k(t), \  
         B(t) = f_2 \Big(t,x\big(t,u(\cdot)\big)\Big).
     \end{gather*}
     Здесь $ A(\cdot) $ представляет собой матрицу Якоби функции $ f_1(\cdot, x) + f_2(\cdot, x) u(\cdot) $, вычисленную вдоль траектории $ x(\cdot,u(\cdot)) $.
@@ -192,7 +256,7 @@
 \end{gathered}
 \end{gather}
     
-Применяя формулы \eqref{s1:meanvalue}, запишем 
+Применяя формулы \eqref{s1:meanvalue_f1}, \eqref{s1:meanvalue_f2}, запишем 
 \begin{gather*}
 \begin{gathered}
     f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
