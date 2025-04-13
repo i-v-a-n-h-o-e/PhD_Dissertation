@@ -248,60 +248,75 @@
 Решения системы \eqref{s1:common_nonlinear}, порожденные управлениями  $u(\cdot)$ и $u(\cdot) + \Delta u(\cdot)$, обозначим через  $x(\cdot) = x(\cdot,u(\cdot))$ и $ x(\cdot) + \Delta x(\cdot) = x(\cdot, u(\cdot) + \Delta u(\cdot))$.
 По аналогии с \eqref{s1:diff_of_solution} получаем
 \begin{gather}\label{s1:delta_x}
-\begin{gathered}
-    \Delta \dot{x}(t) =
-    \Big( f_1\big(t, x(t)+\Delta x(t)\big) - f_1\big(t, x(t)\big) \Big)  +  \\ + 
-     \Big( f_2\big(t, x(t)+\Delta x(t)\big) - f_2\big(t,x(t)\big) \Big) u(t)  + \\ +
-    f_2\big(t, x(t)+\Delta x(t)\big)  \Delta u(t) . 
-\end{gathered}
+	\begin{gathered}
+		\Delta \dot{x}(t) =
+		\Big( f_1\big(t, x(t)+\Delta x(t)\big) - f_1\big(t, x(t)\big) \Big) + \\ +
+		\sum\limits_{k=1}^r \Big( f_2^k\big(t, x(t)+\Delta x(t)\big) - f_2^k\big(t,x(t)\big) \Big) u^k(t) + \\ +
+		\sum\limits_{k=1}^r f_2^k\big(t, x(t)+\Delta x(t)\big) \Delta u^k(t) .
+	\end{gathered}
 \end{gather}
-    
 Применяя формулы \eqref{s1:meanvalue_f1}, \eqref{s1:meanvalue_f2}, запишем 
 \begin{gather*}
-\begin{gathered}
-    f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
-    f_2(t, x(t)+\Delta x(t)) - f_2(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_2}{\partial x} \Big(t, x(t)) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t)=  \\  = \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \beta\Big(x(t),\Delta x(t), t\Big) \Delta x(t), 
-\end{gathered}
+	\begin{gathered}
+		 f_1(t, x(t)+\Delta x(t)) - f_1(t, x(t)) = \left(  \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) \ d\xi \right) \Delta x(t) =  \\  = \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \Delta x(t) + \alpha\Big(x(t),\Delta x(t), t\Big) \Delta x(t), \\ 
+		f_2^k(t, x(t)+\Delta x(t)) - f_2^k(t, x(t)) = \left( \int\limits_0^1 \frac{\partial f_2^k}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) d\xi \right) \Delta x(t) = \\
+		= \frac{\partial f_2^k}{\partial x} \Big(t, x(t)\Big) \Delta x(t) + \beta^k\Big(x(t),\Delta x(t), t\Big) \Delta x(t),
+	\end{gathered}
 \end{gather*}
-где 
+где
 \begin{gather*}
-    \alpha\Big(x(t),\Delta x(t), t\Big) = 
-     \int\limits_0^1 \left[ \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big)  - \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \right] \ d\xi ,\\
-    \beta\Big(x(t),\Delta x(t), t\Big) = 
-     \int\limits_0^1 \left[ \frac{\partial f_2}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big)  - \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big)  \right] \ d\xi.
+	\alpha\Big(x(t),\Delta x(t), t\Big) = 
+	\int\limits_0^1 \left[ \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big)  - \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big)  \right] \ d\xi ,\\
+	\beta^k\Big(x(t),\Delta x(t), t\Big) = \int\limits_0^1 \left[ \frac{\partial f_2^k}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) - \frac{\partial f_2^k}{\partial x} \Big(t, x(t)\Big) \right] d\xi.
 \end{gather*}
-    
 Перепишем \eqref{s1:delta_x}
-\begin{gather*}%\label{s1:delta_x_rewritten}
-    \Delta \dot{x}(t) =
-    A(t) \Delta x(t)  + 
-    B(t) \Delta u(t)  + 
-    \omega(t),
-\end{gather*}
-где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{s1:linearized_system}, а
 \begin{gather*}
-\begin{gathered}
-    \omega(t) = 
-    \alpha\big(x(t),\Delta x(t), t\big) \Delta x(t)  + 
-    \beta\big(x(t),\Delta x(t), t\big)  \Delta x(t) u(t)  + \\ +
-    \frac{\partial f_2}{\partial x} \Big(t, x(t)\Big) \Delta x(t) \Delta u(t) + 
-    \beta\Big(x(t),\Delta x(t), t\Big) \Delta x(t) \Delta u(t) 
-\end{gathered}    
+	\Delta \dot{x}(t) =
+	A(t) \Delta x(t) +
+	B(t) \Delta u(t) +
+	\omega(t),
+\end{gather*}
+где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{s1:linearized_system}
+\begin{align*}
+	A(t) &= \frac{\partial f_1}{\partial x}(t,x(t)) + \sum\limits_{k=1}^r \frac{\partial f_2^k}{\partial x}(t,x(t)) u^k(t), \\
+	B(t) &= f_2(t,x(t)),
+\end{align*}
+а  $\omega(t)$ определено равенством:
+\begin{gather*}
+		\omega(t) = 
+		\alpha\Big(x(t),\Delta x(t), t\Big)\Delta x(t) 
+		+
+		\sum\limits_{k=1}^r 
+		\beta^k\Big(x(t),\Delta x(t), t\Big)\Delta x(t) u^k(t) 
+		+ \\ + 
+		\sum\limits_{k=1}^r 
+		\left(
+		  \frac{\partial f_2^k}{\partial x}(t,x(t)) + \beta^k\Big(x(t),\Delta x(t), t\Big)
+		\right) 
+		\Delta x(t) \Delta u^k(t).
 \end{gather*}
 Из Леммы \ref{s1:lem:lip_of_solutions_global} следует, что при $\|\Delta u(\cdot)\|_{\mathbb{L}_2} \to 0$, $\|\Delta x(t)\| \to 0$ равномерно при всех $t_0 \leqslant t \leqslant T$.
-Заметим, что если $\|\Delta x(t)\| \to 0$, то $ \left\|  \alpha(x(t),\Delta x(t), t) \right\|  \to 0 $ и $ \left\|  \beta(x(t)),\Delta x(t), t) \right\|  \to 0 $ также равномерно для всех  $ t_0 \leqslant t \leqslant T $ .
-Это следует из равномерной непрерывности производных $\frac{\partial f_1}{\partial x}$, $\frac{\partial f_2}{\partial x}$ в $[t_0, \overline{T}] \times D$.
-Таким образом, равномерно по $t$,
-\begin{gather}\label{s1:lim_omega}
-    \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| \omega(t) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0, \qquad  t_0 \leqslant t \leqslant T .
-\end{gather}
-    
-По формуле Коши, получаем равенство
+Заметим, что если $\|\Delta x(t)\| \to 0$, то $ \left\|  \alpha(x(t),\Delta x(t), t) \right\|  \to 0 $ и $ \left\|  \beta^k(x(t)),\Delta x(t), t) \right\|  \to 0 $ также равномерно для всех  $ t_0 \leqslant t \leqslant T $ .
+Это следует из равномерной непрерывности производных $\frac{\partial f_1}{\partial x}$, $\frac{\partial f_2^k}{\partial x}$ на компакте $[t_0, \overline{T}] \times D$.
+Таким образом, получаем:
 \begin{gather*}
-    \Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau,
+	\|\omega(t)\| \leqslant \left( \gamma_1 + \gamma_2 \|u(t)\| + \gamma_3 \|\Delta u(t)\| \right) \|\Delta x(t)\|,
 \end{gather*}
+где $\gamma_i > 0  $ и $\gamma_i \to 0 $ при $ \|\Delta u(\cdot)\|_{\mathbb{L}_2} ​\to 0$.
+Тогда, равномерно по $t$,
+\begin{gather}\label{s1:lim_omega}
+	\lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| \omega(t) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0, \qquad  t_0 \leqslant t \leqslant T .
+\end{gather}
+По формуле Коши, получаем равенство
+\begin{gather}\label{s1:increment_x}
+	\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau,
+\end{gather}
 где первое слагаемое является решением линеаризованной системы \eqref{s1:linearized_system}.
 Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -A(\tau)X(T, \tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq}  получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $.
+Оценим норму второго слагаемого из равенства \eqref{s1:increment_x} :
+\begin{gather*}
+	\left\| \int\limits_{t_0}^T X(T,\tau)\omega(\tau) \ d\tau \right\| \leqslant k_X (T-t_0) \cdot \sup\limits_{\tau \in [t_0, T]} \|\omega(\tau)\|.
+\end{gather*}
 Тогда из \eqref{s1:lim_omega} следует, что 
 \begin{gather*}
     \int\limits_{t_0}^{T}  X(T, \tau) \omega(t) \ d\tau  = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0}  \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}}  = 0.
@@ -311,7 +326,6 @@
 \begin{gather}\label{s1:lem2_assert}
     F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \delta u(\tau) \ d\tau.
 \end{gather}
-\todo[inline]{О Б С У Д И Т Ь.  В этом доказательстве $\frac{\partial f_2}{\partial x}$ и $\beta$ --- это многомерные линейные операторы, действующие из $\mathbb{R}^n$ в $\mathbb{R}^{n \times r}$ и выражения вида $\beta(t) \Delta x(t)$ это не умножение, а применение этого оператора к вектору. }
 \hfill $\square$
     
 \begin{definition}
