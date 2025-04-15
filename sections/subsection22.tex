@@ -16,27 +16,19 @@ T$ --- некоторое положительное число.
 Пространство скалярных или векторных функций интегрируемых с квадратом  на $ [0,T] $ будем обозначать здесь через $ \mathbb{L}_2 = \mathbb{L}_2[0,T] $.  
 
 Предполагается, что управление $u(\cdot)$  принадлежит пространству $\mathbb{L}_2 $.
-
+\begin{assumption}\label{s22:as:solution_bounded}
+	Существует такое $\mu > 0$, что все решения $x(s, \upsilon(\cdot))$ системы $\dot{x} = -f(x)-B\upsilon(t)$, выходящие из некоторой окрестности нуля и отвечающие управлениям $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \mu)$, определены на интервале $[0, T]$ и лежат в шаре $ B_{\mathbb{R}^n}(0,\overline{r})$, $\overline{r} > 0$.
+\end{assumption}
+Здесь $ B_{\mathbb{R}^n}(0,\overline{r}) $ --- это шар радиуса $\overline{r}$  с центром в точке $0 \in \mathbb{R}^n$. 
 Будем считать, что функция $f$ обладает следующим свойством.
 
 \begin{assumption}\label{s22:as:Residial_term_bounds}
-     Найдутся такие  $\overline{r}>0$, $k>0$  что при всех $ z \in B_{\mathbb{R}^n}(0,\overline{r}) $, функция  $f(z)$ может быть представлена в форме  $ f(z) = Az + R(z) $, причем $A \in \mathbb{R}^{n \times n}$ и $ \|R(z) \| \leqslant k \| z\|^2  $. 
+     Найдутся такие  $\overline{r} > r >0$, $k>0$  что при всех $ z \in B_{\mathbb{R}^n}(0,r) $, функция  $f(z)$ может быть представлена в форме  $ f(z) = Az + R(z) $, причем $A \in \mathbb{R}^{n \times n}$ и $ \|R(z) \| \leqslant k \| z\|^2  $. 
 \end{assumption}
-Здесь $ B_{\mathbb{R}^n}(0,\overline{r}) $ --- это шар радиуса $\overline{r}$  с центром в точке $0 \in \mathbb{R}^n$. 
 Это свойство выполняется, если $f(0) = 0 $, $\frac{\partial f}{\partial z}(0) 
 = A $ и $f(z)$ дважды непрерывно дифференцируема. 
 
-Заметим, что из справедливости Предположения \ref{s22:as:Residial_term_bounds} для $f$ следует выполнение условий \eqref{s1:right_hand_side_condition} в множестве $ B_{\mathbb{R}^n}(0,r)$, $0 \leqslant r < \overline{r}$. 
-Действительно, из Предположения  \ref{s22:as:Residial_term_bounds}  следует, что при $ z \in B_{\mathbb{R}^n}(0,\overline{r}) $
-\begin{gather*}
-	\|f(z)\| \leqslant \|A\| \|z\| + k \|z\|^2 \leqslant \big(\|A\| + k \overline{r} \big) \|z\|,
-\end{gather*}
-что соответствует линейному росту $ \|f(z)\| \leqslant l_1 (1 + \|z\|)$ при $l_1 = \|A\| + k \overline{r}$. 
-Условие $\|f_2(t,z) \leqslant l_2 $ выполнено с $l_2 = \|B\|$.
-Таким образом, в условиях Предположения \ref{s22:as:Residial_term_bounds}, Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполняются на интервале $ 0 \leqslant t \leqslant T$ в области $B_{\mathbb{R}^n}(0,r)$.
-
-Выполнение Предположения \ref{s1:as:right_hand_side_conditions_global} для системы \eqref{s22:nonlinear} означает, что существует достаточно малое $​\overline{\mu} > 0$, такое, что все решения $z(t,u(\cdot))$, отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu})$, определены на $[0,T] $ и лежат в  $B_{\mathbb{R}^n}(0,r)$. 
-Величина $\overline{\mu}​$ зависит от радиуса $r$, времени $T$, параметров системы $A$, $B$, $k$ и начального условия $z_0$.
+Заметим, что из справедливости Предположения \ref{s22:as:Residial_term_bounds} для $f$ следует выполнение условий Предположения \ref{s1:as:right_hand_side_diff_lip} на интервале $ 0 \leqslant t \leqslant T$ в области $B_{\mathbb{R}^n}(0,r)$.
 
 В качестве функционала мы рассматриваем 
 \begin{gather}\label{s22:cost}
