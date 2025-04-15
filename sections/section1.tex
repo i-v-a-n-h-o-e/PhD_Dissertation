@@ -430,9 +430,9 @@
 \begin{assumption}\label{s1:as:right_hand_side_diff_lip}
     Функции $f_1(t,x)$ и $f_2(t,x)$ имеют непрерывные производные по $x$, которые удовлетворяют условию Липшица при всех $t \in [t_0;T]$, $x_1, x_2 \in D$.
     \begin{gather*}
-        \left\| \frac{\partial f_1}{\partial x}(t,x_1) - \frac{\partial f_1}{\partial x}(t,x_2) \right\| \leqslant l_{f_1} \| x_1 - x_2\|, \quad \left\| \frac{\partial f_2}{\partial x}(t,x_1) - \frac{\partial f_2}{\partial x}(t,x_2) \right\| \leqslant l_{f_2} \| x_1 - x_2\|,
+        \left\| \frac{\partial f_1}{\partial x}(t,x_1) - \frac{\partial f_1}{\partial x}(t,x_2) \right\| \leqslant l_{f_1} \| x_1 - x_2\|, \quad \left\| \frac{\partial f_2^k}{\partial x}(t,x_1) - \frac{\partial f_2^k}{\partial x}(t,x_2) \right\| \leqslant l_{f_2^k} \| x_1 - x_2\|,
     \end{gather*}
-    где $l_{f_1} > 0$ и $l_{f_2} > 0$.
+    где $l_{f_1} > 0$ и $l_{f_2^k} > 0$, $k = 1,...,r$.
 \end{assumption}
     
 В условиях этого предположения, мы можем сформулировать и доказать лемму о липшицевости матрицы Коши линеаризованной системы \eqref{s1:linearized_system}.
@@ -460,14 +460,33 @@
 \begin{gather}\label{s1:lip_a}
 \begin{gathered}
     \| A_1(t) - A_2(t) \| \leqslant 
-    \left\| \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_1(\cdot)\big)\Big) - \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_2(\cdot)\big)\Big) \right\| + \\ +
-    \left\| \left[ \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_1(\cdot)\big)\Big)  - \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \right] u_1(t) \right\| + \\ +
-    \left\| \dfrac{\partial f_2}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big) \Big(u_1(t) - u_2(t)\Big) \right\| \leqslant \\ \leqslant
-    \Big(l_{f_1} L_x  + l_{f_2} L_x \|u_1(t) \|\Big) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2} +  L_{f_2} \| u_1(t) - u_2(t) \|, \qquad t_0 \leqslant t \leqslant T,\\
+    \left\| 
+    \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_1(\cdot)\big)\Big) 
+    - 
+    \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u_2(\cdot)\big)\Big) 
+    \right\| 
+    + \\ +
+    \left\| 
+    \left[ 
+    \sum\limits_{k=1}^r 
+     \dfrac{\partial f_2^k}{\partial x}\Big(t,x\big(t,u_1(\cdot)\big)\Big)  
+     - 
+     \dfrac{\partial f_2^k}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big)
+     \right] 
+     u_1^k(t) 
+     \right\| 
+     + \\ +
+    \left\| 
+    \sum\limits_{k=1}^r  
+    \dfrac{\partial f_2^k}{\partial x}\Big(t,x\big(t,u_2(\cdot)\big)\Big)
+     \Big(u_1^k(t) - u_2^k(t)\Big) 
+     \right\| 
+     \leqslant \\ \leqslant
+    \Big(l_{f_1} L_x  + L_x   \sqrt{\sum\limits_{k=1}^r   l_{f_2^k}^2} \|u_1(t) \|\Big) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2} +  L_{f_2} \| u_1(t) - u_2(t) \|, \qquad t_0 \leqslant t \leqslant T,\\
     \int\limits_{t_0}^{\tau} \|A_1(s) - A_2(s) \| ds \leqslant L_A \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}. 
 \end{gathered}
 \end{gather}
-Здесь $L_A = l_{f_1} L_x (T - t_0) + l_{f_2} L_x \mu \sqrt{T - t_0} + L_{f_2} \sqrt{T - t_0}$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$.
+Здесь $l_{f_2} =  \sqrt{\sum\limits_{k=1}^r   l_{f_2^k}^2}$, а $L_A = l_{f_1} L_x (T - t_0) + l_{f_2} L_x \mu \sqrt{T - t_0} + L_{f_2} \sqrt{T - t_0}$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$.
 Так как
 \begin{gather*}
     \frac{\partial}{\partial t} \left(X_1(t,s) - X_2(t,s) \right) = -A_1^{\top}(t) \left(X_1(t,s) - X_2(t,s) \right) + (A_2(t) - A_1(t))^{\top} X_2(t,s), \quad t \in [s,\tau], 
@@ -725,7 +744,7 @@
 	S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \int\limits_0^1  X_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}_{\varepsilon}(\tau, \upsilon(\cdot))  \delta\upsilon(\tau)\ d\tau. 
 \end{gather*}
  
-Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{s1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$ с константами $\widetilde{l}_{f_1} = \varepsilon l_{f_1} $ и  $\widetilde{l}_{f_2} = l_{f_2} $ соответственно. 
+Функции  $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{s1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$ с константами $\widetilde{l}_{f_1} = \varepsilon l_{f_1} $ и  $\widetilde{l}_{f_2^k} = l_{f_2^k} $ соответственно. 
 
 Действительно, для произвольных $z_1, z_2 \in D$ и всех  $\tau \in [0, 1]$ справедливо
 \begin{gather*}
@@ -734,8 +753,8 @@
 	 \varepsilon \left\|  \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_1) - \frac{\partial f_1}{\partial z}(\varepsilon \tau + t_0, z_2) \right\| 
 	 \leqslant \varepsilon l_{f_1} \| z_1 - z_2\|,  \\
 	 \left\| \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_1) - \frac{\partial \widetilde{f}_2}{\partial z}(\tau,z_2) \right\| = 
-	\left\| \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_1) - \frac{\partial f_2}{\partial z}(\varepsilon \tau + t_0,z_2) \right\| 
-	\leqslant l_{f_2} \| z_1 - z_2\|.
+	\left\| \frac{\partial f_2^k}{\partial z}(\varepsilon \tau + t_0,z_1) - \frac{\partial f_2^k}{\partial z}(\varepsilon \tau + t_0,z_2) \right\| 
+	\leqslant l_{f_2^k} \| z_1 - z_2\|.
 \end{gather*}
   
 По аналогии с \eqref{s1:lip_a}, для произвольных $ \upsilon_1(\cdot), \upsilon_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$, можем выписать
