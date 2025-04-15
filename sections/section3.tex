@@ -24,23 +24,15 @@
 Матричные отображения  $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполагаются непрерывными. 
 Вектор функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по  $x$.
 
+Система \eqref{sec3:nonlinear} является частным случаем системы \eqref{s1:common_nonlinear}, которая исследовалась в Главе \ref{s1}, при $f_1(t,x) = A(t) x(t) + \varepsilon f(x(t),t)$ и $f_2(t, x(t)) = B(t)$.
+
 Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ \mu > 0$.
 
 Каждому управлению $u(\cdot) \in \mathbb{L}_2$ и любому $\varepsilon \in [0,\overline{\varepsilon}]$ соответствует единственное абсолютное непрерывное решение $ x(t,\varepsilon, u(\cdot)) $ системы \eqref{sec3:nonlinear}, удовлетворяющее начальному условию $ x(t_0,\varepsilon, u(\cdot)) = x_0$, и это решение продолжимо на интервал $[t_0, t_0 + \Delta]$, где $t_0 + \Delta < T$. 
 
-Далее, мы будем считать выполненными условия следующего предположения.
-\todo[inline]{Связь с глобальными условиями из первой главы}
-\begin{assumption}\label{as:right_hand_side_conditions_quasilinear}
-    
-    Существует такое $\overline{\mu} > \mu $ что для любого $\varepsilon \in [0, \overline{\varepsilon}] $ все решения $ x(t,\varepsilon, u(\cdot)) $ отвечающие управлениям $u(\cdot) \in B_{\mathbb{L}_2}(0,\overline{\mu})$  лежат в выпуклом компакте $D \subset \mathbb{R}^n$.
-    Кроме этого, предполагается, что функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ и ее производная по $x$ удовлетворяют условию Липшица с константами $L_f$ и $l_f$ соответственно
-    \begin{gather*}
-        \left\| f(x_1,t) - f(x_2,t) \right\| \leqslant L_f \left\| x_1 - x_2 \right\|, \quad t\in[t_0,T], \quad x_1, x_2 \in D\\
-        \left\| \frac{\partial f(x_1,t)}{\partial x} - \frac{\partial f(x_2,t)}{\partial x} \right\| \leqslant l_f \left\| x_1 - x_2 \right\|, \quad t\in[t_0,T], \quad x_1, x_2 \in D.
-    \end{gather*}
-\end{assumption} 
+Далее, мы будем считать что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы  \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0,T$.
 
-В частности, первая часть Предположения \ref{as:right_hand_side_conditions_quasilinear} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Fillipov2}:
+В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Fillipov2}:
 \begin{gather}\label{sec3:sublinear_growth}
     \left\|f\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \\ 
     x \cdot f(x,t) \leqslant a(t) \|x\|^2 + b(t),
@@ -267,7 +259,7 @@
 Множество достижимости $G(T,\mu,\varepsilon) $  квазилинейной системы \eqref{sec3:nonlinear} --- это образ шара $B_{\mathbb{L}_2}(0,\mu)$ при его отображении $F$, $G(T,\mu,\varepsilon) = F(B_{\mathbb{L}_2}(0,\mu),\varepsilon)$.
 
 \begin{utv}\label{ReachableSetcloseness}
-    Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. 
+    Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}. 
 Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
 \end{utv}
 \doc. 
@@ -275,45 +267,47 @@
 \hfill$\square$\\[1ex]%--- P r o o f.
 
 Для того, чтобы применить Теорему \ref{th:ImageConvexity} к отображению $F$,  нам необходимо показать, что Предположение \ref{as:derivative_of_A1} выполняется для $A_1$, определенного в \eqref{A1_def}.
-\begin{lemma}\label{lem:Lipx}
-    Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. 
-Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
-    \begin{gather*}
-        \| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
-    \end{gather*}
-    где $x_i(t) = x(t,\varepsilon,u_i(\cdot))$, $i = 1,2$. 
+
+Применяя Лемму \ref{s1:lem:lip_of_solutions_global} к системе \eqref{sec3:nonlinear} получим, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
+\begin{gather*}
+	\| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
+\end{gather*}
+где $x_i(t) = x(t,\varepsilon,u_i(\cdot))$, $i = 1,2$. 
 Кроме того, $L_x(\varepsilon) \leqslant L_x(\overline{\varepsilon})$. 
-\end{lemma}
-\doc.
-Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions_quasilinear}, мы имеем
-\begin{gather*}
-    \|f\big(x_1(t),t\big) - f\big(x_2(t),t\big)\| \leqslant L_f\|x_1(t) -  x_2(t)\|.
-\end{gather*}
-Из интегрального соотношения
-\begin{gather}\label{nonlinear_solution}
-    x_i(t) = x_0 + \int\limits_{t_0}^t A(\tau)x_i(\tau)\ d\tau + \int\limits_{t_0}^t B(\tau)u_i(\tau)\ d\tau+
-    \varepsilon\int\limits_{t_0}^t f\big(x_i(\tau),\tau\big)\ d\tau,
-\end{gather}
-мы имеем
-\begin{gather*}
-    \| x_1(t) - x_2(t) \| \leqslant
-    \left\| \int\limits_{t_0}^t A(\tau)\big(x_1(\tau) - x_2(\tau)\big)\ d\tau \right\| + 
-    \left\|\int\limits_{t_0}^t B(\tau) \big(u_1(\tau) - u_2(\tau)\big)\ d\tau   \right\| + \\ +
-    \varepsilon \left\| \int\limits_{t_0}^t \Big( f\big(x_1(\tau),\tau\big) - f\big(x_2(\tau),\tau\big) \Big)\ d\tau   \right\|  
-    \leqslant \\ \leqslant
-    \int\limits_{t_0}^t \big(k_A + L_f \varepsilon) \left\| x_1(\tau) - x_2(\tau)\right\| \ d\tau + k_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
-\end{gather*}
-Здесь, 
-\begin{gather*}
-    k_u = \sqrt{(T-t_0) \max\limits_{\tau \in [{t_0},t]}\|B(\tau)\|}, \quad k_A =\max\limits_{\tau \in [{t_0},t]} \| A(\tau)\|.
-\end{gather*}
-Из неравенства Гронуолла 
-\begin{gather*}
-    \| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
-\end{gather*}
-где $L_x(\varepsilon) = k_u \exp\big((k_A + L_f \varepsilon)(T - t_0)\big) $. 
-Заметим, что $L_x(\varepsilon) \leqslant L_x(\overline{\varepsilon})$. 
-\hfill$\square$\\[1ex]%--- P r o o f.
+%\begin{lemma}\label{lem:Lipx}
+%    Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. 
+%Тогда, для 
+%\end{lemma}
+%\doc.
+%Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions_quasilinear}, мы имеем
+%\begin{gather*}
+%    \|f\big(x_1(t),t\big) - f\big(x_2(t),t\big)\| \leqslant L_f\|x_1(t) -  x_2(t)\|.
+%\end{gather*}
+%Из интегрального соотношения
+%\begin{gather}\label{nonlinear_solution}
+%    x_i(t) = x_0 + \int\limits_{t_0}^t A(\tau)x_i(\tau)\ d\tau + \int\limits_{t_0}^t B(\tau)u_i(\tau)\ d\tau+
+%    \varepsilon\int\limits_{t_0}^t f\big(x_i(\tau),\tau\big)\ d\tau,
+%\end{gather}
+%мы имеем
+%\begin{gather*}
+%    \| x_1(t) - x_2(t) \| \leqslant
+%    \left\| \int\limits_{t_0}^t A(\tau)\big(x_1(\tau) - x_2(\tau)\big)\ d\tau \right\| + 
+%    \left\|\int\limits_{t_0}^t B(\tau) \big(u_1(\tau) - u_2(\tau)\big)\ d\tau   \right\| + \\ +
+%    \varepsilon \left\| \int\limits_{t_0}^t \Big( f\big(x_1(\tau),\tau\big) - f\big(x_2(\tau),\tau\big) \Big)\ d\tau   \right\|  
+%    \leqslant \\ \leqslant
+%    \int\limits_{t_0}^t \big(k_A + L_f \varepsilon) \left\| x_1(\tau) - x_2(\tau)\right\| \ d\tau + k_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
+%\end{gather*}
+%Здесь, 
+%\begin{gather*}
+%    k_u = \sqrt{(T-t_0) \max\limits_{\tau \in [{t_0},t]}\|B(\tau)\|}, \quad k_A =\max\limits_{\tau \in [{t_0},t]} \| A(\tau)\|.
+%\end{gather*}
+%Из неравенства Гронуолла 
+%\begin{gather*}
+%    \| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
+%\end{gather*}
+%где $L_x(\varepsilon) = k_u \exp\big((k_A + L_f \varepsilon)(T - t_0)\big) $. 
+%Заметим, что $L_x(\varepsilon) \leqslant L_x(\overline{\varepsilon})$. 
+%\hfill$\square$\\[1ex]%--- P r o o f.
 
 
 
@@ -366,57 +360,11 @@
 \begin{gather*}
     \overline{A}\big(t,\varepsilon,u(\cdot)\big) = A(t) +\varepsilon \frac{\partial f\big(x(t,\varepsilon,u(\cdot)\big),t\big)}{\partial x}.
 \end{gather*}
-\begin{lemma}\label{lem:Lipdx}
-    Пусть выполнено Предположение \ref{as:right_hand_side_conditions_quasilinear}. 
-Тогда найдется  $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$, 
-    \begin{gather*}
-        \| \overline{F}'(\tau,\varepsilon, u_1(\cdot)) - \overline{F}'(\tau,\varepsilon, u_2(\cdot)) \| \leqslant L_u(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
-    \end{gather*}
-    где $i = 1,2$.
-\end{lemma}
-\doc. 
-Решение \eqref{dx} имеем вид
-\begin{gather}\label{xu}
-    \delta x\big(\tau,\varepsilon,u_i(\cdot),\delta u(\cdot)\big) = \int\limits_{t_0}^{\tau}  \overline{X}(\tau,s,\varepsilon,u_i(\cdot)) B(s) \delta u(s) \ ds,
-\end{gather}
-где $X(\tau,s,\varepsilon,u(\cdot)) $ --- фундаментальная матрица системы \eqref{dx}, которая является решением уравнения
+Применяя Лемму \ref{s1:lem:lip_dx_global} к системе \eqref{sec3:nonlinear} получим, что существует $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$, 
 \begin{gather*}
-    \frac{\partial \overline{X}(\tau,s,\varepsilon,u(\cdot))}{\partial s} = -\overline{A}\big(s,\varepsilon,u(\cdot)\big)^{\top} \overline{X}(\tau,s,\varepsilon,u(\cdot)), \quad \overline{X}\big(\tau,\tau,\varepsilon,u(\cdot)\big) = I.
+	\| \overline{F}'(\tau,\varepsilon, u_1(\cdot)) - \overline{F}'(\tau,\varepsilon, u_2(\cdot)) \| \leqslant L_u(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
-Хорошо известно(например, это следует из доказательства Теоремы 3 из \cite{Fillipov}), что существует такая константа $k_X>0$ что
-\begin{gather*}
-    \| \overline{X}(\tau,s,\varepsilon,u(\cdot)) \| \leqslant k_X, \qquad \tau \in [t_0,T], \qquad s \in [t_0,T]
-\end{gather*}
-для всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и достаточно малого $\varepsilon $. 
-Для сокращения записи, обозначим $\overline{A}_i(t) = \overline{A}\big(t,\varepsilon,u_i(\cdot)\big) $ и $ \overline{X}_i(t,s) = \overline{X}(t,s,\varepsilon,u_i(\cdot))$. 
-В условиях предположения \ref{as:right_hand_side_conditions_quasilinear} и используя Лемму \ref{lem:Lipx} мы можем получить оценку
-\begin{gather*}
-    \int\limits_{t_0}^{\tau} \|\overline{A}_1(s) - \overline{A}_2(s) \| ds \leqslant L_A \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}. 
-\end{gather*}
-Здесь $L_A>0$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$, $\tau$ и $\varepsilon$. 
-Используя,
-\begin{gather*}
-    \frac{\partial}{\partial t} \left(\overline{X}_1(t,s) - \overline{X}_2(t,s) \right) = -\overline{A}_1^{\top}(t) \left(\overline{X}_1(t,s) - \overline{X}_2(t,s) \right) + (\overline{A}_2(t) - \overline{A}_1(t))^{\top} \overline{X}_2(t,s), \quad t \in [s,\tau]
-\end{gather*}
-мы приходим к
-\begin{gather*}
-    \overline{X}_1(\tau,s) - \overline{X}_2(\tau,s) = \int\limits_s^{\tau} Y(t,s) \big(\overline{A}_2(t) - \overline{A}_1(t)\big)^{\top} X_2(t,s) dt.
-\end{gather*}
-Здесь $Y(t,s)$ --- это фундаментальная матрица системы 
-\begin{gather*}
-    \dot{y} = -\overline{A}_1(t) y.
-\end{gather*}
-Как и $\overline{X}_i(\tau,s)$, эта матрица тоже ограниченна: существует $k_Y>0$ такая, что
-\begin{gather*}
-    \|Y(t,s)\| \leqslant k_Y, \quad t,s \in [t_0, \tau]
-\end{gather*}
-для всех $u(\cdot) \in B(0,\mu)$. 
-Мы имеем
-\begin{gather*}
-    \| \overline{X}_1(\tau,s) - \overline{X}_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, \quad \mbox{where} \quad L_X = k_Y L_A k_X (T - t_0) .
-\end{gather*}
-Отсюда и из \eqref{xu} следует утверждение Леммы и $L_u(\varepsilon) = L_X(\varepsilon)\tau $.
-\hfill$\square$\\[1ex]%--- P r o o f.
+где $i = 1,2$.
 
 Теперь перейдем к определению дифференцируемости Фреше отображения $A_1(u(\cdot),\varepsilon)$ по $u(\cdot)$.
 Выберем произвольную $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\delta u(\cdot)$, так чтобы $\|\delta u(\cdot)\|_{\mathbb{L}_2} \leqslant \overline{\mu}-\mu$ и рассмотрим разность
@@ -427,7 +375,7 @@
 \end{gather}
 
 Изучим подробнее разность между решениями \eqref{sec3:nonlinear}, порожденнными $u(\cdot)$ и $u(\cdot) + \delta u(\cdot)$. 
-Из \eqref{nonlinear_solution} следует
+Выпишем разность этих решений
 \begin{gather}\label{diff_of_x}
     \begin{gathered}
         x\big(t,\varepsilon, u(\cdot) + \delta u(\cdot)\big) -
@@ -462,8 +410,8 @@
     \frac{\partial f}{\partial x}  \big(y, \tau\big) \right] \ d \xi \right) h.
 \end{gather*}
 
-Так как $D$ выпукло, $ y + \xi h \in D$ для всех0 $\leqslant \xi \leqslant 1$.
-Значит, используя Предположение \ref{as:right_hand_side_conditions_quasilinear},  мы можем получить следующую оценку
+Так как $D$ выпукло, $ y + \xi h \in D$ для всех $0 \leqslant \xi \leqslant 1$.
+Значит, используя Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip},  мы можем получить следующую оценку
 \begin{gather*}
     \|\omega(y,h,\tau)\| \leqslant l_f \left( \int\limits_0^1  \left\| \xi h \right\| \ d\xi \right)h  \leqslant \frac{l_f}{2} \|h\|^2.
 \end{gather*}
@@ -478,7 +426,7 @@
         \omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\tau\Big),
     \end{gathered}
 \end{gather}
-где (см. Лемму \ref{lem:Lipx})
+где (см. Лемму \ref{s1:lem:lip_of_solutions_global})
 \begin{gather}\label{omega_est}
     \left\|\omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\tau\Big)\right\| 
     \leqslant
@@ -545,7 +493,7 @@
 \end{gather}
 % In order to apply the Lemma \ref{LeibnizRule} to $A_1(u(\cdot),\varepsilon)$, we first have to show that the integrand in formula \eqref{A1_def} has a Lipschitz continuous derivative.
 % This derivative is equal to the product of $\frac{\partial f \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)} {\partial x}$ and $\frac{\partial x \big(\tau,\varepsilon, u(\cdot)\big)}{\partial u}$.
-Липшицевость $\delta x(\cdot)$ была установлена в Лемме \ref{lem:Lipdx}. 
+Липшицевость $\delta x(\cdot)$ была установлена в Лемме \ref{s1:lem:lip_dx_global}. 
 Производная $\frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)$ является липшицевой, как как композиция липшицевых функций.
 \begin{gather*}
     \left\| \frac{\partial f \Big(x\big(\tau,\varepsilon, u_1(\cdot)\big),\tau\Big)} {\partial x} - \frac{\partial f \Big(x\big(\tau,\varepsilon, u_2(\cdot)\big),\tau\Big)} {\partial x} \right\| \leqslant l_f \left\|x\big(\tau,\varepsilon, u_1(\cdot) \big) - x\big(\tau,\varepsilon, u_2(\cdot)\big) \right\| \leqslant \\ \leqslant l_f L_x(\varepsilon) \left\| u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, \quad \tau \in [t_0, T], \qquad u_1(\cdot), u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu).
@@ -582,7 +530,7 @@
 Таким образом, отображение $A_1(u(\cdot),\varepsilon)$, определенное в \eqref{A1_def}, удовлетворяет условию предположения \ref{as:derivative_of_A1}, и мы можем сформулировать основной результат этой главы в следующей теореме.
 
 \begin{theorem}\label{th:ReachableSetsConvexity}
-    Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
+    Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
 \doc. 
 Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость  $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
