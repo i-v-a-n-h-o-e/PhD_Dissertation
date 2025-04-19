@@ -156,6 +156,7 @@ jobs:
         with:
           scheme: full
           run: |
+            mv prev_version/Dissertation/* prev_version/
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
