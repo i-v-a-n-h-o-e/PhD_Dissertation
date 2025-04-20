@@ -139,15 +139,40 @@ jobs:
           shopt -s extglob
           cp -R !(compare_versions) compare_versions/prev
 
-      - name: Create archive with both states
-        run: |
-          tar -czf compare_versions.tar.gz -C compare_versions .
-
       - name: Upload archive as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: compare_versions_archive
-          path: compare_versions.tar.gz
+          name: compare_versions
+          path: .
+          
+      - name: Install latexdiff
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexdiff
+      
+      - name: Run latexdiff
+        run: |
+          if [ -f "prev_version/main.tex" ]; then
+            latexdiff "compare_versions/prev/main.tex" "compare_versions/current/main.tex" > "diff_main.tex"
+          else
+            echo "Error: prev_version/main.tex does not exist."
+            exit 1
+          fi
+      
+      - name: Compile diff
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
+
+      - name: Upload Diff PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: diff_output_pdf
+          path: diff_main.pdf
 
   create_and_upload_release:
     needs: [build_latex, prepares]
