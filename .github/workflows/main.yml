@@ -136,6 +136,8 @@ jobs:
 
       - name: Extract previous state into compare_versions/prev
         run: |
+          mkdir -p prev_state_of_repository
+          tar -xzf prev_state_of_repository.tar.gz -C prev_state_of_repository
           cp -R prev_state_of_repository/* compare_versions/prev
 
       - name: Create archive with both states
