@@ -116,6 +116,13 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
+      - name: Ensure prev_version directory exists
+        run: |
+          if [ ! -d "prev_version" ]; then
+            echo "Creating prev_version directory."
+            mkdir -p prev_version
+          fi
+
       - name: Create directory for previous version
         run: mkdir -p prev_version
 
@@ -124,6 +131,11 @@ jobs:
         with:
           name: prev_state_of_repository
           path: prev_version
+
+      - name: Debug prev_version contents after download
+        run: |
+          echo "Contents of prev_version after download:" 
+          ls -la prev_version/
 
       - name: Checkout current version
         uses: actions/checkout@v4
@@ -144,6 +156,7 @@ jobs:
 
       - name: Run latexdiff
         run: |
+          mv prev_version/PhD_Dissertation/* prev_version/
           if [ -f "prev_version/main.tex" ]; then
             latexdiff "prev_version/main.tex" "main.tex" > "diff_main.tex"
           else
@@ -156,7 +169,6 @@ jobs:
         with:
           scheme: full
           run: |
-            mv prev_version/Dissertation/* prev_version/
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
             lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
