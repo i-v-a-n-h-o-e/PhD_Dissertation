@@ -9,6 +9,12 @@ jobs:
   prepares:
     runs-on: ubuntu-latest
     steps:
+      - name: Set working directory
+        run: |
+          echo "Setting working directory to /home/runner/work/PhD_Dissertation/PhD_Dissertation"
+          cd /home/runner/work/PhD_Dissertation/PhD_Dissertation
+          echo "Working directory set to $(pwd)"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -56,6 +62,12 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - name: Set working directory
+        run: |
+          echo "Setting working directory to /home/runner/work/PhD_Dissertation/PhD_Dissertation"
+          cd /home/runner/work/PhD_Dissertation/PhD_Dissertation
+          echo "Working directory set to $(pwd)"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -87,6 +99,12 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
+      - name: Set working directory
+        run: |
+          echo "Setting working directory to /home/runner/work/PhD_Dissertation/PhD_Dissertation"
+          cd /home/runner/work/PhD_Dissertation/PhD_Dissertation
+          echo "Working directory set to $(pwd)"
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -116,6 +134,12 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
+      - name: Set working directory
+        run: |
+          echo "Setting working directory to /home/runner/work/PhD_Dissertation/PhD_Dissertation"
+          cd /home/runner/work/PhD_Dissertation/PhD_Dissertation
+          echo "Working directory set to $(pwd)"
+
       - name: Ensure prev_version directory exists
         run: |
           if [ ! -d "prev_version" ]; then
@@ -183,6 +207,12 @@ jobs:
     needs: [build_latex, prepares]
     runs-on: ubuntu-latest
     steps:
+      - name: Set working directory
+        run: |
+          echo "Setting working directory to /home/runner/work/PhD_Dissertation/PhD_Dissertation"
+          cd /home/runner/work/PhD_Dissertation/PhD_Dissertation
+          echo "Working directory set to $(pwd)"
+
       - name: Check outputs
         id: check_outputs
         run: |
