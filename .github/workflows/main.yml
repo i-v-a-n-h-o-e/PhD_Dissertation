@@ -112,59 +112,40 @@ jobs:
           path: .
 
   compare_versions:
-    needs: [build_latex, get_prev_state]
+    needs: [get_prev_state]
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - name: Create directory for previous version
-        run: mkdir -p prev_version
+      - name: Checkout current repository state
+        uses: actions/checkout@v3
 
-      - name: Download previous tex
+      - name: Create directories for comparison
+        run: |
+          mkdir -p compare_versions/current
+          mkdir -p compare_versions/prev
+
+      - name: Copy current repository state
+        run: |
+          cp -R . compare_versions/current
+
+      - name: Download previous state artifact
         uses: actions/download-artifact@v4
         with:
           name: prev_state_of_repository
-          path: prev_version
 
-      - name: Checkout current version
-        uses: actions/checkout@v4
-
-      - name: Install latexdiff
+      - name: Extract previous state into compare_versions/prev
         run: |
-          sudo apt-get update
-          sudo apt-get install -y latexdiff
+          cp -R prev_state_of_repository/* compare_versions/prev
 
-      - name: Debug file locations
+      - name: Create archive with both states
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
-          ls -la
-          echo "Prev version directory contents:"
-          ls -la prev_version/
+          tar -czf compare_versions.tar.gz -C compare_versions .
 
-      - name: Run latexdiff
-        run: |
-          if [ -f "prev_version/main.tex" ]; then
-            latexdiff "prev_version/main.tex" "main.tex" > "diff_main.tex"
-          else
-            echo "Error: prev_version/main.tex does not exist."
-            exit 1
-          fi
-
-      - name: Compile diff
-        uses: xu-cheng/texlive-action@v2
-        with:
-          scheme: full
-          run: |
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error diff_main.tex
-
-      - name: Upload Diff PDF as Artifact
+      - name: Upload archive as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: diff_output_pdf
-          path: diff_main.pdf
+          name: compare_versions_archive
+          path: compare_versions.tar.gz
 
   create_and_upload_release:
     needs: [build_latex, prepares]
