@@ -152,7 +152,8 @@ jobs:
       
       - name: Run latexdiff
         run: |
-          if [ -f "prev_version/main.tex" ]; then
+          ls -la
+          if [ -f "compare_versions/prev_version/main.tex" ]; then
             latexdiff "compare_versions/prev/main.tex" "compare_versions/current/main.tex" > "diff_main.tex"
           else
             echo "Error: prev_version/main.tex does not exist."
