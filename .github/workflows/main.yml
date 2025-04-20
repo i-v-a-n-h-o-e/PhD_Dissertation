@@ -126,7 +126,8 @@ jobs:
 
       - name: Copy current repository state
         run: |
-          cp -R . compare_versions/current
+          shopt -s extglob
+          cp -R !(compare_versions) compare_versions/current
 
       - name: Download previous state artifact
         uses: actions/download-artifact@v4
