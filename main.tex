@@ -50,6 +50,7 @@
 \usepackage[labelformat = parens,labelsep = colon]{subcaption}
 \renewcommand\thesubfigure{\Roman{subfigure}}
 \usepackage{todonotes}
+\usepackage{algorithm2e}
 
 
 \usepackage{fancyhdr} % Подключение пакета для работы с заголовками и колонтитулами
@@ -58,8 +59,10 @@
 \usepackage{tabularx}
  \newcolumntype{Y}{>{\raggedright\arraybackslash--- \ }X}
 
+
+
 \fancyhf{} % Очистка заголовков и колонтитулов
-\fancyfoot[L]{\color{gray}\textbf{2025-05-18--13-53-10}} % Добавление текста в правый колонтитул
+\fancyfoot[L]{\color{gray}\textbf{2025-05-18--15-53-33}} % Добавление текста в правый колонтитул
 % \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
 \renewcommand{\headrulewidth}{0pt} % Удаление линии заголовка
@@ -121,4 +124,5 @@
     \subfile{sections/conclusion}
     
     \subfile{sections/biblio}
+    \subfile{sections/appendix}
 \end{document}
