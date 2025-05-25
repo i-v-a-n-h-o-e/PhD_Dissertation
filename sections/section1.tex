@@ -1418,18 +1418,20 @@ u^T R u \leqslant \lambda_{max}(R) || u ||^2 $, где $ \lambda_{max}(R) $~--- 
 \end{gather*}
 при ограничениях
 \begin{gather}\label{s1:system2}
-	\begin{array}{l}
-		\left\{ {{{\begin{array}{l}
-						{{{\dot x}_1} = \cos {x_3}}\\
-						{{{\dot x}_2} = \sin {x_3}}\\
-						{{{\dot x}_3} = u}\\
-						{{{\dot x}_4} = {u^2}}
-		\end{array}}}} \right.{x_i}\left( 0 \right) = 0, \ i = 1,...,4,\\
-	\end{array}
-\end{gather}
-\begin{gather*}%\label{s1:constraints2}
+	\left\{
+	\begin{aligned}
+		\dot{x}_1 &= \cos x_3, \\
+		\dot{x}_2 &= \sin x_3, \\
+		\dot{x}_3 &= u, \\
+		\dot{x}_4 &= u^2
+	\end{aligned}
+	\right.
+	\qquad
+	x_i(0) = 0, \quad i = 1, \dots, 4,
+	\quad
 	{x_4}\left( \varepsilon  \right) \le {\mu ^2}.
-\end{gather*}
+\end{gather}
+
 Выпишем условие принципа максимума Понтрягина для данной задачи. 
 Рассмотрим функцию Понтрягина
 $
@@ -1445,14 +1447,12 @@ $
 \end{gather*}
 где $ p(t) = \left(p_1(t),p_2(t),p_3(t),p_4(t) \right)  $ -- решение сопряженной системы
 \begin{gather*}
-	\begin{array}{l}
-		\left\{ {{{\begin{array}{l}
-						{{{\dot p}_1} = -H_{x_1} = 0}\\
-						{{{\dot p}_2} = -H_{x_2} = 0}\\
-						{{{\dot p}_3} = -H_{x_3} = p_1 \sin x_3^0(t) - p_2 \cos x_3^0(t)}\\
-						{{{\dot p}_4} = -H_{x_4} = 0}
-		\end{array}}}} \right.
-	\end{array}
+		\left\{ \begin{aligned}
+						\dot{p}_1 &= -H_{x_1} = 0\\
+						\dot{p}_2 &= -H_{x_2} = 0\\
+						\dot{p}_3 &= -H_{x_3} = p_1 \sin x_3^0(t) - p_2 \cos x_3^0(t)\\
+						\dot{p}_4 &= -H_{x_4} = 0
+		\end{aligned} \right.
 \end{gather*}
 удовлетворяющее условию трансверсальности
 $
@@ -1468,14 +1468,12 @@ $\lambda_1 (x_4^0(\varepsilon) - \mu^2) = 0$.
 $H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
 В итоге получаем
 \begin{equation*}
-	\begin{array}{l}
-		\left\{ {{{\begin{array}{l}
-						{p_1 = -\lambda_0}\\
-						{p_2 = 0}\\
-						{{{\dot p}_3} = -\lambda_0 \sin x_3^0(t)}\\
-						{p_4 =  -\lambda_1}
-		\end{array}}}} \right.
-	\end{array}
+		\left\{ \begin{aligned}
+						p_1 &= -\lambda_0\\
+						p_2 &= 0\\
+						\dot{p}_3 &= -\lambda_0 \sin x_3^0(t)\\
+						p_4 &=  -\lambda_1
+		\end{aligned} \right.
 \end{equation*}
 Если $ \lambda_1 = 0 $, то максимум $ H $ по $ u $ не достигается, что противоречит принципу максимума. 
 Значит $ \lambda_1 \neq 0 $ и, следовательно, $p_4=-\lambda_1  \neq 0$. 
@@ -1485,14 +1483,12 @@ $H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
 
 Таким образом, $ \lambda_0 \neq 0 $, $ u^0(t) = \dfrac{1}{2}\lambda_1^{-1}p_3 $, и пара $ (x_3^0,p_3) $ есть решение краевой задачи.
 \begin{gather}\label{s1:boundary}
-	\begin{array}{l}
-		\left\{ {{{\begin{array}{l}
-						{{{\dot p}_3} = -\lambda_0 \sin x_3}\\
-						{{{\dot x}_3} =  \dfrac{1}{2}\lambda_1^{-1}p_3}\\
-						{p_3(\varepsilon) = 0} \\
-						{x_3(0) = 0}
-		\end{array}}}} \right.
-	\end{array}
+		\left\{ \begin{aligned}
+		& \dot{p}_3 = -\lambda_0 \sin x_3\\
+		& \dot{x}_3 =  \dfrac{1}{2}\lambda_1^{-1}p_3\\
+		& p_3(\varepsilon) = 0 \\
+		& x_3(0) = 0
+		\end{aligned} \right.
 \end{gather}
 
 Из второго уравнения системы \eqref{s1:system2} получаем
