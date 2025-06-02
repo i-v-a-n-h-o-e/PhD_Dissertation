@@ -96,7 +96,7 @@ jobs:
       - name: Get HEAD~1 commit
         id: get_previous_commit
         run: |
-          COMMIT_SHA=$(git rev-parse HEAD~1)
+          COMMIT_SHA=a1a631f9a9a8ed47df3da4085921519e1867e8f0
           echo "commit_sha=$COMMIT_SHA" >> $GITHUB_ENV
 
         # Checkout the repo at HEAD~1
@@ -153,7 +153,7 @@ jobs:
       - name: Run latexdiff
         run: |
           if [ -f "compare_versions/prev/main.tex" ]; then
-            latexdiff "compare_versions/prev/main.tex" "compare_versions/current/main.tex" > "diff_main.tex"
+            latexdiff --flatten "compare_versions/prev/main.tex" "compare_versions/current/main.tex" > "diff_main.tex"
           else
             echo "Error: prev_version/main.tex does not exist."
             exit 1
