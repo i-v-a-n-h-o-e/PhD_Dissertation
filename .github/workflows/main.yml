@@ -90,7 +90,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 3
+          fetch-depth: 10
 
         # Determine HEAD~1 commit
       - name: Get HEAD~1 commit
