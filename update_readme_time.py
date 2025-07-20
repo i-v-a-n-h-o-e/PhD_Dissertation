@@ -10,7 +10,8 @@ def update_readme_timestamp(content, current_time):
 def update_pdf_links(content, current_time):
     patterns = [
         (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation.pdf', f'{current_time}_Dissertation.pdf'),
-        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_keys.pdf', f'{current_time}_Dissertation_keys.pdf')
+        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_keys.pdf', f'{current_time}_Dissertation_keys.pdf'),
+        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_keys.pdf', f'{current_time}_Dissertation_diff.pdf')
     ]
     for pattern, replacement in patterns:
         content = re.sub(pattern, replacement, content)
