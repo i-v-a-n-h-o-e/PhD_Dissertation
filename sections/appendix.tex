@@ -4,9 +4,9 @@
 \setcounter{section}{0}% Сбрасываем счетчик в 0 (чтобы первое приложение было A)
 \renewcommand{\thesection}{\Alph{section}}% Формат метки
 \refstepcounter{section}
-\section*{Приложение \Alph{section}.  Численный метод построения множеств достижимости систем при интегрально-квадратичных ограничениях на управление}% Заголовок с "Приложение A"
+\section*{Приложение \Alph{section}.  Численный метод построения множеств достижимости при интегрально-квадратичных ограничениях на управление}% Заголовок с "Приложение A"
 \label{app:A}% Метка с буквой (например, app:A)
-\addcontentsline{toc}{section}{Приложение \Alph{section}. Численный метод построения множеств достижимости систем при интегрально-квадратичных ограничениях на управление}% Добавляем в оглавление
+\addcontentsline{toc}{section}{Приложение \Alph{section}. Численный метод построения множеств достижимости при интегрально-квадратичных ограничениях на управление}% Добавляем в оглавление
 \renewcommand{\theequation}{\Alph{section}.\arabic{equation}}% Формат A.1 для формул
 \setcounter{equation}{0}
   Построение множества достижимости управляемой динамической системы позволяет получить решение или хорошее начальное
@@ -58,6 +58,12 @@
   \end{gather}
   где $p(t) = \big(p_{0}(t),p_{1}(t),\dots,p_{k}(t)\big)$, $p: [t_0, {T}] \rightarrow \mathbb{R}^{k+1} $ --- вектор-функция, состоящая из ортонормированных скалярных функций в пространстве $\mathbb{L}_2[t_0, {T}]$, а $C_i \in \mathbb{R}^{r \times k+1}$ --- матрица коэффициентов. 
   
+  Например, $p(t)$ для интервала $[0,1]$ можно составить из полиномов Лежандра:
+  \begin{gather*}
+  	p_0(t) = 1, \quad p_1(t) = 3.46t-1.73, \quad p_2(t) = 13.41t^2 - 13.41t + 2.24, \\ \quad 
+  	p_3(t) = 52.92t^3 - 79.37t^2+31.75t -2.65, ...
+  \end{gather*}
+  
   Для того, чтобы такие управления, разложенные по системе ортонормированных функций, удовлетворяли ограничению \eqref{a1:constraints} оказывается достаточно, чтобы $\|C_i\| \leqslant \mu$, где $\|\cdot\| $ --- фробениусова норма матрицы.
   
   Ниже приведен псевдокод алгоритма построения множества достижимости системы \eqref{a1:common_nonlinear} с ограничениями \eqref{a1:constraints}.
@@ -79,6 +85,111 @@
   Итерации алгоритма не зависимы друг от друга, что позволяет вычислять концы траекторий $x_i$ параллельно. 
   Это, в свою очередь, позволяет увеличивать $N$, сохраняя время работы алгоритма в разумных пределах.
   
-  В докладе приведены примеры построения множеств достижимости линейных и нелинейных систем, иллюстрирующие некоторые особенности алгоритма. Также приведена зависимость времени работы алгоритма от числа точек $N$.
+  \subsection{Простые примеры}
+  На интервале времени $ 0 \leqslant t \leqslant 1$ рассмотрим линейную систему 
+  \begin{gather*}
+  	\begin{pmatrix} 
+  		\dot{x}_1 \\
+  		\dot{x}_2  
+  	\end{pmatrix} = 
+  	\begin{pmatrix}
+  		0 & 1 \\
+  		-2 & -3
+  	\end{pmatrix}
+  	\begin{pmatrix} 
+  		x_1 \\
+  		x_2  
+  	\end{pmatrix} +
+  	\begin{pmatrix} 1 \\ 0
+  	\end{pmatrix} u
+  \end{gather*}
+  при ограничениях на управление 
+  \begin{gather*}
+  	\int\limits_0^1 u^2dt \leqslant 1.
+  \end{gather*}
+  \begin{figure}[ht!] 
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=1000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=0_x1-x2_0.tex}
+%  		\subcaption{$ \overline{G}_{1,2}(\varepsilon) $ системы \eqref{unicycle0};}
+%  		\label{fig:u=0_x1-x2} 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=1_x1-x2_0.tex}
+%  		\subcaption{$ \overline{G}_{1,2}(\varepsilon) $ системы \eqref{unicycle1};}
+%  		\label{fig:u=1_x1-x2}  
+  	\end{minipage} 
+  	\vfill
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=100000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=0_x1-x3_0.tex}
+%  		\subcaption{$ \overline{G}_{1,3}(\varepsilon) $ системы \eqref{unicycle0};}
+%  		\label{fig:u=0_x1-x3} 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=1000000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=1_x1-x3_0.tex}
+%  		\subcaption{$ \overline{G}_{1,3}(\varepsilon) $ системы \eqref{unicycle1};}
+%  		\label{fig:u=1_x1-x3}  
+  	\end{minipage} 
+%  	\caption{Результаты численного эксперимента для $ \varepsilon = 0.01 $.}\label{fig:RS}
+  \end{figure}
+  
+   \begin{figure}[ht!] 
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=1000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=0_x1-x2_0.tex}
+  		%  		\subcaption{$ \overline{G}_{1,2}(\varepsilon) $ системы \eqref{unicycle0};}
+  		%  		\label{fig:u=0_x1-x2} 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=1_x1-x2_0.tex}
+  		%  		\subcaption{$ \overline{G}_{1,2}(\varepsilon) $ системы \eqref{unicycle1};}
+  		%  		\label{fig:u=1_x1-x2}  
+  	\end{minipage} 
+  	\vfill
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=100000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=0_x1-x3_0.tex}
+  		%  		\subcaption{$ \overline{G}_{1,3}(\varepsilon) $ системы \eqref{unicycle0};}
+  		%  		\label{fig:u=0_x1-x3} 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.49\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=500000__degree_of_polynom=5.eps}
+  		%\input{OsipovI_u=1_x1-x3_0.tex}
+  		%  		\subcaption{$ \overline{G}_{1,3}(\varepsilon) $ системы \eqref{unicycle1};}
+  		%  		\label{fig:u=1_x1-x3}  
+  	\end{minipage} 
+  	%  	\caption{Результаты численного эксперимента для $ \varepsilon = 0.01 $.}\label{fig:RS}
+  \end{figure}
+  \subsection{Влияние выбора коэффициентов }
+  \subsection{Особенность линейных управлений}
+  \subsection{Другие примеры}
   
 \end{document}
