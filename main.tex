@@ -18,6 +18,7 @@
 \usepackage[onehalfspacing]{setspace} % Опция запуска пакета правит не только интервалы в обычном тексте, но и формульные
 \usepackage{needspace}
 \usepackage{cite}
+\usepackage{lastpage}
 
 \usepackage{tocloft}
 \setcounter{tocdepth}{3}
@@ -63,11 +64,19 @@
 
 
 \fancyhf{} % Очистка заголовков и колонтитулов
-\fancyfoot[L]{\color{gray}\textbf{2025-08-10--22-12-37}} % Добавление текста в правый колонтитул
+\fancyfoot[L]{\color{gray}\textbf{2025-08-13--14-00-14}} % Добавление текста в правый колонтитул
 % \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
 \renewcommand{\headrulewidth}{0pt} % Удаление линии заголовка
 \pagestyle{fancy} % Применение настроек к каждой странице
+
+\usepackage{totcount} % Подключаем пакет для подсчёта общего значения
+\newcounter{bibcount} % Ваш счётчик
+\regtotcounter{bibcount} % Регистрируем его для totcount
+
+\let\oldbibitem\bibitem
+\renewcommand{\bibitem}[1]{\stepcounter{bibcount}\oldbibitem{#1}}
+
 
 \usepackage{subfiles} % ЗBest loaded last in the preamble
 \ifdefined\showlabels
@@ -104,6 +113,7 @@
 \hyphenation{непрерывно-диф-фе-рен-ци-ру-е-мы-ми}
 \hyphenation{нуль-у-пра-вля-ем-ост-и}
 \hyphenation{со-от-вет-ству-ю-ща-я}
+
 %-----------------------------------------------------------------------
 
 \begin{document}
