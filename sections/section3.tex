@@ -22,17 +22,17 @@
 \end{gather}
 где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $t_0$ --- неотрицательное число, $T$ --- положительное число, а $\varepsilon$ --- малый параметр, такой что $\varepsilon \in [0,\overline{\varepsilon}]$, $ \overline{\varepsilon} > 0$. 
 Матричные отображения  $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполагаются непрерывными. 
-Вектор функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по  $x$.
+Вектор-функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по  $x$.
 
 Система \eqref{sec3:nonlinear} является частным случаем системы \eqref{s1:common_nonlinear}, которая исследовалась в Главе \ref{s1}, при $f_1(t,x) = A(t) x(t) + \varepsilon f(x(t),t)$ и $f_2(t, x(t)) = B(t)$.
 
-Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $ где $ \mu > 0$.
+Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $, где $ \mu > 0$.
 
-Каждому управлению $u(\cdot) \in \mathbb{L}_2$ и любому $\varepsilon \in [0,\overline{\varepsilon}]$ соответствует единственное абсолютное непрерывное решение $ x(t,\varepsilon, u(\cdot)) $ системы \eqref{sec3:nonlinear}, удовлетворяющее начальному условию $ x(t_0,\varepsilon, u(\cdot)) = x_0$, и это решение продолжимо на интервал $[t_0, t_0 + \Delta]$, где $t_0 + \Delta < T$. 
+Каждому управлению $u(\cdot) \in \mathbb{L}_2$ и любому $\varepsilon \in [0,\overline{\varepsilon}]$ соответствует единственное абсолютно непрерывное решение $ x(t,\varepsilon, u(\cdot)) $ системы \eqref{sec3:nonlinear}, удовлетворяющее начальному условию $ x(t_0,\varepsilon, u(\cdot)) = x_0$, и это решение продолжимо на интервал $[t_0, t_0 + \Delta]$, где $t_0 + \Delta < T$. 
 
-Далее, мы будем считать что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы  \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0,T$.
+Далее, мы будем считать, что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы  \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0, T]$.
 
-В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Fillipov2}:
+В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если  $f$ удовлетворяет одному из следующих условий \cite{Filippov2}:
 \begin{gather}\label{sec3:sublinear_growth}
     \left\|f\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \\ 
     x \cdot f(x,t) \leqslant a(t) \|x\|^2 + b(t),
@@ -60,7 +60,7 @@
 \begin{gather}\label{regular}
     \| A_0^*y\| \geqslant \nu \|y\|, \quad \forall y \in Y.
 \end{gather}
-Здесь $A_0^* $ --- сопряженный к$A_0$ линейный оператор.
+Здесь $A_0^* $ --- сопряженный к $A_0$ линейный оператор.
 Наконец,  $A_1: B_X(0, r) \times \mathbb{R}_+ \to Y $ --- это нелинейный оператор, непрерывный по $x$ и $\varepsilon$.
 \begin{assumption}\label{as:derivative_of_A1}
     Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ отображение $A_1(x, \varepsilon)$  имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$  которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
@@ -96,7 +96,7 @@
 Рассмотрим две произвольные точки, $x_1$ и $x_2$, из шара $B_X(0,r)$. 
 Обозначим $x_0 = \frac{1}{2}(x_1 + x_2)$, $y(\varepsilon) = \frac{1}{2}\big(y_1(\varepsilon)  + y_2(\varepsilon)\big)$, где $y_1(\varepsilon) = F(x_1, \varepsilon)$ и $y_2(\varepsilon) = F(x_2, \varepsilon)$. 
 
-Для того, чтобы доказать выпуклость множества $F\big(B_X(0,r),\varepsilon\big)$, достаточно показать, что $y(\varepsilon) \in F\big(B_X(0,r),\varepsilon\big)$ или, что тоже самое, найдется такое $x^* \in B_X(0,r) $, что $F(x^*, \varepsilon) = y(\varepsilon) $.
+Для того, чтобы доказать выпуклость множества $F\big(B_X(0,r),\varepsilon\big)$, достаточно показать, что $y(\varepsilon) \in F\big(B_X(0,r),\varepsilon\big)$ или, что то же самое, найдется такое $x^* \in B_X(0,r) $, что $F(x^*, \varepsilon) = y(\varepsilon) $.
 Выпишем выражение для $y(\varepsilon)$
 \begin{gather}\label{y}
     \begin{gathered}
@@ -233,7 +233,7 @@
     \frac{\partial X(t,\tau)}{\partial t} = A(t) X(T,\tau), \qquad X(\tau,\tau) = I.
 \end{gather*}
 
-Если $x(\cdot,\varepsilon, u(\cdot))$ --- решение \eqref{sec3:nonlinear}, порожденное управлением $u(\cdot)$ и начальными условием $x_0$,  то оно удовлетворяет интегральному уравнению
+Если $x(\cdot,\varepsilon, u(\cdot))$ --- решение \eqref{sec3:nonlinear}, порожденное управлением $u(\cdot)$ и начальным условием $x_0$,  то оно удовлетворяет интегральному уравнению
 \begin{gather*}
     x\big(T,\varepsilon, u(\cdot)\big) =
     X(T,t_0)x_0 + 
@@ -374,7 +374,7 @@
     f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) \right]\ d\tau.
 \end{gather}
 
-Изучим подробнее разность между решениями \eqref{sec3:nonlinear}, порожденнными $u(\cdot)$ и $u(\cdot) + \delta u(\cdot)$. 
+Изучим подробнее разность между решениями \eqref{sec3:nonlinear}, порожденными $u(\cdot)$ и $u(\cdot) + \delta u(\cdot)$. 
 Выпишем разность этих решений
 \begin{gather}\label{diff_of_x}
     \begin{gathered}
@@ -494,7 +494,7 @@
 % In order to apply the Lemma \ref{LeibnizRule} to $A_1(u(\cdot),\varepsilon)$, we first have to show that the integrand in formula \eqref{A1_def} has a Lipschitz continuous derivative.
 % This derivative is equal to the product of $\frac{\partial f \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)} {\partial x}$ and $\frac{\partial x \big(\tau,\varepsilon, u(\cdot)\big)}{\partial u}$.
 Липшицевость $\delta x(\cdot)$ была установлена в Лемме \ref{s1:lem:lip_dx_global}. 
-Производная $\frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)$ является липшицевой, как как композиция липшицевых функций.
+Производная $\frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)$ является липшицевой как композиция липшицевых функций.
 \begin{gather*}
     \left\| \frac{\partial f \Big(x\big(\tau,\varepsilon, u_1(\cdot)\big),\tau\Big)} {\partial x} - \frac{\partial f \Big(x\big(\tau,\varepsilon, u_2(\cdot)\big),\tau\Big)} {\partial x} \right\| \leqslant l_f \left\|x\big(\tau,\varepsilon, u_1(\cdot) \big) - x\big(\tau,\varepsilon, u_2(\cdot)\big) \right\| \leqslant \\ \leqslant l_f L_x(\varepsilon) \left\| u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, \quad \tau \in [t_0, T], \qquad u_1(\cdot), u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu).
 \end{gather*}
@@ -530,17 +530,17 @@
 Таким образом, отображение $A_1(u(\cdot),\varepsilon)$, определенное в \eqref{A1_def}, удовлетворяет условию предположения \ref{as:derivative_of_A1}, и мы можем сформулировать основной результат этой главы в следующей теореме.
 
 \begin{theorem}\label{th:ReachableSetsConvexity}
-    Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, тогда существует такое положительное значение $\varepsilon_0$ что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпуклы для всех $\varepsilon < \varepsilon_0$. 
+    Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, тогда существует такое положительное значение $\varepsilon_0$, что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпукло для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
 \doc. 
 Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость  $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
 \hfill$\square$\\[1ex]%--- P r o o f.
 
 \begin{zam}  
-    В статье \cite{Albrecht2}, Э.\,Г.~Альбрехт исследовал опорные функции множеств достижимости квазилинейных систем с интегральными ограничениями. 
-В этой работе определены условия, при которых опорные функции множеств достижимости непрерывно зависят от малого параметра. 
-Автор также отметил, что непрерывная зависимость множества достижимости от параметра означает его выпуклость при малых значениях малого параметра, однако никаких доказательств этого факта не приведено. 
-Более того, из непрерывности множества достижимости не следует их выпуклость.
+    В статье \cite{Albrecht2} исследованы опорные функции множеств достижимости квазилинейных систем с интегральными ограничениями и доказана их непрерывная зависимость от малого параметра.
+    Это влечет непрерывную зависимость множеств достижимости от малого параметра. 
+    Автор также отметил, что из непрерывной зависимости множеств достижимости от параметра вытекает его выпуклость при малых значениях малого параметра, однако никаких доказательств этого факта не приведено. 
+    Более того, непрерывности множества достижимости недостаточно для доказательства его выпуклости.
 \end{zam}
 
 \subsection{Примеры}
@@ -560,7 +560,7 @@
     \begin{gather}\label{Duffing_controls}
         \int\limits_0^2u^2dt \leqslant 1.
     \end{gather}
-    При $\varepsilon = 0$, уравнения s \eqref{sec3:Duffing} описывают линейную систему с матрицами 
+    При $\varepsilon = 0$, уравнения \eqref{sec3:Duffing} описывают линейную систему с матрицами 
     \begin{gather*}
         A = \begin{pmatrix} 0 & 1\\
             -1 & 0
@@ -592,7 +592,7 @@
     Применяя теорему сравнения к этому неравенству, можно получить, что $v_{\varepsilon}(\tau,x(\tau)) \leqslant \tau$ и, следовательно, $\|x(\tau)\|^2 \leqslant 2 \tau$. 
     Используя известную технику, можно сделать вывод, что любое решение \eqref{sec3:Duffing}, порожденное управлением $u(\cdot)\ в B_{\mathbb{L}_2}(0,1)$ и нулевым начальным состоянием, может быть продолжено на временной интервал $[0,2]$ и принадлежит выпуклому множеству $D = B_{\mathbb{R}^n}(0,2)$.
     
-    Условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и ее производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве D.
+    Условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и ее производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве D.
     
     \begin{figure}[t]
         \centerline{
@@ -650,7 +650,7 @@
             1
         \end{pmatrix},
     \end{gather*}
-    а при $\varepsilon = 1$, они описываю уницикл. 
+    а при $\varepsilon = 1$, они описывают уницикл. 
     Нелинейное слагаемое состоит из малого параметра и функции
     \begin{gather*}
         f(x) = \begin{pmatrix}
@@ -660,7 +660,7 @@
         \end{pmatrix}.
     \end{gather*}
     
-    Начальные состояние --- нулевые, $x_1(0) = x_2(0) = x_3(0) $, ограничения на управление такие же, как и в первом примере, но мы будем рассматривать эту систему на временном интервале $0 \leqslant t \leqslant 1$.
+    Начальное состояние --- нулевое, $x_1(0) = x_2(0) = x_3(0) $, ограничения на управление такие же, как и в первом примере, но мы будем рассматривать эту систему на временном интервале $0 \leqslant t \leqslant 1$.
     
     Как и в предыдущем примере, условия предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены, что позволяет применить Теорему \ref{th:ReachableSetsConvexity}. 
     На рисунке \ref{fig:LinearDubins} показаны проекции на плоскость $(x_1,x_2)$ численно построенных множеств достижимости $G^{\varepsilon}(T,\mu)$ для системы \eqref{Linear+Dubins}. 
