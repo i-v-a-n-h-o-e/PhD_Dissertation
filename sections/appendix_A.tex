@@ -51,11 +51,11 @@
   По определению, все такие точки лежат в множестве достижимости $G(T,\mu)$.
   
   Ключевым вопросом является конструирование множества управлений $U$.
-  В случае геометрических ограничений, управления, которые ведут на границу, как правило, разрывны.
-  Соответственно, для того, чтобы точнее построить границу множества достижимости, разумно строить множество перебираемых управлений именно из разрывных функций. 
-  В случае же интегральных ограничений, на границу ведут, как правило, непрерывные управления. 
+  В случае геометрических ограничений, управления, которые ведут на границу, как правило, относятся к классу кусочно-постоянных (ступенчатых или релейных) функций.
+  Соответственно, для того, чтобы точнее построить границу множества достижимости, разумно строить множество перебираемых управлений именно из таких функций. 
+  В случае же интегральных ограничений, систему можно перевести в любую точку множества достижимости (в том числе в граничную) используя только непрерывные управления, поэтому необходимо перебирать непрерывные функции. 
   Рассматриваемый метод предполагает заполнение этого множества управлениями вида 
-  \begin{gather}
+  \begin{gather}\label{a1:control}
   	u_i(t) = C_i p (t),
   \end{gather}
   где $p(t) = \big(p_{0}(t),p_{1}(t),\dots,p_{k}(t)\big)$, $p: [t_0, {T}] \rightarrow \mathbb{R}^{k+1} $ --- вектор-функция, состоящая из ортонормированных скалярных функций в пространстве $\mathbb{L}_2[t_0, {T}]$, а $C_i \in \mathbb{R}^{r \times k+1}$ --- матрица коэффициентов. 
@@ -66,6 +66,7 @@
   	p_3(t) = 52.92t^3 - 79.37t^2+31.75t -2.65, ...
   \end{gather*}
   
+  Ортонормированные полиномы позволяют легко учитывать интегральные квадратичные ограничения.
   Для того, чтобы такие управления, разложенные по системе ортонормированных функций, удовлетворяли ограничению \eqref{a1:constraints} оказывается достаточно, чтобы $\|C_i\| \leqslant \mu$, где $\|\cdot\| $ --- фробениусова норма матрицы.
   Действительно,
   \begin{gather}\label{a1:norm1}
@@ -90,7 +91,7 @@
   
   Заметим, что процедура случайного перебора таких матриц $C$ может быть организована различными способами, о некоторых из которых будет рассказано ниже.
   
-  Ниже приведен псевдокод Алгоритма \ref{ap:method} построения множества достижимости системы \eqref{a1:common_nonlinear} с ограничениями \eqref{a1:constraints}.
+  Описанный алгоритм построения множества достижимости системы \eqref{a1:common_nonlinear} с ограничениями \eqref{a1:constraints} легко реализовать, что видно из псевдокода \ref{ap:method}.
   \RestyleAlgo{ruled}
   \begin{algorithm}[hbt!]
   	\SetKwFunction{Propagate}{Propagate}
@@ -107,40 +108,79 @@
   	 \label{ap:method}
   \end{algorithm}
   
-  Полученное с помощью описанного алгоритма множество концов траекторий $\{x_i\}_{i = 1}^{N}$ при достаточно большом $N$ дает представление о форме и размерах множества достижимости и его проекций. 
+  Полученное с помощью такого алгоритма множество концов траекторий $\{x_i\}_{i = 1}^{N}$ при достаточно большом $N$  и $k$ дает представление о форме и размерах множества достижимости и его проекций. 
+  Повышение точности при увеличении числа ортонормированных функций $k$ следует из теоремы о наилучшем приближении в гильбертовом пространстве (см., например, \cite{Kolmogorov}). 
+  
+  Фактически, представление \eqref{a1:control} можно считать частичной суммой ряда Фурье по системе функций $p(t)$ для некоторой функции из $\mathbb{L}_2[t_0, {T}]$. 
+  Из равенства Бесселя следует, что ошибка аппроксимации уменьшается при увеличении количества членов ряда. 
+  
+  Таким образом, при увеличении $k$ увеличивается точность аппроксимации непрерывных управлений. 
+  Однако, увеличение $k$ может приводить к накоплению ошибок округления при использовании алгоритма Грама-Шмидта (CGS, classical Gram–Schmidt). 
+  От использования этого алгоритма можно отказаться при использовании полиномов Лежандра, для которых существуют рекуррентные формулы, обеспечивающие численную устойчивость. 
+  Но при использовании произвольных базисных функций (например, гармонических или радиально-базисных функций) для сохранения точности при увеличении $k$ необходимо использовать более устойчивые алгоритмы ортогонализации, например, модифицированный алгоритма  Грама-Шмидта (MGS, modified Gram-Schmidt).
+  
   Итерации алгоритма не зависимы друг от друга, что позволяет вычислять концы траекторий $x_i$ параллельно. 
   Это, в свою очередь, позволяет увеличивать $N$, сохраняя время работы алгоритма в разумных пределах.
   
   \subsection{Простые примеры}
   \begin{figure}[ht!] 
   	\hspace{-2.5ex}
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering 
   		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=1000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^3 $ }
+  		\subcaption{$ N = 10^3 $, $ k = 5 $ }
   	\end{minipage}
   	\hfill
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=1.eps}
+  		\subcaption{$ N = 10^4  $,  $ k = 1 $ }
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering
   		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^4  $ }
+  		\subcaption{$ N = 10^4  $ , $ k = 5 $}
   	\end{minipage} 
   	\vfill
   	\hspace{-2.5ex}
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=8.eps}
+  		\subcaption{$ N = 10^4 $, $ k = 8 $ }
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=10.eps}
+  		\subcaption{$ N = 10^4  $, $ k = 10 $ }
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=10000__degree_of_polynom=15.eps}
+  		\subcaption{$ N = 10^4  $, $ k = 15 $ }
+  	\end{minipage} 
+  	\vfill
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering 
   		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=100000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^5  $ }
+  		\subcaption{$ N = 10^5  $, $ k = 5 $ }
   	\end{minipage}
   	\hfill
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering
   		\includegraphics[width=\linewidth]{images/linear_system__number_of_points=1000000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^6  $ } 
+  		\subcaption{$ N = 10^6  $, $ k = 5 $  } 
   	\end{minipage} 
   	\caption{Результаты численного эксперимента для системы \eqref{ap:linear_system1}.}\label{fig:ap:rs_linear1}
   \end{figure}
@@ -166,39 +206,159 @@
   	\int\limits_0^1 u^2dt \leqslant 1.
   \end{gather*}
   
-  На рисунке \ref{fig:ap:rs_linear1} показаны множества достижимости системы \eqref{ap:linear_system1} при различных $N$.
+  На рисунке \ref{fig:ap:rs_linear1} показаны множества достижимости системы \eqref{ap:linear_system1} при различных $N$ и $k$.
   Красная линия --- граница множества достижимости, вычисленного аналитически.
-  Видно, что при увеличении количестве точек, они заполняют множество достижимости.
+  Видно, что при увеличении количестве точек, они заполняют множество достижимости, а также, что при использовании линейных полиномов точки лежат на эллипсоиде, близком к границе множества достижимости. 
+  Этот эффект будет обсужден ниже.
   
    \begin{figure}[ht!] 
   	\hspace{-2.5ex}
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering 
-  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=1000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^3  $ } 
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=5000__degree_of_polynom=1__t=1.eps}
+  		\subcaption{$ N = 5\cdot10^3 $, $ k = 1 $, $ t = 1 $ }
   	\end{minipage}
   	\hfill
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering
-  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^4  $ } 
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=5000__degree_of_polynom=1__t=2pi.eps}
+  		\subcaption{$ N = 5\cdot10^3 $, $ k = 1 $, $ t = 2\pi $}
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=5000__degree_of_polynom=5__t=1.eps}
+  		\subcaption{$ N = 5\cdot10^3 $, $ k = 5 $, $ t = 1 $}
   	\end{minipage} 
   	\vfill
   	\hspace{-2.5ex}
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=5000__degree_of_polynom=5__t=2pi.eps}
+  		\subcaption{$ N = 5\cdot10^3 $, $ k = 5 $, $ t = 2\pi $ }
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=50000__degree_of_polynom=1__t=1.eps}
+  		\subcaption{$ N = 5\cdot10^4 $, $ k = 1 $, $ t = 1 $}
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=50000__degree_of_polynom=1__t=2pi.eps}
+  		\subcaption{$ N = 5\cdot10^4 $, $ k = 1 $, $ t = 2\pi $ }
+  	\end{minipage} 
+  	\vfill
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=50000__degree_of_polynom=5__t=1.eps}
+  		\subcaption{$ N = 5\cdot10^4 $, $ k = 5 $, $ t = 1 $}
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/oscil__number_of_points=50000__degree_of_polynom=5__t=2pi.eps}
+  		\subcaption{$ N = 5\cdot10^4 $, $ k = 5 $, $ t = 2\pi $ } 
+  	\end{minipage} 
+  	\caption{Результаты численного эксперимента для системы \eqref{ap:linear_oscil1}.}\label{fig:ap:rs_linear_oscil}
+  \end{figure}
+  \textbf{Линейный осцилятор.} На интервалах времени $ 0 \leqslant t \leqslant 1$  и $ 0 \leqslant t \leqslant 2\pi$ рассмотрим линейную систему 
+  \begin{gather}\label{ap:linear_oscil1}
+  	\begin{pmatrix} 
+  		\dot{x}_1 \\
+  		\dot{x}_2  
+  	\end{pmatrix} = 
+  	\begin{pmatrix}
+  		0 & 1 \\
+  		-1 & 0
+  	\end{pmatrix}
+  	\begin{pmatrix} 
+  		x_1 \\
+  		x_2  
+  	\end{pmatrix} +
+  	\begin{pmatrix} 0 \\ 1
+  	\end{pmatrix} u
+  \end{gather}
+  при нулевых начальных условиях $x_1(0) = x_2(0) = 0 $ и ограничениях на управление 
+  \begin{gather*}
+  	\int\limits_0^1 u^2dt \leqslant 1.
+  \end{gather*}
+  
+  На рисунке \ref{fig:ap:rs_linear_oscil} показаны множества достижимости системы \eqref{ap:linear_oscil1} при различных $N$, $k$ и интервалах времени.
+  Красная линия --- граница множества достижимости, вычисленного аналитически.
+  Видно, что при увеличении количестве точек, они заполняют множество достижимости.
+  Как и в предыдущем примере, видно, что при использовании линейных полиномов на малом промежутке времени, $t = 1$ точки лежат на эллипсе, близком к границе множества достижимости, однако, при использовании таких же полиномов на интервале $t = 2\pi$ точки лежат на одном отрезке, который находится внутри множества достижимости. 
+  Также, можно заметить, что даже при большом количестве точек на интервале  $t = 2\pi$, они не покрывают все множество достижимости, особенно рядом с границей.
+  Это можно объяснить тем, что управления, которые ведут на границу множества достижимости системы  \eqref{ap:linear_oscil1} являются периодическими функциями, и плохо аппроксимируются полиномами, которые были использованы в алгоритме.
+  
+   \begin{figure}[ht!] 
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=1000__degree_of_polynom=5.eps}
+  		\subcaption{$ N = 10^3  $, $k = 5 $ } 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=1.eps}
+  		\subcaption{$ N = 10^4  $, $k = 1 $ } 
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=5.eps}
+  		\subcaption{$ N = 10^4  $, $k = 5 $ } 
+  	\end{minipage}
+	 \vfill
+	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=8.eps}
+  		\subcaption{$ N = 10^4  $, $k = 8 $} 
+  	\end{minipage} 
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering 
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=10.eps}
+  		\subcaption{$ N = 10^4  $, $k = 10 $ } 
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[b]{.3\linewidth} 
+  		\small
+  		\centering
+  		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=10000__degree_of_polynom=16.eps}
+  		\subcaption{$ N = 10^4  $, $k = 16 $} 
+  	\end{minipage} 
+  		\vfill
+  	\hspace{-2.5ex}
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering 
   		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=100000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 10^5  $ } 
+  		\subcaption{$ N = 10^5  $, $k = 5 $ } 
   	\end{minipage}
   	\hfill
-  	\begin{minipage}[b]{.4\linewidth} 
+  	\begin{minipage}[b]{.3\linewidth} 
   		\small
   		\centering
   		\includegraphics[width=\linewidth]{images/bilinear_system__number_of_points=500000__degree_of_polynom=5.eps}
-  		\subcaption{$ N = 5\cdot10^5  $ } 
+  		\subcaption{$ N = 5\cdot10^5  $, $k = 5 $} 
   	\end{minipage} 
   	\caption{Результаты численного эксперимента для системы \eqref{ap:nonlinear_system1}.}\label{fig:ap:rs_nonlinear1}
   \end{figure}
@@ -216,7 +376,7 @@
    	\int\limits_0^1 u^2dt \leqslant 1.
    \end{gather*}
    
-     На рисунке \ref{fig:ap:rs_nonlinear1} показаны множества достижимости системы \eqref{ap:nonlinear_system1} при различных $N$.
+     На рисунке \ref{fig:ap:rs_nonlinear1} показаны множества достижимости системы \eqref{ap:nonlinear_system1} при различных $N$ и $k$.
        Красная линия --- граница множества достижимости, вычисленного аналитически.
    Видно, что при увеличении количества точек, они заполняют множество достижимости, однако, в отличии от линейной системы в предыдущем примере, здесь точки заполняют множество достижимости неравномерно.
    
