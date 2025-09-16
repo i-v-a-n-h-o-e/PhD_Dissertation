@@ -13,7 +13,7 @@
 Использование этого расстояния оказывается удобно, так как это расстояние определяется именно формой множеств и отражает различие в форме даже для достаточно малых множеств. 
 Использование метрики Хаусдорфа сопряжено с некоторыми трудностями, так как при стремлении длины промежутка времени к нулю, множества достижимости превращаются в точки, и расстояние Хаусдорфа будет стремиться к нулю независимо от формы множеств.
 Установлены достаточные условия асимптотической эквивалентности множеств достижимости нелинейных систем соответствующим множествам достижимости линеаризованных систем.
-Как и в условии, полученном в Разделе \ref{s1:small_time_subsection}, в этом условии проверяется асимптотика наименьшего собственного число грамиана управляемости линеаризованной системы с малым параметром.
+Как и в условии, полученном в Разделе \ref{s1:small_time_subsection}, в этом условии проверяется асимптотика наименьшего собственного числа грамиана управляемости линеаризованной системы с малым параметром.
 
 В разделе представлены примеры, включающие две нелинейные системы третьего порядка, в одной из которых линеаризованная вдоль траектории, порожденной нулевым управлением, система неуправляема, а в другом --- управляема.
 Для этих систем исследованы достаточные условия выпуклости проекций множеств достижимости. 
@@ -197,7 +197,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  на интервале времени $ t_0 \leqslant t \leqslant t_0 + \varepsilon $ по выходу $y = C z$. 
  Как и в определении \ref{s1:def:linearized_system} здесь $X(\tau_1, \tau_0) = \Phi(\tau_1) \Phi^{−1}(\tau_0)$, где $\Phi(\tau)$ ---
  фундаментальная матрица решений однородной системы, удовлетворяющая уравнению
- $\Phi(t) = A(t) \Phi(t)$, $\Phi(t_0) = I$.
+ $\dot{\Phi}(t) = A(t) \Phi(t)$, $\Phi(t_0) = I$.
 \end{definition}
  
 Система \eqref{s2:linear_system} управляема (вполне управляема) на $ [t_0, t_0 + \varepsilon] $ по выходу $y=Cx$ тогда и только тогда,
@@ -319,7 +319,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  
 Основной результат этого раздела отражен в следующей теореме.
 \begin{theorem}\label{s2:th:assimptotic_equality}
- При достаточно малых $ \varepsilon $ множество достижимости $ \overline{G}(\varepsilon) $ системы \eqref{s2:nonlinear_with_output} по выходу $ y = C x $ выпукло и асимптотически эквивалентно множеству $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^n}(0,\mu) + Cx(t_0+\varepsilon,0)$, если найдутся такие $ K>0 $, $ \alpha > 0 $, $ 0< \varepsilon_0<\overline{\varepsilon} $, что для всех $ \varepsilon \leqslant \varepsilon_0 $
+ При достаточно малых $ \varepsilon $ множество достижимости $ \overline{G}(\varepsilon) $ системы \eqref{s2:nonlinear_with_output} по выходу $ y = C x $ выпукло и асимптотически эквивалентно множеству $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0)$, если найдутся такие $ K>0 $, $ \alpha > 0 $, $ 0< \varepsilon_0<\overline{\varepsilon} $, что для всех $ \varepsilon \leqslant \varepsilon_0 $
  \begin{gather}\label{s2:cond1}
  \overline{\lambda}(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
  {K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
@@ -343,7 +343,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  где $ \sigma(\varepsilon) = \mu\sqrt{\varepsilon} $.
  
  В случае, если функция $ f_2(t,x) $ не зависит от $ x $, то $ L(\varepsilon) = L_1 \varepsilon $, а \eqref{est2} принимает вид $ \overline{\lambda}(\varepsilon) \geqslant 4\mu^2L_1^2 \varepsilon^3 $. 
-Это неравенство будет выполнено, если $ K\varepsilon^{3 - \alpha} \geqslant 4\mu^2L_1^2 \varepsilon^3 $, что равносильно соотношению $ \varepsilon \geqslant \varepsilon_1 := \left(\frac{K}{4\mu^2L_1^2}\right)^{1/\alpha} $. 
+Это неравенство будет выполнено, если $ K\varepsilon^{3 - \alpha} \geqslant 4\mu^2L_1^2 \varepsilon^3 $, что равносильно соотношению $ \varepsilon \leqslant \varepsilon_1 := \left(\frac{K}{4\mu^2L_1^2}\right)^{1/\alpha} $. 
 Таким образом, множество достижимости $ G_y(\varepsilon)$ выпукло при $ 0 \leqslant \varepsilon \leqslant \min\{\varepsilon_0,\varepsilon_1\} $. 
  
  В другом случае, если $ f_2(t,x) $ зависит от $ x $, $ L(\varepsilon) =L_0+L_1\varepsilon $, а \eqref{est2} принимает вид $ \overline{\lambda}(\varepsilon) \geqslant 4\mu^2 \varepsilon (L_0 + L_1 \varepsilon)^2 $. 
@@ -351,7 +351,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 Последнее неравенство выполняется при $ \varepsilon \leqslant \varepsilon_2 := \left(\frac{K}{4\mu^2(L_0 + L_1\varepsilon_0)^2} \right)^{1/\alpha} $. 
 Следовательно, $ G_y(\varepsilon) $ выпукло, если $ 0 \leqslant \varepsilon \leqslant \min\{\varepsilon_0, \varepsilon_2\} $.
  
- Множество $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^n}(0,\mu) + Cx(t_0+\varepsilon,0) = H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)$ есть не что иное, как множество достижимости по выходу линеаризованной системы \eqref{s2:eps_linearized} с учетом сдвига, обусловленного свободным движением системы \eqref{s2:eps_nonlinear_with_output}.
+ Множество $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0) = H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)$ есть не что иное, как множество достижимости по выходу линеаризованной системы \eqref{s2:eps_linearized} с учетом сдвига, обусловленного свободным движением системы \eqref{s2:eps_nonlinear_with_output}.
  
  Доказательство асимптотической эквивалентности проекций множеств достижимости нелинейной и линеаризованной систем проводится по той же схеме, что и доказательство следствий теоремы 2 в \cite{GusevUMJ}. 
 Оценим сверху хаусдорфово расстояние между образами гильбертова шара $ H\left( B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))\right) $ и $ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H_{\varepsilon}(0) $:
@@ -708,7 +708,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{pmatrix}.
  \end{gather*}
  
- Минимальное собственное число $ \nu^{1,2}_{\varepsilon} = \frac{1}{120}\varepsilon^4 + O(\varepsilon^6)$, а $ \varepsilon^4 < \varepsilon^{3-\alpha} $ для всех $ \alpha > 0 $ при достаточно малых $ \varepsilon $, то есть достаточное условие выпуклости $ G_{x_1, x_1}(\varepsilon) $ не выполняется. 
+ Минимальное собственное число $ \nu^{1,2}_{\varepsilon} = \frac{1}{120}\varepsilon^4 + O(\varepsilon^6)$, а $ \varepsilon^4 < \varepsilon^{3-\alpha} $ для всех $ \alpha > 0 $ при достаточно малых $ \varepsilon $, то есть достаточное условие выпуклости $ \overline{G}_{x_1, x_1}(\varepsilon) $ не выполняется. 
 Результаты численного моделирования, приведённые на рисунке~\ref{fig:RS}-\subref{fig:u=1_x1-x2}, показывают невыпуклость проекции. 
  \item Перейдем к плоскости $ (x_1,x_3) $. 
  \begin{gather*}
@@ -751,7 +751,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \dfrac{\varepsilon }{2} + O(\varepsilon^3) & 1
  \end{pmatrix}
  \end{gather*}
- Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, то есть удовлетворяет условию \eqref{s2:cond1}. 
+ Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, то есть, удовлетворяет условию \eqref{s2:cond1}. 
 Выпуклость этой проекции проиллюстрирована на рисунке~\ref{fig:RS}-\subref{fig:u=1_x2-x3}. 
 Как и на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}, здесь пунктирной линией показана точная граница множества достижимости линеаризованной системы.
  \end{enumerate}
