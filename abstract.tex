@@ -1,13 +1,14 @@
 \RequirePackage[l2tabu,orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
-\documentclass[a4paper, oneside, 12pt]{article}
+\documentclass[a5paper, twoside, 8pt]{article}
 
 %-----------------------------------------------------------------------
 \usepackage{geometry} % настройки полей документа
-\geometry{a4paper,top=2cm,bottom=2cm,left=2.5cm,right=1cm}
+\geometry{a5paper,top=1.7cm,bottom=1.7cm,left=1.7cm,right=1.7cm}
 \setlength{\topskip}{0pt}   %размер дополнительного верхнего поля
 \setlength{\footskip}{12.3pt} % снимет warning, согласно https://tex.stackexchange.com/a/334346
 
 \usepackage[main=russian,english, provide=*]{babel}   %% загружает пакет многоязыковой вёрстки
+\addto\captionsrussian{\renewcommand{\refname}{Публикации автора по теме диссертации}}
 \usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
 \defaultfontfeatures{Ligatures={TeX}}  %% свойства шрифтов по умолчанию. Для XeTeX опцию Renderer=Basic можно не указывать, она необходима для LuaTeX
 \setmainfont{CMU Serif} %% задаёт основной шрифт документа
@@ -15,7 +16,7 @@
 \setmonofont{CMU Typewriter Text} 
 
 %%% Интервалы %%%
-\usepackage[onehalfspacing]{setspace} % Опция запуска пакета правит не только интервалы в обычном тексте, но и формульные
+%\usepackage[onehalfspacing]{setspace} % Опция запуска пакета правит не только интервалы в обычном тексте, но и формульные
 \usepackage{needspace}
 \usepackage{cite}
 \usepackage{lastpage}
@@ -31,7 +32,7 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Osipov Thesis},
+    pdftitle={Osipov Thesis Abstract},
     pdfpagemode=FullScreen,
     }
 \usepackage[multiple]{footmisc} % сноски через запятую
@@ -93,7 +94,12 @@
 }
 \fi
 %\usepackage{refcheck}
+% Подстрочная сноска с полной записью по ключу \bibitem
+\newcommand{\footcite}[1]{%
+	\footnote{\csname bibentry@#1\endcsname}%
+}
 
+\input{abstract_sections/biblio_copy}
 
 \newtheorem{theorem}{Теорема} % задаём выводимое слово (для теорем)
 \newtheorem{definition}{Определение} % задаём выводимое слово (для определений)
@@ -110,35 +116,23 @@
 \newcommand{\frc}[2]{\raisebox{2pt}{$#1$}\big/\raisebox{-3pt}{$#2$}}    % a/b, a выше, b ниже
 \newcommand{\hrefdoi}[1]{\href{https://doi.org/#1}{DOI:~#1}}
 
-\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
 \hyphenation{непрерывно-диф-фе-рен-ци-ру-е-мы-ми}
 \hyphenation{нуль-у-пра-вля-ем-ост-и}
 \hyphenation{со-от-вет-ству-ю-ща-я}
+\hyphenation{не-ли-ней-ных}
 
 %-----------------------------------------------------------------------
 
 \begin{document}
-    \subfile{dissertation_sections/title}
+    \subfile{abstract_sections/title}
     \setcounter{page}{2} % Устанавливаем номер страницы после титульной
+  	\subfile{abstract_sections/impressum}
     
-    \tableofcontents % Вывод содержания
-    
-    \subfile{dissertation_sections/introduction}
-    \subfile{dissertation_sections/NotationList}
+    \subfile{abstract_sections/introduction}    
+    \subfile{abstract_sections/summary}
 
-    \subfile{dissertation_sections/section1}
-
-    \setcounter{equation}{0}
-    \subfile{dissertation_sections/subsection21}
-    \subfile{dissertation_sections/subsection22}
-    
-    \setcounter{equation}{0}
-    \subfile{dissertation_sections/section3}
-	
-	\clearpage
     \subfile{common_sections/conclusion}
     
-    \subfile{dissertation_sections/biblio}
-    \subfile{dissertation_sections/appendix_A}
-    \subfile{dissertation_sections/appendix_B}
+    \subfile{abstract_sections/biblio}
 \end{document}

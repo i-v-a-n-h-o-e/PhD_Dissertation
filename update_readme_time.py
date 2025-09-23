@@ -11,7 +11,8 @@ def update_pdf_links(content, current_time):
     patterns = [
         (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation.pdf', f'{current_time}_Dissertation.pdf'),
         (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_keys.pdf', f'{current_time}_Dissertation_keys.pdf'),
-        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_diff.pdf', f'{current_time}_Dissertation_diff.pdf')
+        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_diff.pdf', f'{current_time}_Dissertation_diff.pdf'),
+        (r'\d{4}-\d{2}-\d{2}--\d{2}-\d{2}-\d{2}_Dissertation_abstract.pdf', f'{current_time}_Dissertation_abstract.pdf')
     ]
     for pattern, replacement in patterns:
         content = re.sub(pattern, replacement, content)
@@ -41,8 +42,17 @@ def main():
     with open('main.tex', 'w') as file:
         file.write(main_tex_content)
 
+    with open('abstract.tex', 'r') as file:
+        abstract_tex_content = file.read()
+
+    abstract_tex_content = update_main_tex_watermark(abstract_tex_content, current_time)
+
+    with open('abstract.tex', 'w') as file:
+        file.write(abstract_tex_content)
+
     subprocess.run(['git', 'add', 'README.md'])
     subprocess.run(['git', 'add', 'main.tex'])
+    subprocess.run(['git', 'add', 'abstract.tex'])
 
 if __name__ == "__main__":
     main()

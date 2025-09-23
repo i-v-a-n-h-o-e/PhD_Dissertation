@@ -1,0 +1,272 @@
+\documentclass[../abstract.tex]{subfiles}
+\begin{document}
+\newpage
+\section*{Cодержание работы}
+\textbf{Введение.} 
+В этом разделе обосновывается актуальность темы исследования, приводится краткий обзор работ по данной тематике, определяются цель и задачи работы и формулируются основные положения, выносимые на защиту.
+
+
+\textbf{Глава 1.}
+Первая глава посвящена множествам достижимости нелинейных систем с интегральными ограничениями.  
+Здесь даются основные понятия, описываются предположения и свойства решений исследуемых систем, которые используются в работе. 
+Вводится отображение, действующее из пространства управлений в пространство концов траекторий нелинейной системы. 
+Приводятся условия выпуклости образа малого шара в гильбертовом пространстве при его нелинейном отображении, полученные в \footcite{Polyak2001}. 
+Использование этого условия позволило получить условие выпуклости множеств достижимости при малых интегральных ограничениях на управление \footcite{Polyak2004}.
+Множество достижимости нелинейной системы рассматривается как образ шара, соответствующего допустимым управлениям, при его нелинейном отображении, заданном решениями системы.
+При помощи замены времени удаётся сформулировать условия выпуклости множеств достижимости рассматриваемых нелинейных систем на малых интервалах времени. 
+Проверка этих условий требует изучения асимптотики наименьшего собственного числа грамиана управляемости линеаризованной системы.
+Один из возможных способов проверки асимптотики собственных чисел грамиана предлагается в последнем разделе этой главы. 
+Там же приводится доказательство выпуклости множеств достижимости на малых интервалах времени для некоторых классов нелинейных систем второго порядка. 
+
+\textbf{Глава 2.}
+Вторая глава состоит из двух разделов, связанных общим понятием --- асимптотической эквивалентностью множеств достижимости. 
+
+В первом разделе этой главы исследуются множества достижимости по выходу нелинейных систем на малых интервалах времени.
+
+Рассмотрим выпуклые компактные множества $ X,Y \subset \mathbb R^n $, такие, что $0 \in \operatorname{int}\ X$, $0 \in \operatorname{int}\ Y$. 
+Тогда определена величина \linebreak \mbox{$r(X, Y) = \inf \{t \geqslant 1: tX \supset Y \}$}. 
+Расстоянием Банаха--Мазура будем называть величину $ \rho (X, Y) $, определённую равенством 
+\begin{gather*}
+	\rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)).
+\end{gather*}
+
+Пусть $ X = X(\varepsilon) $, $ Y = Y(\varepsilon) $ --- выпуклые компактные множества, такие, что $ 0 \in \operatorname{int}\,X(\varepsilon) $, $ 0 \in \operatorname{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.
+Тогда, следуя \footcite{Ovs}, назовём множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ асимптотически эквивалентными, если $ \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
+
+Основной результат этого раздела сформулирован для нелинейной системы на малом интервале времени $\ t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $.
+\begin{gather}\label{s2:nonlinear_with_output}
+	\begin{gathered}
+		\dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0, \\
+		y(t) = C x(t).
+	\end{gathered}
+\end{gather}
+Здесь $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- управление, $ y\in\mathbb{R}^m (m \leqslant n) $ --- выход системы,
+$ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $ \overline{\varepsilon} $ --- некоторое фиксированное положительное число.
+
+Функции $ f_1: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(t, x)$ и обладающими непрерывными производными по $x$ на $ [t_0, t_0 + \overline{\varepsilon}]$.
+
+\begin{assumption}\label{s1:as:right_hand_side_conditions_global}
+	Существует такое $\overline{\mu} > 0 $, что все решения (траектории) $ x(t, u(\cdot)) $ системы \eqref{s2:nonlinear_with_output}, отвечающие управлениям \linebreak\mbox{$u(\cdot) \in B_{\mathbb{L}_2[t_0, t_0 + \overline{\varepsilon}]}(0,\overline{\mu})$}, определены на интервале $ [t_0,t_0 + \overline{\varepsilon}] $ и лежат в некотором выпуклом компакте $D \subset \Omega \subset \mathbb{R}^n$. 
+\end{assumption}
+
+Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}]$ и ограничим шаром радиуса $ 0 < \mu < \overline{\mu} $ в этом пространстве, который будем обозначать через $B_{\mathbb{L}_2}(0, \mu)$
+\begin{gather*}
+	\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
+\end{gather*}
+Пусть $ 0 < \varepsilon \leqslant \overline{\varepsilon} $. 
+
+\begin{assumption}\label{s1:as:right_hand_side_diff_lip}
+	Функции $f_1(t,x)$ и $f_2(t,x)$ имеют производные по $x$, которые удовлетворяют условию Липшица при всех $t \in [t_0;t_0 + \varepsilon]$, $x_1, x_2 \in D$.
+	\begin{gather*}
+		\left\| \frac{\partial f_1}{\partial x}(t,x_1) - \frac{\partial f_1}{\partial x}(t,x_2) \right\| \leqslant l_{f_1} \| x_1 - x_2\|, \\
+		\left\| \frac{\partial f_2^k}{\partial x}(t,x_1) - \frac{\partial f_2^k}{\partial x}(t,x_2) \right\| \leqslant l_{f_2^k} \| x_1 - x_2\|,
+	\end{gather*}
+	где $l_{f_1} > 0$ и $l_{f_2^k} > 0$, $k = 1,...,r$.
+\end{assumption}
+
+\begin{definition}
+	{\textit Множеством достижимости $\overline{G}(\varepsilon)$ системы \eqref{s2:nonlinear_with_output} по выходу} $ y = C x $ будем называть множество всех выходов $ y(t_0+\varepsilon) $,
+	соответствующих концам траекторий $ x(t_0+\varepsilon, u(\cdot)) $, порождённых управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$
+	\begin{gather*}
+		\overline{G}(\varepsilon)=\{y\in \mathbb{R}^m:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; y=Cx(t_0+\varepsilon, u(\cdot))\}.
+	\end{gather*}
+\end{definition}
+
+\begin{definition}
+	Симметричная матрица, определённая равенством
+	\begin{gather*}
+		\overline{W}(t_0 + \varepsilon) = \int_{t_0}^{t_0+\varepsilon} C X(t_0+\varepsilon,t)B(t)B^{\top}(t)X^{\top}(t_0+\varepsilon,t) C^\top \, dt=CW(\varepsilon)C^\top,
+	\end{gather*}
+	называется грамианом управляемости линейной системы 
+	\begin{gather}\label{s2:linear_system}
+		\dot{s} = A(t) s + B(t) u
+	\end{gather}
+	на интервале времени $ t_0 \leqslant t \leqslant t_0 + \varepsilon $ по выходу $y = C z$. 
+	Здесь $X(\tau_1, \tau_0) = \Phi(\tau_1) \Phi^{−1}(\tau_0)$, где $\Phi(\tau)$ ---
+	фундаментальная матрица решений однородной системы, удовлетворяющая уравнению
+	$\dot{\Phi}(t) = A(t) \Phi(t)$, $\Phi(t_0) = I$.
+\end{definition}
+
+\begin{definition}\label{s1:def:linearized_system}
+	Пусть $ x(\cdot,u(\cdot)) $ ~--- движение, отвечающее управлению $ u(\cdot)$.
+	Назовём систему
+	\begin{gather}\label{s1:linearized_system}
+		\delta \dot{x} = A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
+	\end{gather}
+	{\textit линеаризацией} системы \eqref{s2:nonlinear_with_output} вдоль пары траектории и управления \linebreak\mbox{$\left( x(\cdot,u(\cdot)),u(\cdot)\right) $}, если 
+	\begin{gather*}
+		A(t) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u(\cdot)\big)\Big) 
+		+ 
+		\sum\limits_{k = 1}^{r}
+		\dfrac{\partial f_2^k}{\partial x}\Big(t,x\big(t,u(\cdot)\big)\Big) u^k(t), \\
+		B(t) = f_2 \Big(t,x\big(t,u(\cdot)\big)\Big).
+	\end{gather*}
+	Здесь $ A(\cdot) $ представляет собой матрицу Якоби функции $ f_1(\cdot, x) + f_2(\cdot, x) u(\cdot) $, вычисленную вдоль траектории $ x(\cdot,u(\cdot)) $.
+\end{definition}
+
+Обозначим через $\overline{\lambda}(\varepsilon)$ наименьшее собственное число грамиана управляемости линейной системы, соответствующей паре $(\varepsilon A(t), B(t))$  на интервале $ [0; 1]$.
+
+\begin{theorem}\label{s2:th:assimptotic_equality}
+	При достаточно малых $ \varepsilon $ множество достижимости $ \overline{G}(\varepsilon) $ системы \eqref{s2:nonlinear_with_output} по выходу $ y = C x $ выпукло и асимптотически эквивалентно множеству $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0)$, если найдутся такие $ K>0 $, $ \alpha > 0 $, $ 0< \varepsilon_0<\overline{\varepsilon} $, что для всех $ \varepsilon \leqslant \varepsilon_0 $
+	\begin{gather}\label{s2:cond1}
+		\overline{\lambda}(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
+				{K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
+				{K\varepsilon ^{1 - \alpha}}, \mbox{\ в противном случае}.
+		\end{array}} \right.
+	\end{gather}
+\end{theorem}
+
+В следующем разделе предлагается метод решения задачи локального синтеза для аффинных по управлению систем на малом интервале времени. 
+В этом разделе изучается задача синтеза управления с интегральным квадратичным функционалом. 
+\begin{gather}\label{s22:nonlinear}
+	\dot{z}(t)=f(z(t))+B u(t),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+\end{gather}
+где $ z \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $B \in \mathbb{R}^{n \times r}$, а $ 
+T$ --- некоторое положительное число. 
+Предполагается, что управление $u(\cdot)$ принадлежит пространству $\mathbb{L}_2 $.
+\begin{assumption}\label{s22:as:solution_bounded}
+	Существует такое $\mu > 0$, что все решения \linebreak $x(s, \upsilon(\cdot))$ системы $\dot{x} = -f(x)-B\upsilon(t)$, выходящие из некоторой окрестности нуля и отвечающие управлениям $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \mu)$, определены на интервале $[0, T]$ и лежат в шаре $ B_{\mathbb{R}^n}(0,\overline{r})$, $\overline{r} > 0$.
+\end{assumption}
+Здесь $ B_{\mathbb{R}^n}(0,\overline{r}) $ ---  шар радиуса $\overline{r}$ с центром в точке $0 \in \mathbb{R}^n$. 
+Будем считать, что функция $f$ обладает следующим свойством.
+
+\begin{assumption}\label{s22:as:Residial_term_bounds}
+	Найдутся такие $\overline{r} > r >0$, $k>0$, что при всех $ z \in B_{\mathbb{R}^n}(0,r) $, функция $f(z)$ может быть представлена в форме $ f(z) = Az + R(z) $, причём $A \in \mathbb{R}^{n \times n}$ и $ \|R(z) \| \leqslant k \| z\|^2 $. 
+\end{assumption}
+Это свойство выполняется, если $f(0) = 0 $, $\frac{\partial f}{\partial z}(0) 
+= A $ и функция $f(z)$ дважды непрерывно дифференцируема. 
+
+В качестве функционала рассматриваем 
+\begin{gather}\label{s22:cost}
+	I(T,u):=\int_0^Tu^\top (t)u(t)dt= \lVert u(\cdot)\rVert^2_{\mathbb{L}_2.} 
+\end{gather}
+Задача состоит в синтезе закона управления $u(t)=u(t,z(t))$, который бы приводил траектории замкнутой системы 
+\begin{gather*}
+	\dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+\end{gather*}
+в начало координат за время $T$ и обеспечивал при этом минимальное значение $I(T,u)$. 
+Для линейной системы 
+\begin{gather}\label{s22:linear}
+	\dot{z} = A z + B u, \qquad 0 \leqslant t \leqslant T.
+\end{gather}
+решение описанной выше задачи в случае, если пара $(A,B)$ управляема --- это линейный по состоянию закон управления
+\begin{gather}\label{s22:linear_feedback}
+	u(t,z) = -B^{\top} Q_T(t) z
+\end{gather}
+(см., например, \footcite{Abgar,Kur1,GusevOsipov}).
+Здесь $Q_T(t)=W^{-1}(T-t)$, а $W(t)$ --- грамиан управляемости системы $\dot{x} = -A x - B u$:
+\begin{gather*}
+	W(t) = \int_0^t e^{-A\tau}BB^\top e^{-A^{\top}\tau}d\tau. 
+\end{gather*}
+Через $\nu(t), \eta(t)$ обозначим наименьшее и наибольшее собственное число $W(t)$ соответственно. 
+\begin{assumption} \label{s22:asm1} 
+	Пусть существует $\overline{T}>0$ и непрерывная положительная функция $\varphi(\tau): (0, \overline{T}] \to \mathbb{R}$ такие, что
+	\begin{gather*}
+		0 < \frac{\eta(\tau)}{\sqrt{\nu(\tau)}} \leqslant \varphi(\tau), \qquad 0 < \tau \leqslant \overline{T},\quad \int\limits_0^ {\overline{T}}\varphi(\tau) d\tau<\infty.
+	\end{gather*} 
+\end{assumption}
+\begin{assumption}\label{s22:asm2}
+	Существует такое $ 0 < \beta \leqslant 1$ что $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} \to 0$ при $T \to 0$.
+\end{assumption}
+Если $\Phi(T)$ конечна, то существует не более одного корня уравнения $\Phi(T)=1$ на $(0,\overline{T}]$, обозначим этот корень через $\check{T}$. 
+
+Далее исследуется асимптотическое поведение траекторий системы \eqref{s22:nonlinear}, замкнутой линейной обратной связью $ u(t,z) = -B^{\top} Q_T(t) z$ при условии, что $T$ достаточно мало:
+\begin{gather}\label{s22:nonlinear_closed}
+	\dot{z} = f(z) - B B^{\top} Q_T(t) z, \qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+\end{gather}
+
+\begin{theorem}\label{s22:th:tends_to_zero}
+	Пусть выполнены предположения \ref{s22:asm1}, \ref{s22:asm2}. 
+	Тогда существует момент $ T_1 \leqslant \check{T}$, что для всех $ T \leqslant T_1$, найдётся такое $ r_1(T)$, что траектории системы \eqref{s22:nonlinear_closed}, выходящие из $z(0) = z_0 \in B(0,r_1(T))$, стремятся к $0$ при $t \to T$.
+\end{theorem}
+\begin{theorem}\label{s22:th:functional_error_estimate}
+	Пусть выполнено предположение \ref{s22:asm1}. 
+	Пусть $x(t)$ --- такая траектория системы \eqref{s22:nonlinear_closed}, что $x(t)\in B(0,r)$ при $0\leqslant t \leqslant \tilde{T} \leqslant \overline{T} $ и $V_{\tilde{T}}(t,x(t))\to 0$ при $t\to \tilde{T}$. 
+	Тогда существует такое $T_2 \leqslant \tilde{T}$, что для всех $0 < T < T_2 $ выполняется следующая оценка
+	\begin{gather} \label{s22:est}
+		\left| \frac{ J(T) - J_0(T)}{J_0(T)}\right| \leqslant 16k\Phi({T})J^{1/2}_0(T).
+	\end{gather}
+	Здесь $J(T)=J(T,x(\tilde{T}-T))$, $J_0(T)=J_0(T,x(\tilde{T}-T))$ --- значения функционала $I(T,u(\cdot))$ на траекториях нелинейной и линеаризованной систем соответственно.
+\end{theorem}
+
+Из результатов \footcite{Polyak2001} \footcite{GusevMotor} \cite{GusevOsipovTrudy,Osipov} следует, что множества достижимости 
+систем \eqref{s22:nonlinear} и \eqref{s22:linear} асимптотически эквивалентны при $\tau \to 0$ если пара $(A,B)$ --- управляема 
+и существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$, что для всех $0 < \tau \leqslant \tau_0 $
+\begin{gather}\label{s22:gramas}
+	\nu(\tau)\geqslant l\tau^{4-\alpha}.
+\end{gather}
+
+\begin{theorem}
+	Пусть выполнено неравенство \eqref{s22:gramas}. 
+	Пусть $T \leqslant \overline{T}$ и траектория $z(t)$ системы \eqref{s22:nonlinear_closed} стремится к нулю при $t\to T$. 
+	Тогда \linebreak $V_{T}(t,z(t)) =z^{\top}(t)Q_T(t)z(t) \to 0$ при $t \to T$.
+\end{theorem}
+
+\textbf{Глава 3.}
+Предметом исследования в этой главе являются множества достижимости квазилинейных систем с интегральными квадратичными ограничениями
+\begin{gather}\label{sec3:nonlinear}
+	\begin{gathered}
+	\dot{x}(t) = A(t)x(t)+B(t)u(t)+\varepsilon f\big(x(t),t\big), \\ t_0 \leqslant t \leqslant T, \qquad x(t_0) = x_0,
+	\end{gathered}
+\end{gather}
+где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $t_0$ --- неотрицательное число, $T$ --- положительное число, а $\varepsilon$ --- малый параметр, такой, что $\varepsilon \in [0,\overline{\varepsilon}]$, $ \overline{\varepsilon} > 0$. 
+Матричные отображения $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполагаются непрерывными. 
+Вектор-функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x, t)$ и непрерывно-дифференцируема по $x$.
+
+Далее, мы будем считать, что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0, T]$, а пара $(A(t), B(t))$ управляема на этом интервале.
+
+Как и в предыдущих главах, исследование сводится к анализу нелинейного отображения из пространства управлений в пространство концов траекторий, порождённых этими управлениями.
+В таком случае, множество достижимости есть образ гильбертова шара при применении к его точкам этого отображения. 
+Основной особенностью отображения, определённого решением квазилинейной системы является тот факт, что при нулевом значении параметра это отображение становится линейным.
+
+В параграфе 3.2 рассмотрен общий вид таких отображений
+\begin{gather*} 
+	F(x, \varepsilon) = a_0 + A_0x + \varepsilon A_1(x,\varepsilon): B_X(0, r) \times \mathbb{R}_+ \rightarrow Y,
+\end{gather*} 
+где $X$ и $Y$ --- гильбертовы пространства.
+Здесь $a_0 \in Y$ --- константа, которая не зависит ни от $x$, ни от $\varepsilon$; $A_0$ --- линейный оператор, который предполагается сюръективным отображением $X$ в $Y$. 
+
+\begin{assumption}\label{as:derivative_of_A1}
+	Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ отображение $A_1(x, \varepsilon)$ имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$, которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
+	\begin{gather*}
+		\|A_1'(x_1,\varepsilon) - A_1'(x_2,\varepsilon) \| \leqslant L\|x_1-x_2\|, \qquad x_1, x_2 \in B_X(0,r), \qquad \varepsilon \in [0, \overline{\varepsilon}].
+	\end{gather*}
+\end{assumption}
+
+\begin{theorem}\label{th:ImageConvexity}
+	Через $F\big(B_X(0,r),\varepsilon\big)$ обозначим образ шара $B_X(0, r)$ при его отображении $F$, т.~е. $F\big(B_X(0,r),\varepsilon\big) = \big\{F(x,\varepsilon): x\in B_X(0, r)\big\}$.
+	Пусть выполнено Предположение \ref{as:derivative_of_A1} и $F\big(B_X(0,r),\varepsilon\big)$ --- замкнутое множество для каждого $\varepsilon \in [0, \overline{\varepsilon}]$. 
+	Тогда найдётся такое $ \varepsilon_0 \in (0, \overline{\varepsilon}]$, что при всех положительных $\varepsilon < \varepsilon_0$ образ $F\big(B_X(0,r),\varepsilon\big)$ --- выпуклое множество в $Y$. 
+\end{theorem}
+
+Параграф 3.3 посвящён применению Теоремы \ref{th:ImageConvexity} к отображению, определяемому системой \eqref{sec3:nonlinear}.
+
+Определим отображение $F:B_{\mathbb{L}_2}(0,\overline{\mu})\times [0,\overline{\varepsilon}] \to \mathbb{R}^n$ равенством $F(u(\cdot),\varepsilon) = x(T,\varepsilon,u(\cdot))$, где $x(T,\varepsilon,u(\cdot))$ --- решение \eqref{sec3:nonlinear} в момент $T$, отвечающее управлению $u(\cdot)$ и малому параметру $\varepsilon$.
+
+Для того, чтобы использовать Теорему \ref{th:ImageConvexity}, перепишем $F$ в виде
+\begin{gather*}
+	F(u(\cdot),\varepsilon) = a_0 + A_0 u(\cdot) + \varepsilon A_1(u(\cdot), \varepsilon), 
+\end{gather*}
+где $a_0 = X(T,0)x_0 $, а отображения $A_0: B_{\mathbb{L}_2}(0,\overline{\mu}) \mapsto \mathbb{R}^n$ и $A_1: B_{\mathbb{L}_2}(0,\overline{\mu}) \times [0,\overline{\varepsilon}] \to \mathbb{R}^n$ определены равенствами
+\begin{gather}\label{A1_def}
+	\begin{gathered}
+	A_0 u(\cdot) = \int\limits_{t_0}^T X(T,\tau) B(t)u(\tau)\ d\tau, \\
+	A_1(u(\cdot),\varepsilon) = \int\limits_{t_0}^T X(T,\tau) f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) \ d\tau.
+	\end{gathered}
+\end{gather}
+
+Здесь через  $X(t,\tau)$ обозначена фундаментальная матрица системы $\dot{x}(t) = A(t) x(t)$.
+Эта матрица является решением уравнения
+\begin{gather*}
+	\frac{\partial X(t,\tau)}{\partial t} = A(t) X(T,\tau), \qquad X(\tau,\tau) = I.
+\end{gather*}
+
+
+
+
+\begin{theorem}\label{th:ReachableSetsConvexity}
+	Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, , а пара $(A(t), B(t))$ управляема на интервале $ [t_0, T]$. 
+	Тогда существует такое положительное значение $\varepsilon_0$, что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпукло для всех $\varepsilon < \varepsilon_0$. 
+\end{theorem}
+
+\end{document}
