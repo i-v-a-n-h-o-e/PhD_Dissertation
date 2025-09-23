@@ -11,20 +11,26 @@
 
 По этой кнопкам можно скачать актуальные версии
 
-"Чистовая" версия:
+"Чистовая" версия диссертации:
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download final pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-16--17-59-05_Dissertation.pdf)
+[![Download final pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-30--21-46-37_Dissertation.pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
-Версия с подписанными названиями источников для проверки ссылок:
+Версия диссертации с подписанными названиями источников для проверки ссылок:
 (так же подписаны нумерованные формулы и теоремы, леммы и т.д.)
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-16--17-59-05_Dissertation_keys.pdf)
+[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-30--21-46-37_Dissertation_keys.pdf)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
-Версия с выделенными изменениями в последней версии:
+Версия диссертации с выделенными изменениями в последней версии:
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-16--17-59-05_Dissertation_diff.pdf)
+[![Download pdf with keys](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-30--21-46-37_Dissertation_diff.pdf)
+
+
+Последняя версия автореферата:
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download abstact pdf](https://custom-icon-badges.demolab.com/badge/-Download-F25278?style=for-the-badge&logo=download&logoColor=white "Download pdf")](https://github.com/i-v-a-n-h-o-e/PhD_Dissertation/releases/latest/download/2025-09-30--21-46-37_Dissertation_abstract.pdf)
+<!-- END LATEST DOWNLOAD BUTTON -->
 
 ## Notion Sprints
 
@@ -35,4 +41,4 @@
 
 
  
-Last updated: 2025-09-16--17-59-05
+Last updated: 2025-09-30--21-46-37

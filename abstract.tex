@@ -1,9 +1,9 @@
 \RequirePackage[l2tabu,orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
-\documentclass[a4paper, oneside, 12pt]{article}
+\documentclass[a5paper, twoside, 8pt]{article}
 
 %-----------------------------------------------------------------------
 \usepackage{geometry} % настройки полей документа
-\geometry{a4paper,top=2cm,bottom=2cm,left=2.5cm,right=1cm}
+\geometry{a5paper,top=1.7cm,bottom=1.7cm,left=1.7cm,right=1.7cm}
 \setlength{\topskip}{0pt}   %размер дополнительного верхнего поля
 \setlength{\footskip}{12.3pt} % снимет warning, согласно https://tex.stackexchange.com/a/334346
 
@@ -15,7 +15,7 @@
 \setmonofont{CMU Typewriter Text} 
 
 %%% Интервалы %%%
-\usepackage[onehalfspacing]{setspace} % Опция запуска пакета правит не только интервалы в обычном тексте, но и формульные
+%\usepackage[onehalfspacing]{setspace} % Опция запуска пакета правит не только интервалы в обычном тексте, но и формульные
 \usepackage{needspace}
 \usepackage{cite}
 \usepackage{lastpage}
@@ -31,7 +31,7 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Osipov Thesis},
+    pdftitle={Osipov Thesis Abstract},
     pdfpagemode=FullScreen,
     }
 \usepackage[multiple]{footmisc} % сноски через запятую
@@ -118,26 +118,12 @@
 %-----------------------------------------------------------------------
 
 \begin{document}
-    \subfile{sections/title}
+    \subfile{abstract_sections/title}
     \setcounter{page}{2} % Устанавливаем номер страницы после титульной
     
-    \tableofcontents % Вывод содержания
-    
-    \subfile{sections/introduction}
-    \subfile{sections/NotationList}
-
-    \subfile{sections/section1}
-
-    \setcounter{equation}{0}
-    \subfile{sections/subsection21}
-    \subfile{sections/subsection22}
-    
-    \setcounter{equation}{0}
-    \subfile{sections/section3}
+    \subfile{abstract_sections/introduction}
 
     \subfile{sections/conclusion}
     
-    \subfile{sections/biblio}
-    \subfile{sections/appendix_A}
-    \subfile{sections/appendix_B}
+    \subfile{abstract_sections/biblio}
 \end{document}
