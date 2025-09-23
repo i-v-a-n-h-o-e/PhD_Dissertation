@@ -9,17 +9,17 @@
 Исследуется более общий случай множеств достижимости по выходу.
 Такая постановка включает в себя множества достижимости по состоянию и их проекции.
 Исследована близость множеств достижимости нелинейных систем и множеств достижимости линеаризованных систем при стремлении к нулю интервала времени. 
-Для описания этой близости введено понятие асимптотической эквивалентности, основанное на расстоянии Банаха-Мазура. 
-Использование этого расстояния оказывается удобно, так как это расстояние определяется именно формой множеств и отражает различие в форме даже для достаточно малых множеств. 
-Использование метрики Хаусдорфа сопряжено с некоторыми трудностями, так как при стремлении длины промежутка времени к нулю, множества достижимости превращаются в точки, и расстояние Хаусдорфа будет стремиться к нулю независимо от формы множеств.
+Для описания этой близости введено понятие асимптотической эквивалентности, основанное на расстоянии Банаха--Мазура. 
+Использование этого расстояния оказывается удобно, так как оно определяется именно формой множеств и отражает различие в форме даже для достаточно малых множеств. 
+Использование метрики Хаусдорфа сопряжено с некоторыми трудностями, так как при стремлении длины промежутка времени к нулю множества достижимости стягиваются в точки, и расстояние Хаусдорфа будет стремиться к нулю независимо от формы множеств.
 Установлены достаточные условия асимптотической эквивалентности множеств достижимости нелинейных систем соответствующим множествам достижимости линеаризованных систем.
 Как и в условии, полученном в Разделе \ref{s1:small_time_subsection}, в этом условии проверяется асимптотика наименьшего собственного числа грамиана управляемости линеаризованной системы с малым параметром.
 
-В разделе представлены примеры, включающие две нелинейные системы третьего порядка, в одной из которых линеаризованная вдоль траектории, порожденной нулевым управлением, система неуправляема, а в другом --- управляема.
+В разделе представлены примеры, включающие две нелинейные системы третьего порядка, в одной из которых линеаризованная вдоль траектории, порождённой нулевым управлением, система неуправляема, а в другом --- управляема.
 Для этих систем исследованы достаточные условия выпуклости проекций множеств достижимости. 
 Проведено численное моделирование, продемонстрировавшее невыпуклость некоторых проекций даже для малых длин временного промежутка.
 
-Второй раздел посвящен задаче синтеза обратной связи для нелинейной аффинной по управлению системы. 
+Второй раздел посвящён задаче синтеза обратной связи для нелинейной аффинной по управлению системы. 
 Целью управления является приведение траектории замкнутой системы в начало координат. 
 Объектом изучения является нелинейная система, замкнутая линейной обратной связью. 
 Эта обратная связь является решением линейно-квадратичной задачи для линеаризованной системы. 
@@ -27,32 +27,32 @@
 Фактически, исследуется применимость метода линеаризации к задаче синтеза оптимального управления на конечном интервале времени. 
 Показано, что линейная обратная связь, рассчитанная для линеаризованной системы, также обеспечивает локальное решение задачи синтеза для нелинейной системы, если промежуток времени достаточно мал. 
 Для этого требуются достаточно строгие ограничения на асимптотику грамиана управляемости, которые совпадают с достаточными условиями, обеспечивающими асимптотическую эквивалентность множеств достижимости (множеств нуль-управляемости). 
-При этих условиях получена оценка для относительных значений погрешности интегрального функционала. 
-Для демонстрации реализации описанного метода синтеза приведен пример нелинейной упругой системы под действием внешней силы. 
+Получена оценка для относительных значений погрешности интегрального функционала. 
+Для демонстрации реализации описанного метода синтеза приведён пример нелинейной упругой системы под действием внешней силы. 
 
 %Раздел организован следующим образом. 
 %В первом подразделе приводится формулировка задачи и некоторые предварительные результаты. 
 %Во втором подразделе 
 %Следующий подраздел содержит результаты, относящиеся к асимптотике траекторий нелинейной системы, замкнутой линейной обратной связью. 
-%Четвертый подраздел посвящен оценке погрешностей в значении функционала при использовании линейной обратной связи. 
+%Четвертый подраздел посвящён оценке погрешностей в значении функционала при использовании линейной обратной связи. 
 %Наконец, в последнем подразделе приведены два иллюстративных примера.
 
 \subsection{Асимптотика множеств достижимости нелинейных систем с интегральными ограничениями} 
 
 
-\subsubsection{Расстояние Банаха-Мазура и асимптотическая эквивалентность множеств}\label{sec21:AsymptoticEquality}
+\subsubsection{Расстояние Банаха--Мазура и асимптотическая эквивалентность множеств}\label{sec21:AsymptoticEquality}
 
-Рассмотрим выпуклые компактные множества $ X,Y \subset \mathbb R^n $, такие, что $0 \in \operatorname{int}\ X$, $0 \in \operatorname{int}\ Y$. 
-Тогда определена величина $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$. 
-Расстоянием Банаха-Мазура будем называть величину $ \rho (X, Y) $, определенную равенством 
+Рассмотрим выпуклые компактные множества $ X,Y \subset \mathbb R^n $, такие, что $0 \in \operatorname{int}\ X$, \mbox{$0 \in \operatorname{int}\ Y$}. 
+Тогда определена величина $r(X, Y) = \inf \{t \geqslant 1: tX \supset Y \}$. 
+Расстоянием \mbox{Банаха--Мазура} будем называть величину $ \rho (X, Y) $, определённую равенством 
 \begin{gather*}
  \rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)).
 \end{gather*}
 
-Это определение является частным случаем определения расстояния Банаха-Мазура между нормированными пространствами \cite[Определение 2.4.6]{Thompson}.
+Это определение является частным случаем определения расстояния Банаха--Мазура между  множествами в нормированных пространствах \cite[Определение 2.4.6]{Thompson}.
 
 Проверим, что величина $ \rho (X, Y)$ удовлетворяет аксиомам метрики. 
-Напомним, что аксиомы метрики $\rho$ на множестве $\mathcal{X}$ таковы:
+Напомним, что аксиомы метрики таковы:
 \begin{enumerate}
 	\item Аксиома неотрицательности: $\rho(X,Y) \geqslant 0$.
 	\item Аксиома тождества: $\rho(X,Y) = 0 $ тогда и только тогда, когда $X = Y$.
@@ -83,7 +83,7 @@
 Обратное тоже верно: если $X=Y$, то $r(X,Y)=r(Y,X)=1$, значит $\rho(X,Y)=0$.
 Таким образом, аксиома тождества выполняется.
 
-Перейдем к проверке аксиомы симметрии. 
+Перейдём к проверке аксиомы симметрии. 
 По определению 	$\rho(X,Y)= \log(r(X,Y) \cdot r(Y,X))$.
 
 Меняя местами $X$ и $Y$, получаем:
@@ -99,7 +99,7 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 \begin{gather*}
 	\log(r(X,Z) \cdot r(Z,X)) \leqslant \log(r(X,Y) \cdot r(Y,X)) + \log(r(Y,Z) \cdot r(Z,Y)).
 \end{gather*}
-А затем, рассмотрим эквивалентное ему неравенство
+А затем рассмотрим эквивалентное ему неравенство
 \begin{gather}\label{s2:triangle_axiom}
 	r(X,Z) \cdot r(Z,X) \leqslant r(X,Y) \cdot r(Y,X) \cdot r(Y,Z) \cdot r(Z,Y).
 \end{gather}
@@ -107,17 +107,17 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 Действительно, пусть $ r(X,Y) = t $ и $r(Y,Z) = s$.
 Тогда, в силу замкнутости множеств, выполняются включения $tX \supset Y$, $sY \supset Z$.
 Подставляя одно в другое, получаем $Z \subset sY \subset s(tX) = (st) X$.
-Аналогично, можно показать, что $r(Z,X) \leqslant r(Z,Y) \cdot r(Y,X)$. 
+Аналогично можно показать, что $r(Z,X) \leqslant r(Z,Y) \cdot r(Y,X)$. 
 Перемножая два этих неравенства, получаем искомое \eqref{s2:triangle_axiom}.
 
-Таким образом, четыре аксиомы метрики выполнены, следовательно, $\rho(X,Y)$ действительно является расстоянием (метрикой) на множестве выпуклых компактных множеств с нулем во внутренности.
+Таким образом, четыре аксиомы метрики выполнены, следовательно, $\rho(X,Y)$ действительно является расстоянием (метрикой) на множестве выпуклых компактных множеств с нулём во внутренности.
 
 %\todo[inline]{Описать преимущества расстояния Банаха Мазура для малых множеств. Пример с кругом и квадратом. Посмотреть статью МИ в УМЖ}
 
 Пусть $ X = X(\varepsilon) $, $ Y = Y(\varepsilon) $ --- выпуклые компактные множества, такие, что $ 0 \in \operatorname{int}\,X(\varepsilon) $, $ 0 \in \operatorname{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.
-Тогда, следуя \cite{Ovs}, назовем множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ {\textit асимптотически эквивалентными}, если $ \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
+Тогда, следуя \cite{Ovs}, назовём множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ асимптотически эквивалентными, если $ \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
 
-Приведем далее достаточное условие асимптотической эквивалентности, выраженное через хаусдорфово расстояние $ h $ между ними. 
+Приведём достаточное условие асимптотической эквивалентности, выраженное через хаусдорфово расстояние $ h $ между ними. 
 Напомним, что расстоянием Хаусдорфа между двумя непустыми множествами $X, Y \in \mathbb{R}^n$ называется величина 
 \begin{gather*}
 	h(X,Y) = \max\Big\{ \sup\limits_{x \in X} d(x, Y), \ \sup\limits_{y \in Y} d(y, X) \Big\},
@@ -129,12 +129,10 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 \begin{theorem}\label{suff}\cite{GusevUMJ}
  Пусть выполнены условия:
  \begin{gather*}
- \lim\limits_{\varepsilon \rightarrow 0}h(X(\varepsilon),Y(\varepsilon)) = 0, \qquad \lim\limits_{\varepsilon \rightarrow 0}\frac{h(X(\varepsilon),Y(\varepsilon))}{\delta_{min}(Y(\varepsilon))} = 0.
+ \lim\limits_{\varepsilon \rightarrow 0}h(X(\varepsilon),Y(\varepsilon)) = 0, \qquad \lim\limits_{\varepsilon \rightarrow 0}\frac{h(X(\varepsilon),Y(\varepsilon))}{\delta_{\min}(Y(\varepsilon))} = 0.
  \end{gather*}
- Тогда множества $ X(\varepsilon) $ и $ Y(\varepsilon) $\---~асимптотически эквивалентны. 
- 
- Здесь $ \delta_{min}(Y(\varepsilon)) = \inf\limits_{\left\|y \right\| =1 } \delta(y|Y(\varepsilon))$, а $ \delta(y|Y(\varepsilon)) $ --- опорная функция\footnote{
- Опорной функцией множества $M$ называется функция $\delta(y|M) = \sup\limits_{x \in M} y^{\top} x$. 
+ Тогда множества $ X(\varepsilon) $ и $ Y(\varepsilon) $\---~асимптотически эквивалентны.  Здесь \\ $ \delta_{\min}(Y(\varepsilon)) = \inf\limits_{\left\|y \right\| =1 } \delta(y|Y(\varepsilon))$, а $ \delta(y|Y(\varepsilon)) $ --- опорная функция\footnote{
+ 	Опорной функцией множества $M$ называется функция $\delta(y|M) = \sup\limits_{x \in M} y^{\top} x$. 
  } множества $ Y(\varepsilon) $.
 \end{theorem}
 \subsubsection{Достаточное условие асимптотической эквивалентности множеств достижимости нелинейной и линеаризованной систем}
@@ -145,21 +143,20 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
  y(t) = C x(t).
  \end{gathered}
 \end{gather}
-
 Здесь $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- управление, $ y\in\mathbb{R}^m (m \leqslant n) $ --- выход системы,
-$ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $ \bar{\varepsilon} $ --- некоторое фиксированное положительное число.
+$ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $ \overline{\varepsilon} $ --- некоторое фиксированное положительное число.
 
-Как и в предыдущих разделах функции $ f_1: [t_0, t_0 + \bar{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, t_0 + \bar{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x, t)$ и обладающими непрерывными производными по $x$ на $ [t_0, t_0 + \bar{\varepsilon}]$. 
+Как и в предыдущих разделах, функции $ f_1: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(t, x)$ и обладающими непрерывными производными по $x$ на $ [t_0, t_0 + \overline{\varepsilon}]$. 
 
 Принятые в предыдущих разделах Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
 
  Управление $u(t)$ будем выбирать из
-пространства $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ вектор-функций и ограничим его шаром радиуса $ 0 < \mu \leqslant \overline{\mu} $
+пространства $\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}]$ вектор-функций и ограничим его шаром радиуса $ 0 < \mu \leqslant \overline{\mu} $:
 \begin{gather}\label{s2:constrY}
- \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) = \int\limits_{t_0}^{t_0 + \varepsilon} u^{\top}(\tau) u(\tau) \ d\tau = \leqslant \mu^2.
+ \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right)_{\mathbb{L}_2} = \int\limits_{t_0}^{t_0 + \varepsilon} u^{\top}(\tau) u(\tau) \ d\tau  \leqslant \mu^2.
 \end{gather}
 
-Пусть $ 0 < \varepsilon \leqslant \bar{\varepsilon} $. 
+Пусть $ 0 < \varepsilon \leqslant \overline{\varepsilon} $. 
 
 Множеством достижимости системы \eqref{s2:nonlinear_with_output} по состоянию, как и прежде, будем называть множество 
 \begin{gather*}
@@ -169,20 +166,20 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 
 \begin{definition}
  {\textit Множеством достижимости $\overline{G}(\varepsilon)$ системы \eqref{s2:nonlinear_with_output} по выходу} $ y = C x $ будем называть множество всех выходов $ y(t_0+\varepsilon) $,
- соответствующих концам траекторий $ x(t_0+\varepsilon, u(\cdot)) $, порождённых управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$
+ соответствующих концам траекторий $ x(t_0+\varepsilon, u(\cdot)) $, порождённых управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$:
  \begin{gather*}
  \overline{G}(\varepsilon)=\{y\in \mathbb{R}^m:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; y=Cx(t_0+\varepsilon, u(\cdot))\}.
  \end{gather*}
 \end{definition}
 
-В определениях множеств, приведённых выше, можно считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $, либо $ \mathbb{L}_2=\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}] $.
+В определениях множеств, приведённых выше, можно считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $, либо $ \mathbb{L}_2=\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}] $.
 Нетрудно понять, что для любого из этих пространств мы получаем одно и то же множество достижимости. 
 %Будем далее считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $.
  
 Заметим, что $ \overline{G}(\varepsilon) = C G(\varepsilon) $. 
  
-Если матрица $ C \in \mathbb{R}^{m \times n} $ такова, что в каждой её строке только один элемент равен 1, а остальные равны 0, а в каждом столбце содержится не более одного ненулевого элемента, то $ y=Cx $ состоит из $ m$ координат вектора $ x $, а множество достижимости $\overline{G}(\varepsilon)$ представляет собой проекцию множества $ G(\varepsilon) $ на $m$--мерную координатную плоскость. 
-Возможен случай $C = I$, в этом случае $y = x$ и $ \overline{G}(\varepsilon) = G(\varepsilon)$
+Если матрица $ C \in \mathbb{R}^{m \times n} $ такова, что в каждой её строке только один элемент равен 1, а остальные равны 0, а в каждом столбце содержится не более одного ненулевого элемента, то $ y=Cx $ состоит из $ m$ координат вектора $ x $, а множество достижимости $\overline{G}(\varepsilon)$ представляет собой проекцию множества $ G(\varepsilon) $ на $m$-мерную координатную плоскость. 
+Возможен случай $C = I$, в этом случае $y = x$ и $ \overline{G}(\varepsilon) = G(\varepsilon)$.
 
 
 \begin{definition}
@@ -195,16 +192,16 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  	\dot{s} = A(t) s + B(t) u
  \end{gather}
  на интервале времени $ t_0 \leqslant t \leqslant t_0 + \varepsilon $ по выходу $y = C z$. 
- Как и в определении \ref{s1:def:linearized_system} здесь $X(\tau_1, \tau_0) = \Phi(\tau_1) \Phi^{−1}(\tau_0)$, где $\Phi(\tau)$ ---
+ Как и в определении \ref{s1:def:linearized_system}, здесь $X(\tau_1, \tau_0) = \Phi(\tau_1) \Phi^{−1}(\tau_0)$, где $\Phi(\tau)$ ---
  фундаментальная матрица решений однородной системы, удовлетворяющая уравнению
  $\dot{\Phi}(t) = A(t) \Phi(t)$, $\Phi(t_0) = I$.
 \end{definition}
  
 Система \eqref{s2:linear_system} управляема (вполне управляема) на $ [t_0, t_0 + \varepsilon] $ по выходу $y=Cx$ тогда и только тогда,
-когда грамиан управляемости по выходу $ \overline{W}(t_0 + \varepsilon) = C W(t_0 + \varepsilon) C^{\top} $ --- положительно определенная матрица.
+когда грамиан управляемости по выходу $ \overline{W}(t_0 + \varepsilon) = C W(t_0 + \varepsilon) C^{\top} $ --- положительно определённая матрица.
  
  
-По аналогии с \eqref{s1:eps_nonlinear}, произведем замену времени $t = \varepsilon \tau + t_0$, примем обозначения $z(\tau) = x(\varepsilon \tau + t_0)$, $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $ и $h(\tau) = y(\varepsilon \tau + t_0)$ и получим из \eqref{s2:nonlinear_with_output}
+По аналогии с \eqref{s1:eps_nonlinear}, произведём замену времени $t = \varepsilon \tau + t_0$, примем обозначения $z(\tau) = x(\varepsilon \tau + t_0)$, $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $, $h(\tau) = y(\varepsilon \tau + t_0)$ и получим из \eqref{s2:nonlinear_with_output}
 \begin{gather}\label{s2:eps_nonlinear_with_output}
 \begin{gathered}
 	\dot{z}(\tau)=\widetilde{f}_1(\tau,z(\tau))+\widetilde{f}_2(\tau,z(\tau))\upsilon(\tau), \qquad 0 \leqslant \tau \leqslant 1, \qquad z(0) = x_0, \\
@@ -214,18 +211,18 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 
 Обозначим $\mathbb{L}_2 = \mathbb{L}_2[0, 1]$. 
 
-Как и в \eqref{s1:common_nonlinear_small_time}, здесь $ \widetilde{f}_1(\tau,z) = \varepsilon f_1(\varepsilon \tau + t_0, z) $, $ \widetilde{f}_2 (\tau,z) = f_2(\varepsilon \tau + t_0,z)$, а управление $ \upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \mu\sqrt{\varepsilon})$.
+Как и в \eqref{s1:common_nonlinear_small_time}, здесь $ \widetilde{f}_1(\tau,z) = \varepsilon f_1(\varepsilon \tau + t_0, z) $, $ \widetilde{f}_2 (\tau,z) = f_2(\varepsilon \tau + t_0,z)$, а управление \mbox{$ \upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \mu\sqrt{\varepsilon})$}.
 Система \eqref{s2:eps_nonlinear_with_output} наследует и другие свойства системы \eqref{s1:eps_nonlinear}.
-Для каждого $\upsilon(\cdot) \in B_{\mathbb{L}_2} (0, \overline{\mu} \sqrt{\varepsilon})$ существует единственное решение \eqref{s2:eps_nonlinear_with_output} $z(\cdot, \upsilon(\cdot))$, определенное на интервале $\tau \in [0,1]$. 
-Для системы \eqref{s2:eps_nonlinear_with_output} справедливы Предположение \ref{s1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ и при $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $ и 
+Для каждого $\upsilon(\cdot) \in B_{\mathbb{L}_2} (0, \overline{\mu} \sqrt{\varepsilon})$ существует единственное решение \eqref{s2:eps_nonlinear_with_output} $z(\cdot, \upsilon(\cdot))$, определённое на интервале $\tau \in [0,1]$. 
+Для системы \eqref{s2:eps_nonlinear_with_output} справедливы Предположение \ref{s1:as:right_hand_side_conditions_global} в области $[0, 1]\times D$ при $\upsilon(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}\sqrt{\varepsilon}) $ и 
 Лемма \ref{s1:lem:lip_of_solutions_global}.
 
-Обозначим через $\overline{G}_{\varepsilon}(\tau)$ множество достижимости системы \eqref{s2:eps_nonlinear_with_output} по выходу $h$ в момент времени $\tau$
+Обозначим через $\overline{G}_{\varepsilon}(\tau)$ множество достижимости системы \eqref{s2:eps_nonlinear_with_output} по выходу $h$ в момент времени $\tau$:
 \begin{gather*}
 	\overline{G}_{\varepsilon}(\tau)=\{h\in \mathbb{R}^m:\exists \upsilon(\cdot)\in B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon}),\; h=Cz(\tau,\upsilon(\cdot))\}.
 \end{gather*}
 
-Продолжая по аналогии с \eqref{s1:eps_linearized}, выпишем линейную систему, соответствующую линеаризации системы \eqref{s2:eps_nonlinear_with_output} вдоль пары $(z(\cdot, 0), 0)$ 
+Продолжая по аналогии с \eqref{s1:eps_linearized}, выпишем линейную систему, соответствующую линеаризации системы \eqref{s2:eps_nonlinear_with_output} вдоль пары $(z(\cdot, 0), 0)$:
 \begin{gather}\label{s2:eps_linearized}
 \begin{gathered}
 	\delta\dot{z} = A_{\varepsilon}(\tau) \delta z(\tau) + B_{\varepsilon}(\tau) \delta \upsilon(t),\qquad 0 \leqslant \tau \leqslant 1, \qquad \delta z(0) = 0, \\
@@ -241,23 +238,24 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 
 Для фундаментальной матрицы и грамиана управляемости системы \eqref{s2:eps_linearized} продолжим использовать обозначения $ X_{\varepsilon}(\tau,\xi) $ $(X_{\varepsilon}(\tau, \xi, \upsilon(\cdot)))$ и $W_{\varepsilon}(\tau)$ соответственно. 
 Грамиан управляемости системы \eqref{s2:eps_linearized} по выходу $ \delta h$ обозначим через $\overline{W}_{\varepsilon}(\tau)$. 
-Как и в разделе \ref{s1:small_time_subsection}, для $\tau = 1$ будем использовать сокращенные обозначения $W_{\varepsilon}(1) = W_{\varepsilon}$ и $\overline{W}_{\varepsilon}(1) = \overline{W}_{\varepsilon}$. 
+Как и в разделе \ref{s1:small_time_subsection}, для $\tau = 1$ будем использовать сокращённые обозначения $W_{\varepsilon}(1) = W_{\varepsilon}$ и $\overline{W}_{\varepsilon}(1) = \overline{W}_{\varepsilon}$. 
 
-Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$: здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{s2:eps_nonlinear_with_output}, порожденное управлением $\upsilon(\cdot)$. 
+Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$.
+Здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{s2:eps_nonlinear_with_output}, порождённое управлением $\upsilon(\cdot)$. 
 
-Учитывая, что функции $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{s1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$, из Леммы \ref{s1:lem:frechet_derivative_common} следует, что производная Фреше отображения $S$ существует и определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big) $ системы \eqref{s2:eps_linearized}, порожденное управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях, то есть
+Учитывая, что функции $\widetilde{f}_1$ и $\widetilde{f}_2$ удовлетворяют Предположению \ref{s1:as:right_hand_side_diff_lip} на множестве $[0, 1]\times D$, из Леммы \ref{s1:lem:frechet_derivative_common} следует, что производная Фреше отображения $S$ существует и определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big) $ системы \eqref{s2:eps_linearized}, порождённое управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях, т.~е.
 \begin{gather}\label{s2:freсhet_differential_of_scaled_map}
 	S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \int\limits_0^1 X_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}_{\varepsilon}(\tau, \upsilon(\cdot)) \delta\upsilon(\tau)\ d\tau. 
 \end{gather}
 
- Теперь определим композицию отображений $ S $ и $ C $, $ H: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^m $, то есть $ H(\upsilon(\cdot)) = C S(\upsilon(\cdot)) = C z(1,\upsilon(\cdot)) $. 
+ Теперь определим композицию отображений $ S $ и $ C $, $ H: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^m $, т.~е. $ H(\upsilon(\cdot)) = C S(\upsilon(\cdot)) = C z(1,\upsilon(\cdot)) $. 
 Из $h(\tau) = y(\varepsilon \tau + t_0)$ при $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $ следует, что 
 \begin{gather*}
 	H(B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))) = \overline{G}_{\varepsilon}(1) = \overline{G}(\varepsilon), 
 \end{gather*}
 где $ \sigma(\varepsilon) = \mu \sqrt{\varepsilon} $.
 
-Отображение $ H $ непрерывно дифференцируемо по Фреше при всех $ \upsilon(\cdot) \in B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) $, как композиция непрерывно дифференцируемых отображений и его производная Фреше $ H': \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^m $ определена равенством:
+Отображение $ H $ непрерывно дифференцируемо по Фреше при всех $ \upsilon(\cdot) \in B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) $ как композиция непрерывно дифференцируемых отображений, и его производная Фреше $ H': \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^m $ определена равенством
 \begin{gather*}
 	H'( \upsilon(\cdot))\delta \upsilon = C S'(\upsilon(\cdot))\delta \upsilon = C \delta z(1) = \delta h(1),
 \end{gather*}
@@ -267,7 +265,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 	H'(\upsilon(\cdot)) \delta \upsilon(\cdot) = C \int\limits_0^1 X_{\varepsilon}(1,\tau, \upsilon(\cdot)) \widetilde{B}_{\varepsilon} (\tau, \upsilon(\cdot)) \delta \upsilon(\tau) \ d \tau.
 \end{gather*}
 
-По аналогии с \eqref{s1:self_adjoint_with_derivative}, можно показать, что $ H'(0) H'(0)^* = \overline{W}_{\varepsilon}$. 
+По аналогии с \eqref{s1:self_adjoint_with_derivative} можно показать, что $ H'(0) H'(0)^* = \overline{W}_{\varepsilon}$. 
 Отсюда следует, что управляемость системы \eqref{s2:eps_linearized} по выходу $\delta h$ (минимальное собственное число $\overline{\lambda}(\varepsilon)$ грамиана $ \overline{W}_{\varepsilon}$ должно быть строго положительно), означает регулярность отображения $H$ в точке $\upsilon = 0$.
 
 Обозначим через $G^0_{\varepsilon}(\tau)$ и $\overline{G}^0_{\varepsilon}(\tau)$ множества достижимости системы \eqref{s2:eps_linearized} при $\delta \upsilon \in B_{\mathbb{L}_2}(0, \sigma(\varepsilon))$ по состоянию и выходу соответственно.
@@ -297,29 +295,28 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 	 \mu\sqrt{\varepsilon} \| \alpha(\cdot)\|_{\mathbb{L}_2},
 \end{gather*}
 где $ \alpha(\tau) = \widetilde{B}^{\top}_{\varepsilon}(\tau, \upsilon(\cdot)) X^{\top}_{\varepsilon}(1, \tau, \upsilon(\cdot)) l$. 
-Тогда,
+Тогда
 \begin{gather*}
 	\| \alpha(\cdot)\|^2_{\mathbb{L}_2} = l^{\top} \int\limits_0^1 X_{\varepsilon}(1, \tau, \upsilon(\cdot)) \widetilde{B}_{\varepsilon}(\tau, \upsilon(\cdot)) \widetilde{B}^{\top}_{\varepsilon}(\tau, \upsilon(\cdot)) X^{\top}_{\varepsilon}(1, \tau, \upsilon(\cdot)) \ d\tau \ l = l^{\top} W_{\varepsilon} l.
 \end{gather*}
-Итого, получаем $\delta(l | G^0_{\varepsilon}(\tau)) = \mu\sqrt{\varepsilon} \sqrt{l^{\top} W_{\varepsilon} l} $.
+Получаем $\delta(l | G^0_{\varepsilon}(\tau)) = \mu\sqrt{\varepsilon} \sqrt{l^{\top} W_{\varepsilon} l} $.
 
 Теперь убедимся, что $W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}) = \{ x \in \mathbb{R}^n: x^{\top} W^{-1}_{\varepsilon} x \leqslant \mu^2 \varepsilon \} $.
 Перепишем первое множество в виде $ W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}) = \{ a \in \mathbb{R}^n: a = W^{1/2}_{\varepsilon} b, \ b^{\top} b \leqslant \mu^2 \varepsilon, b \in \mathbb{R}^n \} $. 
 Отсюда $b = W^{-1/2}_{\varepsilon} a $.
 Тогда $ b^{\top} b = a^{\top} W^{-1}_{\varepsilon} a \leqslant \mu^2 \varepsilon $, что и требовалось показать.
 
-Наконец, рассмотрим опорную функцию $\delta(l | W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}))$, по определению
+Наконец, рассмотрим опорную функцию $\delta(l | W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}))$.
+По определению,
 \begin{gather*}
 	\delta(l | W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon})) = \max\limits_{x \in B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}))} l^{\top} W^{1/2}_{\varepsilon} x = \mu\sqrt{\varepsilon} \sqrt{l^{\top} W_{\varepsilon} l}.
 \end{gather*}
 Так как множества $W^{1/2}_{\varepsilon} B_{\mathbb{R}^n}(0,\mu\sqrt{\varepsilon}) $ и $S'(0) B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon})$ выпуклы и замкнуты, из равенства их опорных функций следует равенство самих множеств. 
-Аналогично доказывается равенство множеств $\overline{G}^0_{\varepsilon}(\tau) = H'(0) B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon}) = \{ y \in \mathbb{R}^m: y^{\top} \overline{W}^{-1}_{\varepsilon} y \leqslant \mu^2 \varepsilon \} = \overline{W}^{1/2}_{\varepsilon} B_{\mathbb{R}^m}(0,\mu\sqrt{\varepsilon})$
-
- \hfill $\square$
+Аналогично доказывается равенство $\overline{G}^0_{\varepsilon}(\tau) = H'(0) B_{\mathbb{L}_2}(0,\mu\sqrt{\varepsilon}) = \{ y \in \mathbb{R}^m: y^{\top} \overline{W}^{-1}_{\varepsilon} y \leqslant \mu^2 \varepsilon \} = \overline{W}^{1/2}_{\varepsilon} B_{\mathbb{R}^m}(0,\mu\sqrt{\varepsilon})$.  \hfill $\square$
  
-Основной результат этого раздела отражен в следующей теореме.
+Основной результат этого раздела отражён в следующей теореме.
 \begin{theorem}\label{s2:th:assimptotic_equality}
- При достаточно малых $ \varepsilon $ множество достижимости $ \overline{G}(\varepsilon) $ системы \eqref{s2:nonlinear_with_output} по выходу $ y = C x $ выпукло и асимптотически эквивалентно множеству $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0)$, если найдутся такие $ K>0 $, $ \alpha > 0 $, $ 0< \varepsilon_0<\overline{\varepsilon} $, что для всех $ \varepsilon \leqslant \varepsilon_0 $
+ При достаточно малых $ \varepsilon $ множество достижимости $ \overline{G}(\varepsilon) $ системы \eqref{s2:nonlinear_with_output} по выходу $ y = C x $ выпукло и асимптотически эквивалентно множеству \\ \mbox{$\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0)$}, если найдутся такие $ K>0 $, $ \alpha > 0 $, $ 0< \varepsilon_0<\overline{\varepsilon} $, что для всех $ \varepsilon \leqslant \varepsilon_0 $
  \begin{gather}\label{s2:cond1}
  \overline{\lambda}(\varepsilon) \geqslant \left\{ {\begin{array}{*{20}{l}}
  {K\varepsilon ^{3 - \alpha}, \mbox{\ если \ } f_2(t,x) \mbox{\ не зависит от \ } x}, \\
@@ -330,13 +327,13 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  
  \doc
  Применяя Лемму \ref{s1:lem:lip_dx_global} к отображению $S$, получаем, что его производная Фреше $S'(\upsilon)$ удовлетворяет условию Липшица
- при $ \upsilon \in B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) $.
+ при $ \upsilon(\cdot) \in B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) $.
  Тогда и $ H'(\upsilon(\cdot)) $ --- липшицева, 
  \begin{gather*}
  \left\| H_{\varepsilon}'(\upsilon_1(\cdot)) - H'_{\varepsilon}(\upsilon_2(\cdot)) \right\| \leqslant L(\varepsilon) \left\| \upsilon_1(\cdot) - \upsilon_2(\cdot)\right\|,
  \end{gather*}
  где для константы Липшица $ L(\varepsilon) = L_0 + L_1 \varepsilon$ отображения $ H' $ сохраним то же обозначение, что и в Лемме \ref{s1:lem:lip_dx_global}.
- А неравенство \eqref{s1:th3_proof_origin_condition} перепишем так, чтобы найти условие, при котором множество достижимости системы \eqref{s2:nonlinear_with_output} по выходу $ \overline{G}(\varepsilon) = \overline{G}_{\varepsilon}(1) = H (B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)))$ будет выпуклым:
+ Неравенство \eqref{s1:th3_proof_origin_condition} перепишем так, чтобы найти условие, при котором множество достижимости системы \eqref{s2:nonlinear_with_output} по выходу $ \overline{G}(\varepsilon) = \overline{G}_{\varepsilon}(1) = H (B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)))$ будет выпуклым:
  \begin{gather}\label{est2}
  4\sigma^2(\varepsilon)L^2(\varepsilon) = 4\mu^2\varepsilon L^2(\varepsilon) \leqslant \overline{\lambda}(\varepsilon),
  \end{gather}
@@ -346,25 +343,28 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 Это неравенство будет выполнено, если $ K\varepsilon^{3 - \alpha} \geqslant 4\mu^2L_1^2 \varepsilon^3 $, что равносильно соотношению $ \varepsilon \leqslant \varepsilon_1 := \left(\frac{K}{4\mu^2L_1^2}\right)^{1/\alpha} $. 
 Таким образом, множество достижимости $ G_y(\varepsilon)$ выпукло при $ 0 \leqslant \varepsilon \leqslant \min\{\varepsilon_0,\varepsilon_1\} $. 
  
- В другом случае, если $ f_2(t,x) $ зависит от $ x $, $ L(\varepsilon) =L_0+L_1\varepsilon $, а \eqref{est2} принимает вид $ \overline{\lambda}(\varepsilon) \geqslant 4\mu^2 \varepsilon (L_0 + L_1 \varepsilon)^2 $. 
-Учитывая, что $ \overline{\lambda}(\varepsilon) \geqslant K \varepsilon^{1-\alpha} $, достаточно доказать, что $ K \varepsilon^{1-\alpha} \geqslant 4\mu^2 \varepsilon (L_0 + L_1 \varepsilon_0)^2 $. 
+ В другом случае, если $ f_2(t,x) $ зависит от $ x $, $ L(\varepsilon) =L_0+L_1\varepsilon $, а \eqref{est2} принимает вид \mbox{ $\overline{\lambda}(\varepsilon) \geqslant 4\mu^2 \varepsilon (L_0 + L_1 \varepsilon)^2 $}. 
+Учитывая, что $ \overline{\lambda}(\varepsilon) \geqslant K \varepsilon^{1-\alpha} $, достаточно доказать, что 
+\begin{gather*}
+	K \varepsilon^{1-\alpha} \geqslant 4\mu^2 \varepsilon (L_0 + L_1 \varepsilon_0)^2.
+\end{gather*}  
 Последнее неравенство выполняется при $ \varepsilon \leqslant \varepsilon_2 := \left(\frac{K}{4\mu^2(L_0 + L_1\varepsilon_0)^2} \right)^{1/\alpha} $. 
 Следовательно, $ G_y(\varepsilon) $ выпукло, если $ 0 \leqslant \varepsilon \leqslant \min\{\varepsilon_0, \varepsilon_2\} $.
  
- Множество $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0) = H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)$ есть не что иное, как множество достижимости по выходу линеаризованной системы \eqref{s2:eps_linearized} с учетом сдвига, обусловленного свободным движением системы \eqref{s2:eps_nonlinear_with_output}.
+ Множество $\overline{W}^{1/2}(\varepsilon)B_{\mathbb{R}^m}(0,\mu) + Cx(t_0+\varepsilon,0) = H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)$ есть не что иное, как множество достижимости по выходу линеаризованной системы \eqref{s2:eps_linearized} с учётом сдвига, обусловленного свободным движением системы \eqref{s2:eps_nonlinear_with_output}.
  
  Доказательство асимптотической эквивалентности проекций множеств достижимости нелинейной и линеаризованной систем проводится по той же схеме, что и доказательство следствий теоремы 2 в \cite{GusevUMJ}. 
-Оценим сверху хаусдорфово расстояние между образами гильбертова шара $ H\left( B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))\right) $ и $ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H_{\varepsilon}(0) $:
+Оценим сверху хаусдорфово расстояние между образом гильбертова шара $ H\left( B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))\right) $ и множеством $ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H_{\varepsilon}(0) $:
  \begin{gather*}
  h\left( \overline{G}(\varepsilon), H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)\right) \leqslant L(\varepsilon) \sigma^2(\varepsilon).
  \end{gather*}
- А так как $ \lim\limits_{\varepsilon \rightarrow 0} L(\varepsilon) \sigma^2(\varepsilon) = 0 $, то и $ \lim\limits_{\varepsilon \rightarrow 0} h\left( \overline{G}_y(\varepsilon), H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)\right) = 0 $.
+ Поскольку $ \lim\limits_{\varepsilon \rightarrow 0} L(\varepsilon) \sigma^2(\varepsilon) = 0 $, то $ \lim\limits_{\varepsilon \rightarrow 0} h\left( \overline{G}_y(\varepsilon), H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)\right) = 0 $.
  
  
- Множество достижимости линеаризованной системы --- конечномерный эллипсоид и его наименьшая полуось $ \delta_{min}\left(H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) \right)=\sigma(\varepsilon)\sqrt{\overline{\lambda}(\varepsilon)} $. 
+ Множество достижимости линеаризованной системы --- конечномерный эллипсоид и его наименьшая полуось $ \delta_{\min}\left(H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon)) \right)=\sigma(\varepsilon)\sqrt{\overline{\lambda}(\varepsilon)} $. 
  Следовательно,
  \begin{gather*}
- \frac{h\left(\overline{G}(\varepsilon), H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)\right) }{\delta_{min}\left( H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))\right) } \leqslant \frac{L(\varepsilon) \sigma(\varepsilon)}{\sqrt{\overline{\lambda}(\varepsilon)}}.
+ \frac{h\left(\overline{G}(\varepsilon), H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0)\right) }{\delta_{\min}\left( H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))\right) } \leqslant \frac{L(\varepsilon) \sigma(\varepsilon)}{\sqrt{\overline{\lambda}(\varepsilon)}}.
  \end{gather*}
  
  При выполнении условий теоремы в первом случае ($ f_2(t,x) $ не зависит от $ x $) имеем
@@ -376,7 +376,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  L_1\mu K^{-\frac{1}{2}}\varepsilon^{\frac{\alpha}{2}} \rightarrow 0 \mbox{\ при\ } \varepsilon \rightarrow 0.
  \end{gather*}
  
- Во втором случае,
+ Во втором случае
  \begin{gather*}
  \frac{L(\varepsilon) \sigma(\varepsilon)}{\sqrt{\overline{\lambda}(\varepsilon)}} 
  \leqslant
@@ -388,14 +388,14 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  Таким образом условия теоремы \ref{suff} выполнены, а значит, множества $ \overline{G}(\varepsilon) $ и \\$ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0) $ асимптотически эквиваленты.
  \hfill $\square$
  \begin{utv}
- Пусть $ W_1 $, $ W $ --- симметричные матрицы, причем $ W_1 = C W C^{\top} $, где $ C $ --- матрица полного ранга размерности $ m \times n $, $ m \leqslant n $, а $ \nu(W) $, $ \nu(W_1) $ и $ \nu(CC^{\top}) $ --- наименьшие собственные числа соответствующих матриц.
+ Пусть $ W_1 $, $ W $ --- симметричные матрицы, причём $ W_1 = C W C^{\top} $, где $ C $ --- матрица полного ранга размерности $ m \times n $, $ m \leqslant n $, а $ \nu(W) $, $ \nu(W_1) $ и $ \nu(CC^{\top}) $ --- наименьшие собственные числа соответствующих матриц.
  
  Тогда
  \begin{gather*}
  \nu(W_1) \geqslant \nu(CC^{\top}) \nu(W).
  \end{gather*}
  \end{utv}
- \doc. 
+ \doc 
  Действительно,
  \begin{gather*}
  \forall x \in \mathbb{R}^m, \: x^{\top} W_1 x = x^{\top} C W C^{\top} x \geqslant \nu(W)\left\| C^{\top}x \right\| ^2,\\
@@ -403,10 +403,8 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{gather*}
  Следовательно,
  \begin{gather*}
- \nu(W_1) = \min \limits_{\left\| x\right\| =1}x^{\top}W_1x \geqslant \nu(W)\min \limits_{\left\| x\right\| =1}x^{\top}CC^{\top}x = \nu(CC^{\top}) \nu(W) 
- \end{gather*} \begin{flushright}
- \hfill $ \square $
- \end{flushright}
+ \nu(W_1) = \min \limits_{\left\| x\right\| =1}x^{\top}W_1x \geqslant \nu(W)\min \limits_{\left\| x\right\| =1}x^{\top}CC^{\top}x = \nu(CC^{\top}) \nu(W). 
+ \end{gather*}  \hfill $ \square $
  
  Применяя утверждение к грамиану управляемости линеаризованной системы $ W_{\varepsilon} $, грамиану управляемости по выходу $ \overline{W}_{\varepsilon}$, и их наименьшим собственным числам $ \overline{\lambda}(\varepsilon) $ и $ \lambda(\varepsilon) $, получим
  \begin{gather*}
@@ -420,34 +418,34 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 \subsubsection{Выпуклость двумерных проекций множеств достижимости уницикла на малых промежутках времени} 
  Исследуем проекции множеств достижимости на примере системы третьего порядка
  \begin{gather}\label{unicycle0}
- \dot{x_1} = v(t)\cos x_3, \qquad
- \dot{x_2} = v(t)\sin x_3, \qquad
- \dot{x_3} = u(t), \qquad 0 \leqslant t \leqslant \varepsilon
+ \dot{x}_1 = \cos x_3, \qquad
+ \dot{x}_2 = \sin x_3, \qquad
+ \dot{x}_3 = u(t), \qquad 0 \leqslant t \leqslant \varepsilon
  \end{gather}
- при ограничениях на управление 
+ при ограничении на управление 
  \begin{gather*}
- v(t) = 1, \qquad \int_0^1 u^2(t) \, dt \leqslant 1
+\int_0^1 u^2(t) \, dt \leqslant 1
  \end{gather*}
  и нулевых начальных условиях $ x_1(0) = x_2(0) = x_3(0) = 0 $.
  
- Система \eqref{unicycle0} известна как уницикл (при $ v(t) = 1$ --- машина Дубинса). 
+ Система \eqref{unicycle0} известна как уницикл (машина Дубинса). 
 При геометрическом
  ограничении на
  управление ($|u(t)|\leqslant 1$) проекции множества достижимости машины Дубинса на двумерное пространство координат $(x_1,\,x_2)$ были исследованы в
  \cite{Cockayne}. 
-Общая трехмерная картина множества достижимости получена в
+Общая трёхмерная картина множества достижимости получена в
  работах \cite{Patsko} (при геометрических ограничениях), \cite{Patsko2023} (при интегральных ограничениях). 
 Множество достижимости интегратора Брокетта, к которому нелинейными преобразованиями могут быть приведены уравнения уницикла \eqref{unicycle0}, исследовано в \cite{Vdovin}.
  
- Запишем решение $ x(t,u(t)) $, порожденное нулевым управлением $ u(t) \equiv 0 $:
+ Запишем решение $ x(t,u(t)) $, порождённое нулевым управлением $ u(t) \equiv 0 $:
  \begin{gather*}
  \begin{gathered}
- \dot{x_3} = 0 \longrightarrow x_3(t) = x_3(0) + 0 = 0, \\
- \dot{x_2} = \sin x_3(t) = \sin 0 \longrightarrow x_2(t) = x_2(0) + \int_0^t 0 \, d\tau = 0,\\
- \dot{x_1} = \cos x_3(t) = \cos 0 \longrightarrow x_3(t) = x_3(0) + \int_0^t 1 \, d\tau = t.
+ \dot{x}_3 = 0 \longrightarrow x_3(t) = x_3(0) + 0 = 0, \\
+ \dot{x}_2 = \sin x_3(t) = \sin 0 \longrightarrow x_2(t) = x_2(0) + \int_0^t 0 \, d\tau = 0,\\
+ \dot{x}_1 = \cos x_3(t) = \cos 0 \longrightarrow x_3(t) = x_3(0) + \int_0^t 1 \, d\tau = t.
  \end{gathered}
  \end{gather*}
- Матрицы линеаризованной системы не зависят от $ t $ и имеют вид:
+ Матрицы линеаризованной системы не зависят от $ t $ и имеют вид
  \begin{gather}\label{linear0}
  A = \begin{pmatrix}
  0 & 0 & 0 \\ 
@@ -457,24 +455,24 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  0 \\ 
  0 \\ 
  1
- \end{pmatrix} 
+ \end{pmatrix}.
  \end{gather}
  Пара $ (A,B) $, очевидно, не является вполне управляемой.
- Выпишем фундаментальную матрицу системы \eqref{linear0}, а затем получим грамиан управляемости линеаризованной системы
+ Выпишем фундаментальную матрицу системы \eqref{linear0}, а затем получим грамиан управляемости линеаризованной системы:
  \begin{gather*}
  \begin{gathered}
- \dot{X}(t,t_1) = A(t) X(t,t_1), \qquad X(t_1,t_1) = I \\
+ \dot{X}(t,t_1) = A(t) X(t,t_1), \qquad X(t_1,t_1) = I, \\
  X(t,\tau) = \begin{pmatrix}
  1 & 0 & 0 \\ 
  0 & 1 & \varepsilon \\ 
  0 & 0 & 1
- \end{pmatrix} \\
+ \end{pmatrix}, \\
  W(\varepsilon) = \int_0^{\varepsilon}X(\varepsilon,t) B B^{\top} X^{\top}(\varepsilon,t)dt 
  =\begin{pmatrix}
  0 & 0 & 0 \\
  0 & \frac{\varepsilon^3}{3} & \frac{\varepsilon^2}{2} \\
  0 & \frac{\varepsilon^2}{2} & \varepsilon
- \end{pmatrix} 
+ \end{pmatrix}.
  \end{gathered}
  \end{gather*}
  Сделаем замену времени и перепишем грамиан управляемости в виде
@@ -483,7 +481,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  0 & 0 & 0 \\
  0 & \frac{\varepsilon^2}{3} & \frac{\varepsilon}{2} \\
  0 & \frac{\varepsilon}{2} & 1
- \end{pmatrix} 
+ \end{pmatrix}.
  \end{gather*} 
  Теперь последовательно рассмотрим проекции системы \eqref{unicycle0} на координатные плоскости $ (x_1, x_2) $, $ (x_1, x_3) $, $ (x_2, x_3) $. \\
  
@@ -496,28 +494,28 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  0 & 1 & 0
  \end{pmatrix}.
  \end{gather*}
- Грамиан управляемости в нормированном времени
+ Грамиан управляемости в нормированном времени:
  \begin{gather*}
  \overline{W}_{\varepsilon}^{1,2} = C W_{\varepsilon} C^{\top} =\begin{pmatrix}
  0 & 0 \\
- 0 & \frac{\varepsilon^2}{3}. \\
+ 0 & \frac{\varepsilon^2}{3} \\
  \end{pmatrix}.
  \end{gather*}
- Нетрудно заметить, что $ \overline{W}_{\varepsilon}^{1,2} $ --- вырожденная. 
+ Нетрудно заметить, что $ \overline{W}_{\varepsilon}^{1,2} $ --- вырожденная матрица. 
 Следовательно, система \eqref{unicycle0} не управляема по выходу $ (x_1, x_2) $, а значит, достаточное условие выпуклости множества достижимости по выходу $ \overline{G}_{1,2}(\varepsilon) $ не выполняется. 
-Множество $ \overline{G}_{1,2}(\varepsilon) $ полученное в численном эксперименте показано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x2}. 
-Отметим, что в разделе \ref{s1:examples}, при помощи принципа максимума доказано, что $ G(\varepsilon) $ --- невыпукло. 
-Из приведенного там доказательства также следует, что $ \overline{G}_{1,2}(\varepsilon) $ тоже не является выпуклой.
+Множество $ \overline{G}_{1,2}(\varepsilon) $, полученное в численном эксперименте, показано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x2}. 
+Отметим, что в разделе \ref{s1:examples} при помощи принципа максимума доказано, что $ G(\varepsilon) $ --- невыпукло. 
+Из приведённого там доказательства также следует, что проекция $ \overline{G}_{1,2}(\varepsilon) $ тоже не является выпуклой.
  
 В этой работе для построения множеств достижимости мы используем алгоритм, основанный на методе Монте-Карло и описанный в Приложении \ref{app:A}.
 Удовлетворяющее интегральным ограничениям управление $ u(t) $ представляется в виде линейной комбинации ортогональных полиномов. 
-Коэффициенты этого разложения --- равномерно распределенные случайные нормированные векторы. 
+Коэффициенты этого разложения --- равномерно распределённые случайные нормированные векторы. 
 Перебирая такие векторы, будем получать программные управления, удовлетворяющие ограничениям \eqref{s2:constrY}. 
-Концы траекторий, порожденные такими управлениями, покрывают множество достижимости.
+Концы траекторий, порождённые такими управлениями, покрывают множество достижимости.
  
  
  \item Теперь рассмотрим проекцию на плоскость $ (x_1, x_3) $. 
-Выпишем матрицы $ C $ и $ \overline{W}_{\varepsilon}^{1,3} $
+Выпишем матрицы $ C $ и $ \overline{W}_{\varepsilon}^{1,3} $:
  \begin{gather*}
  C = \begin{pmatrix}
  1 & 0 & 0 \\
@@ -529,8 +527,8 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{pmatrix} .
  \end{gather*}
  Ситуация аналогична предыдущему случаю: матрица $ \overline{W}_{\varepsilon}^{1,3} $ вырождена, достаточное условие выпуклости не выполняется. 
-Результат численного моделирования приведен на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x3}.
- \item Наконец, перейдем к плоскости $ (x_2, x_3) $. 
+Результат численного моделирования приведён на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x3}.
+ \item Наконец, перейдём к плоскости $ (x_2, x_3) $. 
 Здесь
  \begin{gather*}
  C = \begin{pmatrix}
@@ -541,7 +539,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \frac{\varepsilon}{2} & 1
  \end{pmatrix}.
  \end{gather*}
- В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена и ее минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}. 
+ В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена и её минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}. 
 Пунктирной линией на рисунке показана точная граница множества достижимости линеаризованной системы, сдвинутая на $ Cx(\varepsilon, 0) $. Из рисунка видно, что эта граница (эллипс) практически совпадает с границей множества достижимости нелинейной системы.
  \end{enumerate} 
  
@@ -608,23 +606,24 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  Немного изменим рассмотренный пример для того, чтобы линеаризованная система оставалась управляемой. 
 Итак, рассматривается нелинейная система
  \begin{gather}\label{unicycle1}
- \dot{x_1} = \cos x_3, \qquad
- \dot{x_2} = \sin x_3, \qquad
- \dot{x_3} = 1 + u(t), \qquad 0 \leqslant t \leqslant \varepsilon
+ \dot{x}_1 = \cos x_3, \qquad
+ \dot{x}_2 = \sin x_3, \qquad
+ \dot{x}_3 = 1 + u(t), \qquad 0 \leqslant t \leqslant \varepsilon
  \end{gather}
- при интегральных ограничениях на управление 
+ при интегральном ограничении на управление 
  \begin{gather*}
  \int_0^1 u^2(t) dt \leqslant 1
  \end{gather*}
  и нулевых начальных условиях $ x_1(0) = x_2(0) = x_3(0) = 0 $. 
 Фактически, это то же самое, что рассматривать исходную систему при ограничении $ \displaystyle{\int_0^1} \left( u(t) - 1\right)^2 \ dt \leqslant 1$.
+\pagebreak
  
- Порождённое нулевым управлением $ u(t) \equiv 0 $ решение обозначим $ x(t,0) = x(t) $ и будем использовать его как опорное. 
+ Порождённое нулевым управлением $ u(t) \equiv 0 $ решение обозначим $ x(t,0) = x(t) $ и будем использовать его как опорное:
  \begin{gather}\label{trj}
  \begin{gathered}
- \dot{x_3} = 1 \longrightarrow x_3(t) = x_3(0) + t = t, \\
- \dot{x_2} = \sin x_3(t) = \sin t \longrightarrow x_2(t) = x_2(0) + \int_0^t \sin \tau d\tau = 1 - \cos t,\\
- \dot{x_1} = \cos x_3(t) = \cos t \longrightarrow x_1(t) = x_1(0) + \int_0^t \cos \tau d\tau = \sin t.
+ \dot{x}_3 = 1 \longrightarrow x_3(t) = x_3(0) + t = t, \\
+ \dot{x}_2 = \sin x_3(t) = \sin t \longrightarrow x_2(t) = x_2(0) + \int_0^t \sin \tau d\tau = 1 - \cos t,\\
+ \dot{x}_1 = \cos x_3(t) = \cos t \longrightarrow x_1(t) = x_1(0) + \int_0^t \cos \tau d\tau = \sin t.
  \end{gathered}
  \end{gather}
  Выпишем матрицы линеаризованной вдоль траектории \eqref{trj} системы 
@@ -639,7 +638,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  1
  \end{pmatrix}.
  \end{gather*}
- Для изучения грамиана управляемости выпишем фундаментальную матрицу линеаризованной системы
+ Для изучения грамиана управляемости выпишем фундаментальную матрицу линеаризованной системы:
  \begin{gather*}
  \begin{gathered}
  X(t,\tau) = \begin{pmatrix}
@@ -660,8 +659,8 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  * & * & \varepsilon
  \end{pmatrix}. 
  \end{gather*}
- Здесь и далее, будем заменять элементы симметричных матриц под главной диагональю на символ $ * $ для лаконичности записи.
- Проделаем замену времени $ t = \varepsilon \tau $ и выпишем грамиан управляемости $ W_{\varepsilon} $ линеаризованной системы в новом времени $ \tau $
+ Здесь и далее будем заменять элементы симметричных матриц под главной диагональю на символ $ * $ для лаконичности записи.
+ Проделаем замену времени $ t = \varepsilon \tau $ и выпишем грамиан управляемости $ W_{\varepsilon} $ линеаризованной системы в новом времени $ \tau $:
  \begin{gather*}
  W_{\varepsilon} = \dfrac{1}{\varepsilon} W(\varepsilon) = 
  \end{gather*} \footnotesize
@@ -680,25 +679,25 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  Далее последовательно рассмотрим проекции системы \eqref{unicycle1} на координатные плоскости $ (x_1, x_2) $, $ (x_1, x_3) $, $ (x_2, x_3) $. \\
  
  \begin{enumerate}
- \item Будем рассматривать проекцию $ \overline{G}_{1,2}(\varepsilon) $ области достижимости системы \eqref{unicycle1} на плоскость первых двух фазовых координат. 
-Матрица проектирования будет иметь вид
+ \item Будем рассматривать проекцию $ \overline{G}_{1,2}(\varepsilon) $  множества  достижимости системы \eqref{unicycle1} на плоскость первых двух фазовых координат. 
+Матрица проектирования имеет вид
  \begin{gather*}
  C = \begin{pmatrix}
  1 & 0 & 0 \\ 
  0 & 1 & 0 
  \end{pmatrix}. 
  \end{gather*} 
- Тогда: \small
+ Тогда\small
  \begin{gather}\label{Ve}
  \overline{W}_{\varepsilon}^{1,2}= \begin{pmatrix}
  \cos^2(\varepsilon)-\dfrac{3}{4\varepsilon}\sin(2\varepsilon)+\dfrac{1}{2} & 
  \cos\left(\varepsilon \right)\,\sin\left(\varepsilon \right)+\dfrac{1}{2\,\varepsilon}\left( 3\cos^2\left(\varepsilon \right)-2\cos\left(\varepsilon\right)-1\right) \\[6pt]
  * &
  \dfrac{3}{2}-\dfrac{1}{\varepsilon }\left(2\,\sin\left(\varepsilon \right)-\dfrac{3\,\cos\left(\varepsilon \right)\,\sin\left(\varepsilon \right)}{2} \right) -{\cos\left(\varepsilon \right)}^2 
- \end{pmatrix}
+ \end{pmatrix}.
  \end{gather}
  \normalsize
- Для исследования асимптотики $ \nu^{1,2}_{\varepsilon} $ --- минимального собственного числа $ \overline{W}_{\varepsilon}^{1,2} $, перепишем \eqref{Ve}, разложив тригонометрические функции в ряд вблизи точки $ \varepsilon = 0 $.
+ Для исследования асимптотики $ \nu^{1,2}_{\varepsilon} $ --- минимального собственного числа $ \overline{W}_{\varepsilon}^{1,2} $, перепишем \eqref{Ve}, разложив тригонометрические функции в ряд вблизи точки $ \varepsilon = 0 $:
  \begin{gather*}
  \overline{W}_{\varepsilon}^{1,2} = \begin{pmatrix}
  \dfrac{2\,\varepsilon ^4}{15} + O(\varepsilon^6)&
@@ -708,9 +707,9 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{pmatrix}.
  \end{gather*}
  
- Минимальное собственное число $ \nu^{1,2}_{\varepsilon} = \frac{1}{120}\varepsilon^4 + O(\varepsilon^6)$, а $ \varepsilon^4 < \varepsilon^{3-\alpha} $ для всех $ \alpha > 0 $ при достаточно малых $ \varepsilon $, то есть достаточное условие выпуклости $ \overline{G}_{x_1, x_1}(\varepsilon) $ не выполняется. 
+ Минимальное собственное число $ \nu^{1,2}_{\varepsilon} = \frac{1}{120}\varepsilon^4 + O(\varepsilon^6)$, а $ \varepsilon^4 < \varepsilon^{3-\alpha} $ для всех $ \alpha > 0 $ при достаточно малых $ \varepsilon $, т.~е. достаточное условие выпуклости $ \overline{G}_{x_1, x_1}(\varepsilon) $ не выполняется. 
 Результаты численного моделирования, приведённые на рисунке~\ref{fig:RS}-\subref{fig:u=1_x1-x2}, показывают невыпуклость проекции. 
- \item Перейдем к плоскости $ (x_1,x_3) $. 
+ \item Перейдём к плоскости $ (x_1,x_3) $:
  \begin{gather*}
  C = \begin{pmatrix}
  1 & 0 & 0 \\
@@ -722,7 +721,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  * & 1
  \end{pmatrix}.
  \end{gather*}
- Так же, как и в случае плоскости $ (x_1,x_2) $ разложим компоненты $ \overline{W}_{\varepsilon}^{1,3} $ в ряд вблизи точки $ \varepsilon = 0 $:
+ Так же, как и в случае плоскости $ (x_1,x_2) $, разложим компоненты $ \overline{W}_{\varepsilon}^{1,3} $ в ряд вблизи точки $ \varepsilon = 0 $:
  \begin{gather*}
  \overline{W}_{\varepsilon}^{1,3} = \begin{pmatrix} 
  \dfrac{2\,\varepsilon ^4}{15} + O(\varepsilon^6) &
@@ -731,7 +730,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{gather*}
  Минимальное собственное число матрицы $ \overline{W}_{\varepsilon}^{1,3} $, $ \nu^{1,3}_{\varepsilon} = \frac{1}{45}\varepsilon^4 + O(\varepsilon^6) $, также не удовлетворяет условию \eqref{s2:cond1}. 
 Соответствующий результат численного построения проекции множества достижимости показан на рисунке~\ref{fig:RS}-\subref{fig:u=1_x1-x3}.
- \item Последний случай --- плоскость $ (x_2,x_3) $.
+ \item Последний случай --- плоскость $ (x_2,x_3) $:
  \begin{gather*}
  C = \begin{pmatrix}
  0 & 1 & 0 \\
@@ -743,7 +742,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  1 
  \end{pmatrix}.
  \end{gather*}
- Точно также разложим $ \overline{W}_{\varepsilon}^{2,3} $ в ряд
+ Точно так же разложим $ \overline{W}_{\varepsilon}^{2,3} $ в ряд:
  \begin{gather*}
  \overline{W}_{\varepsilon}^{2,3} = \begin{pmatrix}
  \dfrac{\varepsilon^2}{3} + O(\varepsilon^4) &
@@ -751,7 +750,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \dfrac{\varepsilon }{2} + O(\varepsilon^3) & 1
  \end{pmatrix}
  \end{gather*}
- Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, то есть, удовлетворяет условию \eqref{s2:cond1}. 
+ Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, т.~е., удовлетворяет условию \eqref{s2:cond1}. 
 Выпуклость этой проекции проиллюстрирована на рисунке~\ref{fig:RS}-\subref{fig:u=1_x2-x3}. 
 Как и на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}, здесь пунктирной линией показана точная граница множества достижимости линеаризованной системы.
  \end{enumerate}

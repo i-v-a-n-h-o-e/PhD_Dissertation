@@ -6,7 +6,7 @@
 Опираясь на работы Б.\,Т.~Поляка \cite{Polyak2001,Polyak2004} по образу малого гильбертова шара при нелинейных отображениях, исследование распространяет анализ на сценарии, когда в правой части системы существует малая нелинейность. 
 Если малый параметр принимает нулевое значение, то квазилинейная система становится линейной, а ее множество достижимости выпуклым. 
 Выясняется, что для сохранения выпуклости множества достижимости этих систем производная нелинейного отображения должна быть непрерывной липшицевой. 
-Доказательство следует схеме Поляка. 
+Доказательство следует схеме Б.\,Т.~Поляка. 
 
 Глава организована следующим образом. 
 Постановка задачи и некоторые предварительные замечания составляют первый раздел. 
@@ -22,25 +22,25 @@
 \end{gather}
 где $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- вектор управления, $t_0$ --- неотрицательное число, $T$ --- положительное число, а $\varepsilon$ --- малый параметр, такой, что $\varepsilon \in [0,\overline{\varepsilon}]$, $ \overline{\varepsilon} > 0$. 
 Матричные отображения $A:[t_0,T] \to \mathbb{R}^{n\times n} $, $B: [t_0,T] \to \mathbb{R}^{n\times r} $ предполагаются непрерывными. 
-Вектор-функция $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по $x$.
+\mbox{Вектор-функция} $f: \mathbb{R}^n \times [t_0,T] \to \mathbb{R}^n$ непрерывна по паре $(x,t)$ и непрерывно-дифференцируема по $x$.
 
-Система \eqref{sec3:nonlinear} является частным случаем системы \eqref{s1:common_nonlinear}, которая исследовалась в Главе \ref{s1}, при $f_1(t,x) = A(t) x(t) + \varepsilon f(x(t),t)$ и $f_2(t, x(t)) = B(t)$.
+Система \eqref{sec3:nonlinear} является частным случаем системы \eqref{s1:common_nonlinear}, которая исследовалась в Главе~\ref{s1}, при $f_1(t,x) = A(t) x(t) + \varepsilon f(x(t),t)$ и $f_2(t, x(t)) = B(t)$.
 
 Управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2}(0,\mu) $, где $ \mu > 0$.
 
 Каждому управлению $u(\cdot) \in \mathbb{L}_2$ и любому $\varepsilon \in [0,\overline{\varepsilon}]$ соответствует единственное абсолютно непрерывное решение $ x(t,\varepsilon, u(\cdot)) $ системы \eqref{sec3:nonlinear}, удовлетворяющее начальному условию $ x(t_0,\varepsilon, u(\cdot)) = x_0$, и это решение продолжимо на интервал $[t_0, t_0 + \Delta]$, где $t_0 + \Delta < T$. 
 
-Далее, мы будем считать, что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0, T]$.
+Далее, мы будем считать, что Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены для правой части системы \eqref{sec3:nonlinear} при управлениях $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $ на интервале $ [t_0, T]$, а пара $(A(t), B(t))$ управляема на этом интервале.
 
 В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если $f$ удовлетворяет одному из следующих условий \cite{Filippov2}:
 \begin{gather}\label{sec3:sublinear_growth}
  \left\|f\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \\ 
- x \cdot f(x,t) \leqslant a(t) \|x\|^2 + b(t),
+ x^{\top} f(x,t) \leqslant a(t) \|x\|^2 + b(t),
 \end{gather}
 где $l_1(\cdot) \in \mathbb{L}_1[t_0,T]$ и $a(\cdot), b(\cdot)$ --- некоторые непрерывные функции.
 
 \begin{definition} 
- Множеством достижимости $G(T,\mu,\varepsilon) $ системы \eqref{sec3:nonlinear} в момент $T$ называется множество всех возможных состояний, в которые система может быть переведена к моменту $T$ при помощи управлений $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $.
+ Множеством достижимости $G(T,\mu,\varepsilon) $ системы \eqref{sec3:nonlinear} в момент $T$ называется множество всех возможных состояний, в которые система может быть переведена в момент $T$ при помощи управлений $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $.
  \begin{gather*}
  G(T,\mu,\varepsilon) =\{\widetilde{x}\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x(T,\varepsilon,u(\cdot)) = \widetilde{x}\}.
  \end{gather*}
@@ -49,8 +49,8 @@
 
 \subsection{Нелинейное отображение с малым параметром}
 
-В этом параграфе, $x$ (а также $x_0$, $x_1$ и другие) никак не связан с вектором состояния системы \eqref{sec3:nonlinear}.
-Здесь $x$ --- это элемент пространства $X$, а вот $\varepsilon$ по-прежнему малый неотрицательный параметр.
+В этом параграфе символ $x$ (а также $x_0$, $x_1$ и другие) никак не связан с вектором состояния системы \eqref{sec3:nonlinear}.
+Здесь $x$ --- это элемент пространства $X$, а вот $\varepsilon$ --- по-прежнему малый неотрицательный параметр.
 
 Будем рассматривать отображение $F(x, \varepsilon) = a_0 + A_0x + \varepsilon A_1(x,\varepsilon): B_X(0, r) \times \mathbb{R}_+ \rightarrow Y$, где $X$ и $Y$ --- гильбертовы пространства.
 Здесь $a_0 \in Y$ --- константа, которая не зависит ни от $x$, ни от $\varepsilon$; $A_0$ --- линейный оператор, который предполагается сюръективным отображением $X$ в $Y$. 
@@ -63,7 +63,7 @@
 Здесь $A_0^* $ --- сопряженный к $A_0$ линейный оператор.
 Наконец, $A_1: B_X(0, r) \times \mathbb{R}_+ \to Y $ --- это нелинейный оператор, непрерывный по $x$ и $\varepsilon$.
 \begin{assumption}\label{as:derivative_of_A1}
- Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ отображение $A_1(x, \varepsilon)$ имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$ которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
+ Существует такое $\overline{\varepsilon} > 0$, что для всех $x \in B_X(0,r)$, $\varepsilon \in [0, \overline{\varepsilon}]$ отображение $A_1(x, \varepsilon)$ имеет производную Фреше $\frac{\partial A_1(x, \varepsilon)}{\partial x} = A_1'(x, \varepsilon)$, которая непрерывна по $\varepsilon$ и липшицева по $x$: существует $L>0$, такая что
  \begin{gather*}
  \|A_1'(x_1,\varepsilon) - A_1'(x_2,\varepsilon) \| \leqslant L\|x_1-x_2\|, \qquad x_1, x_2 \in B_X(0,r), \qquad \varepsilon \in [0, \overline{\varepsilon}].
  \end{gather*}
@@ -76,28 +76,28 @@
  \begin{gather*}
  \| f'(x) - f'(z) \| \leqslant L \| x - z\|, \quad \forall x,z \in B(x_0,\rho), \\
  \| f'(x)^*y \| \geqslant \mu \|y \|, \quad \forall y \in Y, \quad \forall x \in B(x_0, \rho), \\
- \| f(x_0) - y_0 \| \leqslant \rho \mu,
+ \| f(x_0) - y_0 \| \leqslant \rho \mu.
  \end{gather*}
- тогда уравнение $f(x) = y_0$ имеет решение $x^* \in B(x_0,\rho)$ и 
+ Тогда уравнение $f(x) = y_0$ имеет решение $x^* \in B(x_0,\rho)$ и 
  \begin{gather*}
  \|x^* - x_0\| \leqslant \frac{1}{\mu} \left\| f(x_0) - y_0 \right\|.
  \end{gather*}
 \end{lemma}
 Теперь мы можем сформулировать и доказать следующую теорему.
 \begin{theorem}\label{th:ImageConvexity}
- Через $F(x,\varepsilon)$ обозначим образ шара $B_X(0, r)$ при его отображении $F\big(B_X(0,r),\varepsilon\big)$, т.~е. $F\big(B_X(0,r),\varepsilon\big) = \big\{F(x,\varepsilon): x\in B_X(0, r)\big\}$.
+ Через $F\big(B_X(0,r),\varepsilon\big)$ обозначим образ шара $B_X(0, r)$ при его отображении $F$, т.~е. $F\big(B_X(0,r),\varepsilon\big) = \big\{F(x,\varepsilon): x\in B_X(0, r)\big\}$.
  Пусть выполнено Предположение \ref{as:derivative_of_A1} и $F\big(B_X(0,r),\varepsilon\big)$ --- замкнутое множество для каждого $\varepsilon \in [0, \overline{\varepsilon}]$. 
 Тогда найдется такое $ \varepsilon_0 \in (0, \overline{\varepsilon}]$, что при всех положительных $\varepsilon < \varepsilon_0$ образ $F\big(B_X(0,r),\varepsilon\big)$ --- выпуклое множество в $Y$. 
 \end{theorem}
 \doc
-Заметим, что константа $a_0$ не влияет на выпуклость образа $F\big(B_X(0,r),\varepsilon\big)$. 
-Поэтому в доказательстве мы будем считать ее равной нулю.
+Заметим, что константа $a_0$ не влияет на выпуклость образа \\ $F\big(B_X(0,r),\varepsilon\big)$. 
+Поэтому в доказательстве будем считать ее равной нулю.
 
 Рассмотрим две произвольные точки, $x_1$ и $x_2$, из шара $B_X(0,r)$. 
-Обозначим $x_0 = \frac{1}{2}(x_1 + x_2)$, $y(\varepsilon) = \frac{1}{2}\big(y_1(\varepsilon) + y_2(\varepsilon)\big)$, где $y_1(\varepsilon) = F(x_1, \varepsilon)$ и $y_2(\varepsilon) = F(x_2, \varepsilon)$. 
+Обозначим \mbox{$x_0 = \frac{1}{2}(x_1 + x_2)$}, $y(\varepsilon) = \frac{1}{2}\big(y_1(\varepsilon) + y_2(\varepsilon)\big)$, где $y_1(\varepsilon) = F(x_1, \varepsilon)$ и $y_2(\varepsilon) = F(x_2, \varepsilon)$. 
 
-Для того, чтобы доказать выпуклость множества $F\big(B_X(0,r),\varepsilon\big)$, достаточно показать, что $y(\varepsilon) \in F\big(B_X(0,r),\varepsilon\big)$ или, что то же самое, найдется такое $x^* \in B_X(0,r) $, что $F(x^*, \varepsilon) = y(\varepsilon) $.
-Выпишем выражение для $y(\varepsilon)$
+Для того, чтобы доказать выпуклость множества $F\big(B_X(0,r),\varepsilon\big)$, достаточно показать, что $y(\varepsilon) \in F\big(B_X(0,r),\varepsilon\big)$ или, что то же самое, найдется такое $x^* \in B_X(0,r) $, что \mbox{$F(x^*, \varepsilon) = y(\varepsilon) $}.
+Выпишем выражение для $y(\varepsilon)$:
 \begin{gather}\label{y}
  \begin{gathered}
  y(\varepsilon)=
@@ -119,7 +119,7 @@
 \end{gather}
 
 Пусть $x \in X$ и $h \in X$ выбраны так, чтобы выполнялись включения $x\in B_X(0, r)$ и $x+h \in B_X(0, r)$.
-В условиях Предположения \ref{as:derivative_of_A1}, разложим $A_1$ в ряд около точки $x$:
+В условиях Предположения \ref{as:derivative_of_A1} разложим $A_1$ в ряд около точки $x$:
 
 \begin{gather}\label{A1_series}
  A_1(x + h,\varepsilon) = A_1(x,\varepsilon) + A_1'(x,\varepsilon) h + R(\varepsilon, x, h).
@@ -127,25 +127,25 @@
 
 Умножив обе части равенства на $y^* \in Y^*$, $\|y^*\| \leqslant 1$, имеем
 \begin{gather*}
- \langle y^*, R(\varepsilon, x, h) \rangle = 
- \langle y^*, A_1(x + h,\varepsilon) \rangle -
- \langle y^*, A_1(x,\varepsilon) \rangle -
- \langle y^*, A_1'(x,\varepsilon) h \rangle
+\big( y^*, R(\varepsilon, x, h)\big) = 
+\big( y^*, A_1(x + h,\varepsilon)\big) -
+\big( y^*, A_1(x,\varepsilon)\big) -
+\big( y^*, A_1'(x,\varepsilon) h\big)
 \end{gather*}
 
-Применив теорему о среднем к функции $\langle y^*, A_1(x,\varepsilon) \rangle$, получим
+Применив теорему о среднем к функции $\langle y^*, A_1(x,\varepsilon)\big)$, получим
 \begin{gather*}
- \langle y^*, A_1(x + h,\varepsilon) \rangle -
- \langle y^*, A_1(x,\varepsilon) \rangle = 
- \langle y^*, A_1'(x + \theta h,\varepsilon) h \rangle,
+\big( y^*, A_1(x + h,\varepsilon)\big) -
+\big( y^*, A_1(x,\varepsilon)\big) = 
+\big( y^*, A_1'(x + \theta h,\varepsilon) h\big),
  \qquad
  0 \leqslant \theta \leqslant 1.
 \end{gather*}
 
-Два последних соотношения приводят нас к оценке
+Два последних соотношения приводят к оценке
 \begin{gather}
  \begin{gathered}
- \|\langle y^*, R(\varepsilon, x, h) \rangle \| \leqslant
+ \|\big( y^*, R(\varepsilon, x, h)\big) \| \leqslant
  \| y^* \| 
  \| A_1'(x + \theta h,\varepsilon) -
  A_1'(x,\varepsilon) \| 
@@ -157,7 +157,7 @@
  \end{gathered}
 \end{gather}
 
-Подставим \eqref{A1_series} в выражение для \eqref{y}
+Подставим \eqref{A1_series} в выражение для \eqref{y}:
 
 \begin{gather*}
  y(\varepsilon) =
@@ -172,26 +172,26 @@
  \Big) = \\ = 
  A_0x_0 + 
  \varepsilon A_1(x_0,\varepsilon) +
- \xi(\varepsilon,x_1,x_2).
+ \xi(\varepsilon,x_1,x_2),
 \end{gather*}
 где остаточный член может быть записан в форме
 \begin{gather*}
- \xi(\varepsilon,x_1,x_2) = \frac{1}{2}\varepsilon\big(R(\varepsilon, x_0, x_1 - x_0) + R(\varepsilon, x_0, x_2 - x_0)\big),
+ \xi(\varepsilon,x_1,x_2) = \frac{1}{2}\varepsilon\big(R(\varepsilon, x_0, x_1 - x_0) + R(\varepsilon, x_0, x_2 - x_0)\big)
 \end{gather*}
 и оценен через
 \begin{gather*}
  \|\xi(\varepsilon,x_1,x_2)\| \leqslant \frac{1}{2}\varepsilon L \left(\frac{1}{4}\|x_1 - x_2\|^2 + \frac{1}{4}\|x_1 - x_2\|^2 \right) \leqslant \frac{1}{4}L\varepsilon\|x_1 - x_2\|^2. 
 \end{gather*}
 
-Таким образом, $y(\varepsilon) = A_0x_0 + \varepsilon A_1(x_0,\varepsilon) + \xi(\varepsilon,x_1,x_2) = F(x_0,\varepsilon) + \xi(\varepsilon,x_1,x_2)$ для всех $x_1, x_2 \in B(0,r)$, $x_1 \neq x_2$, $\varepsilon \in [0, \overline{\varepsilon}]$, а значит выполняется следующее неравенство
+Таким образом, $y(\varepsilon) = A_0x_0 + \varepsilon A_1(x_0,\varepsilon) + \xi(\varepsilon,x_1,x_2) = F(x_0,\varepsilon) + \xi(\varepsilon,x_1,x_2)$ для всех $x_1, x_2 \in B(0,r)$, $x_1 \neq x_2$, $\varepsilon \in [0, \overline{\varepsilon}]$, а значит выполняется следующее неравенство:
 \begin{gather*}
  \| F(x_0,\varepsilon) - y(\varepsilon) \| = \|\xi(\varepsilon,x_1,x_2)\| \leqslant \frac{1}{4}L\varepsilon\|x_1-x_2\|^2.
 \end{gather*}
 
 
-Теперь рассмотрим производную $F(x_0, \varepsilon)$ по $x_0$ при фиксированном $\varepsilon$, $F_x'(x_0,\varepsilon) = A_0 + \varepsilon A_1'(x_0,\varepsilon) $.
+Теперь рассмотрим производную $F(x_0, \varepsilon)$ по $x_0$ при фиксированном $\varepsilon$,\\ \mbox{$F_x'(x_0,\varepsilon) = A_0 + \varepsilon A_1'(x_0,\varepsilon) $}.
 
-Из Предположения \ref{as:derivative_of_A1} мы можем оценить $\|A_1'(x_0,\varepsilon\|$ сверху:
+Из Предположения \ref{as:derivative_of_A1} можем оценить $\|A_1'(x_0,\varepsilon)\|$ сверху:
 \begin{gather*}
  \|A_1'(x_0,\varepsilon) - A_1'(0,\varepsilon)\| \leqslant 
  L\|x_0\| \leqslant
@@ -199,12 +199,12 @@
  \|A_1'(x_0,\varepsilon)\| \leqslant \| A_1'(0,\varepsilon)\| + Lr.
 \end{gather*}
 
-Из равенства $\|A_1'(x_0,\varepsilon)\| = \|\big(A_1'(x_0,\varepsilon)\big)^*\| $, следует, что $\|\big(A_1'(x_0,\varepsilon)\big)^*\| \leqslant \| A_1'(0,\varepsilon)\| + Lr$.
-Отсюда и из соотношения \eqref{regular}, мы получаем 
+Из равенства $\|A_1'(x_0,\varepsilon)\| = \|\big(A_1'(x_0,\varepsilon)\big)^*\| $ следует, что $\|\big(A_1'(x_0,\varepsilon)\big)^*\| \leqslant \| A_1'(0,\varepsilon)\| + Lr$.
+Отсюда и из соотношения \eqref{regular}, получаем 
 \begin{gather*}
  \left\|F'_x(x_0, \varepsilon)^* y\right\| = \left\|\big(A_0 + \varepsilon A_1'(x_0, \varepsilon)\big)^* y\right\| \geqslant \left\|A_0^*y \right\| - \varepsilon \left\|\big(A_1'(x_0,\varepsilon)\big)^*\right\| \left\|y\right\| \geqslant (\nu - k\varepsilon)\|y\|,
 \end{gather*} где $k = \max\limits_{\varepsilon \in [0,\overline{\varepsilon}]}\| A_1'(0,\varepsilon)\| + Lr > 0$.
-Для малых $\varepsilon$, выполняется следующее неравенство $(\nu - k\varepsilon) \geqslant \dfrac{\nu}{2}$ и мы получаем $\left\|F'_x(x_0, \varepsilon)^* y\right\| \geqslant \dfrac{\nu}{2} \|y\|$. 
+Для малых $\varepsilon$ выполняется неравенство $(\nu - k\varepsilon) \geqslant \dfrac{\nu}{2}$ и мы получаем $\left\|F'_x(x_0, \varepsilon)^* y\right\| \geqslant \dfrac{\nu}{2} \|y\|$. 
 Для того, чтобы использовать Лемму \ref{lem:Polyak_lemma}, потребуем
 
 \begin{gather*}
@@ -216,7 +216,7 @@
  \varepsilon \leqslant \varepsilon_0 = \min\left\{\dfrac{\nu}{4Lr}, \dfrac{\nu}{2k}, \overline{\varepsilon}\right\}.
 \end{gather} 
 
-Наконец, из Леммы \ref{lem:Polyak_lemma} с параметрами $\mu=\dfrac{\nu}{2}$ и $\rho=\dfrac{\|x_1-x_2\|^2}{8r}$ следует, что существует такой $x^*\in B(x_0, \rho)$, что $F(x^*,\varepsilon) = y(\varepsilon)$.
+Наконец, из Леммы \ref{lem:Polyak_lemma} с параметрами $\mu=\dfrac{\nu}{2}$ и $\rho=\dfrac{\|x_1-x_2\|^2}{8r}$ следует, что существует такое $x^*\in B(x_0, \rho)$, что $F(x^*,\varepsilon) = y(\varepsilon)$.
 Так как $B_X(0, r)$ --- гильбертов шар, строго выпуклое множество, то выполняется включение $B(x_0, \rho) \subset B_X(0, r)$, следовательно $x^* \in B_X(0, r)$. 
 Таким образом, точка $y(\varepsilon) = \frac{1}{2} \big( F(x_1,\varepsilon) + F(x_2,\varepsilon)\big)$ лежит в образе шара $F\big(B_X(0,r),\varepsilon\big) $ при всех $\varepsilon \leqslant \varepsilon_0$ и $x_1, x_2 \in B_X(0,r)$. 
 Из-за замкнутости, для всех $\varepsilon \leqslant \varepsilon_0$, образ шара $F\big(B_X(0,r),\varepsilon\big) $ будет выпуклым.
@@ -237,10 +237,10 @@
 \begin{gather*}
  x\big(T,\varepsilon, u(\cdot)\big) =
  X(T,t_0)x_0 + 
- \int\limits_{t_0}^T X(T,\tau) \bigg(Bu(\tau) +
+ \int\limits_{t_0}^T X(T,\tau) \bigg(B(\tau)u(\tau) +
  \varepsilon f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) \bigg)\ d\tau = \\ =
  X(T,t_0)x_0 +
- \int\limits_{t_0}^T X(T,\tau) B(t)u(\tau)\ d\tau 
+ \int\limits_{t_0}^T X(T,\tau) B(\tau)u(\tau)\ d\tau 
  + \varepsilon \int\limits_{t_0}^T X(T,\tau) f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) \ d\tau.
 \end{gather*}
 
@@ -252,7 +252,7 @@
 \end{gather*}
 где $a_0 = X(T,0)x_0 $, а отображения $A_0: B_{\mathbb{L}_2}(0,\overline{\mu}) \mapsto \mathbb{R}^n$ и $A_1: B_{\mathbb{L}_2}(0,\overline{\mu}) \times [0,\overline{\varepsilon}] \to \mathbb{R}^n$ определены равенствами
 \begin{gather}\label{A1_def}
- A_0 u(\cdot) = \int\limits_{t_0}^T X(T,\tau) B(t)u(\tau)\ d\tau, \qquad
+ A_0 u(\cdot) = \int\limits_{t_0}^T X(T,\tau) B(\tau)u(\tau)\ d\tau, \qquad
  A_1(u(\cdot),\varepsilon) = \int\limits_{t_0}^T X(T,\tau) f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) \ d\tau.
 \end{gather}
 
@@ -260,15 +260,15 @@
 
 \begin{utv}\label{ReachableSetcloseness}
  Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}. 
-Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
+Тогда для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
 \end{utv}
-\doc. 
+\doc 
 Доказательство следует из равностепенной непрерывности траекторий, равномерной ограниченности траекторий и слабой компактности $B_{\mathbb{L}_2}(0,\mu)$ (см., например, \cite{GusZyk}).
 \hfill$\square$\\[1ex]%--- P r o o f.
 
-Для того, чтобы применить Теорему \ref{th:ImageConvexity} к отображению $F$, нам необходимо показать, что Предположение \ref{as:derivative_of_A1} выполняется для $A_1$, определенного в \eqref{A1_def}.
+Для того, чтобы применить Теорему \ref{th:ImageConvexity} к отображению $F$, необходимо показать, что Предположение \ref{as:derivative_of_A1} выполняется для $A_1$, определенного в \eqref{A1_def}.
 
-Применяя Лемму \ref{s1:lem:lip_of_solutions_global} к системе \eqref{sec3:nonlinear} получим, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
+Применяя Лемму \ref{s1:lem:lip_of_solutions_global} к системе \eqref{sec3:nonlinear}, получим, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$ найдется такая $L_x(\varepsilon) > 0$, что для любых $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu), \ i = 1,2$ и $t \in [t_0,T]$, 
 \begin{gather*}
 	\| x_1(t) - x_2(t) \| \leqslant L_x(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
@@ -278,7 +278,7 @@
 % Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. 
 %Тогда, для 
 %\end{lemma}
-%\doc.
+%\doc
 %Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions_quasilinear}, мы имеем
 %\begin{gather*}
 % \|f\big(x_1(t),t\big) - f\big(x_2(t),t\big)\| \leqslant L_f\|x_1(t) - x_2(t)\|.
@@ -347,27 +347,27 @@
 % The result follows.
 % \hfill$\square$\\[1ex]%--- P r o o f.
 
-Введем отображение $\overline{F}: [t_0,T] \times [0,\overline{\varepsilon}] \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(\tau,\varepsilon, u(\cdot)) = x \big(\tau,\varepsilon, u(\cdot)\big) $, где $x \big(\tau,\varepsilon, u(\cdot)\big)$ --- это решение системы \eqref{sec3:nonlinear} в момент $\tau$ порожденное управлением $u(\cdot)$ и малым параметром $\varepsilon$. 
-Производная Фреше этого отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $ --- это решение линеаризованной системы, см., например \cite{GusZyk}
+Введем отображение $\overline{F}: [t_0,T] \times [0,\overline{\varepsilon}] \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$, равенством $\overline{F}(\tau,\varepsilon, u(\cdot)) = x \big(\tau,\varepsilon, u(\cdot)\big) $, где $x \big(\tau,\varepsilon, u(\cdot)\big)$ --- решение системы \eqref{sec3:nonlinear} в момент $\tau$, порождённое управлением $u(\cdot)$ и малым параметром $\varepsilon$. 
+Производная Фреше отображения $\overline{F}$ по $u(\cdot)$, $\overline{F}': B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $ --- это решение линеаризованной системы, см., например \cite{GusZyk}
 \begin{gather}\label{dF}
  \overline{F}'(\tau,\varepsilon, u(\cdot)) \delta u(\cdot) = \delta x(\tau), 
 \end{gather}
-где $\delta x(\tau)$ --- это решение системы \eqref{sec3:nonlinear}, линеаризованной вдоль $(u(\cdot),x(\cdot,\varepsilon, u(\cdot)))$ и отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям:
+где $\delta x(\tau)$ --- это решение системы \eqref{sec3:nonlinear}, линеаризованной вдоль $(x(\cdot,\varepsilon, u(\cdot)), u(\cdot))$ и отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям:
 \begin{gather}\label{dx}
- \delta\dot{x} = \overline{A}\big(t,\varepsilon,u(\cdot)\big) \delta x + B(t)\delta u(t), \qquad 0\leqslant t \leqslant \tau, \qquad \delta x(0) = 0,
+ \delta\dot{x} = \overline{A}\big(t,\varepsilon,u(\cdot)\big) \delta x + B(t)\delta u(t), \qquad 0\leqslant t \leqslant \tau, \qquad \delta x(0) = 0.
 \end{gather}
-где
+Здесь
 \begin{gather*}
  \overline{A}\big(t,\varepsilon,u(\cdot)\big) = A(t) +\varepsilon \frac{\partial f\big(x(t,\varepsilon,u(\cdot)\big),t\big)}{\partial x}.
 \end{gather*}
-Применяя Лемму \ref{s1:lem:lip_dx_global} к системе \eqref{sec3:nonlinear} получим, что существует $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$, 
+Применяя Лемму \ref{s1:lem:lip_dx_global} к системе \eqref{sec3:nonlinear}, получим, что существует $L_u(\varepsilon) > 0$ такая, что для всех $\varepsilon\in [0,\overline{\varepsilon}]$, $u_i(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\tau \in [t_0,T]$ выполнено неравенство
 \begin{gather*}
 	\| \overline{F}'(\tau,\varepsilon, u_1(\cdot)) - \overline{F}'(\tau,\varepsilon, u_2(\cdot)) \| \leqslant L_u(\varepsilon) \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
 \end{gather*}
 где $i = 1,2$.
 
 Теперь перейдем к определению дифференцируемости Фреше отображения $A_1(u(\cdot),\varepsilon)$ по $u(\cdot)$.
-Выберем произвольную $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\delta u(\cdot)$, так чтобы $\|\delta u(\cdot)\|_{\mathbb{L}_2} \leqslant \overline{\mu}-\mu$ и рассмотрим разность
+Выберем произвольное управление $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $\delta u(\cdot)$, так чтобы $\|\delta u(\cdot)\|_{\mathbb{L}_2} \leqslant \overline{\mu}-\mu$, и рассмотрим разность
 \begin{gather}\label{diff_A}
  A_1(u(\cdot) + \delta u(\cdot),\varepsilon) - A_1(u(\cdot),\varepsilon) = \int\limits_{t_0}^T X(T,\tau) \left[ 
  f\Big(x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big),\tau\Big) - 
@@ -392,8 +392,8 @@
  \end{gathered}
 \end{gather}
 
-Пусть $y \in \mathbb{R}^n$ и $h \in \mathbb{R}^n$ выбраны так, что выполнялись включения $y\in D$ и $y+h \in D$. 
-Тогда, для всех $\tau \in [t_0,T]$, используя представление приращения функции через интеграл по параметру, мы имеем
+Пусть $y \in \mathbb{R}^n$ и $h \in \mathbb{R}^n$ выбраны так, что выполняются включения $y\in D$ и $y+h \in D$. 
+Тогда для всех $\tau \in [t_0,T]$, используя представление приращения функции через интеграл по параметру, имеем
 
 \begin{gather*}
  f(y + h, \tau) - f(y,\tau) = 
@@ -411,12 +411,12 @@
 \end{gather*}
 
 Так как $D$ выпукло, $ y + \xi h \in D$ для всех $0 \leqslant \xi \leqslant 1$.
-Значит, используя Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, мы можем получить следующую оценку
+Значит, используя Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, можем получить следующую оценку:
 \begin{gather*}
  \|\omega(y,h,\tau)\| \leqslant l_f \left( \int\limits_0^1 \left\| \xi h \right\| \ d\xi \right)h \leqslant \frac{l_f}{2} \|h\|^2.
 \end{gather*}
 
-Положив $y = x\big(\tau,\varepsilon, u(\cdot)\big)$ и $h = \Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big) = x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big) - x\big(\tau,\varepsilon, u(\cdot)\big)$, для всех $\tau \in [t_0,T]$ мы получаем
+Положив $y = x\big(\tau,\varepsilon, u(\cdot)\big)$ и $h = \Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big) = x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big) - x\big(\tau,\varepsilon, u(\cdot)\big)$, для всех $\tau \in [t_0,T]$ получаем
 \begin{gather}\label{mean-value}
  \begin{gathered}
  f\Big(x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big),\tau\Big) -
@@ -436,8 +436,8 @@
 \end{gather}
 % where $\overline{x}(\tau) \in [x\big(\tau,\varepsilon, u(\cdot), x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big)]$ for all $\tau \in [t_0, T]$, so $\|\overline{x}(\tau) - x\big(\tau,\varepsilon, u(\cdot)\big)\| \leqslant \|x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big) - x\big(\tau,\varepsilon, u(\cdot)\big)\|$. 
 
-Из \eqref{mean-value} следует, что $\omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\cdot\big)$ измерима, как сумма измеримых функций.
-Подставляя \eqref{mean-value} в \eqref{diff_of_x}, получаем
+Из \eqref{mean-value} следует, что $\omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\cdot\big)$ измерима как сумма измеримых функций.
+Подставляя \eqref{mean-value} в \eqref{diff_of_x}, находим
 \begin{gather*}
  \Delta x\big(t, \varepsilon, \delta u(\cdot)\big)
  = \int\limits_{t_0}^t 
@@ -450,16 +450,16 @@
 где $\delta x(t)$ --- это решение системы \eqref{dx} и
 \begin{gather*}
  \Omega(t,\varepsilon, \delta u(\cdot)) = \varepsilon\int\limits_{t_0}^t 
- \omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\tau\Big) d\tau
+ \omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\tau\Big) d\tau.
 \end{gather*}
 
 
-Поскольку \eqref{omega_est} мы можем оценить $\Omega(t,\varepsilon, \delta u(\cdot)) $ сверху для всех $t \in [t_0, T]$
+Используя \eqref{omega_est}, мы можем оценить $\Omega(t,\varepsilon, \delta u(\cdot)) $ сверху для всех $t \in [t_0, T]$:
 \begin{gather}
  \| \Omega(t,\varepsilon, \delta u(\cdot))\| \leqslant \frac{l_f}{2} \overline{\varepsilon} L_x^2(\overline{\varepsilon})(T-t_0)\|\delta u(\cdot)\|_{\mathbb{L}_2}^2.
 \end{gather}
 
-Теперь мы можем переписать \eqref{mean-value} в виде:
+Теперь можем переписать \eqref{mean-value} в виде
 \begin{gather*}
  f\Big(x\big(\tau,\varepsilon, u(\cdot) + \delta u(\cdot)\big),\tau\Big) -
  f\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big) = \\ =
@@ -469,7 +469,7 @@
  \omega\Big(x\big(\tau,\varepsilon, u(\cdot)\big),\Delta x\big(\tau, \varepsilon, \delta u(\cdot)\big),\tau\Big).
 \end{gather*}
 
-А затем оценить норму остаточного члена сверху:
+Далее оценим норму остаточного члена сверху:
 \begin{gather*}
  \left\| 
  \frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big), \tau\Big) \Omega(t,\varepsilon, \delta u(\cdot)) 
@@ -483,18 +483,18 @@
  \left\|\frac{\partial f}{\partial x} \Big(x, \tau\Big) \right\|
  \|\delta u(\cdot)\|_{\mathbb{L}_2}^2,
 \end{gather*}
-Это позволяет нам переписать \eqref{diff_A} в виде
+Это позволяет переписать \eqref{diff_A} в виде
 \begin{gather}
  A_1(u(\cdot) + \delta u(\cdot),\varepsilon) - A_1(u(\cdot),\varepsilon) = \int\limits_{t_0}^T X(T,\tau) \frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big), \tau\Big) \delta x(t) \ d\tau + o(\|\delta u(\cdot)\|^2).
 \end{gather}
 Отсюда следует, что производная Фреше $A_1'(u(\cdot),\varepsilon): B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n $ существует и может быть определена равенством
 \begin{gather}\label{A1_diff}
- A_1'(u(\cdot),\varepsilon)\delta u(\cdot) = \int\limits_{t_0}^T X(T,\tau) \frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big), \tau\Big) \delta x(t) \ d\tau 
+ A_1'(u(\cdot),\varepsilon)\delta u(\cdot) = \int\limits_{t_0}^T X(T,\tau) \frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big), \tau\Big) \delta x(t) \ d\tau.
 \end{gather}
 % In order to apply the Lemma \ref{LeibnizRule} to $A_1(u(\cdot),\varepsilon)$, we first have to show that the integrand in formula \eqref{A1_def} has a Lipschitz continuous derivative.
 % This derivative is equal to the product of $\frac{\partial f \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)} {\partial x}$ and $\frac{\partial x \big(\tau,\varepsilon, u(\cdot)\big)}{\partial u}$.
 Липшицевость $\delta x(\cdot)$ была установлена в Лемме \ref{s1:lem:lip_dx_global}. 
-Производная $\frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)$ является липшицевой как композиция липшицевых функций.
+Производная $\frac{\partial f}{\partial x} \Big(x\big(\tau,\varepsilon, u(\cdot)\big),\tau\Big)$ является липшицевой как композиция липшицевых функций:
 \begin{gather*}
  \left\| \frac{\partial f \Big(x\big(\tau,\varepsilon, u_1(\cdot)\big),\tau\Big)} {\partial x} - \frac{\partial f \Big(x\big(\tau,\varepsilon, u_2(\cdot)\big),\tau\Big)} {\partial x} \right\| \leqslant l_f \left\|x\big(\tau,\varepsilon, u_1(\cdot) \big) - x\big(\tau,\varepsilon, u_2(\cdot)\big) \right\| \leqslant \\ \leqslant l_f L_x(\varepsilon) \left\| u_1(\cdot) - u_2(\cdot) \right\|_{\mathbb{L}_2}, \quad \tau \in [t_0, T], \qquad u_1(\cdot), u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu).
 \end{gather*}
@@ -530,37 +530,38 @@
 Таким образом, отображение $A_1(u(\cdot),\varepsilon)$, определенное в \eqref{A1_def}, удовлетворяет условию предположения \ref{as:derivative_of_A1}, и мы можем сформулировать основной результат этой главы в следующей теореме.
 
 \begin{theorem}\label{th:ReachableSetsConvexity}
- Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, тогда существует такое положительное значение $\varepsilon_0$, что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпукло для всех $\varepsilon < \varepsilon_0$. 
+ Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, а пара $(A(t), B(t))$ управляема на интервале $ [t_0, T]$. Тогда существует такое положительное значение $\varepsilon_0$, что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпукло для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
-\doc. 
-Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
+\doc 
+Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$ при условии, что липшицевость $A_1'$ и замкнутость $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
 \hfill$\square$\\[1ex]%--- P r o o f.
 
 \begin{zam} 
  В статье \cite{Albrecht2} исследованы опорные функции множеств достижимости квазилинейных систем с интегральными ограничениями и доказана их непрерывная зависимость от малого параметра.
  Это влечет непрерывную зависимость множеств достижимости от малого параметра. 
- Автор также отметил, что из непрерывной зависимости множества достижимости от параметра вытекает его выпуклость при малых значениях параметра, однако доказательства этого факта не приведено. 
+ Автор статьи отметил, что из непрерывной зависимости множества достижимости от параметра вытекает его выпуклость при малых значениях параметра.
+ Однако доказательство этого факта не было приведено. 
  Более того, непрерывности множества достижимости недостаточно для доказательства его выпуклости.
 \end{zam}
 
 \subsection{Примеры}
-
-В этом разделе представлены результаты численных экспериментов, которые призваны проиллюстрировать применение теорем \ref{th:ImageConvexity} и \ref{th:ReachableSetsConvexity}. 
+\label{sec3:examples}
+В разделе представлены результаты численных экспериментов, которые призваны проиллюстрировать применение теорем \ref{th:ImageConvexity} и \ref{th:ReachableSetsConvexity}. 
 
 \textbf{Пример 1.}
  Первая исследуемая система --- осциллятор Дуффинга. 
  Мы работаем с уравнениями
  \begin{gather}\label{sec3:Duffing}
- \dot{x_1} = x_2, \qquad
- \dot{x_2} = -x_1 - 10 \varepsilon x_1^3 + u,\qquad 0\leqslant t \leqslant 2
+ \dot{x}_1 = x_2, \qquad
+ \dot{x}_2 = -x_1 - 10 \varepsilon x_1^3 + u,\qquad 0\leqslant t \leqslant 2
  \end{gather}
  описывающими движение нелинейной упругой пружины под действием внешней силы $u$. 
  Влияние нелинейного слагаемого силы упругости определяется малым параметром $\varepsilon > 0$. 
-Начальное состояние $x_1(0) = x_2(0) = 0 $, а управление ограничено 
+Начальное состояние $x_1(0) = x_2(0) = 0 $, а управление ограничено условием
  \begin{gather}\label{Duffing_controls}
  \int\limits_0^2u^2dt \leqslant 1.
  \end{gather}
- При $\varepsilon = 0$, уравнения \eqref{sec3:Duffing} описывают линейную систему с матрицами 
+ При $\varepsilon = 0$ уравнения \eqref{sec3:Duffing} описывают линейную систему с матрицами 
  \begin{gather*}
  A = \begin{pmatrix} 0 & 1\\
  -1 & 0
@@ -570,16 +571,16 @@
  \end{pmatrix}.
  \end{gather*}
  
- Нелинейное слагаемое состоит из малого параметра и функции $f(x) = [0;-10x_1^3]$. 
+ Нелинейное слагаемое состоит из малого параметра и функции $f(x) = [0;-10x_1^3]^{\top}$. 
  Для такой нелинейной функции условие \eqref{sec3:sublinear_growth} не выполняется. 
- Однако, мы можем использовать оценки, полученные в работе \cite{Zykov2019} для того, чтобы показать, что все траектории системы \eqref{sec3:Duffing}, соответствующие допустимым управлениям и нулевым начальным условиям, лежат в компактном множестве $D$. 
+ Однако мы можем использовать оценки, полученные в работе \cite{Zykov2019}, для того, чтобы показать, что все траектории системы \eqref{sec3:Duffing}, соответствующие допустимым управлениям и нулевым начальным условиям, лежат в компактном множестве $D$. 
  
- Положим $v_{\varepsilon}(t,x) = \frac{5}{2}\varepsilon x_1^4 + \frac{1}{2}x_1^2 + \frac{1}{2}x_2^2$ и вычислим производную в силу системы 
+ Положим $v_{\varepsilon}(t,x) = \frac{5}{2}\varepsilon x_1^4 + \frac{1}{2}x_1^2 + \frac{1}{2}x_2^2$ и вычислим производную в силу системы:
  \begin{gather}\label{Lyap}
  \frac{d}{dt} v_{\varepsilon}(t,x(t)) = \nabla v_{\varepsilon}(t,x(t)) \big(A x(t) + B u(t) + \varepsilon f(x(t))\big) = x_2(t) u(t). 
  \end{gather} 
  
- Для каждого $\varepsilon \geqslant 0$ и каждого управления $u(\cdot)$, удовлетворяющего \eqref{Duffing_controls}, существует $\tau>0$, такое, что решение \eqref{sec3:Duffing}, порожденное этим управлением $u(\cdot)$ и нулевыми начальными условиями, определено на некотором интервале $[0, \tau]$. 
+ Для каждого $\varepsilon \geqslant 0$ и каждого управления $u(\cdot)$, удовлетворяющего \eqref{Duffing_controls}, существует \mbox{$\tau>0$}, такое, что решение \eqref{sec3:Duffing}, порожденное этим управлением $u(\cdot)$ и нулевыми начальными условиями, определено на некотором интервале $[0, \tau]$. 
  Проинтегрируем \eqref{Lyap} от $0$ до $\tau$. 
  Имеем 
  \begin{gather*}
@@ -592,7 +593,7 @@
  Применяя теорему сравнения к этому неравенству, можно получить, что $v_{\varepsilon}(\tau,x(\tau)) \leqslant \tau$ и, следовательно, $\|x(\tau)\|^2 \leqslant 2 \tau$. 
  Используя известную технику, можно сделать вывод, что любое решение \eqref{sec3:Duffing}, порожденное управлением $u(\cdot) \in B_{\mathbb{L}_2}(0,1)$ и нулевым начальным состоянием, может быть продолжено на временной интервал $[0,2]$ и принадлежит выпуклому множеству $D = B_{\mathbb{R}^n}(0,2)$.
  
- Условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и ее производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве D.
+ Условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены: Пара $(A,B)$ является константой; функция $f$ непрерывна и непрерывно дифференцируема; также функция $f$ и eё производная $\partial f/\partial x$ удовлетворяют условию Липшица на множестве $D$.
  
  \begin{figure}[t]
  \centerline{
@@ -604,7 +605,7 @@
  Таким образом, для системы \eqref{sec3:Duffing} выполняются требования Теоремы \ref{th:ReachableSetsConvexity}, и соответствующие множества достижимости должны быть выпуклыми для малых значений параметра. 
  Это видно на рисунке \ref{fig:Duffing}, демонстрирующем множества достижимости $G^{\varepsilon}(T,\mu)$, построенные с помощью численного метода Монте-Карло \cite{Patent,Zykov}.
  
- Видно, что множества $G^{0.01}(1,1) $ и $G^{0.1}(1,1) $ близки к множеству $G^{0}(1,1) $, которое построено для линейной системы. 
+ Видно, что множества $G^{0.01}(2,1) $ и $G^{0.1}(2,1) $ близки к множеству $G^{0}(2,1) $, которое построено для линейной системы. 
  Также видно, что при увеличении параметра $\varepsilon$ множества становятся невыпуклыми. 
  
 \begin{figure}[ht]
@@ -639,18 +640,18 @@
  0 \\ 0 \\ 1
  \end{pmatrix} u.
  \end{gather}
- При $\varepsilon = 0$, уравнения \eqref{Linear+Dubins} описывают линейную систему с матрицами 
+ При $\varepsilon = 0$ уравнения \eqref{Linear+Dubins} описывают линейную систему с матрицами 
  \begin{gather*}
  A = \begin{pmatrix} 0 & 1 & 0\\
  0 & 0 & 1\\ 
- 0 & 0 & 1 
+ 0 & 0 & 0 
  \end{pmatrix}, \quad B = \begin{pmatrix}
  0\\
  0\\
  1
  \end{pmatrix},
  \end{gather*}
- а при $\varepsilon = 1$ они описывают уницикл. 
+ а при $\varepsilon = 1$ они описывают <<машину Дубинса>>. 
  Нелинейное слагаемое состоит из малого параметра и функции
  \begin{gather*}
  f(x) = \begin{pmatrix}
@@ -660,7 +661,7 @@
  \end{pmatrix}.
  \end{gather*}
  
- Начальное состояние --- нулевое, $x_1(0) = x_2(0) = x_3(0) = 0$, ограничения на управление такие же, как и в первом примере, но мы будем рассматривать эту систему на временном интервале $0 \leqslant t \leqslant 1$.
+ Начальное состояние --- нулевое, $x_1(0) = x_2(0) = x_3(0) = 0$, ограничение на управление такое же, как в первом примере, но мы будем рассматривать эту систему на временном интервале $0 \leqslant t \leqslant 1$.
  
  Как и в предыдущем примере, условия предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} выполнены, что позволяет применить Теорему \ref{th:ReachableSetsConvexity}. 
  На рисунке \ref{fig:LinearDubins} показаны проекции на плоскость $(x_1,x_2)$ численно построенных множеств достижимости $G^{\varepsilon}(T,\mu)$ для системы \eqref{Linear+Dubins}. 
