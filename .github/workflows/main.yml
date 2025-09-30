@@ -262,8 +262,8 @@ jobs:
         with:
           name: abstract_pdf
 
-      - name: Upload diff PDF to Release
-        id: upload_diff_pdf_to_release      
+      - name: Upload abstract PDF to Release
+        id: upload_abstract_pdf_to_release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
