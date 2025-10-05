@@ -43,7 +43,7 @@
 \subsubsection{Расстояние Банаха-Мазура и асимптотическая эквивалентность множеств}\label{sec21:AsymptoticEquality}
 
 Рассмотрим выпуклые компактные множества $ X,Y \subset \mathbb R^n $, такие, что $0 \in \operatorname{int}\ X$, $0 \in \operatorname{int}\ Y$. 
-Тогда определена величина $r(X, Y) = \inf \{t \geq 1: tX \supset Y \}$. 
+Тогда определена величина $r(X, Y) = \inf \{t \geqslant 1: tX \supset Y \}$. 
 Расстоянием Банаха-Мазура будем называть величину $ \rho (X, Y) $, определенную равенством 
 \begin{gather*}
  \rho (X, Y): = \log (r(X,Y) \cdot r(Y, X)).
@@ -147,19 +147,19 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 \end{gather}
 
 Здесь $ x \in \mathbb{R}^n $ --- вектор состояния, $ u \in \mathbb{R}^r $ --- управление, $ y\in\mathbb{R}^m (m \leqslant n) $ --- выход системы,
-$ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $ \bar{\varepsilon} $ --- некоторое фиксированное положительное число.
+$ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $ \overline{\varepsilon} $ --- некоторое фиксированное положительное число.
 
-Как и в предыдущих разделах функции $ f_1: [t_0, t_0 + \bar{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, t_0 + \bar{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x, t)$ и обладающими непрерывными производными по $x$ на $ [t_0, t_0 + \bar{\varepsilon}]$. 
+Как и в предыдущих разделах функции $ f_1: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n} $, $ f_2: [t_0, t_0 + \overline{\varepsilon}] \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n \times r} $ предполагаются непрерывными по $(x, t)$ и обладающими непрерывными производными по $x$ на $ [t_0, t_0 + \overline{\varepsilon}]$. 
 
 Принятые в предыдущих разделах Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
 
  Управление $u(t)$ будем выбирать из
-пространства $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ вектор-функций и ограничим его шаром радиуса $ 0 < \mu \leqslant \overline{\mu} $
+пространства $\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}]$ вектор-функций и ограничим его шаром радиуса $ 0 < \mu \leqslant \overline{\mu} $
 \begin{gather}\label{s2:constrY}
  \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) = \int\limits_{t_0}^{t_0 + \varepsilon} u^{\top}(\tau) u(\tau) \ d\tau = \leqslant \mu^2.
 \end{gather}
 
-Пусть $ 0 < \varepsilon \leqslant \bar{\varepsilon} $. 
+Пусть $ 0 < \varepsilon \leqslant \overline{\varepsilon} $. 
 
 Множеством достижимости системы \eqref{s2:nonlinear_with_output} по состоянию, как и прежде, будем называть множество 
 \begin{gather*}
@@ -175,7 +175,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{gather*}
 \end{definition}
 
-В определениях множеств, приведённых выше, можно считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $, либо $ \mathbb{L}_2=\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}] $.
+В определениях множеств, приведённых выше, можно считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $, либо $ \mathbb{L}_2=\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}] $.
 Нетрудно понять, что для любого из этих пространств мы получаем одно и то же множество достижимости. 
 %Будем далее считать, что $ \mathbb{L}_2 =\mathbb{L}_2[t_0,t_0+\varepsilon] $.
  
@@ -395,7 +395,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \nu(W_1) \geqslant \nu(CC^{\top}) \nu(W).
  \end{gather*}
  \end{utv}
- \doc. 
+ \doc 
  Действительно,
  \begin{gather*}
  \forall x \in \mathbb{R}^m, \: x^{\top} W_1 x = x^{\top} C W C^{\top} x \geqslant \nu(W)\left\| C^{\top}x \right\| ^2,\\

@@ -85,7 +85,7 @@
 \end{lemma}
 Теперь мы можем сформулировать и доказать следующую теорему.
 \begin{theorem}\label{th:ImageConvexity}
- Через $F(x,\varepsilon)$ обозначим образ шара $B_X(0, r)$ при его отображении $F\big(B_X(0,r),\varepsilon\big)$, т.~е. $F\big(B_X(0,r),\varepsilon\big) = \big\{F(x,\varepsilon): x\in B_X(0, r)\big\}$.
+ Через $F\big(B_X(0,r),\varepsilon\big)$ обозначим образ шара $B_X(0, r)$ при его отображении $F$, т.~е. $F\big(B_X(0,r),\varepsilon\big) = \big\{F(x,\varepsilon): x\in B_X(0, r)\big\}$.
  Пусть выполнено Предположение \ref{as:derivative_of_A1} и $F\big(B_X(0,r),\varepsilon\big)$ --- замкнутое множество для каждого $\varepsilon \in [0, \overline{\varepsilon}]$. 
 Тогда найдется такое $ \varepsilon_0 \in (0, \overline{\varepsilon}]$, что при всех положительных $\varepsilon < \varepsilon_0$ образ $F\big(B_X(0,r),\varepsilon\big)$ --- выпуклое множество в $Y$. 
 \end{theorem}
@@ -262,7 +262,7 @@
  Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}. 
 Тогда, для всех $\varepsilon\in [0,\overline{\varepsilon}]$, множество достижимости $G(T,\mu,\varepsilon) $ --- замкнуто.
 \end{utv}
-\doc. 
+\doc 
 Доказательство следует из равностепенной непрерывности траекторий, равномерной ограниченности траекторий и слабой компактности $B_{\mathbb{L}_2}(0,\mu)$ (см., например, \cite{GusZyk}).
 \hfill$\square$\\[1ex]%--- P r o o f.
 
@@ -278,7 +278,7 @@
 % Пусть выполнены условия Предположения \ref{as:right_hand_side_conditions_quasilinear}. 
 %Тогда, для 
 %\end{lemma}
-%\doc.
+%\doc
 %Так как $x_i(t) \in D$ для всех $t\in [t_0,T]$, из Предположения \ref{as:right_hand_side_conditions_quasilinear}, мы имеем
 %\begin{gather*}
 % \|f\big(x_1(t),t\big) - f\big(x_2(t),t\big)\| \leqslant L_f\|x_1(t) - x_2(t)\|.
@@ -532,7 +532,7 @@
 \begin{theorem}\label{th:ReachableSetsConvexity}
  Пусть выполнены условия Предположений \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}, тогда существует такое положительное значение $\varepsilon_0$, что множество достижимости $G(T,\mu,\varepsilon) $ квазилинейной системы \eqref{sec3:nonlinear} выпукло для всех $\varepsilon < \varepsilon_0$. 
 \end{theorem}
-\doc. 
+\doc 
 Справедливость этого утверждения можно обосновать, применив Теорему \ref{th:ImageConvexity} к отображению $F$, при условии, что липшицевость $A_1'$ и замкнутость $G(T,\mu,\varepsilon) $ (Утверждение \ref{ReachableSetcloseness}) были доказаны ранее.
 \hfill$\square$\\[1ex]%--- P r o o f.
 
