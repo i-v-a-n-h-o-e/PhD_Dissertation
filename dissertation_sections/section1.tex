@@ -626,14 +626,14 @@
  \dot{x}(t)=f_1(t,x(t))+f_2(t,x(t))u(t), \qquad x(t_0) = x_0.
 \end{gather}
 Здесь $ \overline{\varepsilon} $ ~--- некоторое фиксированное положительное число.
-Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\bar{\varepsilon}]$ и ограничим шаром радиуса $ 0 < \mu < \overline{\mu} $ в этом пространстве, который будем обозначать через $B_{\mathbb{L}_2}(0, \mu)$
+Управление $u(\cdot)$ будем выбирать из пространства интегрируемых с квадратом функций $\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}]$ и ограничим шаром радиуса $ 0 < \mu < \overline{\mu} $ в этом пространстве, который будем обозначать через $B_{\mathbb{L}_2}(0, \mu)$
 \begin{gather*}
  \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right) \leqslant \mu^2.
 \end{gather*}
 
 Принятые в предыдущих разделах Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip} относительно функций $f_1$ и $f_2$ будем считать справедливыми на интервале $t_0 \leqslant t \leqslant t_0 + \overline{\varepsilon} $ при управлениях $u(\cdot) \in B_{\mathbb{L}_2}(0, \overline{\mu}) $, $\overline{\mu} > 0$.
 
-Пусть $ 0 < \varepsilon \leqslant \bar{\varepsilon} $.
+Пусть $ 0 < \varepsilon \leqslant \overline{\varepsilon} $.
  
  
 Далее, используя замену времени, мы сведем задачу описания множества достижимости на малом интервале к аналогичной задаче на фиксированном интервале для системы, уравнения которой и интегральные ограничения на управление зависят от малого параметра.
@@ -853,6 +853,8 @@
  Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \varepsilon_2\right) $, тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{s1:th3_proof_final_condition_with_f2}, а значит и \eqref{s1:th3_proof_condition_with_f2}.
  
  \hfill$\square$\\[1ex]%--- P r o o f.
+ 
+ Близкий результат был получен в работе \cite{GusevMotor}, здесь приведено более подробное доказательство и уточнены оценки для констант.
  
  \begin{zam}
  	Теорема \ref{s1:th:small_time_convexity} дает удобное достаточное условие выпуклости множеств достижимости нелинейных систем \eqref{s1:common_nonlinear_small_time} на малых интервалах времени, не требующее трудоемкого вычисления констант $L_0$ и $L_1$.
@@ -1453,9 +1455,9 @@ $
 $
 	l(\lambda_0,\lambda_1,x) = \lambda_0 x_1 + \lambda_1 (x_4 - \mu^2).
 $
-Оптимальное управление $ u^0(t) $ удовлетворяет условию: существуют множители Лагранжа $ \lambda_0 \geq 0 $, $ \lambda_1 \geq 0 $, $ (\lambda_0,\lambda_1) \neq 0 $, такие что
+Оптимальное управление $ u^0(t) $ удовлетворяет условию: существуют множители Лагранжа $ \lambda_0 \geq 0 $, $ \lambda_1 \geqslant 0 $, $ (\lambda_0,\lambda_1) \neq 0 $, такие что
 \begin{gather*}
-	H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leq t \leq \varepsilon,
+	H(p(t),x^0(t),u^0(t))=\max_u H(p(t),x^0(t),u), \quad 0\leqslant t \leqslant \varepsilon,
 \end{gather*}
 где $ p(t) = \left(p_1(t),p_2(t),p_3(t),p_4(t) \right) $ --- решение сопряженной системы
 \begin{gather*}
@@ -1513,13 +1515,13 @@ $H_u(p(t),x^0(t),u^0(t))=0$, и значит $2u^0(t)p_4(t)=-p_3(t)$.
 Но $ x_3^0(t) \equiv 0 $ соответствует решению задачи на максимум, а не минимум $ x_1(\varepsilon) $.
 
 Условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{s1:opt_problem}. 
-Выбрав $ \bar{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \bar{x}(t) $, для которой $ \bar{x}_2(t) = -x_2^0(t) $, $ \bar{x}_1(t) = x_1^0(t) $.
-Рассмотрим точку $ \hat{x} = \dfrac{1}{2}x^0(\varepsilon) + \dfrac{1}{2}\bar{x}(\varepsilon) $, у которой $ \hat{x}_1 = x_1^0(\varepsilon) $, $ \hat{x}_2 = 0 $. 
+Выбрав $ \overline{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \overline{x}(t) $, для которой $ \overline{x}_2(t) = -x_2^0(t) $, $ \overline{x}_1(t) = x_1^0(t) $.
+Рассмотрим точку $ \hat{x} = \dfrac{1}{2}x^0(\varepsilon) + \dfrac{1}{2}\overline{x}(\varepsilon) $, у которой $ \hat{x}_1 = x_1^0(\varepsilon) $, $ \hat{x}_2 = 0 $. 
 Покажем, что $ \hat{x} \notin G(\varepsilon) $. 
 Действительно, если $ \hat{x} \in G(\varepsilon) $, то найдется допустимая траектория $ \hat{x}(t) $, такая что $ \hat{x}(\varepsilon) = \hat{x} $. 
 Т.к. $ \hat{x}_1 = \hat{x}_1(\varepsilon) $, то $ \hat{x}(t) $ --- оптимальная траектория. 
 Но при этом $ \hat{x}_2(\varepsilon) = 0 $, что противоречит доказанному выше утверждению. 
-Таким образом, полусумма точек $ x^0(\varepsilon) $, $ \bar{x}(\varepsilon) \in G(\varepsilon) $ не принадлежит $ G(\varepsilon) $, т.~е. $ G(\varepsilon) $ невыпукла при любом $ \varepsilon > 0 $.
+Таким образом, полусумма точек $ x^0(\varepsilon) $, $ \overline{x}(\varepsilon) \in G(\varepsilon) $ не принадлежит $ G(\varepsilon) $, т.~е. $ G(\varepsilon) $ невыпукла при любом $ \varepsilon > 0 $.
 
 
 
