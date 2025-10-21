@@ -115,7 +115,7 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 %\todo[inline]{Описать преимущества расстояния Банаха Мазура для малых множеств. Пример с кругом и квадратом. Посмотреть статью МИ в УМЖ}
 
 Пусть $ X = X(\varepsilon) $, $ Y = Y(\varepsilon) $ --- выпуклые компактные множества, такие, что $ 0 \in \operatorname{int}\,X(\varepsilon) $, $ 0 \in \operatorname{int}\,Y(\varepsilon) $ при $0 \leqslant \varepsilon \leqslant \overline{\varepsilon} $.
-Тогда, следуя \cite{Ovs}, назовем множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ {\textit асимптотически эквивалентными}, если $ \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
+Тогда, следуя \cite{Ovs}, назовем множества $ X(\varepsilon) $ и $ Y(\varepsilon) $ асимптотически эквивалентными, если $ \rho (X(\varepsilon), Y(\varepsilon)) \rightarrow 0 $ при $\varepsilon \rightarrow 0 $.
 
 Приведем далее достаточное условие асимптотической эквивалентности, выраженное через хаусдорфово расстояние $ h $ между ними. 
 Напомним, что расстоянием Хаусдорфа между двумя непустыми множествами $X, Y \in \mathbb{R}^n$ называется величина 
@@ -132,11 +132,10 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
  \lim\limits_{\varepsilon \rightarrow 0}h(X(\varepsilon),Y(\varepsilon)) = 0, \qquad \lim\limits_{\varepsilon \rightarrow 0}\frac{h(X(\varepsilon),Y(\varepsilon))}{\delta_{min}(Y(\varepsilon))} = 0.
  \end{gather*}
  Тогда множества $ X(\varepsilon) $ и $ Y(\varepsilon) $\---~асимптотически эквивалентны. 
- 
- Здесь $ \delta_{min}(Y(\varepsilon)) = \inf\limits_{\left\|y \right\| =1 } \delta(y|Y(\varepsilon))$, а $ \delta(y|Y(\varepsilon)) $ --- опорная функция\footnote{
- Опорной функцией множества $M$ называется функция $\delta(y|M) = \sup\limits_{x \in M} y^{\top} x$. 
- } множества $ Y(\varepsilon) $.
 \end{theorem}
+ Здесь $ \delta_{min}(Y(\varepsilon)) = \inf\limits_{\left\|y \right\| =1 } \delta(y|Y(\varepsilon))$, а $ \delta(y|Y(\varepsilon)) $ --- опорная функция\footnote{
+	Опорной функцией множества $M$ называется функция $\delta(y|M) = \sup\limits_{x \in M} y^{\top} x$. 
+} множества $ Y(\varepsilon) $.
 \subsubsection{Достаточное условие асимптотической эквивалентности множеств достижимости нелинейной и линеаризованной систем}
  Рассмотрим нелинейную систему \eqref{s1:common_nonlinear_small_time} с выходом
 \begin{gather}\label{s2:nonlinear_with_output}
