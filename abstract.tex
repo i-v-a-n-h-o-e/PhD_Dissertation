@@ -66,7 +66,7 @@
 
 
 \fancyhf{} % Очистка заголовков и колонтитулов
-\fancyfoot[L]{\color{gray}\textbf{2025-11-04--21-57-11}} % Добавление текста в правый колонтитул
+\fancyfoot[L]{\color{gray}\textbf{2025-11-04--23-43-27}} % Добавление текста в правый колонтитул
 % \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
 \renewcommand{\headrulewidth}{0pt} % Удаление линии заголовка
@@ -94,7 +94,12 @@
 }
 \fi
 %\usepackage{refcheck}
+% Подстрочная сноска с полной записью по ключу \bibitem
+\newcommand{\footcite}[1]{%
+	\footnote{\csname bibentry@#1\endcsname}%
+}
 
+\input{abstract_sections/biblio_copy}
 
 \newtheorem{theorem}{Теорема} % задаём выводимое слово (для теорем)
 \newtheorem{definition}{Определение} % задаём выводимое слово (для определений)
@@ -111,7 +116,7 @@
 \newcommand{\frc}[2]{\raisebox{2pt}{$#1$}\big/\raisebox{-3pt}{$#2$}}    % a/b, a выше, b ниже
 \newcommand{\hrefdoi}[1]{\href{https://doi.org/#1}{DOI:~#1}}
 
-\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
 \hyphenation{непрерывно-диф-фе-рен-ци-ру-е-мы-ми}
 \hyphenation{нуль-у-пра-вля-ем-ост-и}
 \hyphenation{со-от-вет-ству-ю-ща-я}
