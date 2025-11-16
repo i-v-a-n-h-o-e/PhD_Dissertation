@@ -34,7 +34,7 @@ T$ --- некоторое положительное число.
 \begin{gather}\label{s22:cost}
  I(T,u):=\int_0^Tu^\top (t)u(t)dt= \lVert u(\cdot)\rVert^2_{\mathbb{L}_2.} 
 \end{gather}
-Задача состоит в синтезе закона управления $u(t)=u(t,z(t))$, который бы приводил траектории замкнутой системы 
+Задача состоит в синтезе закона управления $u = u(t,z(t))$, который бы приводил траектории замкнутой системы 
 \begin{gather*}
  \dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
 \end{gather*}
@@ -110,9 +110,7 @@ T$ --- некоторое положительное число.
 Из результатов \cite{Polyak2001,GusevOsipovTrudy,Osipov,GusevMotor} следует, что множества достижимости 
 $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквивалентны при $\tau \to 0$, если пара $(A,B)$ управляема 
 и существуют такие $ l > 0$, $\tau_0 > 0$ и $\alpha > 0$, что для всех $0 < \tau \leqslant \tau_0 $ выполнено неравенство
- \begin{gather}\label{s22:gramas}
- \nu(\tau)\geqslant l\tau^{4-\alpha}.
- \end{gather}
+ $\nu(\tau)\geqslant l\tau^{4-\alpha}$.
 
 \begin{zam}
  Множество достижимости $G_{-}(T,\mu)$ системы \eqref{s22:nonlinear_} совпадает с множеством нуль-управляемости системы \eqref{s22:nonlinear}, т.~е. множеством таких начальных состояний, из которых система может быть переведена в начало координат управлениями из $B_{\mathbb{L}_2}(0,\mu) $ за время $T$. 
@@ -383,7 +381,7 @@ J(T)-J_0(T)= \gamma (T,z(0)) =
 В теореме \ref{s22:th:tends_to_zero} мы доказали, что траектория $z(t)$ системы \eqref{s22:nonlinear_closed} стремится к нулю при $t\to T$ и $V_{T}(t,z(t))$ ограничена в окрестности $T$. 
 Следующая теорема даёт условия, при которых $V_{T}(t,z(t))\to 0$ при $t\to T$.
 \begin{theorem}
- Пусть выполнено неравенство \eqref{s22:gramas}. 
+ Пусть выполнено неравенство \eqref{s22:asymp}. 
 Пусть $T \leqslant \overline{T}$ и траектория $z(t)$ системы \eqref{s22:nonlinear_closed} стремится к нулю при $t\to T$. 
 Тогда $V_{T}(t,z(t)) =z^{\top}(t)Q_T(t)z(t) \to 0$ при $t \to T$.
 \end{theorem}
@@ -394,14 +392,14 @@ J(T)-J_0(T)= \gamma (T,z(0)) =
  %\item $T$ is not greater than $\check{T}$.
  %\item $V_T(0,z(0))\leqslant 1/(4k^2\Phi^{2\beta}(T))$ for some $0<\beta \leqslant 1$.
  %\item $z(t) \in B(0,r) $ for all $t \in (0,T] $.
- %\item The smallest eigenvalue of the Gramian of system \eqref{s22:linear_} satisfy the inequality \eqref{s22:gramas} for all $\tau \in (0, %\tau_0] $, where $\tau_0$ is a positive number.
+ %\item The smallest eigenvalue of the Gramian of system \eqref{s22:linear_} satisfy the inequality \eqref{s22:asymp} for all $\tau \in (0, %\tau_0] $, where $\tau_0$ is a positive number.
 %\end{enumerate} Then $V_{T}(t,z(t)) = z^{\top}(t)Q_T(t)z(t) $ tends to $ 0$ as $t $ tends to $T$.} 
 \doc 
 Заметим, что функция $ u(\xi) = -B^{\top} Q(\xi) z(\xi)$  непрерывна на интервале $0 \leqslant \xi <T$. 
 
 Также заметим, что функция $V_{T}(t,z(t))$ может не быть ограниченной только в окрестности точки $t = T$. 
-% However, taking into account that the fulfillment of the inequality \eqref{s22:gramas} implies the fulfillment of the assumption, one can see that it follows from $z(t) \to 0 $ that the conditions of lemma \ref{s22:lem:vest} will be met for $t$ from the neighborhood of $T$.
-Однако, учитывая, что выполнение неравенства \eqref{s22:gramas} предполагает выполнение условия теоремы, можно увидеть, что из $z(t)\to 0 $ следует, что условия леммы~\ref{s22:lem:vest} будут выполняться для $t$ из окрестности $T$.
+% However, taking into account that the fulfillment of the inequality \eqref{s22:asymp} implies the fulfillment of the assumption, one can see that it follows from $z(t) \to 0 $ that the conditions of lemma \ref{s22:lem:vest} will be met for $t$ from the neighborhood of $T$.
+Однако, учитывая, что выполнение неравенства \eqref{s22:asymp} предполагает выполнение условия теоремы, можно увидеть, что из $z(t)\to 0 $ следует, что условия леммы~\ref{s22:lem:vest} будут выполняться для $t$ из окрестности $T$.
 Следовательно, $V_{T}(t,z(t))$ ограничена на всей траектории $z(t)$. 
 Теперь из соотношения \eqref{s22:J} видно, что интегральная величина $I(t,u) = \int_{0}^{t} u^{\top}(\xi)u(\xi) d\xi$ равномерно ограничена относительно $t \in [0,T]$. 
 Из этого следует, что $u(\cdot)$ принадлежит пространству $\mathbb L_2[0,T]$. 
