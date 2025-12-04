@@ -124,10 +124,10 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 \end{gather*}
 где через $d$ обозначено минимальное расстояние от точки до множества, 
 \begin{gather*}
-	d(x, Y) = \min\limits_{y \in Y} \| a - b\|.
+	d(x, Y) = \min\limits_{y \in Y} \| x - y\|.
 \end{gather*} 
 \begin{theorem}\label{suff}\cite{GusevUMJ}
- Пусть выполнены условия:
+ Пусть выполнены условия
  \begin{gather*}
  \lim\limits_{\varepsilon \rightarrow 0}h(X(\varepsilon),Y(\varepsilon)) = 0, \qquad \lim\limits_{\varepsilon \rightarrow 0}\frac{h(X(\varepsilon),Y(\varepsilon))}{\delta_{\min}(Y(\varepsilon))} = 0.
  \end{gather*}
@@ -201,7 +201,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 когда грамиан управляемости по выходу $ \overline{W}(t_0 + \varepsilon) = C W(t_0 + \varepsilon) C^{\top} $ --- положительно определённая матрица.
  
  
-По аналогии с \eqref{s1:eps_nonlinear}, произведём замену времени $t = \varepsilon \tau + t_0$, примем обозначения $z(\tau) = x(\varepsilon \tau + t_0)$, $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $, $h(\tau) = y(\varepsilon \tau + t_0)$ и получим из \eqref{s2:nonlinear_with_output}
+По аналогии с \eqref{s1:eps_nonlinear} произведём замену времени $t = \varepsilon \tau + t_0$, примем обозначения $z(\tau) = x(\varepsilon \tau + t_0)$, $ \upsilon(\tau) = \varepsilon u(\varepsilon \tau + t_0) $, $h(\tau) = y(\varepsilon \tau + t_0)$ и получим из \eqref{s2:nonlinear_with_output}
 \begin{gather}\label{s2:eps_nonlinear_with_output}
 \begin{gathered}
 	\dot{z}(\tau)=\widetilde{f}_1(\tau,z(\tau))+\widetilde{f}_2(\tau,z(\tau))\upsilon(\tau), \qquad 0 \leqslant \tau \leqslant 1, \qquad z(0) = x_0, \\
@@ -503,7 +503,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{gather*}
  Нетрудно заметить, что $ \overline{W}_{\varepsilon}^{1,2} $ --- вырожденная матрица. 
 Следовательно, система \eqref{unicycle0} не управляема по выходу $ (x_1, x_2) $, а значит, достаточное условие выпуклости множества достижимости по выходу $ \overline{G}_{1,2}(\varepsilon) $ не выполняется. 
-Множество $ \overline{G}_{1,2}(\varepsilon) $, полученное в численном эксперименте, показано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x2}. 
+Множество $ \overline{G}_{1,2}(\varepsilon) $, полученное в численном эксперименте, показано на Рисунке~\ref{fig:u=0_x1-x2}. 
 Отметим, что в разделе \ref{s1:examples} при помощи принципа максимума доказано, что $ G(\varepsilon) $ --- невыпукло. 
 Из приведённого там доказательства также следует, что проекция $ \overline{G}_{1,2}(\varepsilon) $ тоже не является выпуклой.
  
@@ -527,7 +527,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{pmatrix} .
  \end{gather*}
  Ситуация аналогична предыдущему случаю: матрица $ \overline{W}_{\varepsilon}^{1,3} $ вырождена, достаточное условие выпуклости не выполняется. 
-Результат численного моделирования приведён на рисунке~\ref{fig:RS}-\subref{fig:u=0_x1-x3}.
+Результат численного моделирования приведён на Рисунке~\ref{fig:u=0_x1-x3}.
  \item Наконец, перейдём к плоскости $ (x_2, x_3) $. 
 Здесь
  \begin{gather*}
@@ -539,8 +539,8 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \frac{\varepsilon}{2} & 1
  \end{pmatrix}.
  \end{gather*}
- В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена и её минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}. 
-Пунктирной линией на рисунке показана точная граница множества достижимости линеаризованной системы, сдвинутая на $ Cx(\varepsilon, 0) $. Из рисунка видно, что эта граница (эллипс) практически совпадает с границей множества достижимости нелинейной системы.
+ В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена и её минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на Рисунке~\ref{fig:u=0_x2-x3}. 
+Пунктирной линией на Рисунке показана точная граница множества достижимости линеаризованной системы, сдвинутая на $ Cx(\varepsilon, 0) $. Из рисунка видно, что эта граница (эллипс) практически совпадает с границей множества достижимости нелинейной системы.
  \end{enumerate} 
  
  \begin{figure}[ht!] 
@@ -708,7 +708,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \end{gather*}
  
  Минимальное собственное число $ \nu^{1,2}_{\varepsilon} = \frac{1}{120}\varepsilon^4 + O(\varepsilon^6)$, а $ \varepsilon^4 < \varepsilon^{3-\alpha} $ для всех $ \alpha > 0 $ при достаточно малых $ \varepsilon $, т.~е. достаточное условие выпуклости $ \overline{G}_{x_1, x_1}(\varepsilon) $ не выполняется. 
-Результаты численного моделирования, приведённые на рисунке~\ref{fig:RS}-\subref{fig:u=1_x1-x2}, показывают невыпуклость проекции. 
+Результаты численного моделирования, приведённые на Рисунке~\ref{fig:u=1_x1-x2}, показывают невыпуклость проекции. 
  \item Перейдём к плоскости $ (x_1,x_3) $:
  \begin{gather*}
  C = \begin{pmatrix}
@@ -729,7 +729,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  -\dfrac{\varepsilon^2}{3} + O(\varepsilon^4) & 1 \end{pmatrix}.
  \end{gather*}
  Минимальное собственное число матрицы $ \overline{W}_{\varepsilon}^{1,3} $, $ \nu^{1,3}_{\varepsilon} = \frac{1}{45}\varepsilon^4 + O(\varepsilon^6) $, также не удовлетворяет условию \eqref{s2:cond1}. 
-Соответствующий результат численного построения проекции множества достижимости показан на рисунке~\ref{fig:RS}-\subref{fig:u=1_x1-x3}.
+Соответствующий результат численного построения проекции множества достижимости показан на Рисунке~\ref{fig:u=1_x1-x3}.
  \item Последний случай --- плоскость $ (x_2,x_3) $:
  \begin{gather*}
  C = \begin{pmatrix}
@@ -748,10 +748,10 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \dfrac{\varepsilon^2}{3} + O(\varepsilon^4) &
  \dfrac{\varepsilon }{2} + O(\varepsilon^3) \\[8pt]
  \dfrac{\varepsilon }{2} + O(\varepsilon^3) & 1
- \end{pmatrix}
+ \end{pmatrix}.
  \end{gather*}
- Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, т.~е., удовлетворяет условию \eqref{s2:cond1}. 
-Выпуклость этой проекции проиллюстрирована на рисунке~\ref{fig:RS}-\subref{fig:u=1_x2-x3}. 
-Как и на рисунке~\ref{fig:RS}-\subref{fig:u=0_x2-x3}, здесь пунктирной линией показана точная граница множества достижимости линеаризованной системы.
+ Минимальное собственное число в этом случае равно $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $, т.~е. удовлетворяет условию \eqref{s2:cond1}. 
+Выпуклость этой проекции проиллюстрирована на Рисунке~\ref{fig:u=1_x2-x3}. 
+Как и на Рисунке~\ref{fig:u=0_x2-x3}, здесь пунктирной линией показана точная граница множества достижимости линеаризованной системы.
  \end{enumerate}
 \end{document}

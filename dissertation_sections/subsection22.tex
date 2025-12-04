@@ -23,7 +23,7 @@ T$ --- некоторое положительное число.
 Будем считать, что функция $f$ обладает следующим свойством.
 
 \begin{assumption}\label{s22:as:Residial_term_bounds}
- Найдутся такие $\overline{r} > r >0$, $k>0$, что при всех $ z \in B_{\mathbb{R}^n}(0,r) $ функция $f(z)$ может быть представлена в форме $ f(z) = Az + R(z) $, причём $A \in \mathbb{R}^{n \times n}$ и $ \|R(z) \| \leqslant k \| z\|^2 $. 
+ Найдутся такие $\overline{r} > r >0$, $k>0$, что при всех $ z \in B_{\mathbb{R}^n}(0,r) $ функция $f(z)$ может быть представлена в форме $ f(z) = Az + R(z) $, причём $A \in \mathbb{R}^{n \times n}$ и \mbox{$\|R(z) \| \leqslant k \| z\|^2$}. 
 \end{assumption}
 Это свойство выполняется, если $f(0) = 0 $, $\frac{\partial f}{\partial z}(0) 
 = A $ и  функция $f(z)$ дважды непрерывно дифференцируема. 
@@ -36,9 +36,9 @@ T$ --- некоторое положительное число.
 \end{gather}
 Задача состоит в синтезе закона управления $u = u(t,z(t))$, который бы приводил траектории замкнутой системы 
 \begin{gather*}
- \dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0.
+ \dot{z}(t)=f(z(t))+B u(t,z(t)),\qquad 0 \leqslant t \leqslant T, \qquad z(0) = z_0
 \end{gather*}
-в начало координат к моменту $T$ и обеспечивал при этом минимальное значение $I(T,u)$. 
+в начало координат в момент $T$ и обеспечивал при этом минимальное значение $I(T,u)$. 
 
 Рассмотрим линейный случай ($R(z)=0$)
 \begin{gather}\label{s22:linear}
@@ -67,7 +67,7 @@ T$ --- некоторое положительное число.
 
 Верно следующее утверждение \cite{Abgar,Kur1,GusevOsipov}.
 \begin{utv}
-Любая траектория $z(t)$ системы \eqref{s22:linear} с управлением \eqref{s22:linear_feedback}, выходящая из точки $ z_0 $, достигает начала координат к моменту $T$. 
+Любая траектория $z(t)$ системы \eqref{s22:linear} с управлением \eqref{s22:linear_feedback}, выходящая из точки $ z_0 $, достигает начала координат в момент $T$. 
 При этом интегральный функционал $I(T,u)$ принимает минимальное значение $z^{\top}_0 Q_T(0) z_0 $ при каждом $z_0$.
 \end{utv}
 Далее мы будем исследовать поведение траекторий системы \eqref{s22:nonlinear} замкнутой линейной обратной связью $ u(t,z) = -B^{\top} Q_T(t) z$ при условии, что $T$ достаточно мало. 
@@ -157,23 +157,14 @@ $G_{-}(\tau,\mu)$ и $G_{-}^0(\tau,\mu)$ асимптотически эквив
 
 Напомним, что $\nu(\tau)$ и $\eta(\tau)$  --- это наименьшее и наибольшее собственные числа $W(\tau)$. 
 Далее будем считать систему \eqref{s22:linear_} полностью управляемой, поэтому $\eta(\tau) \geqslant \nu(\tau) > 0$ при $\tau \geqslant 0$.
- 
-Поскольку $\varphi(\tau)$ не обязательно ограничено в нуле, $\Phi(T)$ может принимать значения, равные $+\infty$.
-\begin{lemma}%\label{s22:lem:Phi}
-Верны следующие свойства $\Phi(T)$:
-\begin{enumerate}
- \item Если $\Phi(T) < \infty $ хотя бы для одного $T$, то $\Phi(T) < \infty $ для всех $T \in (0, \overline{T}]$.
-\item Если $\Phi(T) < \infty $, то $\Phi(T)$ непрерывная и возрастающая функция на $ [0,\overline{T}]$.
- \end{enumerate}
-\end{lemma}
-\doc 
-Следует из свойств несобственных интегралов. \hfill $ \square $
+
+Если выполнено Предположение \ref{s22:asm1}, то $\Phi(T)$ непрерывная и возрастающая функция на $ [0,\overline{T}]$ и $\Phi(T) < \infty $.
 \begin{assumption}\label{s22:asm2}
 Существует такое $ 0 < \beta \leqslant 1$, что $\frac{\sqrt{\eta(T)}}{\Phi^\beta(T)} \to 0$ при $T \to 0$.
 \end{assumption}
 Если $\Phi(T)$ конечна, то существует не более одного корня уравнения $\Phi(T)=1$ на $(0,\overline{T}]$, обозначим этот корень через $\check{T}$. 
 Если $\Phi(T)<1$ при $T\in (0,\overline{T}]$, положим $\check{T}=\overline{T}$. 
-Очевидно, что для всех $ 0 < \beta \leqslant 1$ выполнено неравенство $\Phi^\beta(T)\geqslant \Phi(T)$ если $T \leqslant \check{T}$.
+Очевидно, что для всех $ 0 < \beta \leqslant 1$ выполнено неравенство $\Phi^\beta(T)\geqslant \Phi(T)$, если $T \leqslant \check{T}$.
 
 При фиксированном $T\in (0, \overline{T}]$ рассмотрим квадратичную форму $V_T(t,z)=z^{\top}Q_T(t)z$. 
 \begin{lemma}\label{s22:lem:vest}
@@ -395,7 +386,7 @@ J(T)-J_0(T)= \gamma (T,z(0)) =
  %\item The smallest eigenvalue of the Gramian of system \eqref{s22:linear_} satisfy the inequality \eqref{s22:asymp} for all $\tau \in (0, %\tau_0] $, where $\tau_0$ is a positive number.
 %\end{enumerate} Then $V_{T}(t,z(t)) = z^{\top}(t)Q_T(t)z(t) $ tends to $ 0$ as $t $ tends to $T$.} 
 \doc 
-Заметим, что функция $ u(\xi) = -B^{\top} Q(\xi) z(\xi)$  непрерывна на интервале $0 \leqslant \xi <T$. 
+Заметим, что функция $ u(\xi) = -B^{\top} Q_{T}(\xi) z(\xi)$  непрерывна на интервале $0 \leqslant \xi <T$. 
 
 Также заметим, что функция $V_{T}(t,z(t))$ может не быть ограниченной только в окрестности точки $t = T$. 
 % However, taking into account that the fulfillment of the inequality \eqref{s22:asymp} implies the fulfillment of the assumption, one can see that it follows from $z(t) \to 0 $ that the conditions of lemma \ref{s22:lem:vest} will be met for $t$ from the neighborhood of $T$.
@@ -502,7 +493,7 @@ A = \begin{pmatrix} 0 & 1\\
 \end{table}
 
 Теперь, изменяя $T$, будем вычислять $Q_T(0)$ и моделировать движение системы \eqref{s22:Duffing}, замкнутой линейной обратной связью $u(t) = -B^{\top}Q_T(t)x$.
-Результаты моделирования показаны на рисунке \ref{s22:fig:series1} и в таблице 
+Результаты моделирования показаны на Рисунке \ref{s22:fig:series1} и в таблице 
 \ref{s22:ExampleTable1}.
 Зелёные области обозначают множество нуль-управляемости 
 $G_{-}(T,1)$ системы \eqref{s22:Duffing} при $T = \{0.075, 0.1, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5\}$, сплошные линии показывают траектории системы при тех же $T$. 

@@ -420,7 +420,7 @@
 Но свойство сильной выпуклости устойчиво к малым возмущениям, поэтому оно не теряется при замене линейного отображения $f(a) + f'(a)(x - a)$ на близкое нелинейное отображение $f(x)$. 
  
 Результат теоремы можно обобщить, если вместо шара $B_X(a,\varepsilon) $ взять любое другое сильно выпуклое множество.
-Однако, предположения о гладкости $f$ нельзя существенно ослабить \cite{Polyak2001, Polyak2001ru}.
+Однако предположения о гладкости $f$ нельзя существенно ослабить \cite{Polyak2001, Polyak2001ru}.
  
 Из этих соображений видно, что теорема не может быть обобщена на банаховы пространства, в которых нет свойства сильной выпуклости шара.
 Отметим, что достаточное условие выпуклости образов выпуклых множеств в банаховых пространствах, не использующее свойство сильной выпуклости, было получено в работе \cite{Ledyaev}. 
@@ -547,7 +547,7 @@
  \Big\| X_1(t,s) \Big[B_1(s) - B_2(s) \Big] \Big\| + 
  \Big\| \Big[ X_1(t,s) - X_2(t,s) \Big] B_2(s)\Big\|. 
 \end{gather*}
-Теперь подставляем это неравенство в оценку нормы разности $\overline{F}'(t, u_1(\cdot)) \delta u(\cdot) $ и $\overline{F}'(t, u_2(\cdot)) \delta u(\cdot) $ и применяем Лемму \ref{s1:lem:lip_fundumental_matrix}
+Теперь подставляем это неравенство в оценку нормы разности $\overline{F}'(t, u_1(\cdot)) \delta u(\cdot) $ и $\overline{F}'(t, u_2(\cdot)) \delta u(\cdot) $ и применяем Лемму \ref{s1:lem:lip_fundumental_matrix}:
 \begin{gather*}
 \begin{gathered}
  \Big\| \overline{F}'(t, u_1(\cdot)) \delta u(\cdot) - \overline{F}'(t, u_2(\cdot)) \delta u(\cdot) \Big\| \leqslant
@@ -613,20 +613,21 @@
  
 Липшицевость производной Фреше $F'$ на шаре $B_{\mathbb{L}_2}(0,\mu)$ вытекает из Леммы \ref{s1:lem:lip_dx_global} в условиях Предположения \ref{s1:as:right_hand_side_diff_lip}. 
  
-Применим Теорему \ref{s1:th:PolyakTh} к $F$ с нулевым управление $u(\cdot) \equiv 0$ в роли точки $a$. 
+Применим Теорему \ref{s1:th:PolyakTh} к $F$ с нулевым управлением $u(\cdot) \equiv 0$ в роли точки $a$. 
 Тогда имеем, что множество достижимости $G(T,\mu)$ выпукло при $ 0 < \mu \leqslant \mu_0 $, где 
 \begin{gather}\label{s1:mu0}
  \mu_0 = \min\left( \dfrac{\sqrt{\lambda\big(W(T,0)\big)}}{2L_u}, \overline{\mu} \right), 
 \end{gather}
 а константа $L_u $ определена в Лемме \ref{s1:lem:lip_dx_global}. 
 \hfill$\square$\\[1ex]%--- P r o o f.
+
 Выпуклость множеств достижимости при малых ограничениях на ресурс управления была доказана в \cite{Polyak2004} для системы
 \begin{gather}
 	\dot{x} = \phi(x,u,t),
 \end{gather}
 при следующих предположениях.
 \begin{itemize}
-	\item[A1–A3.] Функция $\phi(x,u,t)$ непрерывна по $x$, $u$, измерима по $t$ и удовлетворяет:
+	\item[A1–A3.] Функция $\phi(x,u,t)$ непрерывна по $x$, $u$, измерима по $t$ и удовлетворяет следующим предположениям:
 	\begin{itemize}
 		 \item[--] Условию роста при всех $x$, $u$, $0 \leqslant t \leqslant T$ 
 	\begin{gather}\label{s1:growth}
@@ -636,7 +637,7 @@
 	\begin{gather}\label{s1:PolyakLIP}
 	\|\phi(x,u,t) - \phi(x + \overline{x},u + \overline{u},t)\| \leqslant k_4 \|\overline{x}\| + k_5 \|\overline{u}\| + k_6 \overline{u}^{\top} \overline{u}.
 \end{gather}
-	\item[--] Условию дифференцируемости по $x$, $u$ с ограниченной производной $\|\phi_x(x,u,t)\| \leqslant k_8$ и квадратичным остатком при  $\|x\| \leqslant k_0$, $\|x + \overline{x}\| \leqslant k_0$, $u$, $u + \overline{u}$ и $0 \leqslant t \leqslant T$
+	\item[--] Условию дифференцируемости по $x$, $u$ с ограниченной производной \mbox{$\|\phi_x(x,u,t)\| \leqslant k_8$} и квадратичным остатком при  $\|x\| \leqslant k_0$, $\|x + \overline{x}\| \leqslant k_0$, $u$, $u + \overline{u}$ и $0 \leqslant t \leqslant T$
 \begin{gather}\label{s1:PolyakDiff}
 	\begin{gathered}
 		\|\phi(x,u,t) - \phi(x + \overline{x},u + \overline{u},t) -\phi_x(x,u,t) \overline{x} - \phi_u(x,u,t)\overline{u} \| \leqslant k_9 \|\overline{x}\|^2 + k_{10} \overline{u}^{\top} \overline{u}.
@@ -819,8 +820,7 @@
  	 L_1 = k_{f_2}^2 k_X k_Y l_{f_1} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0.
  \end{gather*} 
 При этом, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
-Действительно, в этом случае для любых $x_1, x_2 \in D$, $t\in [t_0, t_0 + \overline{\varepsilon}]$, выполняется $f_2(t,x_1) = f_2(t, x_2)$ и $\dfrac{\partial f_2}{\partial x} (t, x_1) = \dfrac{\partial f_2}{\partial x} (t, x_2)$
-Поэтому соответствующие константы Липшица можно выбрать нулевыми: $ L_{f_2} = 0$ и $l_{f_2} = 0$.
+Действительно, в этом случае для любых $x_1, x_2 \in D$, $t\in [t_0, t_0 + \overline{\varepsilon}]$, выполняется $f_2(t,x_1) = f_2(t, x_2)$ и $\dfrac{\partial f_2}{\partial x} (t, x_1) = \dfrac{\partial f_2}{\partial x} (t, x_2)$, поэтому соответствующие константы Липшица можно выбрать нулевыми: $ L_{f_2} = 0$ и $l_{f_2} = 0$.
  
 Для самосопряжённого оператора $S'(0)S'(0)^*$ справедливо равенство 
 \begin{gather*}
@@ -853,7 +853,7 @@
  будут удовлетворять и условию \eqref{s1:th3_proof_origin_condition}. 
  Константы $L_0$ и $L_1$ определены в \eqref{s1:lip_eps}. 
  В соответствии с Утверждением \ref{s1:utv:connection_with_scaled_system} множества достижимости систем \eqref{s1:common_nonlinear_small_time} и \eqref{s1:eps_nonlinear} совпадают.
- Поэтому \eqref{s1:th3_proof_condition_with_f2} является условием выпуклости не только множества достижимости $\widetilde{G}(\varepsilon)$ системы \eqref{s1:eps_nonlinear}, но множества достижимости $G(\varepsilon)$ системы \eqref{s1:common_nonlinear_small_time}.
+ Поэтому \eqref{s1:th3_proof_condition_with_f2} является условием выпуклости не только множества достижимости $\widetilde{G}(\varepsilon)$ системы \eqref{s1:eps_nonlinear}, но и множества достижимости $G(\varepsilon)$ системы \eqref{s1:common_nonlinear_small_time}.
  
  Рассмотрим случай, когда $f_2(t,x)$ не зависит от $x$.
  Тогда $L_0 = 0$ и условие \eqref{s1:th3_proof_condition_with_f2} принимает вид
@@ -890,7 +890,6 @@
  Заметим, что правая часть \eqref{s1:th3_proof_final_condition_with_f2} обращается в нуль при $\varepsilon = 0$ и непрерывна при $\varepsilon > 0$, а значит существует такое $\varepsilon_2 > 0$, что \eqref{s1:th3_proof_final_condition_with_f2} выполняется при всех $\varepsilon < \varepsilon_2 $.
  Обозначим $\varepsilon_1 = \min \left(\varepsilon_0, \varepsilon_2\right) $. 
  Тогда для всех $\varepsilon < \varepsilon_1 $ будет выполняться \eqref{s1:th3_proof_final_condition_with_f2}, а значит и \eqref{s1:th3_proof_condition_with_f2}.
- 
  \hfill$\square$\\[1ex]%--- P r o o f.
  
  Близкий результат был получен в работе \cite{GusevMotor}, здесь приведено более подробное доказательство и уточнены оценки для констант.
@@ -987,7 +986,7 @@
 Приведём несколько примеров линейных систем второго порядка, для грамианов управляемости которых выполняется условие \eqref{s1:small_time_convexity_condition}.
 Рассмотрим простейшую систему, а также более общие случаи, такие как произвольные системы с одним входом, а также системы с двумя входами и вырожденной/невырожденной матрицей управления.
 
-После этого, продемонстрируем применение описанного в предыдущем разделе метода к проверке выпуклости множеств достижимости двух нелинейных систем, используя теорему~\ref{s1:th:small_time_convexity}.
+После этого продемонстрируем применение описанного в предыдущем разделе метода к проверке выпуклости множеств достижимости двух нелинейных систем, используя теорему~\ref{s1:th:small_time_convexity}.
 
 \paragraph{Двойной интегратор.}
 Наиболее простой частный случай~--- система вида 
@@ -1064,12 +1063,12 @@
 \end{gather}
  
 Рассмотрим минимальное из них.
-Так как $ \varepsilon $~--- мало, то \eqref{s1:eigs} можно переписать в виде
+Так как $ \varepsilon $ мало, то \eqref{s1:eigs} можно переписать в виде
 \begin{gather*}
- \lambda_1 = \dfrac{\varepsilon^2}{12} - \dfrac{\varepsilon^4}{18} + O(\varepsilon^4).
+ \lambda_1 = \dfrac{\varepsilon^2}{12} - \dfrac{\varepsilon^4}{48} + O(\varepsilon^4).
 \end{gather*} 
  %Зонтак оптимальное управление
-При малых $ \varepsilon $, существуют $\alpha >0 $ такие, что $ \varepsilon^2 > \varepsilon^{3-\alpha} $.
+При малых $ \varepsilon $ существуют $\alpha >0 $ такие, что $ \varepsilon^2 > \varepsilon^{3-\alpha} $.
 Cледовательно, для системы <<двойной интегратор>>, условие \eqref{s1:small_time_convexity_condition} выполняется, а значит, множества достижимости систем, линеаризация которых вдоль отвечающей нулевому управлению траектории приводит к <<двойному интегратору>>, являются выпуклыми на малых промежутках времени.
 
 \paragraph{Система второго порядка с одним входом.}
@@ -1279,7 +1278,7 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
  \int_{0}^{1} \upsilon ^2 d \tau \leqslant (1 + c^2) \int_{0}^{1} \left[ u_1^2 + u_2^2 \right] d \tau \leqslant (1 + c^2).
 \end{gather}
 
-Приведённые выше рассуждения выше доказывают, что из \eqref{s1:contrainsts1} следует \eqref{s1:constraints2}; обратное тоже верно, так как любое $ \upsilon(t) $, для которого справедливо $ \int_{0}^{1} \upsilon ^2 d \tau \leqslant (1 + c^2) $, можно представить в виде $ \upsilon = u_1 + c u_2 $, где 
+Приведённые выше рассуждения доказывают, что из \eqref{s1:contrainsts1} следует \eqref{s1:constraints2}; обратное тоже верно, так как любое $ \upsilon(t) $, для которого справедливо $ \int_{0}^{1} \upsilon ^2 d \tau \leqslant (1 + c^2) $, можно представить в виде $ \upsilon = u_1 + c u_2 $, где 
 \begin{gather*}
  u_1 = \frac{\upsilon}{1+c^2}, \ u_2 = \frac{c \upsilon}{1+c^2}.
 \end{gather*}
@@ -1398,7 +1397,7 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
 	\end{aligned}
 \end{gather*}
 
-На рисунке \ref{s1:fig:fig31} показаны множества достижимости для различных $ \varepsilon $.
+На Рисунке \ref{s1:fig:fig31} показаны множества достижимости для различных $ \varepsilon $.
 Видно, что при малых значениях $\varepsilon$ множества достижимости выпуклы (правый рисунок), но при увеличении $\varepsilon $ становятся невыпуклыми (левый рисунок).
  % ссылка на тарасьева
 \paragraph{Машина Дубинса.} 
