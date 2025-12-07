@@ -65,7 +65,9 @@
 
 
 \fancyhf{} % Очистка заголовков и колонтитулов
-\fancyfoot[L]{\color{gray}\textbf{2025-12-04--19-14-48}} % Добавление текста в правый колонтитул
+\ifdefined\showlabels
+\fancyfoot[L]{\color{gray}\textbf{2025-12-07--18-14-48}} % Добавление текста в правый колонтитул
+\fi
 % \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
 \renewcommand{\headrulewidth}{0pt} % Удаление линии заголовка

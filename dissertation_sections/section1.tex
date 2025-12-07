@@ -236,7 +236,7 @@
 Напомним, что начальное условие $x_0 $ зафиксировано, а $ x(\cdot,u(\cdot))$ ~--- решение системы \eqref{s1:common_nonlinear}, порождённое управлением $u(\cdot)$ и удовлетворяющее условию $x(t_0, u(\cdot)) = x_0$. 
 Введём отображение $F: \mathbb{L}_2 \rightarrow \mathbb{R}^n $ равенством 
 \begin{gather}\label{s1:solution_endpoint_mapping}
- Fu(\cdot) = x(T,u(\cdot)), \qquad 0 \leqslant T \leqslant \overline{T}.
+ F(u(\cdot)) = x(T,u(\cdot)), \qquad 0 \leqslant T \leqslant \overline{T}.
 \end{gather} 
  
 \begin{lemma}\label{s1:lem:frechet_derivative_common}
@@ -354,7 +354,7 @@
 Линеаризованная система \eqref{s1:linearized_system} является частным случаем линейной системы из Определения \ref{s1:def:grammian}. 
  
 Обозначим грамиан управляемости системы \eqref{s1:linearized_system} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{s1:common_nonlinear}, вдоль которой проводится линеаризация.
-Тогда, из Определения \ref{s1:def:grammian} и \eqref{s1:lem2_assert} видно, что положительная определённость $W(T,u(\cdot))$ (управляемость системы \eqref{s1:linearized_system}, линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $), означает регулярность отображения $F$ в точке $u(\cdot) $. 
+Тогда, из Определения \ref{s1:def:grammian} и \eqref{s1:lem2_assert} видно, что положительная определённость $W(T,u(\cdot))$ (управляемость системы \eqref{s1:linearized_system}, линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $), означает регулярность отображения $F$ в точке $u(\cdot) $). 
  
 \subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
 \subsubsection{Выпуклость отображения малого шара.}
@@ -406,8 +406,10 @@
  \end{gather*}
  а также выполнено условие
  \begin{gather*}
- \varepsilon < \min\left\{r,\frac{\nu}{2L}\right\}.
+ \varepsilon < \min\left\{r,\frac{\nu}{2L}\right\},
  \end{gather*}
+ где $\nu$~--- наименьшее сингулярное число отображения $f'(a)$.
+ 
  Тогда образ шара $B_X(a,\varepsilon) = \{x \in X: \| x - a\| \leqslant \varepsilon\}$ при отображении $f$ является выпуклым, т.~е. $F = \{f(x): x \in B_X(a,\varepsilon)\}$~--- выпуклое множество в $Y$.
  Более того, это множество сильно выпуклое и его граница состоит из образов граничных точек шара: $\partial F \subset f(\partial B_X(a,\varepsilon))$.
 \end{theorem}
