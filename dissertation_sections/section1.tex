@@ -41,7 +41,7 @@
 
 В частности, Предположение \ref{s1:as:right_hand_side_conditions_global} выполняется, если функции $f_1$ и $f_2$ удовлетворяют в $ [t_0, \overline{T}] \times \mathbb{R}^n$ условиям
 \begin{gather}\label{s1:right_hand_side_condition}
- \left\|f_1\big(x,t\big) \right\| \leqslant l_1(t) (1 + \|x\|), \qquad \left\| f_2(t,x) \right\| \leqslant l_2(t), 
+ \left\|f_1\big(t, x\big) \right\| \leqslant l_1(t) (1 + \|x\|), \qquad \left\| f_2(t,x) \right\| \leqslant l_2(t), 
 \end{gather}
 где $ l_1(\cdot) \in \mathbb{L}_1[t_0, \overline{T}] $, $ l_2(\cdot) \in \mathbb{L}_2[t_0, \overline{T}]$.
 В \cite[Теорема 5]{Filippov2} доказано, что из условия \eqref{s1:right_hand_side_condition} следует продолжимость траекторий. 
@@ -353,9 +353,6 @@
 Линейная система вполне управляема на $ [t_0, T] $ тогда и только тогда, когда её грамиан управляемости $W(T)$ ~--- положительно определённая матрица \cite[c. 176]{Chen}.
 Линеаризованная система \eqref{s1:linearized_system} является частным случаем линейной системы из Определения \ref{s1:def:grammian}. 
  
-Обозначим грамиан управляемости системы \eqref{s1:linearized_system} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{s1:common_nonlinear}, вдоль которой проводится линеаризация.
-Тогда, из Определения \ref{s1:def:grammian} и \eqref{s1:lem2_assert} видно, что положительная определённость $W(T,u(\cdot))$ (управляемость системы \eqref{s1:linearized_system}, линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $), означает регулярность отображения $F$ в точке $u(\cdot) $). 
- 
 \subsection{Выпуклость множеств достижимости нелинейных систем с интегральными ограничениями}
 \subsubsection{Выпуклость отображения малого шара.}
 Пусть $X$, $Y$~--- гильбертовы пространства, а $f: X \rightarrow Y$~--- нелинейное отображение с производной Фреше $f'$, которая существует и непрерывна в некоторой точке $a \in X$.
@@ -520,6 +517,9 @@
  \overline{F}'(t, u(\cdot)) \delta u(\cdot) = \delta x(t), 
 \end{gather*}
 где $\delta x(t)$ --- решение системы \eqref{s1:linearized_system}, отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям.
+
+Обозначим грамиан управляемости системы \eqref{s1:linearized_system} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{s1:common_nonlinear}, вдоль которой проводится линеаризация.
+Тогда, из Определения \ref{s1:def:grammian} и \eqref{s1:lem2_assert} видно, что положительная определённость $W(T,u(\cdot))$ (управляемость системы \eqref{s1:linearized_system}, линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $), означает регулярность отображения $F$ в точке $u(\cdot)$. 
  
 \begin{lemma}\label{s1:lem:lip_dx_global}
  Пусть выполнены Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}.
