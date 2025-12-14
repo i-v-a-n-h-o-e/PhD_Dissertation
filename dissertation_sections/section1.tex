@@ -186,7 +186,7 @@
  \begin{gather}\label{s1:linearized_system}
  \delta \dot{x} = A(t) \delta x + B(t) \delta u, \qquad t_0 \leqslant t \leqslant T, \qquad \delta x(t_0) = 0,
  \end{gather}
- {\textit линеаризацией} системы \eqref{s1:common_nonlinear} вдоль пары траектории и управления $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $, если 
+ линеаризацией системы \eqref{s1:common_nonlinear} вдоль пары траектории и управления $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $, если 
  \begin{gather*}
  A(t) = \dfrac{\partial f_1}{\partial x} \Big(t,x\big(t,u(\cdot)\big)\Big) 
  + 
@@ -329,7 +329,7 @@
 \hfill $\square$
  
 \begin{definition}
- {\textit Множеством достижимости} $ G(T,\mu) $ системы \eqref{s1:common_nonlinear} в пространстве состояний в момент времени $ T $ назовём множество всех концов траекторий $ x(T, u(\cdot)) \in \mathbb{R}^n $, которые могут быть порождены управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace $,
+ Множеством достижимости $ G(T,\mu) $ системы \eqref{s1:common_nonlinear} в пространстве состояний в момент времени $ T $ назовём множество всех концов траекторий $ x(T, u(\cdot)) \in \mathbb{R}^n $, которые могут быть порождены управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace $,
  \begin{gather*}
  G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,u(\cdot))\}.
  \end{gather*}
@@ -519,7 +519,6 @@
 где $\delta x(t)$ --- решение системы \eqref{s1:linearized_system}, отвечающее управлению $\delta u(\cdot)$ и нулевым начальным условиям.
 
 Обозначим грамиан управляемости системы \eqref{s1:linearized_system} через $W(T,u(\cdot))$, где $u(\cdot)$~--- управление, порождающее траекторию системы \eqref{s1:common_nonlinear}, вдоль которой проводится линеаризация.
-Тогда, из Определения \ref{s1:def:grammian} и \eqref{s1:lem2_assert} видно, что положительная определённость $W(T,u(\cdot))$ (управляемость системы \eqref{s1:linearized_system}, линеаризованной вдоль пары $\left( x(\cdot,u(\cdot)),u(\cdot)\right) $), означает регулярность отображения $F$ в точке $u(\cdot)$. 
  
 \begin{lemma}\label{s1:lem:lip_dx_global}
  Пусть выполнены Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}.
@@ -732,7 +731,7 @@
 Справедливо следующее утверждение.
 
 \begin{utv}\label{s1:utv:connection_with_scaled_system}
- {\textit Для множеств достижимости систем \eqref{s1:common_nonlinear_small_time} и \eqref{s1:eps_nonlinear} и грамианов управляемости систем \eqref{s1:linearized_system} и \eqref{s1:eps_linearized} имеют место равенства}
+ Для множеств достижимости систем \eqref{s1:common_nonlinear_small_time} и \eqref{s1:eps_nonlinear} и грамианов управляемости систем \eqref{s1:linearized_system} и \eqref{s1:eps_linearized} имеют место равенства
  \begin{gather*}
  G_{\varepsilon}(1) = G(t_0 + \varepsilon), \qquad
  W_{\varepsilon} = \dfrac{1}{\varepsilon} W(\varepsilon, 0)
@@ -775,7 +774,7 @@
 
 Таким образом, грамиан линеаризованной системы с заменённым временем \eqref{s1:eps_linearized} может быть выражен через грамиан линеаризованной в исходном времени системы \eqref{s1:linearized_system}.  \hfill $\square$
  
-Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S\upsilon(\cdot) = z(1,\upsilon(\cdot))$. 
+Как и в предыдущем разделе, определим отображение $S: \mathbb{L}_2[0,1] \rightarrow \mathbb{R}^n $ равенством $S(\upsilon(\cdot)) = z(1,\upsilon(\cdot))$. 
 Здесь $ z(1,\upsilon(\cdot))$ ~--- решение системы \eqref{s1:common_nonlinear_small_time}, порождённое управлением $\upsilon(\cdot)$. 
  
 Применяя Лемму \ref{s1:lem:frechet_derivative_common} к отображению $S$, заключаем, что производная Фреше этого отображения определяется равенством $ S'(\upsilon(\cdot))\delta \upsilon(\cdot) = \delta z(1)$, где $\delta z(t)$ ~--- решение линеаризованной вдоль пары $\big( z(\cdot,\upsilon(\cdot)),\upsilon(\cdot)\big) $ системы \eqref{s1:eps_linearized}, порождённое управлением $\delta \upsilon(\cdot)$ при нулевых начальных условиях, т.~е.
