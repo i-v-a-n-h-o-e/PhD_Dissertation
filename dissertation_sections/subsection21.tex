@@ -99,7 +99,7 @@ $\rho(Y, X) = \log(r(Y,X) \cdot r(X,Y))=\rho(X,Y).$
 \begin{gather*}
 	\log(r(X,Z) \cdot r(Z,X)) \leqslant \log(r(X,Y) \cdot r(Y,X)) + \log(r(Y,Z) \cdot r(Z,Y)).
 \end{gather*}
-А затем рассмотрим эквивалентное ему неравенство
+Затем рассмотрим эквивалентное ему неравенство
 \begin{gather}\label{s2:triangle_axiom}
 	r(X,Z) \cdot r(Z,X) \leqslant r(X,Y) \cdot r(Y,X) \cdot r(Y,Z) \cdot r(Z,Y).
 \end{gather}
@@ -153,7 +153,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  Управление $u(t)$ будем выбирать из
 пространства $\mathbb{L}_2[t_0,t_0+\overline{\varepsilon}]$ вектор-функций и ограничим его шаром радиуса $ 0 < \mu \leqslant \overline{\mu} $:
 \begin{gather}\label{s2:constrY}
- \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right)_{\mathbb{L}_2} = \int\limits_{t_0}^{t_0 + \varepsilon} u^{\top}(\tau) u(\tau) \ d\tau  \leqslant \mu^2.
+ \lVert u(\cdot)\rVert^2_{\mathbb{L}_2} = \left(u(\cdot),u(\cdot) \right)_{\mathbb{L}_2} = \int\limits_{t_0}^{t_0 + \overline{\varepsilon}} u^{\top}(\tau) u(\tau) \ d\tau  \leqslant \mu^2.
 \end{gather}
 
 Пусть $ 0 < \varepsilon \leqslant \overline{\varepsilon} $. 
@@ -185,7 +185,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 \begin{definition}
  Симметричная матрица, определённая равенством
  \begin{gather*}
- \overline{W}(t_0 + \varepsilon) = \int_{t_0}^{t_0+\varepsilon} C X(t_0+\varepsilon,t)B(t)B^{\top}(t)X^{\top}(t_0+\varepsilon,t) C^\top \, dt=CW(\varepsilon)C^\top,
+ \overline{W}(t_0 + \varepsilon) = \int_{t_0}^{t_0+\varepsilon} C X(t_0+\varepsilon,t)B(t)B^{\top}(t)X^{\top}(t_0+\varepsilon,t) C^\top \, dt=CW(t_0 + \varepsilon)C^\top,
  \end{gather*}
  называется грамианом управляемости линейной системы 
  \begin{gather}\label{s2:linear_system}
@@ -197,7 +197,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  $\dot{\Phi}(t) = A(t) \Phi(t)$, $\Phi(t_0) = I$.
 \end{definition}
  
-Система \eqref{s2:linear_system} управляема (вполне управляема) на $ [t_0, t_0 + \varepsilon] $ по выходу $y=Cx$ тогда и только тогда,
+Система \eqref{s2:linear_system} управляема (вполне управляема) на $ [t_0, t_0 + \varepsilon] $ по выходу $y=Cs$ тогда и только тогда,
 когда грамиан управляемости по выходу $ \overline{W}(t_0 + \varepsilon) = C W(t_0 + \varepsilon) C^{\top} $ --- положительно определённая матрица.
  
  
@@ -266,7 +266,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
 \end{gather*}
 
 По аналогии с \eqref{s1:self_adjoint_with_derivative} можно показать, что $ H'(0) H'(0)^* = \overline{W}_{\varepsilon}$. 
-Отсюда следует, что управляемость системы \eqref{s2:eps_linearized} по выходу $\delta h$ (минимальное собственное число $\overline{\lambda}(\varepsilon)$ грамиана $ \overline{W}_{\varepsilon}$ должно быть строго положительно), означает регулярность отображения $H$ в точке $\upsilon = 0$.
+Отсюда следует, что управляемость системы \eqref{s2:eps_linearized} по выходу $\delta h$ (минимальное собственное число $\overline{\lambda}(\varepsilon)$ грамиана $ \overline{W}_{\varepsilon}$ должно быть строго положительно) означает регулярность отображения $H$ в точке $\upsilon = 0$.
 
 Обозначим через $G^0_{\varepsilon}(\tau)$ и $\overline{G}^0_{\varepsilon}(\tau)$ множества достижимости системы \eqref{s2:eps_linearized} при $\delta \upsilon \in B_{\mathbb{L}_2}(0, \sigma(\varepsilon))$ по состоянию и выходу соответственно.
 
@@ -385,7 +385,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  (L_0+L_1\varepsilon)\mu K^{-\frac{1}{2}}\varepsilon^{\alpha/2} \rightarrow 0 \mbox{\ при\ } \varepsilon \rightarrow 0.
  \end{gather*}
  
- Таким образом условия теоремы \ref{suff} выполнены, а значит, множества $ \overline{G}(\varepsilon) $ и \\$ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0) $ асимптотически эквиваленты.
+ Таким образом, условия теоремы \ref{suff} выполнены, а значит, множества $ \overline{G}(\varepsilon) $ и \\$ H'(0)B_{\mathbb{L}_2[0,1]}(0,\sigma(\varepsilon))+ H(0) $ асимптотически эквиваленты.
  \hfill $\square$
  \begin{utv}
  Пусть $ W_1 $, $ W $ --- симметричные матрицы, причём $ W_1 = C W C^{\top} $, где $ C $ --- матрица полного ранга размерности $ m \times n $, $ m \leqslant n $, а $ \nu(W) $, $ \nu(W_1) $ и $ \nu(CC^{\top}) $ --- наименьшие собственные числа соответствующих матриц.
@@ -399,7 +399,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  Действительно,
  \begin{gather*}
  \forall x \in \mathbb{R}^m, \: x^{\top} W_1 x = x^{\top} C W C^{\top} x \geqslant \nu(W)\left\| C^{\top}x \right\| ^2,\\
- \nu(W)\left\| C^{\top}x \right\| ^2 = \nu(W) x^{\top} C C^{\top} x
+ \nu(W)\left\| C^{\top}x \right\| ^2 = \nu(W) x^{\top} C C^{\top} x.
  \end{gather*}
  Следовательно,
  \begin{gather*}
@@ -539,7 +539,7 @@ $ C\in \mathbb{R}^{m \times n} $ --- матрица полного ранга, $
  \frac{\varepsilon}{2} & 1
  \end{pmatrix}.
  \end{gather*}
- В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена и её минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на Рисунке~\ref{fig:u=0_x2-x3}. 
+ В этом случае матрица $ \overline{W}_{\varepsilon}^{2,3} $ не вырождена, её минимальное собственное число $ \nu^{2,3}_{\varepsilon} = \frac{\varepsilon^2}{12} + O(\varepsilon^4) $ удовлетворяет критерию \eqref{s2:cond1} при достаточно малых $ \varepsilon $ и множество достижимости по выходу $ \overline{G}_{2,3}(\varepsilon) $, как следует из теоремы \ref{s2:th:assimptotic_equality}, выпукло и асимптотически эквивалентно соответствующему множеству достижимости линеаризованной системы, что и проиллюстрировано на Рисунке~\ref{fig:u=0_x2-x3}. 
 Пунктирной линией на Рисунке показана точная граница множества достижимости линеаризованной системы, сдвинутая на $ Cx(\varepsilon, 0) $. Из рисунка видно, что эта граница (эллипс) практически совпадает с границей множества достижимости нелинейной системы.
  \end{enumerate} 
  

@@ -17,7 +17,7 @@
  
  
 \subsection{Некоторые свойства решений нелинейных систем с интегральными ограничениями}
-На интервале времени $ t_0 \leqslant t \leqslant \overline{T} $ рассмотрим нелинейную систему, аффинную по управлению
+На интервале времени $ t_0 \leqslant t \leqslant \overline{T} $ рассмотрим нелинейную систему, аффинную по управлению:
 \begin{gather}\label{s1:common_nonlinear}
 \begin{gathered}
  \dot{x}(t)=f_1\big(t,x(t)\big)+f_2\big(t,x(t)\big)u(t), \qquad x(t_0) = x_0.
@@ -49,7 +49,7 @@
  
 Известны также другие оценки на правую часть системы, при наличии которых справедливо Предположение \ref{s1:as:right_hand_side_conditions_global} (см., например, \cite{Filippov2, Guseinov2010}).
  
-В дальнейшем, управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, где $ 0 < \mu \leqslant \overline{\mu} $.
+В дальнейшем управление $ u(\cdot) $ будем выбирать из шара $ B_{\mathbb{L}_2[t_0, \overline{T}]}(0,\mu) $, где $ 0 < \mu \leqslant \overline{\mu} $.
  
 \begin{lemma}\label{s1:lem:lip_of_solutions_global}
  Пусть выполнено Предположение \ref{s1:as:right_hand_side_conditions_global}.
@@ -97,10 +97,10 @@
 
 Оценим приращение $f_1$ через интеграл по параметру:
 \begin{gather}\label{s1:meanvalue_f1}
-		f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) = \left( \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big).
+		f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) = \left( \int\limits_0^1 \frac{\partial f_1}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_1(\tau) - x_2(\tau)\big)\Big) \ d\xi \right) \big(x_1(\tau) - x_2(\tau)\big).
 \end{gather}
 
-Так как для $0 \leqslant \xi \leqslant 1 $ и $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big) \in D$, то из Предположения \ref{s1:as:right_hand_side_conditions_global}, учитывая непрерывность $\dfrac{\partial f_1}{\partial x} $, а также компактность множества $D$, мы имеем, что 
+Так как для $0 \leqslant \xi \leqslant 1 $ и $\tau \in [t_0,\overline{T}]$ выполняется включение $x_2(\tau) + \xi \big(x_1(\tau) - x_2(\tau)\big) \in D$, то из Предположения \ref{s1:as:right_hand_side_conditions_global}, учитывая непрерывность $\dfrac{\partial f_1}{\partial x} $, а также компактность множества $D$, мы имеем, что 
 \begin{gather}\label{s1:lip_f1}
 		\big\| f_1(\tau, x_1(\tau)) - f_1(\tau, x_2(\tau)) \big\| \leqslant L_{f_1} \|x_1(\tau) - x_2(\tau)\|,
 \end{gather}
@@ -113,7 +113,7 @@
  f_2^k(\tau, x_2(\tau)) 
  = \left(
  \int\limits_0^1 
- \frac{\partial f_2^k}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_2(\tau) - x_1(\tau)\big)\Big) 
+ \frac{\partial f_2^k}{\partial x} \Big(\tau, x_2(\tau) + \xi \big(x_1(\tau) - x_2(\tau)\big)\Big) 
  \ d\xi \right) 
  \big(x_1(\tau) - x_2(\tau)\big).
 \end{gather}
@@ -199,7 +199,7 @@
 
 Решение системы \eqref{s1:linearized_system} имеет вид 
 \begin{gather*}
-\delta x(t) = \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau 
+\delta x(t) = \int\limits_{t_0}^{t} X(t, \tau) B(\tau) \delta u(\tau) \ d\tau,
 \end{gather*}
  где $ X(\tau_1,\tau_0)= \Phi(\tau_1) \Phi^{-1}(\tau_0) $, $\Phi(t) $ ~--- фундаментальная матрица решений однородной системы, удовлетворяющая уравнению 
 \begin{gather}\label{s1:fundumental_matrix_eq}
@@ -207,7 +207,7 @@
 \end{gather}
 
 Так как $A(t)$ измерима, то решение \eqref{s1:fundumental_matrix_eq} определено в некоторой окрестности $t_0$ и единственно\cite[с. 46]{Filippov2}. 
-Докажем, что решение может быть продолжено на интервале $[t_0, T]$. 
+Докажем, что решение может быть продолжено на интервал $[t_0, T]$. 
 Для каждого фиксированного $u(\cdot) $ найдётся такое $\tau > t_0$, что решение \eqref{s1:fundumental_matrix_eq} определено на интервале $ [t_0, \tau] $.
 Выберем наибольшее из таких $\tau$.
 Предположим, что $\tau < T$. 
@@ -226,10 +226,10 @@
 Получаем противоречие.
 
 Заметим, что интеграл $\int_0^t \| A(\tau)\| \ d\tau$ равномерно ограничен по $u(\cdot) $ на $ B_{\mathbb{L}_2}(0,\mu)$.
-Таким образом, можно заключить, что при всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$, существует ограниченное решение \eqref{s1:fundumental_matrix_eq}, определённое на интервале $[t_0, T]$.
+Таким образом, можно заключить, что при всех $u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ существует ограниченное решение \eqref{s1:fundumental_matrix_eq}, определённое на интервале $[t_0, T]$.
 
 В Определении \ref{s1:def:linearized_system} матрицы $A$ и $B$ зависят от управления $u$. 
-Очевидно, что матрица $X(\cdot, \cdot)$ также зависит от этого управления $u$.
+Очевидно, что матрица $X(\cdot, \cdot)$ также зависит от управления $u$.
 В случае, где эта зависимость важна, будем использовать обозначения $A(\cdot, u(\cdot))$, $B(\cdot, u(\cdot))$, $X(\cdot, \cdot, u(\cdot))$. 
  
  
@@ -269,19 +269,19 @@
 	\int\limits_0^1 \left[ \frac{\partial f_1}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) - \frac{\partial f_1}{\partial x} \Big(t, x(t)\Big) \right] \ d\xi,\\
 	\beta^k\Big(x(t),\Delta x(t), t\Big) = \int\limits_0^1 \left[ \frac{\partial f_2^k}{\partial x} \Big(t, x(t) + \xi \Delta x(t)\Big) - \frac{\partial f_2^k}{\partial x} \Big(t, x(t)\Big) \right] d\xi.
 \end{gather*}
-Перепишем \eqref{s1:delta_x}
+Перепишем \eqref{s1:delta_x}:
 \begin{gather*}
 	\Delta \dot{x}(t) =
 	A(t) \Delta x(t) +
 	B(t) \Delta u(t) +
-	\omega(t),
+	\omega(t).
 \end{gather*}
-где $A(t)$ и $B(t)$ соответствуют таковым в \eqref{s1:linearized_system}:
+Здесь $A(t)$ и $B(t)$ соответствуют таковым в \eqref{s1:linearized_system}:
 \begin{align*}
 	A(t) &= \frac{\partial f_1}{\partial x}(t,x(t)) + \sum\limits_{k=1}^r \frac{\partial f_2^k}{\partial x}(t,x(t)) u^k(t), \\
 	B(t) &= f_2(t,x(t)),
 \end{align*}
-а $\omega(t)$ определено равенством:
+а $\omega(t)$ определено равенством
 \begin{gather*}
 		\omega(t) = 
 		\alpha\Big(x(t),\Delta x(t), t\Big)\Delta x(t) 
@@ -295,10 +295,10 @@
 		\right) 
 		\Delta x(t) \Delta u^k(t).
 \end{gather*}
-Из Леммы \ref{s1:lem:lip_of_solutions_global} следует, что при $\|\Delta u(\cdot)\|_{\mathbb{L}_2} \to 0$, $\|\Delta x(t)\| \to 0$ равномерно при всех $t_0 \leqslant t \leqslant T$.
+Из Леммы \ref{s1:lem:lip_of_solutions_global} следует, что при $\|\Delta u(\cdot)\|_{\mathbb{L}_2} \to 0$ имеем $\|\Delta x(t)\| \to 0$ равномерно при всех $t_0 \leqslant t \leqslant T$.
 Заметим, что если $\|\Delta x(t)\| \to 0$, то $ \left\| \alpha(x(t),\Delta x(t), t) \right\| \to 0 $ и $ \left\| \beta^k(x(t)),\Delta x(t), t) \right\| \to 0 $ также равномерно для всех $ t_0 \leqslant t \leqslant T $ .
 Это следует из равномерной непрерывности производных $\frac{\partial f_1}{\partial x}$, $\frac{\partial f_2^k}{\partial x}$ на компакте $[t_0, \overline{T}] \times D$.
-Таким образом, получаем:
+Таким образом, получаем
 \begin{gather*}
 	\|\omega(t)\| \leqslant \left( \gamma_1 + \gamma_2 \|u(t)\| + \gamma_3 \|\Delta u(t)\| \right) \|\Delta x(t)\|,
 \end{gather*}
@@ -307,13 +307,13 @@
 \begin{gather}\label{s1:lim_omega}
 	\lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0} \frac{ \| \omega(t) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}} = 0, \qquad t_0 \leqslant t \leqslant T .
 \end{gather}
-По формуле Коши получаем равенство
+Приходим к равенству
 \begin{gather}\label{s1:increment_x}
 	\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T} X(T, \tau) \omega(t) \ d\tau,
 \end{gather}
 где первое слагаемое является решением линеаризованной системы \eqref{s1:linearized_system}.
-Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -A(\tau)X(T, \tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq} получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $.
-Оценим норму второго слагаемого из равенства \eqref{s1:increment_x} :
+Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -X(T, \tau) A(\tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq} получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $.
+Оценим норму второго слагаемого из равенства \eqref{s1:increment_x}:
 \begin{gather*}
 	\left\| \int\limits_{t_0}^T X(T,\tau)\omega(\tau) \ d\tau \right\| \leqslant k_X (T-t_0) \cdot \sup\limits_{\tau \in [t_0, T]} \|\omega(\tau)\|.
 \end{gather*}
@@ -322,14 +322,14 @@
  \int\limits_{t_0}^{T} X(T, \tau) \omega(t) \ d\tau = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0} \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}} = 0.
 \end{gather*}
  
-То есть, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot))$, т.~е. справедливо равенство
+Следовательно, $F(u(\cdot) + \Delta u(\cdot)) - F(u(\cdot)) = \delta x(T) + o(\Delta u(\cdot))$, т.~е. справедливо равенство
 \begin{gather}\label{s1:lem2_assert}
  F'(u(\cdot))\delta u(\cdot) =\delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \delta u(\tau) \ d\tau.
 \end{gather}
 \hfill $\square$
  
 \begin{definition}
- Множеством достижимости $ G(T,\mu) $ системы \eqref{s1:common_nonlinear} в пространстве состояний в момент времени $ T $ назовём множество всех концов траекторий $ x(T, u(\cdot)) \in \mathbb{R}^n $, которые могут быть порождены управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace $,
+ Множеством достижимости $ G(T,\mu) $ системы \eqref{s1:common_nonlinear} в пространстве состояний в момент времени $ T $ назовём множество всех концов траекторий \mbox{$ x(T, u(\cdot)) \in \mathbb{R}^n $}, которые могут быть порождены управлениями $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leqslant \mu^2\right\rbrace $:
  \begin{gather*}
  G(T,\mu)=\{x\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x=x(T,u(\cdot))\}.
  \end{gather*}
@@ -383,9 +383,9 @@
 				M = \bigcap\limits_{c \in P} B_X (c, R),
 			\end{gather*}
 			где $P$ --- некоторое множество из $X$.
-			\item Для любых точек $x, y \in M$ и любого $\lambda \in [0, 1]$, шар с центром в точке $\lambda x + (1 - \lambda) y $ и радиусом $\frac{\lambda (1 - \lambda)} {2 R} \| x - y \|^2$ содержится в $M$,
+			\item Для любых точек $x, y \in M$ и любого $\lambda \in [0, 1]$ шар с центром в точке $\lambda x + (1 - \lambda) y $ и радиусом $\frac{\lambda (1 - \lambda)} {2 R} \| x - y \|^2$ содержится в $M$:
 			\begin{gather*}
-				B_X\left(\lambda x + (1 - \lambda) y, \frac{\lambda (1 - \lambda)} {2 R} \| x - y \|^2\right) \subset M.
+				B_X\left(\lambda x + (1 - \lambda) y, \ \frac{\lambda (1 - \lambda)} {2 R} \| x - y \|^2\right) \subset M.
 			\end{gather*}
 		\end{enumerate}
 \end{definition}
@@ -438,7 +438,7 @@
 В условиях этого предположения, мы можем сформулировать и доказать лемму о липшицевости матрицы Коши линеаризованной системы \eqref{s1:linearized_system}.
 \begin{lemma}\label{s1:lem:lip_fundumental_matrix}
  Пусть выполнены Предположения \ref{s1:as:right_hand_side_conditions_global} и \ref{s1:as:right_hand_side_diff_lip}.
- Тогда найдётся константа $L_X > 0 $ такая, что для всех $u_1(\cdot),\, u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t, \, s \in [t_0,T]$, 
+ Тогда найдётся константа $L_X > 0 $ такая, что для всех $u_1(\cdot),\, u_2(\cdot) \in B_{\mathbb{L}_2}(0,\mu)$ и $t, \, s \in [t_0,T]$ справедливо неравенство
  \begin{gather*}
  \Big\|X(t,s,u_1(\cdot)) - X(t,s,u_2(\cdot)) \Big\| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2},
  \end{gather*}
@@ -447,7 +447,7 @@
 \doc
 Фундаментальная матрица $X(t,s,u(\cdot)) $ системы \eqref{s1:linearized_system} является решением уравнения
 \begin{gather*}
- \frac{\partial X(t, s, u(\cdot))}{\partial s} = -A\big(s,u(\cdot)\big)^{\top} X(t, s, u(\cdot)), \quad X\big(t, t, u(\cdot)\big) = I.
+ \frac{\partial X(t, s, u(\cdot))}{\partial t} = A\big(t,u(\cdot)\big) X(t, s, u(\cdot)) , \quad X\big(s, s, u(\cdot)\big) = I.
 \end{gather*}
  
 Аналогично \eqref{s1:fundumental_matrix_eq}, решение этого уравнение ограничено, т.~е. существует такая константа $k_X>0$, что
@@ -489,26 +489,17 @@
 Здесь $l_{f_2} = \sqrt{\sum\limits_{k=1}^r l_{f_2^k}^2}$, а $L_A = l_{f_1} L_x (T - t_0) + l_{f_2} L_x \mu \sqrt{T - t_0} + L_{f_2} \sqrt{T - t_0}$ не зависит от $u_1(\cdot)$, $u_2(\cdot)$ и $\tau$.
 Так как
 \begin{gather*}
- \frac{\partial}{\partial t} \left(X_1(t,s) - X_2(t,s) \right) = -A_1^{\top}(t) \left(X_1(t,s) - X_2(t,s) \right) + (A_2(t) - A_1(t))^{\top} X_2(t,s), \quad t \in [s,\tau], 
+ \frac{\partial}{\partial t} \left(X_1(t,s) - X_2(t,s) \right) = A_1(t) \left(X_1(t,s) - X_2(t,s) \right) + (A_2(t) - A_1(t)) X_2(t,s), \quad t \in [s,\tau], 
 \end{gather*}
 приходим к равенству
 \begin{gather*}
- X_1(\tau,s) - X_2(\tau,s) = \int\limits_s^{\tau} Y(t,s) \big(A_2(t) - A_1(t)\big)^{\top} X_2(t,s) dt.
+ X_1(\tau,s) - X_2(\tau,s) = \int\limits_s^{\tau} X_1(\tau,t) \big(A_2(t) - A_1(t)\big) X_2(t,s) dt.
 \end{gather*}
-Здесь $Y(t,s)$ --- это фундаментальная матрица системы 
-\begin{gather*}
- \dot{y} = -A_1(t) y.
-\end{gather*}
-Как и $X_i(\tau,s)$, эта матрица тоже ограничена: существует константа $k_Y>0$ такая, что
-\begin{gather*}
- \|Y(t,s)\| \leqslant k_Y, \quad t,s \in [t_0, \tau]
-\end{gather*}
-для всех $u(\cdot) \in B(0,\mu)$.
 Наконец, имеем 
 \begin{gather*}
  \| X_1(\tau,s) - X_2(\tau,s) \| \leqslant L_X \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}, 
 \end{gather*} 
-где $ L_X = k_Y L_A k_X$.
+где $ L_X = L_A k_X^2$.
 \hfill$\square$\\[1ex]%-
 
 Введём отображение $\overline{F}: [t_0,T] \times B_{\mathbb{L}_2}(0,\overline{\mu}) \to \mathbb{R}^n$ равенством $\overline{F}(t, u(\cdot)) = x \big(t, u(\cdot)\big) $, где $x \big(t, u(\cdot)\big)$ --- решение системы \eqref{s1:common_nonlinear} в момент $t$, порождённое управлением $u(\cdot)$.
@@ -526,8 +517,8 @@
  \begin{gather*}
  \Big\| \overline{F}'(t, u_1(\cdot)) - \overline{F}'(t, u_2(\cdot)) \Big\|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} \leqslant L_u \| u_1(\cdot) - u_2(\cdot) \|_{\mathbb{L}_2}.
  \end{gather*}
- Здесь $\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)$ --- пространство линейных ограниченных операторов, действующих из $\mathbb{L}_2$ в $\mathbb{R}^n$, а \mbox{$\| \cdot \|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)}$} --- операторная норма. 
- Для некоторого оператора $T: \mathbb{L}_2 \to \mathbb{R}^n $, $\| T \|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} = \sup\limits_{\|x\|_{\mathbb{L}_2} = 1} \| T x \| $.
+ Здесь $\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)$ --- пространство линейных ограниченных операторов, действующих из $\mathbb{L}_2$ в $\mathbb{R}^n$, а \mbox{$\| \cdot \|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)}$} --- операторная норма:
+ для некоторого оператора $K: \mathbb{L}_2 \to \mathbb{R}^n $, $\| K \|_{\mathcal{L}(\mathbb{L}_2, \mathbb{R}^n)} = \sup\limits_{\|x\|_{\mathbb{L}_2} = 1} \| K x \| $.
 \end{lemma}
 \doc 
 Решение \eqref{s1:linearized_system} имеет вид
@@ -548,7 +539,7 @@
  \Big\| X_1(t,s) \Big[B_1(s) - B_2(s) \Big] \Big\| + 
  \Big\| \Big[ X_1(t,s) - X_2(t,s) \Big] B_2(s)\Big\|. 
 \end{gather*}
-Теперь подставляем это неравенство в оценку нормы разности $\overline{F}'(t, u_1(\cdot)) \delta u(\cdot) $ и $\overline{F}'(t, u_2(\cdot)) \delta u(\cdot) $ и применяем Лемму \ref{s1:lem:lip_fundumental_matrix}:
+Теперь подставляем это неравенство в оценку нормы разности $\overline{F}'(t, u_1(\cdot)) \delta u(\cdot) $ и \linebreak $\overline{F}'(t, u_2(\cdot)) \delta u(\cdot) $ и применяем Лемму \ref{s1:lem:lip_fundumental_matrix}:
 \begin{gather*}
 \begin{gathered}
  \Big\| \overline{F}'(t, u_1(\cdot)) \delta u(\cdot) - \overline{F}'(t, u_2(\cdot)) \delta u(\cdot) \Big\| \leqslant
@@ -734,7 +725,7 @@
  Для множеств достижимости систем \eqref{s1:common_nonlinear_small_time} и \eqref{s1:eps_nonlinear} и грамианов управляемости систем \eqref{s1:linearized_system} и \eqref{s1:eps_linearized} имеют место равенства
  \begin{gather*}
  G_{\varepsilon}(1) = G(t_0 + \varepsilon), \qquad
- W_{\varepsilon} = \dfrac{1}{\varepsilon} W(\varepsilon, 0)
+ W_{\varepsilon} = \dfrac{1}{\varepsilon} W(\varepsilon, 0).
  \end{gather*}
 \end{utv}
 
@@ -808,17 +799,17 @@
  Применяя Лемму \ref{s1:lem:lip_dx_global} к отображению $S$, получаем, что отображение $S'(\upsilon)$ удовлетворяет условию Липшица с константой 
  \begin{gather}\label{s1:lip_eps}
  \begin{gathered}
- 	 L_u(\varepsilon) = k_{f_2} k_X k_Y \widetilde{L}_A + \widetilde{L}_{f_2} k_X = \\ = 
+ 	 L_u(\varepsilon) = k_{f_2} k_X^2 \widetilde{L}_A + \widetilde{L}_{f_2} k_X = \\ = 
  	L_{f_2} k_X + 
- 	k_{f_2} k_X k_Y \Big[ L_{f_2} + k_{f_2} \Big( l_{f_1} \varepsilon + l_{f_2} \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) \Big] \leqslant 
+ 	k_{f_2} k_X^2 \Big[ L_{f_2} + k_{f_2} \Big( l_{f_1} \varepsilon + l_{f_2} \mu \sqrt{\varepsilon} \Big) \exp\big( L_{f_1} \varepsilon + L_{f_2} \mu \sqrt{\varepsilon} \big) \Big] \leqslant 
  	L_0 + L_1 \varepsilon,
  \end{gathered}
  \end{gather} 
  где 
  \begin{gather*}
- 	L_0 = L_{f_2} k_X (1 + k_{f_2} k_Y) + 
- 	k_{f_2}^2 k_X k_Y l_{f_2} \mu \sqrt{\overline{\varepsilon}} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0, \\
- 	 L_1 = k_{f_2}^2 k_X k_Y l_{f_1} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0.
+ 	L_0 = L_{f_2} k_X (1 + k_{f_2} k_X) + 
+ 	k_{f_2}^2 k_X^2 l_{f_2} \mu \sqrt{\overline{\varepsilon}} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0, \\
+ 	 L_1 = k_{f_2}^2 k_X^2 l_{f_1} \exp\big( L_{f_1} \overline{\varepsilon} + L_{f_2} \mu \sqrt{\overline{\varepsilon}} \big) \geqslant 0.
  \end{gather*} 
 При этом, если коэффициенты матрицы $f_2$ в уравнении системы не зависят от состояния ($f_2(t,x) = f_2(t)$), то $L_0 = 0$. 
 Действительно, в этом случае для любых $x_1, x_2 \in D$, $t\in [t_0, t_0 + \overline{\varepsilon}]$, выполняется $f_2(t,x_1) = f_2(t, x_2)$ и $\dfrac{\partial f_2}{\partial x} (t, x_1) = \dfrac{\partial f_2}{\partial x} (t, x_2)$, поэтому соответствующие константы Липшица можно выбрать нулевыми: $ L_{f_2} = 0$ и $l_{f_2} = 0$.
@@ -921,7 +912,7 @@
  W_{\varepsilon}(t) = \int \limits_0^t X(t,\tau) B B^{\top} X^{\top}(t,\tau) d\tau,
 \end{gather}
 где $ X(t,\tau) $~--- фундаментальная матрица решений системы \eqref{s1:eps_linear_system} ($ \dot{X}(t,\tau) = \varepsilon A X(t,\tau)$, $X(\tau,\tau) = I $).
-Заметим также, что грамиан управляемости $ W_{\varepsilon}(t) $ может быть найден, как решение следующего линейного матричного дифференциального уравнения:
+Заметим также, что грамиан управляемости $ W_{\varepsilon}(t) $ может быть найден как решение следующего линейного матричного дифференциального уравнения:
 \begin{gather}\label{s1:gram}
  \dot{W_{\varepsilon}}(t) = \varepsilon A W_{\varepsilon}(t) + \varepsilon W_{\varepsilon}(t) A^T + BB^T, \ W_{\varepsilon}(0) = 0.
 \end{gather}
@@ -955,7 +946,7 @@
  \dot{W}_2 = A W_1 + W_1 A^T = \dfrac{t^2}{2} \left( A U_1 + U_1 A^T \right) = \dfrac{t^2}{2} U_2, \qquad W_2(t) = \dfrac{t^3}{6}U_2.
 \end{gather*}
  
-Продолжая данную цепочку равенств, разложение грамиана управляемости системы \eqref{s1:eps_linear_system} на интервале времени $0 \leqslant t \leqslant 1 $ по степеням малого параметра $ \varepsilon $ можно записать как:
+Продолжая данную цепочку равенств, разложение грамиана управляемости системы \eqref{s1:eps_linear_system} на интервале времени $0 \leqslant t \leqslant 1 $ по степеням малого параметра $ \varepsilon $ можно записать как
 \begin{gather}\label{s1:gram1}
  W_{\varepsilon} = U_0 + \dfrac{\varepsilon}{2}U_1 + \dfrac{\varepsilon^2}{6} U_2 + \dfrac{\varepsilon^3}{24}U_3 + \dfrac{\varepsilon^4}{120}U_4 + \dots + \dfrac{\varepsilon^k}{(k+1)!}U_k,
 \end{gather}
@@ -1239,7 +1230,7 @@ Cледовательно, для системы <<двойной интегра
  
 Сделав замену управления $ \upsilon = u_1 + c u_2 $, получим систему с одним входом, аналогичную рассмотренной выше:
 \begin{gather}\label{s1:system4+}
- \dot{x} = \varepsilon A x + \beta \upsilon, 
+ \dot{x} = \varepsilon A x + \beta \upsilon.
 \end{gather}
  
 Проанализируем изменения ограничений и грамиана управляемости при такой замене.
@@ -1310,7 +1301,7 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
 \end{gather*} 
 на промежутке времени $ \tau \in \left[0;\varepsilon \right] $, где $ \varepsilon > 0 $.
 Нулевым управлением $ u_1(t) = u_2(t) \equiv 0 $ порождается траектория $ x_1(t) = 1, x_2(t) = 0 $.
-Линеаризовав систему вдоль этой траектории, а также сделав замену управления $ {\tilde u_2} = a u_2 $ и времени $ \tau =\varepsilon t$, получим
+Линеаризовав систему вдоль этой траектории, а также сделав замену управления $ {\tilde u_2} = a u_2 $ и времени $ t =\varepsilon \tau$, получим
 \begin{gather}\label{s1:system5l}
  \begin{bmatrix}
  \dot{x}_1\\
@@ -1335,7 +1326,8 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
  \end{bmatrix}.
 \end{gather}
  
-Так как система \eqref{s1:system5l} имеет два входа и невырожденную матрицу $ B $, минимальное собственное число грамиана управляемости удовлетворяет условию \eqref{s1:small_time_convexity_condition} и система \eqref{s1:system5} имеет выпуклые множества достижимости на достаточно малых интервалах времени. 
+Так как система \eqref{s1:system5l} имеет два входа и невырожденную матрицу $ B $, то минимальное собственное число грамиана управляемости удовлетворяет условию \eqref{s1:small_time_convexity_condition}. 
+Поэтому система \eqref{s1:system5} имеет выпуклые множества достижимости на достаточно малых интервалах времени. 
 Для того, чтобы построить точные области достижимости системы \eqref{s1:system5}, перепишем уравнения в полярных координатах:
 \begin{gather}\label{s1:brokett}
  \left\{ \begin{aligned}
@@ -1413,11 +1405,11 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
 на отрезке $ \left[0, \varepsilon \right] $, где $ \varepsilon > 0 $.
 Ограничения на $ u\left(t \right) $ заданы неравенством 
 \begin{gather*}%\label{s1:constraints}
- \int_{0}^{\vartheta} u^2(\tau) d\tau \leqslant \mu^2.
+ \int_{0}^{\varepsilon} u^2(\tau) d\tau \leqslant \mu^2.
 \end{gather*}
  
 При $ u_1(t) \equiv 0 $ получаем траекторию $ x_1(t) = t, \ x_2(t) = x_3(t) \equiv 0 $.
-Как и в предыдущем примере, линеаризуем систему вдоль траектории, порождённой нулевым управлением
+Как и в предыдущем примере, сделаем замену времени $t = \varepsilon \tau$ и линеаризуем систему вдоль траектории, порождённой нулевым управлением
 \begin{gather}\label{s1:system6l}
  \begin{bmatrix}
  \dot{x}_1\\
@@ -1445,7 +1437,7 @@ u^T R u \leqslant \lambda_{\max}(R) || u ||^2 $, где $ \lambda_{\max}(R) $~--
 \begin{figure}[h]
  \centering
  \includegraphics[width=1\linewidth]{images/fig52.eps}
- \caption{Множество достижимости машины Дубинса для $\varepsilon = 10^{-4}, \mu = 1$.}
+ \caption{Проекция множества достижимости машины Дубинса для $\varepsilon = 10^{-4}, \mu = 1$ на плоскость двух первых координат.}
  \label{s1:fig:fig3}
 \end{figure}
 Очевидно, что система \eqref{s1:system6l} неуправляема по 1-ой координате, следовательно, её грамиан управляемости содержит нулевое собственное число, из-за которого условие \eqref{s1:small_time_convexity_condition} не выполняется.
@@ -1540,7 +1532,7 @@ $\lambda_1 (x_4^0(\varepsilon) - \mu^2) = 0$.
 Но при нулевом управлении $ x_3(t) \equiv 0 $, $ \cos x_3 \equiv 1 $, что соответствует максимальному, а не минимальному значению $ x_1(\varepsilon) $.
 
 
-Таким образом, $ \lambda_0 \neq 0 $, $ u^0(t) = \dfrac{1}{2}\lambda_1^{-1}p_3 $, и пара $ (x_3^0,p_3) $ есть решение краевой задачи.
+Таким образом, $ \lambda_0 \neq 0 $, $ u^0(t) = \dfrac{1}{2}\lambda_1^{-1}p_3 $, и пара $ (x_3^0,p_3) $ есть решение краевой задачи
 \begin{gather}\label{s1:boundary}
 		\left\{ \begin{aligned}
 		& \dot{p}_3 = -\lambda_0 \sin x_3\\
@@ -1550,7 +1542,9 @@ $\lambda_1 (x_4^0(\varepsilon) - \mu^2) = 0$.
 		\end{aligned} \right.
 \end{gather}
 
-Из второго уравнения системы \eqref{s1:system2} получаем
+Покажем методом от противного, что $ x_2^0(\varepsilon) \neq 0 $  для любой оптимальной траектории в задаче \eqref{s1:opt_problem}.
+Пусть $ x_2^0(\varepsilon) = 0 $. 
+Тогда из второго уравнения системы \eqref{s1:system2} получаем
 \begin{equation*}
 	\int_0^\varepsilon \sin x_3^0(\tau) d\tau = 0.
 \end{equation*}
@@ -1560,9 +1554,11 @@ $\lambda_1 (x_4^0(\varepsilon) - \mu^2) = 0$.
 В силу теоремы единственности решения дифференциального уравнения имеем $ p_3(t) \equiv 0$, $ x_3^0(t) \equiv 0 $. 
 Но $ x_3^0(t) \equiv 0 $ соответствует решению задачи на максимум, а не минимум $ x_1(\varepsilon) $.
 
-Условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{s1:opt_problem}. 
+Таким образом, условие $ x_2^0(\varepsilon) \neq 0 $ справедливо для любой оптимальной траектории в задаче \eqref{s1:opt_problem}. 
 Выбрав $ \overline{u}(t) = -u^0(t) $, получим другую оптимальную траекторию $ \overline{x}(t) $, для которой $ \overline{x}_2(t) = -x_2^0(t) $, $ \overline{x}_1(t) = x_1^0(t) $.
+
 Рассмотрим точку $ \hat{x} = \dfrac{1}{2}x^0(\varepsilon) + \dfrac{1}{2}\overline{x}(\varepsilon) $, у которой $ \hat{x}_1 = x_1^0(\varepsilon) $, $ \hat{x}_2 = 0 $. 
+
 Покажем, что $ \hat{x} \notin G(\varepsilon) $. 
 Действительно, если $ \hat{x} \in G(\varepsilon) $, то найдётся допустимая траектория $ \hat{x}(t) $, такая что $ \hat{x}(\varepsilon) = \hat{x} $. 
 Так как $ \hat{x}_1 = \hat{x}_1(\varepsilon) $, то $ \hat{x}(t) $ --- оптимальная траектория. 
