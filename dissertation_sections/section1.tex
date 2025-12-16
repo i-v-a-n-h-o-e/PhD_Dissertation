@@ -312,7 +312,7 @@
 	\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T} X(T, \tau) \omega(t) \ d\tau,
 \end{gather}
 где первое слагаемое является решением линеаризованной системы \eqref{s1:linearized_system}.
-Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -X(T, \tau) A(\tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq} получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \overline{T} $.
+Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -X(T, \tau) A(\tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq} получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \tau \leqslant  \overline{T} $.
 Оценим норму второго слагаемого из равенства \eqref{s1:increment_x}:
 \begin{gather*}
 	\left\| \int\limits_{t_0}^T X(T,\tau)\omega(\tau) \ d\tau \right\| \leqslant k_X (T-t_0) \cdot \sup\limits_{\tau \in [t_0, T]} \|\omega(\tau)\|.
