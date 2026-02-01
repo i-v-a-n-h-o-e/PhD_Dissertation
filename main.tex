@@ -25,15 +25,12 @@
 
 
 \usepackage{indentfirst} % отступ для первой строки абзаца
-\usepackage{hyperref} % подключаем hyperref (для ссылок внутри  pdf)
+\usepackage[pdfa,hidelinks]{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Osipov Thesis},
-    pdfpagemode=FullScreen,
-    }
+	pdftitle={Osipov Thesis},
+	pdfauthor={Ivan Osipov},
+}
+
 \usepackage[multiple]{footmisc} % сноски через запятую
 
 \ifdefined\showlabels
@@ -46,12 +43,9 @@
 \usepackage{amssymb}
 
 \usepackage{graphicx}
-\usepackage{psfrag}
-\usepackage{pgfplots}
 \usepackage{caption}
 \usepackage[labelformat = parens,labelsep = colon]{subcaption}
 \renewcommand\thesubfigure{\Roman{subfigure}}
-\usepackage{todonotes}
 \usepackage{algorithm2e}
 \renewcommand{\algorithmcfname}{Алгоритм}
 
@@ -61,12 +55,18 @@
 
 \usepackage{tabularx}
  \newcolumntype{Y}{>{\raggedright\arraybackslash--- \ }X}
+ 
+ \usepackage{epstopdf}
+ \epstopdfDeclareGraphicsRule{.eps}{pdf}{.pdf}{%
+ 	epstopdf --gsopt="-dPDFSETTINGS=/prepress -dCompressFonts=true -dSubsetFonts=true -dEmbedAllFonts=true" #1 --outfile=\OutputFile
+ }
+ 
 
 
 
 \fancyhf{} % Очистка заголовков и колонтитулов
 \ifdefined\showlabels
-\fancyfoot[L]{\color{gray}\textbf{2025-12-17--13-55-04}} % Добавление текста в правый колонтитул
+\fancyfoot[L]{\color{gray}\textbf{2026-02-01--14-49-26}} % Добавление текста в правый колонтитул
 \fi
 % \fancyfoot[R]{\color{gray}\textbf{\gitversion}} % Добавление текста в правый колонтитул
 \fancyfoot[C]{\thepage} % Сохранение номера страницы в центре колонтитула
