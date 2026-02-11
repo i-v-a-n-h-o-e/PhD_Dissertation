@@ -79,9 +79,6 @@ jobs:
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "abstract.tex"
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "abstract.tex"
             lualatex -shell-escape -interaction=nonstopmode -file-line-error "abstract.tex"
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
-            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
 
       - name: Upload main PDF as artifact
         uses: actions/upload-artifact@v4
@@ -101,6 +98,21 @@ jobs:
         with:
           name: abstract_pdf
           path: abstract.pdf
+
+  build_slides:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: LaTex Compile
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: | 
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
+            lualatex -shell-escape -interaction=nonstopmode -file-line-error "slides.tex"
       
       - name: Upload slides PDF as artifact
         uses: actions/upload-artifact@v4
@@ -200,7 +212,7 @@ jobs:
           path: diff_main.pdf
 
   create_and_upload_release:
-    needs: [build_latex, prepares, compare_versions]
+    needs: [build_latex, prepares, compare_versions, build_slides]
     runs-on: ubuntu-latest
     steps:
       - name: Check outputs
