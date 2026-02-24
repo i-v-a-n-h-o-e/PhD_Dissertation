@@ -306,11 +306,8 @@
 \begin{gather*}
 	\|\omega(t)\| \leqslant \left( \gamma_1 + \gamma_2 \|u(t)\| + \gamma_3 \|\Delta u(t)\| \right) \|\Delta x(t)\|,
 \end{gather*}
-где $\gamma_i > 0 $ и $\gamma_i \to 0 $ при $ \|\Delta u(\cdot)\|_{\mathbb{L}_2} ​\to 0$.
-Тогда, равномерно по $t$,
-\begin{gather}\label{s1:lim_omega}
-	\lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0} \frac{ \| \omega(t) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}} = 0, \qquad t_0 \leqslant t \leqslant T .
-\end{gather}
+где $\gamma_i > 0 $. 
+Заметим, что $\gamma_1 \to 0 $ и $\gamma_2 \to 0 $ при $ \|\Delta u(\cdot)\|_{\mathbb{L}_2} ​\to 0$.
 Приходим к равенству
 \begin{gather}\label{s1:increment_x}
 	\Delta x(T) = \int\limits_{t_0}^{T} X(T, \tau) B(\tau) \Delta u(\tau) \ d\tau + \int\limits_{t_0}^{T} X(T, \tau) \omega(t) \ d\tau,
@@ -319,9 +316,55 @@
 Так как $X(T, \tau) $ является решением уравнения $\frac{\partial X(T, \tau) }{\partial \tau} = -X(T, \tau) A(\tau)$, $X(\tau, \tau) = I$, то по аналогии с \eqref{s1:fundumental_matrix_eq} получаем, что существует $k_X > 0$, такое что $\|X(T, \tau) \| \leqslant k_X$, $t_0 \leqslant \tau \leqslant  \overline{T} $.
 Оценим норму второго слагаемого из равенства \eqref{s1:increment_x}:
 \begin{gather*}
-	\left\| \int\limits_{t_0}^T X(T,\tau)\omega(\tau) \ d\tau \right\| \leqslant k_X (T-t_0) \cdot \sup\limits_{\tau \in [t_0, T]} \|\omega(\tau)\|.
+\begin{gathered}
+	\left\| \int\limits_{t_0}^T X(T,\tau)\omega(\tau) \ d\tau \right\| 
+	\leqslant
+	k_X \left(
+	 \int\limits_{t_0}^T
+	(\gamma_1 + \gamma_2 \|u(t)\|) \|\Delta x(t)\| 
+	\ d\tau \right.
+	+ \\ + 
+	\left. \left\| \int\limits_{t_0}^T
+	\sum\limits_{k=1}^r 
+	\beta^k\Big(x(t),\Delta x(t), t\Big)
+	\Delta x(t) \Delta u^k(t)
+	 \ d\tau \right\|  \right.
+	 + \\ + 
+	 \left. \left\| \int\limits_{t_0}^T
+	 \sum\limits_{k=1}^r 
+	 \frac{\partial f_2^k}{\partial x}(t,x(t))
+	 \Delta x(t) \Delta u^k(t)
+	 \ d\tau \right\|  
+	\right) .
+\end{gathered}
 \end{gather*}
-Тогда из \eqref{s1:lim_omega} следует, что 
+Понятно, что подынтегральные выражения в первых двух слагаемых в левой части являются $o(\Delta u(\cdot))$, а значит и первые два слагаемых тоже являются $o(\Delta u(\cdot))$.
+Покажем, что и третье слагаемое тоже является $o(\Delta u(\cdot))$. 
+Действительно,
+\begin{gather*}
+	\left\| \int\limits_{t_0}^T
+	\sum\limits_{k=1}^r 
+	\frac{\partial f_2^k}{\partial x}(t,x(t))
+	\Delta x(t) \Delta u^k(t)
+	\ d\tau \right\|  
+	\leqslant
+	\int\limits_{t_0}^T
+	\sum\limits_{k=1}^r  
+	\left\| 
+	\frac{\partial f_2^k}{\partial x}(t,x(t))
+	\Delta x(t) \Delta u^k(t)
+	\right\|
+	\ d\tau 
+	\leqslant \\ \leqslant
+	L_x \| \Delta u(\cdot) \|_{\mathbb{L}_2} 
+	\int\limits_{t_0}^T
+	\sum\limits_{k=1}^r  
+	L_{f_2^k} | \Delta u^k(t) |
+		\ d\tau  
+		\leqslant
+		L_x \sqrt{(T - t_0)\sum\limits_{k=1}^r  L_{f_2^k}^2}   \| \Delta u(\cdot) \|_{\mathbb{L}_2}^2
+\end{gather*}
+Тогда 
 \begin{gather*}
  \int\limits_{t_0}^{T} X(T, \tau) \omega(t) \ d\tau = o(\Delta u(\cdot)), \qquad \lim\limits_{\|\Delta u(\cdot) \|_{\mathbb{L}_2} \to 0} \frac{ \| o(\Delta u(\cdot)) \| }{\|\Delta u(\cdot) \|_{\mathbb{L}_2}} = 0.
 \end{gather*}
@@ -1174,8 +1217,10 @@ Cледовательно, для системы <<двойной интегра
  \end{array}}\right] + \varepsilon^3 \left( \frac{U_3}{24} + \dots \right) =
  \\
  = \underbrace{\left[ \begin{array}{*{20}{c}}
- \frac{\varepsilon^2}{3} & \frac{\varepsilon}{2} + \frac{\varepsilon a_2}{2} \\ 
- \frac{\varepsilon}{2} + \frac{\varepsilon a_2}{2} & \frac{\varepsilon^2}{3}(a_1+2a_2) 
+ \frac{\varepsilon^2}{3} &
+ \frac{\varepsilon}{2} + \frac{\varepsilon^2 a_2}{2} \\ 
+ \frac{\varepsilon}{2} + \frac{\varepsilon^2 a_2}{2} &
+ 1 + \varepsilon a_2 +  \frac{\varepsilon^2}{6}(2 a_1+4a_2) 
  \end{array} \right]}_{S_{\varepsilon}^{2}} + \underbrace{ \varepsilon^3 \left( \frac{U_3}{24} + \dots \right)}_{R(\varepsilon)}.
 \end{gathered}
 \end{gather}
@@ -1184,13 +1229,13 @@ Cледовательно, для системы <<двойной интегра
 Рассмотрим собственные числа $ \lambda_{\min} $ и $ \lambda_{\max} $ частичной суммы $ S_{\varepsilon}^{2} $ ряда \eqref{s1:pr32}.
 Из теоремы Виетта известно, что 
 \begin{gather}\label{s1:lambdamax}
- \lambda_{\min} + \lambda_{\max} = \operatorname{tr}(W_{\varepsilon}^{2}) = \left(\frac{2\,{a_{2}}^2}{3}+\frac{a_{1}}{3}+\frac{1}{3}\right)\varepsilon^2+a_{2}\varepsilon+1,
+ \lambda_{\min} + \lambda_{\max} = \operatorname{tr}(S_{\varepsilon}^{2}) = \left(\frac{2\,{a_{2}}^2}{3}+\frac{a_{1}}{3}+\frac{1}{3}\right)\varepsilon^2+a_{2}\varepsilon+1,
 \end{gather}
 \begin{gather}\label{s1:lambdamin}
- \lambda_{\min} \lambda_{\max} = \operatorname{det}(W_{\varepsilon}^{2}) = \left(\frac{a_{1}}{9}-\frac{{a_{2}}^2}{36}\right)\varepsilon^4+\left(-\frac{a_{2}}{6}\right)\varepsilon^3+\frac{\varepsilon^2}{12}.
+ \lambda_{\min} \lambda_{\max} = \operatorname{det}(S_{\varepsilon}^{2}) = \left(\frac{a_{1}}{9}-\frac{{a_{2}}^2}{36}\right)\varepsilon^4+\left(-\frac{a_{2}}{6}\right)\varepsilon^3+\frac{\varepsilon^2}{12}.
 \end{gather}
  
-Из предположения об управляемости пары матриц $ (A,B) $ следует положительность собственных чисел $ \lambda_{\min} $ и $ \lambda_{\max} $.
+Из \eqref{s1:lambdamin} следует, что при малых $\varepsilon$ собственные числа $ \lambda_{\min} $ и $ \lambda_{\max} $ одного знака, а из \eqref{s1:lambdamax} видно, что они оба положительны.
 Значит, из \eqref{s1:lambdamax} следует, что при достаточно малых $\varepsilon$
 \begin{gather*}
  \lambda_{\max} \leqslant \left(\frac{2\,{a_{2}}^2}{3}+\frac{a_{1}}{3}+\frac{1}{3}\right)\varepsilon^2+a_{2}\varepsilon+1 < 2.
